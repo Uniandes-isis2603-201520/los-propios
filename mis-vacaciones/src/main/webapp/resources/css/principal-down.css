@@ -1,0 +1,84 @@
+/* CSS Document */
+.menu {
+  height: 40em;
+  background: url("http://i.imgur.com/ubXxtf4.png") fixed;
+  background-size:cover
+}
+
+.nav a {
+  color: #5a5a5a;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 1.4em 1;
+  text-transform: uppercase;
+}
+
+.nav .container {
+   display:  inline;
+}
+
+.name {
+  margin-left: 2em;
+  position: relative;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+#no-bullets {
+  list-style: none;
+  list-style-type: none;
+}
+
+.jumbotron {
+  background-image:url('http://goo.gl/04j7Nn');
+  height: 7em;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.jumbotron .container {
+  position: relative;
+  top:100px;
+}
+
+.jumbotron h1 {
+  color: white;
+  font-size: 48px;  
+  font-family: 'Shift', sans-serif;
+  font-weight: bold;
+}
+
+.jumbotron p {
+  font-size: 20px;
+  color: #fff;
+}
+
+.learn-more {
+  background-color: #f7f7f7;
+}
+
+.learn-more h3 {
+  font-family: 'Shift', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.learn-more a {
+  color: #00b0ff;
+}
+
+.guides {
+    background-color: #efefef;
+    border-bottom: 1px solid #dbdbdb;
+}
+
+.guides h2 {
+    color: #393c3d;
+    font-size: 24px;
+}
+
+.guides p {
+    font-size: 15px;
+    margin-bottom: 13px;
+}
+
