@@ -16,6 +16,10 @@
                     .state('evento', {
                         url: '/evento',
                         templateUrl: "src/modules/evento/evento.tpl.html"
+                    })
+                    .state('perfilUsuario', {
+                        url: '/perfil',
+                        templateUrl: "src/modules/perfilUsuario/perfilUsuario.html"
                     });
         }]);
 })(window.angular);
