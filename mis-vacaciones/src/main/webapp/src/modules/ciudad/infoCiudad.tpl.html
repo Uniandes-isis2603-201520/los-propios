@@ -24,7 +24,12 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+    <style>
+      #map {
+        width: 500px;
+        height: 400px;
+      }
+    </style>
 </head>
 
 <body>
@@ -80,13 +85,17 @@
             <!-- /.col-md-4 -->
             <div class="col-md-4">
                 <h2>Mapa</h2>
+                <div>id="map"</div>
                 <script>
                     function initMap() {
                         var mapDiv = document.getElementById('map');
-                        var map = new google.maps.Map(mapDiv);
+                        var map = new google.maps.Map(mapDiv, {
+                        center: {lat: 44.540, lng: -78.546},
+                        zoom: 8
+                        });
                     }
                 </script>
-                <script src="https://maps.googleapis.com/maps/api/js"
+                <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
                     async defer></script>
 
             </div>
