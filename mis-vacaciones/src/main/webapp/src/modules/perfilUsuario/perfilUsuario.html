@@ -62,12 +62,16 @@ and open the template in the editor.
    .container-fluid {
       padding: 60px 50px;
   }
+
+   .nav-tabs li a {
+      color: #777;
+  }
   </style>
 </head>
 <body>
 
       <!-- Container (Barra de tareas) -->
-   <nav class="navbar navbar-default navbar-fixed-top">
+   <!--<nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -87,6 +91,7 @@ and open the template in the editor.
     </div>
   </div>
 </nav>
+   -->
 
     <!-- Container (Foto perfil) -->
 <div class="container-fluid bg-1 text-center">
@@ -96,7 +101,13 @@ and open the template in the editor.
   <h3>Hola, Patricia</h3>
 </div>
 
-
+ <!-- Container (Menu) -->
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">Sitios Visitados</a></li>
+    <li><a data-toggle="tab" href="#menu1">Foro</a></li>
+    <li><a data-toggle="tab" href="#menu2">Mis itinerarios</a></li>
+     <li><a data-toggle="tab" href="#menu3">Mis Perfil</a></li>
+  </ul>
     <!-- Container (Sitios visitados) -->
 <div class="container-fluid bg-4 text-center bg-grey">
   <h2>Sitios visitados</h2><br>
