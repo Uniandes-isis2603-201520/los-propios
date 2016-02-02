@@ -20,6 +20,14 @@
                     .state('perfilUsuario', {
                         url: '/perfil',
                         templateUrl: "src/modules/perfilUsuario/perfilUsuario.html"
+                    })
+                    .state('ciudad', {
+                        url: '/ciudad',
+                        templateUrl: "src/modules/ciudad/ciudad.tpl.html"
+                    })
+                    .state('infoCiudad', {
+                        url: '/infoCiudad',
+                        templateUrl: "src/modules/ciudad/infoCiudad.tpl.html"
                     });
         }]);
 })(window.angular);
