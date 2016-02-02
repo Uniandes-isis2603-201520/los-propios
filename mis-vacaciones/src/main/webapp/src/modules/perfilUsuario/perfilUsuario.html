@@ -4,144 +4,235 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html>
-    <head>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com - No Copyright -->
+  <title>Mi perfil</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <style>
+      .titulo
+      {
+          font-size: 25px;
+          color:gray;
+      }
+  .bg-1 {
+      background-color: #1abc9c;
+      color: #ffffff;
+  }
+  .bg-2 {
+      background-color: #474e5d;
+      color: #ffffff;
+  }
+  .bg-3 {
+      background-color: #ffffff;
+      color: #555555;
+  }
+ .bg-4
+  {
+     background-color: #d9d9d9;
+     color: black;
+  }
 
-        <title> Mi Perfil</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
-         <style>
+  .bg-5
+  {
+     background-color:  #e6e6e6;
+     color:  #1abc9c;
+  }
+  .navbar-default .navbar-toggle {
+      border-color: transparent;
+      color: #fff !important;
+  }
+   .thumbnail {
+      padding: 0 0 15px 0;
+      border: none;
+      border-radius: 0;
+      background-color: #d9d9d9;
+      color: gray;
+  }
+  .thumbnail img {
+      width: 100%;
+      height: 100%;
+      margin-bottom: 10px;
+  }
 
-            table, th, td
-            {
-                border: 0px solid black;
-                border-collapse: collapse;
-            }
+   .container-fluid {
+      padding: 60px 50px;
+  }
 
-            th,td
-            {
-                padding: 5px;
-                text-align: center;
-                font-family: Tahoma;
-            }
-            table#t2
-            {
-                width: 15%;
-                background-color: #a6e1ec;
-                float:right;
-            }
+   .nav-tabs li a {
+      color: #777;
+  }
+  </style>
+</head>
+<body>
 
-            #Titulo
-            {
-                background-color: pink;
-                color:#080808;
-                text-align: center;
-                font-family: Cursive;
-                padding: 5px;
-                height:60px;
-                width:2000px;
-                float:right;
-            }
-            #section
-            {
-                width:770px;
-                padding:10px;
-            }
-           #redes
-           {
-               float: right;
-               margin: 10px;
-               padding: 10px;
-               width: 300px;
-               height: 300px;
-               border: 1px solid black;
-           }
-        </style>
+      <!-- Container (Barra de tareas) -->
+   <!--<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="titulo" href="#myPage">Mis Vacaciones</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#sitios">Sitios Visitados</a></li>
+        <li><a href="#foro">Foro</a></li>
+        <li><a href="#itinerarios">Mis itinerarios</a></li>
+        <li><a href="#editar">Mi perfil</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+   -->
 
-    </head>
-    <body>
-        <div id="Titulo">
-            <p id="demo"></p>
+    <!-- Container (Foto perfil) -->
+<div class="container-fluid bg-1 text-center">
+   <a href="http://www.facebook.com">
+       <img src="http://mx.selecciones.com/upload/contents/secondaryImage_4413.jpg" class="img-circle" alt="FotoPerfil" style="width:350px;height:300px;">
+       </a>
+  <h3>Hola, Patricia</h3>
+</div>
 
-            <script>
-             document.getElementById("demo").style.backgroundColor = "pink";
-             </script>
-        </div>
+ <!-- Container (Menu) -->
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#sitioVisitado">Sitios Visitados</a></li>
+    <li><a data-toggle="tab" href="#foro">Foro</a></li>
+    <li><a data-toggle="tab" href="#itinerario">Mis itinerarios</a></li>
+     <li><a data-toggle="tab" href="#perfil">Mis Perfil</a></li>
+  </ul>
 
-        <table id="t2" >
-            <tr>
-                <th style="background-color: #fff"></th>
-            </tr>
-
-            <tr>
-                <th style="background-color: #fff"></th>
-            </tr>
-
-            <tr>
-                <th>Album</th>
-            </tr>
-            <tr>
-                <th style="background-color: #fff"></th>
-            </tr>
-            <tr>
-                <th>Sitios Visitados</th>
-            </tr>
-            <tr>
-                <th style="background-color: #fff"></th>
-            </tr>
-            <tr>
-                <th>Foro</th>
-            </tr>
-           <tr>
-                <th style="background-color: #fff"></th>
-            </tr>
-            <tr>
-                <th>Itinerarios</th>
-            </tr>
-            <tr>
-                <th style="background-color: #fff"></th>
-            </tr>
-            <tr>
-                <th>Editar Perfil</th>
-            </tr>
-            <tr>
-                <th style="background-color: #fff"></th>
-            </tr>
-            <tr>
-                <th>
-                    <a href="http://www.facebook.com">
-                   <img src="https://www.seeklogo.net/wp-content/uploads/2012/04/facebook-like-logo-vector.png" alt="HTML tutorial" style="float:left;width:50px;height:50px;border:10px;">
-                   </a>
-                    <a href="http://www.twitter.com">
-                   <img src="http://cdn21.merca20.com/wp-content/uploads/2015/09/Web-Twitter-alt-2-Metro-icon-e1442712985286.png" alt="HTML tutorial" style="float:left;width:50px;height:50px;border:20px;margin-left: 20px;">
-                    <a href="http://www.instagram.com">
-                   <img src="http://vignette2.wikia.nocookie.net/omori/images/5/58/Instagram-Icon.png/revision/latest?cb=20140619162853" alt="HTML tutorial" style="float:left;width:50px;height:50px;border:0; margin-left: 20px;">
-                    </a>
-
-                </th>
-            </tr>
-
-        </table>
-
-        <!--<div id="redes">
-        <a href="http://www.facebook.com">
-         <img src="https://www.seeklogo.net/wp-content/uploads/2012/04/facebook-like-logo-vector.png" alt="HTML tutorial" style="float:left;width:50px;height:50px;border:0;">
-        </a>
-
-        <a href="http://www.twitter.com">
-         <img src="http://cdn21.merca20.com/wp-content/uploads/2015/09/Web-Twitter-alt-2-Metro-icon-e1442712985286.png" alt="HTML tutorial" style="float:left;width:50px;height:50px;border:0;">
-        </a>
-
-        </div>
+ <div class="tab-content">
+  <div id="sitioVisitado" class="container-fluid bg-4 in active">
+    <h2>Sitios visitados</h2><br>
+  <div class="row text-center">
+    <div class="col-sm-4">
+      <div class="thumbnail">
+       <img src="http://www.finanzas.com/archivos/201511/paris-noche.jpg" alt="fotoParis" style="width:350px;height:300px;">
+        <p><strong>Paris</strong></p>
+        <p>Diciembre 2001</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="https://hacemeun14.files.wordpress.com/2015/06/05052015-dsc_0047.jpg" alt="Amazonas" style="width:350px;height:300px;">
+        <p><strong>Amazonas</strong></p>
+        <p>Junio 2014</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="http://www.revistalabarra.com.co/uploads/images/noticias/2012//Junio/Restaurante%20La%20Regatta%20(4).JPG" alt="San Andres" style="width:350px;height:300px;">
+        <p><strong>San Andres</strong></p>
+        <p>Enero 2016</p>
+      </div>
+    </div>
+  </div>
+    <!--
+  <div id="foro" class="container-fluid bg-4 ">
+    <h2>Chandler Bing, Guitarist</h2>
+    <p>Always a pleasure people! Hope you enjoyed it as much as I did. Could I BE.. any more pleased?</p>
+  </div>
+  <div id="itinerario" class="container-fluid bg-4 ">
+    <h2>Peter Griffin, Bass player</h2>
+    <p>I mean, sometimes I enjoy the show, but other times I enjoy other things.</p>
+  </div>
+    <div id="perfil" class="container-fluid bg-4 ">
+    <h2>Peter Griffin, Bass player</h2>
+    <p>I mean, sometimes I enjoy the show, but other times I enjoy other things.</p>
+  </div>
+</div>
+    -->
+    <!-- Container (Sitios visitados) -->
+<!--<div class="container-fluid bg-4 text-center bg-grey">
+  <h2>Sitios visitados</h2><br>
+  <div class="row text-center">
+    <div class="col-sm-4">
+      <div class="thumbnail">
+       <img src="http://www.finanzas.com/archivos/201511/paris-noche.jpg" alt="fotoParis" style="width:350px;height:300px;">
+        <p><strong>Paris</strong></p>
+        <p>Diciembre 2001</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="https://hacemeun14.files.wordpress.com/2015/06/05052015-dsc_0047.jpg" alt="Amazonas" style="width:350px;height:300px;">
+        <p><strong>Amazonas</strong></p>
+        <p>Junio 2014</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="http://www.revistalabarra.com.co/uploads/images/noticias/2012//Junio/Restaurante%20La%20Regatta%20(4).JPG" alt="San Andres" style="width:350px;height:300px;">
+        <p><strong>San Andres</strong></p>
+        <p>Enero 2016</p>
+      </div>
+    </div>
+  </div>
 -->
-         <div id="section">
-            <h1>Perfil usuario</h1>
-        </div>
+
+  <!-- Container (Redes sociales) -->
+
+<div class="container-fluid bg-5 text-center">
+  <h2>Redes Sociales</h2>
+  <br>
+  <div class="row">
+    <div class="col-sm-4">
+        <a href="http://www.facebook.com">
+       <img src="http://static1.squarespace.com/static/4f5810d9e4b0ebbf0a1507a6/t/55a6e39be4b0e13bc07f93a1/1437000604121/" alt="facebook" style="width:50px;height:50px;">
+       </a>
+
+      <h4>Facebook</h4>
+      <p>Comparte tus fotos, conectate con quien quieras</p>
+    </div>
+    <div class="col-sm-4">
+        <a href="http://weheartit.com/">
+       <img src="http://a4.mzstatic.com/us/r30/Purple69/v4/29/1d/b7/291db76b-1207-f1c2-68ef-f6f75363417c/icon175x175.png" alt="weloveit" style="width:50px;height:50px;">
+       </a>
+      <h4>We love it</h4>
+      <p>Album de fotos personalizado</p>
+    </div>
+    <div class="col-sm-4">
+       <a href="https://www.instagram.com/">
+       <img src="http://3835642c2693476aa717-d4b78efce91b9730bcca725cf9bb0b37.r51.cf1.rackcdn.com/Multi-Color_Logo_thumbnail200.png" alt="instagram" style="width:50px;height:50px;">
+       </a>
+      <h4>Instagram</h4>
+      <p>Suigueme y te sigo</p>
+    </div>
+  </div>
+  <br><br>
+  <div class="row">
+    <div class="col-sm-4">
+      <a href="http://pic-collage.com/">
+       <img src="https://oupeltglobal.files.wordpress.com/2013/07/pic-collage-app-icon.png?w=611" alt="pic" style="width:50px;height:50px;">
+       </a>
+      <h4>Pic collage</h4>
+      <p>Haz la combinación de fotos que más te guste</p>
+    </div>
+    <div class="col-sm-4">
+       <a href="https://www.dropbox.com/">
+       <img src="https://cf.dropboxstatic.com/static/images/brand/glyph@2x-vflJ1vxbq.png" alt="dropbox" style="width:50px;height:50px;">
+       </a>
+      <h4>Dropbox</h4>
+      <p>Guarda esos inolvidables recuerdos en la nube</p>
+    </div>
+    <div class="col-sm-4">
+       <a href="https://twitter.com/?lang=es">
+       <img src="https://g.twimg.com/Twitter_logo_blue.png" alt="twitter" style="width:50px;height:50px;">
+       </a>
+      <h4 style="color:#303030;">Twitter</h4>
+      <p>Twittea lo que más te gusto del viaje</p>
+    </div>
+  </div>
+</div>
 
 
-
-
-    </body>
+</body>
 </html>
