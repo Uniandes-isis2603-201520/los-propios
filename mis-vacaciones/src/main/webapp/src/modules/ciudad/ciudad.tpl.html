@@ -4,6 +4,12 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <style>
     table {
         border-collapse: collapse;
@@ -19,43 +25,54 @@ and open the template in the editor.
         color: white;
     }
     </style>
-    <div>
-        <table>
-            <tr>
-                <th>Ciudad</th>
-                <th>Pais</th>
-                <th># Sitios de interes</th>
-                <th>Eventos</th>
-            </tr>
-            <tr>
-                <td>Roma</td>
-                <td>Italia</td>
-                <td>10</td>
-                <td>10</td>
-            </tr>
-            <tr>
-                <td>Paris</td>
-                <td>Francia</td>
-                <td>10</td>
-                <td>10</td>
-            </tr>
-            <tr>
-                <td>Berlin</td>
-                <td>Alemania</td>
-                <td>10</td>
-                <td>10</td>
-            </tr>
-            <tr>
-                <td>Madrid</td>
-                <td>Espana</td>
-                <td>10</td>
-                <td>10</td>
-            </tr>
-             <tr>
-                <td>Londres</td>
-                <td>Inglaterra</td>
-                <td>10</td>
-                <td>10</td>
-            </tr>
+</head>
+<body>
+    <div data-role="main" class="ui-content">
+        <form>
+            <input id="filterTable-input" data-type="search" placeholder="Búsqueda por ciudad">
+        </form>
+        <table data-role="table" data-mode="columntoggle" class="ui-responsive ui-shadow" id="myTable" data-filter="true" data-input="#filterTable-input">
+            <thead>
+                <tr>
+                    <th>Ciudad</th>
+                    <th>Pais</th>
+                    <th># Sitios de interes</th>
+                    <th>Eventos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Roma</td>
+                    <td>Italia</td>
+                    <td>10</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>Paris</td>
+                    <td>Francia</td>
+                    <td>10</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>Berlin</td>
+                    <td>Alemania</td>
+                    <td>10</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>Madrid</td>
+                    <td>Espana</td>
+                    <td>10</td>
+                    <td>10</td>
+                </tr>
+                 <tr>
+                    <td>Londres</td>
+                    <td>Inglaterra</td>
+                    <td>10</td>
+                    <td>10</td>
+                </tr>
+            </tbody>
         </table>
     </div>
+</body>
+</html>

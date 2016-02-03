@@ -1,41 +1,101 @@
+
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-    <style>
-        #header {
-            background-color:black;
-            color:white;
-            text-align:center;
-            padding:5px;
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Small Business - Start Bootstrap Template</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/small-business.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false&callback=initialize"></script>
+    <script>
+        function initialize() {
+        var mapProp = {
+        center:new google.maps.LatLng(48.8566667, 2.3509871),
+        zoom:5,
+        mapTypeId:google.maps.MapTypeId.ROADMAP
+        };
+        var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
         }
-        #nav {
-            line-height:30px;
-            background-color:#eeeeee;
-            height:300px;
-            width:100px;
-            float:left;
-            padding:5px;
-        }
-        #section {
-            width:350px;
-            float:left;
-            padding:10px;
-        }
-        #footer {
-            background-color:black;
-            color:white;
-            clear:both;
-            text-align:center;
-        padding:5px;
-        }
-    </style>
-    <div>
-        <ul>
-            <li>Sitio interes 1</li>
-            <li>Sitio interes 2</li>
-            <li>Sitio interes 3</li>
-        </ul>
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+</head>
+
+<body>
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Heading Row -->
+        <div class="row">
+            <div class="col-md-8">
+                <img class="img-responsive img-rounded" src="http://www.ericholmlund.com/images/paris.jpg" alt="">
+            </div>
+            <!-- /.col-md-8 -->
+            <div class="col-md-4">
+                <h1>Nombre Ciudad</h1>
+                <p>Aquí va información de la ciudad</p>
+            </div>
+            <!-- /.col-md-4 -->
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Content Row -->
+        <div class="row">
+            <div class="col-md-4">
+                <h2>Sitios de interes</h2>
+                <ul style="list-style-type:circle">
+                    <li>Sitio de interes 1</li>
+                    <li>Sitio de interes 2</li>
+                    <li>Sitio de interes 3</li>
+                </ul>
+            </div>
+            <!-- /.col-md-4 -->
+            <div class="col-md-4">
+                <h2>Lista de eventos</h2>
+                <ul style="list-style-type:circle">
+                    <li>Evento 1</li>
+                    <li>Evento 2</li>
+                    <li>Evento 3</li>
+                </ul>
+            </div>
+            <!-- /.col-md-4 -->
+            <div class="col-md-4">
+                <h2>Mapa</h2>
+                <div id="googleMap" style="width:300px;height:180px;"></div>
+                <p> texto </p>
+            </div>
+            <!-- /.col-md-4 -->
+        </div>
+        <!-- /.row -->
+
     </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
