@@ -4,8 +4,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html lang="en">
-<head>
+
   <title>Mi perfil</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,8 +18,8 @@ and open the template in the editor.
           color:gray;
       }
   .bg-1 {
-      background-color: #1abc9c;
-      color: #ffffff;
+      background-color: white;
+      color: black;
   }
   .bg-2 {
       background-color: #474e5d;
@@ -49,7 +48,7 @@ and open the template in the editor.
       padding: 0 0 15px 0;
       border: none;
       border-radius: 0;
-      background-color: #d9d9d9;
+      background-color: white;
       color: gray;
   }
   .thumbnail img {
@@ -101,15 +100,16 @@ and open the template in the editor.
 </div>
 
  <!-- Container (Menu) -->
-<ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#sitioVisitado">Sitios Visitados</a></li>
-    <li><a data-toggle="tab" href="">Foro</a></li>
+<ul class="nav nav-tabs bg-4">
+    <li class="active"><a data-toggle="tab" href="#sitio">Sitios Visitados</a></li>
+    <li><a data-toggle="tab" href="#foro">Foro</a></li>
     <li><a data-toggle="tab" href="#itinerario">Mis itinerarios</a></li>
      <li><a data-toggle="tab" href="#perfil">Mis Perfil</a></li>
   </ul>
 
+
  <div class="tab-content">
-  <div id="sitioVisitado" class="tab-pane bg-4 in active">
+  <div id="sitio" class="tab-pan in active">
     <h2>Sitios visitados</h2><br>
   <div class="row text-center">
     <div class="col-sm-4">
@@ -136,18 +136,25 @@ and open the template in the editor.
   </div>
  </div>
 
-  <div id="foro" class="tab-pane bg-4 fade">
-    <h2>Chandler Bing, Guitarist</h2>
-    <p>Always a pleasure people! Hope you enjoyed it as much as I did. Could I BE.. any more pleased?</p>
+  <div id="foro" class="tab-pane fade">
+      <div class="thumbnail">
+        <h2>Chandler Bing, Guitarist</h2>
+        <p>Always a pleasure people! Hope you enjoyed it as much as I did. Could I BE.. any more pleased?</p>
+      </div>
   </div>
-  <div id="itinerario" class="tabe-pane bg-4 fade">
+
+  <div id="itinerario" class="tabe-pane fade">
+       <div class="thumbnail">
+          <h2>Peter Griffin, Bass player</h2>
+          <p>I mean, sometimes I enjoy the show, but other times I enjoy other things.</p>
+       </div>
+  </div>
+    <div id="perfil" class="tabe-pane fade">
     <h2>Peter Griffin, Bass player</h2>
     <p>I mean, sometimes I enjoy the show, but other times I enjoy other things.</p>
   </div>
-    <div id="perfil" class="tabe-pane bg-4 fade">
-    <h2>Peter Griffin, Bass player</h2>
-    <p>I mean, sometimes I enjoy the show, but other times I enjoy other things.</p>
-  </div>
+ </div>
+
 
 
     <!-- Container (Sitios visitados) -->
@@ -233,6 +240,4 @@ and open the template in the editor.
   </div>
 </div>
 
-
 </body>
-</html>
