@@ -19,6 +19,21 @@ and open the template in the editor.
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+   <script type="text/javascript"
+src="http://maps.googleapis.com/maps/api/js">
+</script>
+
+<script type="text/javascript">
+function initialize() {
+  var mapProp = {
+    center:new google.maps.LatLng(51.508742,-0.120850),
+    zoom:5,
+    mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+  var map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
     </head>
     <body>
     <div class="container">
@@ -31,25 +46,35 @@ and open the template in the editor.
 
     <h2>Seleccione opcion de visualizacion</h2>
     <ul class="nav nav-tabs">
-    <li><a data-toggle="tab" href="#menu1">Eventos</a></li>
+    <li><a data-toggle="tab" href="#menu1">Eventos y lugares</a></li>
     <li><a data-toggle="tab" href="#menu2">Mapa</a></li>
     <li><a data-toggle="tab" href="#menu3">TimeLine</a></li>
     </ul>
 
     <div class="tab-content">
-    <div id="menu1" class="tab-pane fade in active">
+    <div id="menu1" class="tab-pane in active">
       <h3>Eventos</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <p><b>-</b>primero</p>
+      <p><b>-</b>segundo</p>
+      <p><b>-</b>tercero</p>
+      <p><b>-</b>cuarto</p>
+      <p><b>-</b>quinto</p>
+      <p><b>-</b>sexto</p>
     </div>
-    <div id="menu2" class="tab-pane fade">
+    <div id="menu2" class="tab-pane">
       <h3>Mapa</h3>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <img src="http://maps.googleapis.com/maps/api/staticmap?center=brazil&size=640x400&zoom=4">
+      <!--<div class="container"><div id="googleMap" style="width:500px;height:380px;"></div></div>-->
     </div>
-    <div id="menu3" class="tab-pane fade">
+    <div id="menu3" class="tab-pane">
       <h3>Time Line</h3>
-      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+      <ul class="timeline">
+      <li><a data-toggle="tab" href="#menu1">Eventos y lugares</a></li>
+      <li><a data-toggle="tab" href="#menu2">Mapa</a></li>
+      <li><a data-toggle="tab" href="#menu3">TimeLine</a></li>
+    </ul>
     </div>
   </div>
-</div>
+    </div>
     </body>
 </html>
