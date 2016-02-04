@@ -28,6 +28,10 @@
                     .state('itinerario', {
                         url: '/itinerario',
                         templateUrl: "src/modules/itinerario/itinerario.html"
+                    })
+                    .state('foro', {
+                        url: '/foro',
+                        templateUrl: "src/modules/foro/foro.tpl.html"
                     });
         }]);
 })(window.angular);
