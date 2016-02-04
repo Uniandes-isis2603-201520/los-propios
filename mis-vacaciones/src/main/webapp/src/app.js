@@ -25,9 +25,9 @@
                         url: '/ciudad',
                         templateUrl: "src/modules/ciudad/ciudad.tpl.html"
                     })
-                    .state('infoCiudad', {
-                        url: '/infoCiudad',
-                        templateUrl: "src/modules/ciudad/infoCiudad.tpl.html"
+                    .state('itinerario', {
+                        url: '/itinerario',
+                        templateUrl: "src/modules/itinerario/itinerario.html"
                     });
         }]);
 })(window.angular);
