@@ -33,5 +33,6 @@
                         url: '/foro',
                         templateUrl: "src/modules/foro/foro.tpl.html"
                     });
+                    
         }]);
 })(window.angular);
