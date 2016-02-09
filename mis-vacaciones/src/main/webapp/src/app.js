@@ -37,6 +37,11 @@
                         url: '/contacto',
                         templateUrl: "src/modules/contactenos/contactenos.tpl.html"
                     })
+
+                    .state('infoCiudad', {
+                        url: '/infoCiudad',
+                        templateUrl: "src/modules/ciudad/infoCiudad.tpl.html"
+                    })
                     ;
 
         }]);
