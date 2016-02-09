@@ -32,7 +32,12 @@
                     .state('foro', {
                         url: '/foro',
                         templateUrl: "src/modules/foro/foro.tpl.html"
-                    });
-                    
+                    })
+                    .state('contacto', {
+                        url: '/contacto',
+                        templateUrl: "src/modules/contactenos/contactenos.tpl.html"
+                    })
+                    ;
+
         }]);
 })(window.angular);
