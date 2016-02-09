@@ -7,6 +7,7 @@
     th, td {
         text-align: left;
         padding: 8px;
+        cursor: pointer;
     }
     tr:nth-child(even){background-color: #f2f2f2}
     th {
@@ -15,6 +16,10 @@
     }
     </style>
     <div>
+        <div>
+            <p style="text-align:center"><img src="http://cdn.c.photoshelter.com/img-get2/I0000mnSu9xiaBeA/fit=1000x750/paris-skyline-paris-panorama-080101316.jpg"></p>
+        </div>
+        <br>
         <table>
             <thead>
                 <tr>
@@ -25,31 +30,31 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <tr class='clickable-row' data-ui-sref='infoCiudad'>
                     <td>Roma</td>
                     <td>Italia</td>
                     <td>10</td>
                     <td>10</td>
                 </tr>
-                <tr id="link" onclick="ui-sref='infoCiudad'">
+                <tr class='clickable-row' data-ui-sref='infoCiudad'>
                     <td>Paris</td>
                     <td>Francia</td>
                     <td>10</td>
                     <td>10</td>
                 </tr>
-                <tr>
+                <tr class='clickable-row' data-ui-sref='infoCiudad'>
                     <td>Berlin</td>
                     <td>Alemania</td>
                     <td>10</td>
                     <td>10</td>
                 </tr>
-                <tr>
+                <tr class='clickable-row' data-ui-sref='infoCiudad'>
                     <td>Madrid</td>
                     <td>Espana</td>
                     <td>10</td>
                     <td>10</td>
                 </tr>
-                <tr>
+                <tr class='clickable-row' data-ui-sref='infoCiudad'>
                     <td>Londres</td>
                     <td>Inglaterra</td>
                     <td>10</td>
@@ -57,8 +62,4 @@
                 </tr>
             </tbody>
         </table>
-
-        <div>
-            <img src="http://cdn.c.photoshelter.com/img-get2/I0000mnSu9xiaBeA/fit=1000x750/paris-skyline-paris-panorama-080101316.jpg" align="middle">
-        </div>
     </div>
