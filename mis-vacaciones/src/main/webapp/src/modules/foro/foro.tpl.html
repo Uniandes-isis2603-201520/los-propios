@@ -62,6 +62,38 @@ and open the template in the editor.
 .modal-dialog {width:600px;}
 .thumbnail {margin-bottom:6px;}
 
+/*css pie de foto imagenes galeria*/
+.ul.ulGaleria {
+ padding: 0;
+ margin: 0;
+ list-style-type: none;
+ }
+
+ li.liGaleria {
+position: relative;
+float: left;
+width: 320px;
+height: 255px;
+overflow: hidden;
+margin: 0 15px 15px 0;
+}
+.info {
+ display: none;
+ position: absolute;
+ bottom: 0;
+ z-index: 10;
+ background: rgba(0, 0, 0, 0.5);
+ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#50000000,endColorstr=#50000000);
+ width: 300px;
+ color: #FFF;
+ padding: 10px;
+}
+
+li.liGaleria:hover .info {
+display: block;
+}
+/*fin css pie de foto imagenes galeria*/
+
     </style>
    <!--script galeria-->
     <script>
@@ -133,19 +165,21 @@ $('.thumbnail').click(function(){
             <div class="container">
   <div class="row">
     <p id="titulo">Ciudades</p>
+    <div class="col-lg-3 col-sm-4 col-xs-6">
+          <a title="Bogota, Colombia" href="#"><img class="thumbnail img-responsive" src="http://www.bloomberg.com/ss/08/10/1028_global_cities/image/intro.jpg"></a>
+   </div>
 
-      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 1" href="#"><img class="thumbnail img-responsive" src="http://www.bloomberg.com/ss/08/10/1028_global_cities/image/intro.jpg"></a></div>
-      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 2" href="#"><img class="thumbnail img-responsive" src="http://www.bloomberg.com/ss/08/06/0625_design_cities/image/intro.jpg"></a></div>
-      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 3" href="#"><img class="thumbnail img-responsive" src="http://static01.nyt.com/images/2011/11/18/business/global/18iht-srscCITIES18-span/18iht-srscCITIES18-span-articleLarge.jpg"></a></div>
-      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 4" href="#"><img class="thumbnail img-responsive" src="http://flowmountainbike.com/wp-content/uploads/2013/09/Perth_skyline_at_night-600x350.jpg"></a></div>
-      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 5" href="#"><img class="thumbnail img-responsive" src="http://www.indiafamousfor.com/wp-content/uploads/2013/10/Queens-NecklaceMumbaii.jpg"></a></div>
-      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 6" href="#"><img class="thumbnail img-responsive" src="http://irishpost.co.uk/wp-content/uploads/2014/01/dublin-invest-n.jpg"></a></div>
-      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 8" href="#"><img class="thumbnail img-responsive" src="http://cdn.theatlantic.com/static/mt/assets/food/4524580145_abc5b14026_b_wide.jpg"></a></div>
-      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 9" href="#"><img class="thumbnail img-responsive" src="http://www.puretravel.com/blog/wp-content/uploads/2012/08/And-the-cheapest-city-in-the-US-for-travellers-right-now-is-Las-Vegas.jpg"></a></div>
-      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 10" href="#"><img class="thumbnail img-responsive" src="http://www.bloomberg.com/ss/10/10/1007_highest_incomes/image/06_san_francisco_bloom_6202.jpg"></a></div>
-      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 11" href="#"><img class="thumbnail img-responsive" src="http://www.bloomberg.com/ss/09/02/0226_miserable_cities/image/intro.jpg"></a></div>
-      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 12" href="#"><img class="thumbnail img-responsive" src="http://www.bloomberg.com/ss/09/03/0304_difficult_cities/image/010_hochimincity.jpg"></a></div>
-      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 13" href="#"><img class="thumbnail img-responsive" src="http://www.climatechangenews.com/files/2012/06/new-york_wuestenigel.jpg"></a></div>
+      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="San Francisco" href="#"><img class="thumbnail img-responsive" src="http://www.bloomberg.com/ss/08/06/0625_design_cities/image/intro.jpg"></a></div>
+      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="New York" href="#"><img class="thumbnail img-responsive" src="http://static01.nyt.com/images/2011/11/18/business/global/18iht-srscCITIES18-span/18iht-srscCITIES18-span-articleLarge.jpg"></a></div>
+      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Quebec" href="#"><img class="thumbnail img-responsive" src="http://flowmountainbike.com/wp-content/uploads/2013/09/Perth_skyline_at_night-600x350.jpg"></a></div>
+      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Miami" href="#"><img class="thumbnail img-responsive" src="http://www.indiafamousfor.com/wp-content/uploads/2013/10/Queens-NecklaceMumbaii.jpg"></a></div>
+      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="El Cairo" href="#"><img class="thumbnail img-responsive" src="http://irishpost.co.uk/wp-content/uploads/2014/01/dublin-invest-n.jpg"></a></div>
+      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Munich" href="#"><img class="thumbnail img-responsive" src="http://cdn.theatlantic.com/static/mt/assets/food/4524580145_abc5b14026_b_wide.jpg"></a></div>
+      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Las Vegas" href="#"><img class="thumbnail img-responsive" src="http://www.puretravel.com/blog/wp-content/uploads/2012/08/And-the-cheapest-city-in-the-US-for-travellers-right-now-is-Las-Vegas.jpg"></a></div>
+      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Amsterdam" href="#"><img class="thumbnail img-responsive" src="http://www.bloomberg.com/ss/10/10/1007_highest_incomes/image/06_san_francisco_bloom_6202.jpg"></a></div>
+      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Barcelona" href="#"><img class="thumbnail img-responsive" src="http://www.bloomberg.com/ss/09/02/0226_miserable_cities/image/intro.jpg"></a></div>
+      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Suiza" href="#"><img class="thumbnail img-responsive" src="http://www.bloomberg.com/ss/09/03/0304_difficult_cities/image/010_hochimincity.jpg"></a></div>
+      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Buenos Aires" href="#"><img class="thumbnail img-responsive" src="http://www.climatechangenews.com/files/2012/06/new-york_wuestenigel.jpg"></a></div>
 
     <hr>
 
