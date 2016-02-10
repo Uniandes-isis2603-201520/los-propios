@@ -42,6 +42,10 @@
                         url: '/infoCiudad',
                         templateUrl: "src/modules/ciudad/infoCiudad.tpl.html"
                     })
+                    .state('about', {
+                        url: '/about',
+                        templateUrl: "src/modules/about/about.tpl.html"
+                    })
                     ;
 
         }]);
