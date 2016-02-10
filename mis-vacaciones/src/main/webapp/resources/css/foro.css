@@ -9,8 +9,16 @@ and open the template in the editor.
 */
 
 
-.contenedorPrincipal{
-    background: black;
-    width: 10px;
+contenedorPrincipal{
+    width: 100%;
+}
+contenedorForo{
+    height: 50%;
+}
+a{
+    text-decoration: none;
+}
+a:link{
+    text-decoration: none;
 }
 
