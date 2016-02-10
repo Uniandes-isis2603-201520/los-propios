@@ -9,10 +9,14 @@ and open the template in the editor.
 */
 
 
-contenedorPrincipal{
+.contenedorPrincipal{
     width: 100%;
 }
-contenedorForo{
+
+.contenedorForo{
+    height: 50%;
+}
+.contenedorCalificaciones{
     height: 50%;
 }
 a{
@@ -21,4 +25,24 @@ a{
 a:link{
     text-decoration: none;
 }
+.titulo{
 
+    font-size: 25px;
+    color: gray;
+
+}
+.circleBase {
+    border-radius: 50%;
+    behavior: url(PIE.htc); /* remove if you don't care about IE8 */
+}
+
+.type1 {
+    width: 100px;
+    height: 100px;
+    background: yellow;
+    border: 3px solid red;
+}
+.imagenPanelForo{
+    width:50px;
+    height:50px;
+}

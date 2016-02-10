@@ -1,21 +1,99 @@
+<head>
+    <style>
+        /*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/*
+    Created on : 10/02/2016, 07:58:31 AM
+    Author     : jg.murillo10
+*/
 
+
+#contenedorPrincipal{
+    width: 100%;
+}
+
+#contenedorForo{
+    height: 50%;
+}
+#contenedorCalificaciones{
+    height: 50%;
+}
+#a{
+    text-decoration: none;
+}
+#a:link{
+    text-decoration: none;
+}
+#titulo{
+
+    font-size: 25px;
+    color: gray;
+
+}
+#circleBase {
+    border-radius: 50%;
+    behavior: url(PIE.htc); /* remove if you don't care about IE8 */
+}
+
+#type1 {
+    width: 100px;
+    height: 100px;
+    background: yellow;
+    border: 3px solid red;
+}
+#imagenPanelForo{
+    width:50px;
+    height:50px;
+}
+
+#circle {
+    width: 200px;
+    height: 200px;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    background-color: black;
+    position: relative;
+    z-index: 1;
+}
+/*csss galeria*/
+.modal-dialog {width:600px;}
+.thumbnail {margin-bottom:6px;}
+
+    </style>
+   <!--script galeria-->
+    <script>
+        $(document).ready(function() {
+$('.thumbnail').click(function(){
+      $('.modal-body').empty();
+  	var title = $(this).parent('a').attr("title");
+  	$('.modal-title').html(title);
+  	$($(this).parents('div').html()).appendTo('.modal-body');
+  	$('#myModal').modal({show:true});
+});
+});
+    </script>
+</head>
 <div class="contenedorPrincipal">
-  <h2>Experiencias</h2>
+  <p id="titulo">Experiencias</p>
   <p><strong>Nota:</strong> En esta seccion encontraras tanto el foro como la calificacion de los diferentes eventos disponibles categorizados por la ciudad.</p>
-  <div class="panel-group" id="accordion">
+  <div class="panel-group" id="accordion" >
       <!--panel panel foro-->
     <div   id="contenedorForo"class="panel panel-default">
        <!--panel titulo para foro-->
         <a data-toggle="collapse" data-parent="#accordion" href="foro#collapse1"  onmouseover="this.click();" >
        <div class="panel-heading">
         <h4 class="panel-title">
-            <img id="imagenPanelForo" src="http://i63.tinypic.com/2pzzamb.jpg" alt="Lapiz" style="width:50px;height:50px;">
+            <img id="imagenPanelForo" src="http://i63.tinypic.com/2pzzamb.jpg" alt="Lapiz">
             Foro
         </h4>
       </div>
       </a>
       <div id="collapse1" class="panel-collapse collapse ">
-        <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+        <div class="panel-body">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
         sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
         lit,
@@ -50,27 +128,49 @@
       </div>
       </a>
           <div id="collapse2" class="panel-collapse collapse">
-        <div class="panel-body">lLorem ipsum dolor sit amet, consectetur adipisicing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitationLorem ipsum dolor sit amet, consectetur adipisicing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitationLorem ipsum dolor sit amet, consectetur adipisicing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitationLorem ipsum dolor sit amet, consectetur adipisicing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitationLorem ipsum dolor sit amet, consectetur adipisicing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitationLorem ipsum dolor sit amet, consectetur adipisicing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitationLorem ipsum dolor sit amet, consectetur adipisicing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitationLorem ipsum dolor sit amet, consectetur adipisicing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitationLorem ipsum dolor sit amet, consectetur adipisicing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitationLorem ipsum dolor sit amet, consectetur adipisicing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+        <div class="panel-body">
+            <!--galeria de imagenes de ciudades-->
+            <div class="container">
+  <div class="row">
+    <p id="titulo">Ciudades</p>
+
+      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 1" href="#"><img class="thumbnail img-responsive" src="http://www.bloomberg.com/ss/08/10/1028_global_cities/image/intro.jpg"></a></div>
+      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 2" href="#"><img class="thumbnail img-responsive" src="http://www.bloomberg.com/ss/08/06/0625_design_cities/image/intro.jpg"></a></div>
+      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 3" href="#"><img class="thumbnail img-responsive" src="http://static01.nyt.com/images/2011/11/18/business/global/18iht-srscCITIES18-span/18iht-srscCITIES18-span-articleLarge.jpg"></a></div>
+      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 4" href="#"><img class="thumbnail img-responsive" src="http://flowmountainbike.com/wp-content/uploads/2013/09/Perth_skyline_at_night-600x350.jpg"></a></div>
+      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 5" href="#"><img class="thumbnail img-responsive" src="http://www.indiafamousfor.com/wp-content/uploads/2013/10/Queens-NecklaceMumbaii.jpg"></a></div>
+      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 6" href="#"><img class="thumbnail img-responsive" src="http://irishpost.co.uk/wp-content/uploads/2014/01/dublin-invest-n.jpg"></a></div>
+      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 8" href="#"><img class="thumbnail img-responsive" src="http://cdn.theatlantic.com/static/mt/assets/food/4524580145_abc5b14026_b_wide.jpg"></a></div>
+      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 9" href="#"><img class="thumbnail img-responsive" src="http://www.puretravel.com/blog/wp-content/uploads/2012/08/And-the-cheapest-city-in-the-US-for-travellers-right-now-is-Las-Vegas.jpg"></a></div>
+      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 10" href="#"><img class="thumbnail img-responsive" src="http://www.bloomberg.com/ss/10/10/1007_highest_incomes/image/06_san_francisco_bloom_6202.jpg"></a></div>
+      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 11" href="#"><img class="thumbnail img-responsive" src="http://www.bloomberg.com/ss/09/02/0226_miserable_cities/image/intro.jpg"></a></div>
+      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 12" href="#"><img class="thumbnail img-responsive" src="http://www.bloomberg.com/ss/09/03/0304_difficult_cities/image/010_hochimincity.jpg"></a></div>
+      <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 13" href="#"><img class="thumbnail img-responsive" src="http://www.climatechangenews.com/files/2012/06/new-york_wuestenigel.jpg"></a></div>
+
+    <hr>
+
+    <hr>
+  </div>
+</div>
+<div tabindex="-1" class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+		<button class="close" type="button" data-dismiss="modal">×</button>
+		<h3 class="modal-title">Heading</h3>
+	</div>
+	<div class="modal-body">
+
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-default" data-dismiss="modal">Close</button>
+	</div>
+   </div>
+  </div>
+</div>
+
+
+        </div>
       </div>
     </div>
 
