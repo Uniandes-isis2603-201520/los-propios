@@ -1,6 +1,8 @@
 
 
 table.tablaEyS {
+    border: 4px solid #aabcfe;
+    border-style: groove;
     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
     font-size: 12px;
     margin: 45px;
