@@ -1,6 +1,7 @@
 /* CSS Document */
     .bg-1Dos {
       background-image: url(http://www.feefoblog.com/wp-content/uploads/Travel_banner-1.jpg);
+      background-repeat: repeat-x;
       color: black;
       padding: 100px 900px;
       font-family: Montserrat, sans-serif;
