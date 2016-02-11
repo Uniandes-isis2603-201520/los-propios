@@ -126,6 +126,15 @@ $('.thumbnail').click(function(){
       <div id="collapse1" class="panel-collapse collapse ">
         <div class="panel-body">
 
+               <form role="form">
+                <div class="form-group">
+                  <label for="usr">Buscar:</label>
+                  <input type="text" class="form-control" id="usr">
+                </div>
+               </form>
+                <div class="radio">
+                    <label><input type="radio" name="optradio">Filtrar busqueda</label>
+                </div>
             <!--tabla del forointeractuva-->
             <table class="table table-hover">
 
@@ -173,8 +182,15 @@ $('.thumbnail').click(function(){
           <h6>Carlos Prada</h6>
           <p>Si, te sale super economico porque puedes conocer muchos paises a un muy bajo costo los tiquetes te
               pueden variar entre 30 y 70 euros dependiendo del trayecto, puedes consultar mas aca <a href="http://www.raileurope.com.co">Rail Europe</a></p>
+          <form role="form">
+            <div class="form-group">
+              <label for="comment">Commentar:</label>
+              <textarea class="form-control" rows="5" id="comment"></textarea>
+              <button>Enviar</button>
+            </div>
+          </form>
         </div>
-          
+
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
