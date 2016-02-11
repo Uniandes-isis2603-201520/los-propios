@@ -1,36 +1,37 @@
 
 
 table.tablaEyS {
-    border: 4px solid #aabcfe;
-    border-style: groove;
     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
     font-size: 12px;
     margin: 45px;
     width: 95%;
+    height: 50%;
     border-collapse: collapse;
 }
 
-.thE, .trTE {
+.thTE, .trTE {
     font-size: 13px;
     font-weight: normal;
     background: #b9c9fe;
-    border-top: 4px solid #aabcfe;
+    border-top: 4px solid #b9c9fe;
     border-bottom: 4px solid #B9C9FE;
     color: #039;
+    text-align: center;
 }
 
-.td1{
+.trTE{
+    font-size: 30px;
+}
 
-    font-size: 20px;
+.tdTE{
+    font-size: 13px;
     background: #e8edff;
-    border-bottom: 1px solid #fff;
     color: #669;
     border-top: 1px solid transparent;
+    text-align: center;
+    vertical-align: top;
 }
-.tdE {
-    background: #e8edff;
-    color: #669;
-}
+
 
 .imgT {
     border: 5px solid #ccc;
