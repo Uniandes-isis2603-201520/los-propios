@@ -22,6 +22,7 @@
     google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 <div class="container">
+    <img src="http://i.telegraph.co.uk/multimedia/archive/02575/Network-Rail_2575826b.jpg" style="width:310px;height:193px;" alt="train">
     <h1>Lista de itinerarios</h1>
     <div class="list-group">
         <a href="#" class="list-group-item">First item</a>
@@ -38,21 +39,29 @@
 
     <div class="tab-content">
         <div id="menu1" class="tab-pane in active">
-            <h3>Eventos</h3>
-            <p><b>-</b>primero</p>
-            <p><b>-</b>segundo</p>
-            <p><b>-</b>tercero</p>
-            <p><b>-</b>cuarto</p>
-            <p><b>-</b>quinto</p>
-            <p><b>-</b>sexto</p>
+            <table style="width:100%">
+            <tr>
+             <td>Jill</td>
+             <td>Smith</td>		
+             <td>50</td>
+            </tr>
+            <tr>
+             <td>Eve</td>
+             <td>Jackson</td>		
+             <td>94</td>
+            </tr>
+            <tr>
+            <td>John</td>
+            <td>Doe</td>		
+            <td>80</td>
+            </tr>
+            </table>
         </div>
         <div id="menu2" class="tab-pane fade">
-            <h3>Mapa</h3>
             <img src="http://maps.googleapis.com/maps/api/staticmap?center=brazil&size=640x400&zoom=4">
             <!--<div class="container"><div id="googleMap" style="width:500px;height:380px;"></div></div>-->
         </div>
         <div id="menu3" class="tab-pane fade">
-            <h3>Time Line</h3>
             <ul class="timeline">
                 <li><a data-toggle="tab" href="#menu1">Eventos y lugares</a></li>
                 <li><a data-toggle="tab" href="#menu2">Mapa</a></li>
