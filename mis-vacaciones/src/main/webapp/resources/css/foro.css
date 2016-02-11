@@ -1,4 +1,4 @@
-/*
+        /*
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
@@ -9,40 +9,85 @@ and open the template in the editor.
 */
 
 
-.contenedorPrincipal{
+#contenedorPrincipal{
     width: 100%;
 }
 
-.contenedorForo{
+#contenedorForo{
     height: 50%;
 }
-.contenedorCalificaciones{
+#contenedorCalificaciones{
     height: 50%;
 }
-a{
+#a{
     text-decoration: none;
 }
-a:link{
+#a:link{
     text-decoration: none;
 }
-.titulo{
+#titulo{
 
     font-size: 25px;
     color: gray;
 
 }
-.circleBase {
+#circleBase {
     border-radius: 50%;
     behavior: url(PIE.htc); /* remove if you don't care about IE8 */
 }
 
-.type1 {
+#type1 {
     width: 100px;
     height: 100px;
     background: yellow;
     border: 3px solid red;
 }
-.imagenPanelForo{
+#imagenPanelForo{
     width:50px;
     height:50px;
 }
+
+#circle {
+    width: 200px;
+    height: 200px;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    background-color: black;
+    position: relative;
+    z-index: 1;
+}
+/*csss galeria*/
+.modal-dialog {width:600px;}
+.thumbnail {margin-bottom:6px;}
+
+/*css pie de foto imagenes galeria*/
+.ul.ulGaleria {
+ padding: 0;
+ margin: 0;
+ list-style-type: none;
+ }
+
+ li.liGaleria {
+position: relative;
+float: left;
+width: 320px;
+height: 255px;
+overflow: hidden;
+margin: 0 15px 15px 0;
+}
+.info {
+ display: none;
+ position: absolute;
+ bottom: 0;
+ z-index: 10;
+ background: rgba(0, 0, 0, 0.5);
+ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#50000000,endColorstr=#50000000);
+ width: 300px;
+ color: #FFF;
+ padding: 10px;
+}
+
+li.liGaleria:hover .info {
+display: block;
+}
+/*fin css pie de foto imagenes galeria*/
