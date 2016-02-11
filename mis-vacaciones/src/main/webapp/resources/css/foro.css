@@ -118,8 +118,4 @@ left: 0;
 text-align: center;
 z-index: 1;
 }
-.carousel-inner > .item > img,
-  .carousel-inner > .item > a > img {
-      width: 20%;
-      margin: auto;
-  }
+
