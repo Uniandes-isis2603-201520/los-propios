@@ -11,22 +11,19 @@ table.tablaEyS {
 
 .thTE, .trTE {
     font-size: 13px;
-    font-weight: normal;
     background: #b9c9fe;
     border-top: 4px solid #b9c9fe;
     border-bottom: 4px solid #B9C9FE;
-    color: #039;
     text-align: center;
 }
 
 .trTE{
-    font-size: 30px;
+    font-size: 25px;
 }
 
 .tdTE{
     font-size: 13px;
     background: #e8edff;
-    color: #669;
     border-top: 1px solid transparent;
     text-align: center;
     vertical-align: top;
