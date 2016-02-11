@@ -128,6 +128,7 @@ $('.thumbnail').click(function(){
 
             <!--tabla del forointeractuva-->
             <table class="table table-hover">
+
                 <thead>
                   <tr>
                     <th>Tema</th>
@@ -135,22 +136,61 @@ $('.thumbnail').click(function(){
                     <th>Comentarios</th>
                     <th>Fecha</th>
                     <th>Votos</th>
+                    <th></th>
                   </tr>
                 </thead>
+
+
                 <tbody>
-                  <tr>
-                    <td>Trenes baratos en europa</td>
-                    <td>Mario Vargas</td>
-                    <td>102</td>
-                    <td>12/10/16</td>
-                    <td>50/20</td>
-                  </tr>
-                  <tr>
+                  <tr class="clickable-row" data-target="#r1">
+
+                          <td>Trenes baratos en europa</td>
+                            <td>Mario Vargas</td>
+                            <td>102</td>
+                            <td>12/10/16</td>
+                            <td>50/20</td>
+                            <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">+</button></td>
+
+                </tr>
+                <!--modal primera fila-->
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Foro: Trenes baratos en europa</h4>
+          <h5>Autor: Mario Vargas</h5>
+          <h6>Hola me llamo Mario Vargas y me gustaria saber si hay algun tipo de empresa en el cual se pueden comprar las tiquetes de tren online o como puedo
+          hacer para viajar en tren, es mi primera vez en europa y no quiero tener ninguna complicacion</h6>
+        </div>
+        <div class="modal-body">
+            <h6>unknown542</h6>
+          <p>Hola, de hecho puedes googlearlo y te aparece que hay una empresa que maneja la mayoria de trenes por europa y costos aproximados</p>
+          <h6>Carlos Prada</h6>
+          <p>Si, te sale super economico porque puedes conocer muchos paises a un muy bajo costo los tiquetes te
+              pueden variar entre 30 y 70 euros dependiendo del trayecto, puedes consultar mas aca <a href="http://www.raileurope.com.co">Rail Europe</a></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!--final modal primera fila-->
+
+                <p id="r1" class="collapse"> informacion r1</p>
+                <tr class="clickable-row" data-ui-sref="r2">
                     <td>Vuelos economicos hacia Amsterdam</td>
                     <td>Juan Murillo</td>
                     <td>7</td>
                     <td>18/10/16</td>
                     <td>5/1</td>
+                    <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">+</button></td>
                   </tr>
                   <tr>
                     <td>hoteles con piscina</td>
@@ -158,6 +198,7 @@ $('.thumbnail').click(function(){
                     <td>23</td>
                     <td>15/08/16</td>
                     <td>100/20</td>
+                    <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">+</button></td>
                   </tr>
                   <tr>
                     <td>Carnaval de Barranquilla</td>
@@ -165,6 +206,7 @@ $('.thumbnail').click(function(){
                     <td>12</td>
                     <td>19/10/16</td>
                     <td>21/20</td>
+                    <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">+</button></td>
                   </tr>
                   <tr>
                     <td>Compra tiquetes baratos online</td>
@@ -172,6 +214,7 @@ $('.thumbnail').click(function(){
                     <td>39</td>
                     <td>01/12/16</td>
                     <td>10/90</td>
+                    <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">+</button></td>
                   </tr>
                 </tbody>
               </table>
