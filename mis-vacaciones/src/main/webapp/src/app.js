@@ -42,6 +42,10 @@
                         url: '/infoCiudad',
                         templateUrl: "src/modules/ciudad/infoCiudad.tpl.html"
                     })
+                    .state('servicios', {
+                        url: '/servicios',
+                        templateUrl: "src/modules/servicios/servicios.tpl.html"
+                    })
                     .state('about', {
                         url: '/about',
                         templateUrl: "src/modules/about/about.tpl.html"
