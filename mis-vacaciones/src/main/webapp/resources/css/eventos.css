@@ -1,35 +1,33 @@
-.tablaEyS {
+
+
+table.tablaEyS {
     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
     font-size: 12px;
     margin: 45px;
-    width: 800px;
+    width: 95%;
     border-collapse: collapse;
 }
 
 .thE, .trTE {
     font-size: 13px;
     font-weight: normal;
-    padding: 8px;
     background: #b9c9fe;
     border-top: 4px solid #aabcfe;
-    border-bottom: 1px solid #fff;
+    border-bottom: 4px solid #B9C9FE;
     color: #039;
 }
 
 .td1{
+
     font-size: 20px;
-    padding: 2px;
     background: #e8edff;
     border-bottom: 1px solid #fff;
     color: #669;
     border-top: 1px solid transparent;
 }
 .tdE {
-    padding: 8px;
     background: #e8edff;
-    border-bottom: 1px solid #fff;
     color: #669;
-    border-top: 1px solid transparent;
 }
 
 .imgT {
