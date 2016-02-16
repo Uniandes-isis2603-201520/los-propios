@@ -14,7 +14,8 @@
 <!-- Container (Menu) -->
 <ul class="nav nav-tabs bg-4">
     <li class="active"><a data-toggle="tab" href="perfil#sitio">Sitios Visitados</a></li>
-    <li><a data-toggle="tab" href="mis-vacaciones/#foro">Foro</a></li>
+    <li><a data-toggle="tab">Foro</a></li>
+<!--< <li><a data-toggle="tab" href="mis-vacaciones/#itinerario">Foro</a></li>-->
     <li><a data-toggle="tab" href="mis-vacaciones/#itinerario">Mis itinerarios</a></li>
 </ul>
 <div class="tab-content">
@@ -60,17 +61,20 @@
     </div>
 
     <div id="foro" class="tabe-pane fade">
-        <h2>Foro</h2>
+        <a   class="button">Agregar Sitio</a>
+       <h2>Foro</h2>
         <p>Los foros de discusión te permiten dejar tus comentarios hacer de los itinerarios o temas específicos del viaje.
            Por ejemplo, en San Andres realizaste actividades que otros viajeros deberían hacer.
            La comunidad podrá verlos y agregar las actividades mencionadas anteriormente a sus itinerarios.
            Para participar sólo basta con dejar un comentario como estás apunto de hacerlo, y los miembros encontrarán una diversidad de posibilidades. </p>
-        <input name="botonDos" id="botonDos" type="button" value="Foro" />
+        <input name="botonDos" id="botonDos" type="button" value="Foro"  />
+        <a ui-sref"list">Hola</a>
         <br>
         <br>
     </div>
-</div>
 
+</div>
+<!--<div ui-view></div>-->
 <!-- Container (Redes sociales) -->
 
 <div class="container-fluid1 bg-5 text-center">
@@ -124,4 +128,6 @@
             <p>Twittea lo que más te gusto del viaje</p>
         </div>
     </div>
+
 </div>
+<div ui-view></div>
