@@ -17,15 +17,14 @@ var mod = ng.module("mainApp", ["ui.router"]);
                 })
                 .state('perfilUsuario', {
                 url: '/perfil',
-                        templateUrl: "src/modules/perfilUsuario/perfilUsuario.html",
-                        views: {
-                        '': {templateUrl: 'foro.tpl.html'},
-                        // the child views will be defined here (absolutely named)
-                        'filaUno@perfilUsuario': {
-                        template: 'hi',
-                        }
-
-                                }
+                  templateUrl: "src/modules/perfilUsuario/perfilUsuario.html",
+//                        views: {
+//                        '': {templateUrl: 'foro.tpl.html'},
+//                        // the child views will be defined here (absolutely named)
+//                        'filaUno@perfilUsuario': {
+//                        template: 'hi',
+//                        }
+//                                }
                 })
 
                 .state('perfilUsuario.list', {
