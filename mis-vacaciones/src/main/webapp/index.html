@@ -1,73 +1,61 @@
 <!DOCTYPE html>
-<!--<html ng-app="mainApp">-->
-<html>
+<html ng-app="mainApp">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags
-        -->
         <title>Mis Vacaciones, Ltda.</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-        <link rel="Stylesheet" type="text/css" href="resources/css/content.css">
-        <link rel="Stylesheet" type="text/css" href="resources/css/carousel.css">
+        <!-- si van a meter nuevos CSS, verifiquen QUE NO ESTEN EN ESTA LISTA, gracias -->
         <link href="resources/css/jquery-script-menu.css" rel="stylesheet" type="text/css">
         <link href="resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="resources/css/bootstrap-theme.css" rel="stylesheet" type="text/css"/>
         <link href="resources/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
         <link href="resources/css/bootstrap.css" rel="stylesheet" type="text/css"/>
-
-        <!-- isn't mine but it's safe -->
+        <link href="resources/css/content.css" rel="Stylesheet" type="text/css">
+        <link href="resources/css/carousel.css" rel="Stylesheet" type="text/css">
         <link href="resources/css/perfil.css" rel="stylesheet" type="text/css"/>
         <link href="resources/css/eventos.css" rel="stylesheet" type="text/css"/>
         <link href="resources/css/foro.css" rel="stylesheet" type="text/css"/>
         <link href="resources/css/servicios.css" rel="stylesheet" type="text/css"/>
-
-
         <link href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/shift.css" rel="stylesheet">
-
-        <!-- isn't mine 2 and it's safe 2 -->
         <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
         <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+        <link href="resources/css/principal-down.css" rel="stylesheet">
+        <link href="resources/css/ciudad.css" rel="stylesheet" >
+        <link href="resources/css/aboutUs.css" rel="stylesheet" >
 
-        <!-- this' not ur place
-        -->
+        <!-- FIN lista de CSS -->
+
+        <!-- icono, actual: StackOverFLow -->
         <link rel="shortcut icon" href="http://sstatic.net/stackoverflow/img/favicon.ico">
+        <!-- -->
 
-
-        <link rel="stylesheet" href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/bootstrap.css">
-
-
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-        <link rel="stylesheet" href="resources/css/principal-down.css">
-
-        <!-- isn't mine, pls people, it's safe -->
-        <link rel="stylesheet" href="resources/css/ciudad.css">
-        <link rel="stylesheet" href="resources/css/aboutUs.css">
-
-
-        <!-- Custom CSS - is not bullshit, but isn't mine, and it's safe
-        <link href="resources/css/small-business.css" rel="stylesheet">-->
-
+        <!-- Scripts del index, no replicar -->
         <script src="resources/js/jquery-1.12.0.min.js" type="text/javascript"></script>
         <script src="resources/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="resources/js/angular.min.js" type="text/javascript"></script>
         <script src="resources/js/angular-ui-router.min.js" type="text/javascript"></script>
+        <!-- fin scripts del index -->
 
-        <!--Template infoCiudad-->
-         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-         <script src="resources/js/infoCiudad.js" type="text/javascript"></script>
+        <!-- MAIN APP-->
+        <script src="src/app.js" type="text/javascript"></script>
+        <!-- -->
+
         <!--Angular ciudad-->
         <script src="src/modules/ciudad/ciudad.mod.js" type="text/javascript"></script>
         <script src="src/modules/ciudad/ciudad.ctrl.js" type="text/javascript"></script>
         <script src="src/modules/ciudad/ciudad.svc.js" type="text/javascript"></script>
         <script src="src/modules/ciudad/ciudad.mock.js" type="text/javascript"></script>
 
-        <script src="src/app.js" type="text/javascript"></script>
+        <!-- archivos JS de Angular en esta zona -->
+
+        <!-- fin zona Angular JS -->
+
 
     </head>
- <body style="padding-top: 60px;" ng-app="mainApp">
+    <body style="padding-top: 60px;">
         <div class="container-fluid">
             <div class="col-md-12">
                 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -81,7 +69,7 @@
                                 <span class="icon-bar"></span>
                             </button>
                             <a class="navbar-brand" href="#/principal">Mis Vacaciones</a>
-<!--                             <a class="navbar-brand" href="#">Mis Vacaciones</a>-->
+                            <!--                             <a class="navbar-brand" href="#">Mis Vacaciones</a>-->
                         </div>
 
                         <!-- Collect the nav links, forms, and other content for toggling -->
