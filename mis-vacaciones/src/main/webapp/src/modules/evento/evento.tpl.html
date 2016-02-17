@@ -9,8 +9,22 @@ and open the template in the editor.-->
         <div id="divTabla">
             <table class = "tablaEyS">
                 <tr class = "trTE">
-                    <td class = "td1">Eventos <button class="btn pull-right" type="submit">Filtrar</button></th>
-                    <td class = "td1">Sitios de Interes<button class="btn pull-right" type="submit">Filtrar</button></th>
+                    <td class = "td1">Eventos
+                        <select class="filtro" name="OS">
+                            <option value="0">Filtrar eventos por:</option>
+                            <option value="1">Tipo</option>
+                            <option value="2">Ciudad</option>
+                            <option value="3">Precio</option>
+                        </select>
+                        <input class="buscadorCat" type="search" placeholder="¿Qué evento desea buscar?"></th>
+                    <td class = "td1">Sitios de Interes
+                        <select class="filtro" name="OS">
+                            <option value="0">Filtrar sitios por:</option>
+                            <option value="1">Tipo</option>
+                            <option value="2">Ciudad</option>
+                            <option value="3">Precio</option>
+                        </select>
+                        <input class="buscadorCat" type="search" placeholder="¿Qué sitio de interes busca?"></th>
                 </tr>
                 <tr class = "trTE">
                     <td class = "tdTE">

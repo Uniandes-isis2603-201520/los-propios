@@ -1,4 +1,6 @@
-
+.filtro, .buscadorCat {
+    font-size: 10px;
+}
 
 table.tablaEyS {
     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
