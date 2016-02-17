@@ -50,19 +50,5 @@ var mod = ng.module("mainApp", ["ui.router"]);
                         templateUrl: "src/modules/about/about.tpl.html"
                 })
 
-//                .state('forito', {
-//                 templateUrl: 'for.tpl..html',
-//                 controller: function($scope){
-//                 $scope.myModal = [{ name: 'Alice' }, { name: 'Bob' }];
-//                  }
-//                  })
-//                .state('perfil', {
-//                templateUrl: 'perfilUsuario.html'
-//                });
-//
-//                  function MainCtrl($state){
-//                  $state.transitionTo('perfil');
-//                   }
-
             }]);
         })(window.angular);
