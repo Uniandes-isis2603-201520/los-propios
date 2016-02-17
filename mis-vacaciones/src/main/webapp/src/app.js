@@ -18,21 +18,8 @@ var mod = ng.module("mainApp", ["ui.router"]);
                 .state('perfilUsuario', {
                 url: '/perfil',
                   templateUrl: "src/modules/perfilUsuario/perfilUsuario.html",
-//                        views: {
-//                        '': {templateUrl: 'foro.tpl.html'},
-//                        // the child views will be defined here (absolutely named)
-//                        'filaUno@perfilUsuario': {
-//                        template: 'hi',
-//                        }
-//                                }
                 })
 
-                .state('perfilUsuario.list', {
-                url: '/list',
-                templateUrl: 'foro.tpl.html',
-                template: 'hi',
-
-               })
                 .state('ciudad', {
                 url: '/ciudad',
                         templateUrl: "src/modules/ciudad/ciudad.tpl.html"
