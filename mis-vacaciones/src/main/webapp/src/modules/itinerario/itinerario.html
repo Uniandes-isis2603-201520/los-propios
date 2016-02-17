@@ -22,19 +22,151 @@
 </script>
 <div class="container">
     <table cellpadding="0" cellspacing="0">
-    <tr>
-    <td><img src="http://i.telegraph.co.uk/multimedia/archive/02575/Network-Rail_2575826b.jpg" style="width:310px;height:193px;" alt="train"></td>
-    <td><img src="http://www.quieropuroviajar.com/wp-content/uploads/2014/05/Untitled-1.jpg" style="width:310px;height:193px;" alt="train"></td>
-    <td><img src="http://www.omicrono.com/wp-content/uploads/2012/09/aterrizaje-avion-noche.jpg" style="width:330px;height:193px;" alt="train"></td>
-    </tr>
+        <tr>
+            <td><img src="http://i.telegraph.co.uk/multimedia/archive/02575/Network-Rail_2575826b.jpg" style="width:310px;height:193px;" alt="train"></td>
+            <td><img src="http://www.quieropuroviajar.com/wp-content/uploads/2014/05/Untitled-1.jpg" style="width:310px;height:193px;" alt="train"></td>
+            <td><img src="http://www.omicrono.com/wp-content/uploads/2012/09/aterrizaje-avion-noche.jpg" style="width:330px;height:193px;" alt="train"></td>
+        </tr>
     </table>
-    <h1>Lista de itinerarios</h1>
-    <div class="list-group">
-        <a href="#" class="list-group-item">Viaje por America</a>
-        <a href="#" class="list-group-item">Paseo norte de Africa</a>
-        <a href="#" class="list-group-item">Tour por Europa</a>
-        <div align="center"><button>Agregar</button><button>Quitar</button></div>
-    </div>
+    <br></br>
+    <!--    <h1>Lista de itinerarios</h1>-->
+    <!--    <div class="list-group">
+            <a href="itinerario#viaje1" class="viaje1">Viaje por America</a>
+            <a href="#" class="viaje2">Paseo norte de Africa</a>
+            <a href="#" class="viaje3">Tour por Europa</a>
+            <div align="center"><button>Agregar</button>
+                <button>Quitar</button></div>
+        </div>-->
+    <!-- Container (Pricing Section) -->
+    <br></br>
+    <br></br>
+        <ul class="nav nav-tabs bg-4">
+            <li class="active"><a data-toggle="tab" href="itinerario#misItinerarios">Mis itinerarios</a></li>
+            <li><a data-toggle="tab" href="itinerario#misLineas">Mis líneas de tiempo</a></li>
+            <li><a data-toggle="tab" href="itinerario#itinerarioNuevo">Nuevo itinerario</a></li>
+        </ul>
+        <div class="tab-content">
+            <div id="misItinerarios" class="tab-pane fade in active">
+                <div class="container-fluid">
+                    <div class="text-center">
+                        <h2>Mis itinerarios</h2>
+                        <h4>Seleccione el itinerario que desea editar</h4>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4 col-xs-12">
+                            <div class="panel panel-default text-center">
+                                <div class="panel-heading">
+                                    <h1>Viaje por America</h1>
+                                </div>
+                                <div class="panel-body">
+                                    <p><strong>0</strong> Ciudades</p>
+                                    <p><strong>0</strong> Eventos</p>
+                                    <p><strong>2</strong> Sitios turisticos</p>
+                                    <p><strong>1</strong> Mapa</p>
+                                </div>
+                                <div class="panel-footer">
+                                    <h3>10 días</h3>
+                                    <button class="btn btn-lg">Editar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-xs-12">
+                            <div class="panel panel-default text-center">
+                                <div class="panel-heading">
+                                    <h1>Tour por europa</h1>
+                                </div>
+                                <div class="panel-body">
+                                    <p><strong>0</strong> Ciudades</p>
+                                    <p><strong>0</strong> Eventos</p>
+                                    <p><strong>2</strong> Sitios turisticos</p>
+                                    <p><strong>1</strong> Mapa</p>
+                                </div>
+                                <div class="panel-footer">
+                                    <h3>10 días</h3>
+                                    <button class="btn btn-lg">Editar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-xs-12">
+                            <div class="panel panel-default text-center">
+                                <div class="panel-heading">
+                                    <h1>Paseo por Africa</h1>
+                                </div>
+                                <div class="panel-body">
+                                    <p><strong>0</strong> Ciudades</p>
+                                    <p><strong>0</strong> Eventos</p>
+                                    <p><strong>2</strong> Sitios turisticos</p>
+                                    <p><strong>1</strong> Mapa</p>
+                                </div>
+                                <div class="panel-footer">
+                                    <h3>10 días</h3>
+                                    <button class="btn btn-lg">Editar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="foro" class="tabe-pane fade">
+<!--               ACA DEBEN PONER EL TIMELINE QUE VAN A HACER-->
+            </div>
+            <div id="itinerarioNuevo" class="tabe-pane fade">
+                    <h2>Crear un nuevo itinerario</h2>
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Focused</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" id="focusedInput" type="text" value="Click to focus...">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword" class="col-sm-2 control-label">Disabled</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input here..." disabled>
+                            </div>
+                        </div>
+                        <fieldset disabled>
+                            <div class="form-group">
+                                <label for="disabledTextInput" class="col-sm-2 control-label">Disabled input and select list (Fieldset disabled)</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="disabledSelect" class="col-sm-2 control-label"></label>
+                                <div class="col-sm-10">
+                                    <select id="disabledSelect" class="form-control">
+                                        <option>Disabled select</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <div class="form-group has-success has-feedback">
+                            <label class="col-sm-2 control-label" for="inputSuccess">Input with success and glyphicon</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="inputSuccess">
+                                <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                            </div>
+                        </div>
+                        <div class="form-group has-warning has-feedback">
+                            <label class="col-sm-2 control-label" for="inputWarning">Input with warning and glyphicon</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="inputWarning">
+                                <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+                            </div>
+                        </div>
+                        <div class="form-group has-error has-feedback">
+                            <label class="col-sm-2 control-label" for="inputError">Input with error and glyphicon</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="inputError">
+                                <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                            </div>
+                        </div>
+                    </form>
+            </div>
+        </div>
+
+
 
     <h2>Seleccione opcion de visualizacion</h2>
     <ul class="nav nav-tabs">
@@ -46,24 +178,24 @@
     <div class="tab-content">
         <div id="menu1" class="tab-pane in active">
             <table style="width:100%">
-            <tr>
-             <td><img src="http://foto.hrsstatic.com/fotos/0/3/256/256/80/000000/http%3A%2F%2Ffoto-origin.hrsstatic.com%2Ffoto%2F0%2F4%2F5%2F8%2F045816%2F045816_z_116477.jpg/kC0K8lFE5N4nEz0kTQq8Ag%3D%3D/256,196/6/Sun_Club_Playa_del_Ingles_Bungalows-San_Bartolome_de_Tirajana-Room-1-45816.jpg" class="img-circle" alt="Cinque Terre" width="150" height="150"></td>
-             <td><img src="https://pbs.twimg.com/profile_images/585623532119416832/F7MSFJqD.jpg" class="img-circle" alt="Cinque Terre" width="150" height="150"> </td>
-             <td><img src="http://cdn3.clasipar.com/pictures/photos/007/932/051/vga_Maxum_Boat16.jpg" class="img-circle" alt="Cinque Terre" width="150" height="150"> </td>
-             <td><img src="https://blueecology.files.wordpress.com/2013/05/cropped-chalo.jpg?w=256&h=256&crop=1" class="img-circle" alt="Cinque Terre" width="150" height="150"> </td>
-            </tr>
-            <tr>
-             <td><img src="https://pbs.twimg.com/profile_images/609158294876258304/K0Cd0fZv_400x400.jpg" class="img-circle" alt="Cinque Terre" width="150" height="150"></td>
-             <td><img src="https://media-cdn.tripadvisor.com/media/photo-s/05/1a/95/bf/melia-caribe-tropical.jpg" class="img-circle" alt="Cinque Terre" width="150" height="150"> </td>
-             <td><img src="https://s-media-cache-ak0.pinimg.com/564x/12/44/be/1244be0b41affd6395dfdb4145118e0c.jpg" class="img-circle" alt="Cinque Terre" width="150" height="150"> </td>
-             <td><img src="https://tequesquitengo.files.wordpress.com/2010/05/rafting118.jpg" class="img-circle" alt="Cinque Terre" width="150" height="150"> </td>
-            </tr>
-            <tr>
-            <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Parque_tayrona_cabo.jpg/200px-Parque_tayrona_cabo.jpg" class="img-circle" alt="Cinque Terre" width="150" height="150"></td>
-             <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/155_Cathedral_San_Pedro_Claver_Cartagena.JPG/250px-155_Cathedral_San_Pedro_Claver_Cartagena.JPG" class="img-circle" alt="Cinque Terre" width="150" height="150"> </td>
-             <td><img src="http://versionfinal.com.ve/wp-content/uploads/2015/09/maracaibo.version-final.jpg" class="img-circle" alt="Cinque Terre" width="150" height="150"> </td>
-             <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/SaltoAngel4.jpg/290px-SaltoAngel4.jpg" class="img-circle" alt="Cinque Terre" width="150" height="150"> </td>
-            </tr>
+                <tr>
+                    <td><img src="http://foto.hrsstatic.com/fotos/0/3/256/256/80/000000/http%3A%2F%2Ffoto-origin.hrsstatic.com%2Ffoto%2F0%2F4%2F5%2F8%2F045816%2F045816_z_116477.jpg/kC0K8lFE5N4nEz0kTQq8Ag%3D%3D/256,196/6/Sun_Club_Playa_del_Ingles_Bungalows-San_Bartolome_de_Tirajana-Room-1-45816.jpg" class="img-circle" alt="Cinque Terre" width="150" height="150"></td>
+                    <td><img src="https://pbs.twimg.com/profile_images/585623532119416832/F7MSFJqD.jpg" class="img-circle" alt="Cinque Terre" width="150" height="150"> </td>
+                    <td><img src="http://cdn3.clasipar.com/pictures/photos/007/932/051/vga_Maxum_Boat16.jpg" class="img-circle" alt="Cinque Terre" width="150" height="150"> </td>
+                    <td><img src="https://blueecology.files.wordpress.com/2013/05/cropped-chalo.jpg?w=256&h=256&crop=1" class="img-circle" alt="Cinque Terre" width="150" height="150"> </td>
+                </tr>
+                <tr>
+                    <td><img src="https://pbs.twimg.com/profile_images/609158294876258304/K0Cd0fZv_400x400.jpg" class="img-circle" alt="Cinque Terre" width="150" height="150"></td>
+                    <td><img src="https://media-cdn.tripadvisor.com/media/photo-s/05/1a/95/bf/melia-caribe-tropical.jpg" class="img-circle" alt="Cinque Terre" width="150" height="150"> </td>
+                    <td><img src="https://s-media-cache-ak0.pinimg.com/564x/12/44/be/1244be0b41affd6395dfdb4145118e0c.jpg" class="img-circle" alt="Cinque Terre" width="150" height="150"> </td>
+                    <td><img src="https://tequesquitengo.files.wordpress.com/2010/05/rafting118.jpg" class="img-circle" alt="Cinque Terre" width="150" height="150"> </td>
+                </tr>
+                <tr>
+                    <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Parque_tayrona_cabo.jpg/200px-Parque_tayrona_cabo.jpg" class="img-circle" alt="Cinque Terre" width="150" height="150"></td>
+                    <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/155_Cathedral_San_Pedro_Claver_Cartagena.JPG/250px-155_Cathedral_San_Pedro_Claver_Cartagena.JPG" class="img-circle" alt="Cinque Terre" width="150" height="150"> </td>
+                    <td><img src="http://versionfinal.com.ve/wp-content/uploads/2015/09/maracaibo.version-final.jpg" class="img-circle" alt="Cinque Terre" width="150" height="150"> </td>
+                    <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/SaltoAngel4.jpg/290px-SaltoAngel4.jpg" class="img-circle" alt="Cinque Terre" width="150" height="150"> </td>
+                </tr>
             </table>
         </div>
         <div id="menu2" class="tab-pane fade">
