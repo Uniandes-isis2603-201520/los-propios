@@ -5,12 +5,27 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.-->
 <title>Eventos</title>
     <div id="eventos">
+        <div><button type="submit">Agregar Elemento a Catalogo</button></div>
         <hr>
         <div id="divTabla">
             <table class = "tablaEyS">
                 <tr class = "trTE">
-                    <td class = "td1">Eventos <button class="btn pull-right" type="submit">Filtrar</button></th>
-                    <td class = "td1">Sitios de Interes<button class="btn pull-right" type="submit">Filtrar</button></th>
+                    <td class = "td1">Eventos
+                        <select class="filtro" name="OS">
+                            <option value="0">Filtrar eventos por:</option>
+                            <option value="1">Tipo</option>
+                            <option value="2">Ciudad</option>
+                            <option value="3">Precio</option>
+                        </select>
+                        <input class="buscadorCat" type="search" placeholder="¿Qué evento desea buscar?"></th>
+                    <td class = "td1">Sitios de Interes
+                        <select class="filtro" name="OS">
+                            <option value="0">Filtrar sitios por:</option>
+                            <option value="1">Tipo</option>
+                            <option value="2">Ciudad</option>
+                            <option value="3">Precio</option>
+                        </select>
+                        <input class="buscadorCat" type="search" placeholder="¿Qué sitio de interes busca?"></th>
                 </tr>
                 <tr class = "trTE">
                     <td class = "tdTE">
@@ -36,7 +51,7 @@ and open the template in the editor.-->
                                         <b>Precio:</b> £20
                                         <br>
                                         <br>
-                                        <button class="btn pull-left" type="submit">Agregar a Itinerario</button>
+                                        <button class="btn pull-left" type="submit">Editar elemento</button>
                                     </p>
                                 <td/>
                             </tr>
@@ -60,7 +75,7 @@ and open the template in the editor.-->
                                         <b>Precio: </b> Gratis
                                         <br>
                                         <br>
-                                         <button class="btn pull-left" type="submit">Agregar a Itinerario</button>
+                                         <button class="btn pull-left" type="submit">Editar elemento</button>
                                     </p>
                                 </td>
                             </tr>
@@ -91,7 +106,7 @@ and open the template in the editor.-->
                                         <b>Precio:</b> COP$35.000
                                         <br>
                                         <br>
-                                        <button class="btn pull-left" type="submit">Agregar a Itinerario</button>
+                                        <button class="btn pull-left" type="submit">Editar elemento</button>
 
                                     </p>
                                 <td/>
@@ -121,7 +136,7 @@ and open the template in the editor.-->
                                         <b>Precio: </b> Gratis
                                         <br>
                                         <br>
-                                        <button class="btn pull-left" type="submit">Agregar a Itinerario</button>
+                                        <button class="btn pull-left" type="submit">Editar elemento</button>
                                     </p>
                                 </td>
                             </tr>
@@ -158,7 +173,7 @@ and open the template in the editor.-->
                                         <b>Precio:</b> US$100
                                         <br>
                                         <br>
-                                        <button class="btn pull-left" type="submit">Agregar a Itinerario</button>
+                                        <button class="btn pull-left" type="submit">Editar elemento</button>
                                     </p>
                                 <td/>
                             </tr>
@@ -185,7 +200,7 @@ and open the template in the editor.-->
                                         <b>Precio: </b> €12
                                         <br>
                                         <br>
-                                        <button class="btn pull-left" type="submit">Agregar a Itinerario</button>
+                                        <button class="btn pull-left" type="submit">Editar elemento</button>
                                     </p>
                                 </td>
                             </tr>
