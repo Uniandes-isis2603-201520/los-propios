@@ -68,6 +68,5 @@
                         controllerAs: "ctrl",
                         templateUrl: "src/modules/about/about.tpl.html"
                     })
-
         }]);
 })(window.angular);
