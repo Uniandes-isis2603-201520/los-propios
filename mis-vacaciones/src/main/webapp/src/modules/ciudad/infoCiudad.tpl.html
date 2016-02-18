@@ -1,3 +1,18 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js"></script>
+
+<script type="text/javascript">
+    function initialize() {
+        var mapProp = {
+            center: new google.maps.LatLng(51.508742, -0.120850),
+            zoom: 5,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
 <div>
     <!-- Page Content -->
     <div class="container">
@@ -50,7 +65,7 @@
             <!-- /.col-md-4 -->
             <div class="col-md-4">
                 <h2>Mapa</h2>
-                <div id="googleMap" style="width:380px;height:300px;"></div>
+                <iframe src="https://www.google.com/maps/d/viewer?mid=z-SPDBJYQeFw.kH6UuC_oVMsE" width="350" height="480"></iframe>
             </div>
             <!-- /.col-md-4 -->
         </div>
@@ -64,9 +79,5 @@
 
      Bootstrap Core JavaScript
     <script src="js/bootstrap.min.js"></script>-->
-
-    <!-- Mapa -->
-<!--    <script src="https://maps.googleapis.com/maps/api/js?sensor=false&callback=initialize"></script>-->
-<script src="http://maps.googleapis.com/maps/api/js"></script>
 
 </div>
