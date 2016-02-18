@@ -10,52 +10,52 @@
             $stateProvider
                     .state('principal', {
                         url: '/principal',
-                        controller: "principalCtrl",
-                        controllerAs: "ctrl",
+                       /* controller: "principalCtrl",
+                        controllerAs: "ctrl",*/
                         templateUrl: "src/modules/principal/principal.tpl.html"
                     })
                     .state('evento', {
                         url: '/evento',
-                        controller: "eventoCtrl",
-                        controllerAs: "ctrl",
+                        /*controller: "eventoCtrl",
+                        controllerAs: "ctrl",*/
                         templateUrl: "src/modules/evento/evento.tpl.html"
                     })
                     .state('perfilUsuario', {
                         url: '/perfil',
-                        controller: "perfilUsuarioCtrl",
-                        controllerAs: "ctrl",
+                        /* controller: "perfilUsuarioCtrl",
+                        controllerAs: "ctrl",*/
                         templateUrl: "src/modules/perfilUsuario/perfilUsuario.html",
                     })
 
                     .state('ciudad', {
                         url: '/ciudad',
-                        controller: "ciudadCtrl",
-                        controllerAs: "ctrl",
+                        /*controller: "ciudadCtrl",
+                        controllerAs: "ctrl",*/
                         templateUrl: "src/modules/ciudad/ciudad.tpl.html"
                     })
                     .state('itinerario', {
                         url: '/itinerario',
-                        controller: "itinerarioCtrl",
-                        controllerAs: "ctrl",
+                       /* controller: "itinerarioCtrl",
+                        controllerAs: "ctrl",*/
                         templateUrl: "src/modules/itinerario/itinerario.html"
                     })
                     .state('foro', {
                         url: '/foro',
-                        controller: "foroCtrl",
-                        controllerAs: "ctrl",
+                       /* controller: "foroCtrl",
+                        controllerAs: "ctrl",*/
                         templateUrl: "src/modules/foro/foro.tpl.html"
                     })
                     .state('contacto', {
                         url: '/contacto',
-                        controller: "contactoCtrl",
-                        controllerAs: "ctrl",
+                       /* controller: "contactoCtrl",
+                        controllerAs: "ctrl",*/
                         templateUrl: "src/modules/contactenos/contactenos.tpl.html"
                     })
 
                     .state('infoCiudad', {
                         url: '/infoCiudad',
-                        controller: "infoCiudadCtrl",
-                        controllerAs: "ctrl",
+                       /* controller: "infoCiudadCtrl",
+                        controllerAs: "ctrl",*/
                         templateUrl: "src/modules/ciudad/infoCiudad.tpl.html"
                     })
                     .state('servicios', {
@@ -64,8 +64,8 @@
                     })
                     .state('about', {
                         url: '/about',
-                        controller: "aboutCtrl",
-                        controllerAs: "ctrl",
+                       /* controller: "aboutCtrl",
+                        controllerAs: "ctrl",*/
                         templateUrl: "src/modules/about/about.tpl.html"
                     })
         }]);
