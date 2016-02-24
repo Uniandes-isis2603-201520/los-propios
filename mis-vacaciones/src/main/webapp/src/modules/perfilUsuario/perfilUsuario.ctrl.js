@@ -11,21 +11,21 @@
 
             // TODO: define los atributos en el scope
             $scope.albumnes = [];
-            $scope.idPersona = "";
-            $scope.nombrePersona = "";
-            $scope.emailPersona = "";
+            $scope.idAlbum = "";
+            $scope.ciudad = "";
+            $scope.descripcion = "";
 
             // TODO: define funciones que son invocadas desde la pantalla
             // y que usan funciones definidas en el servicio
-            $scope.agregarPersona = function () {
-                var persona = [$scope.idPersona, $scope.nombrePersona, $scope.emailPersona];
-                svc.saveRecord(persona);
+            $scope.agregarAlbum = function () {
+                var album = [$scope.idAlbum, $scope.ciudad, $scope.descripcion];
+                svc.saveRecord(album);
             };
 
-            $scope.listarPersonas = function () {
+            $scope.listarAlbumes = function () {
                 return svc.fetchRecords().then(function (response)
                 {
-                    $scope.personas = response.data;
+                    $scope.albumnes = response.data;
                 })
             };
 

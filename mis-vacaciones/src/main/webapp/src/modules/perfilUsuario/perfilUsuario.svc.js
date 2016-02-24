@@ -26,14 +26,14 @@
             };
 
             /**
-             * Guardar un registro de persons.
-             * Si currentRecord tiene la propiedad id, hace un PUT a /persons/:id con los
-             * nuevos datos de la instancia de persons.
-             * Si currentRecord no tiene la propiedad id, se hace un POST a /persons
-             * para crear el nuevo registro de persons
-             * @param {object} currentRecord instancia de persons a guardar/actualizar
+             * Guardar un registro de un albumes.
+             * Si currentRecord tiene la propiedad id, hace un PUT a /perfilUsuario/:id con los
+             * nuevos datos de la instancia de albumes.
+             * Si currentRecord no tiene la propiedad id, se hace un POST a /albumes
+             * para crear el nuevo registro de albumes
+             * @param {object} currentRecord instancia de albumes a guardar/actualizar
              * @returns {promise} promise para leer la respuesta del servidor
-             * Devuelve un objeto de persons con sus datos incluyendo el id
+             * Devuelve un objeto de albumes con sus datos incluyendo el id
              */
             this.saveRecord = function (currentRecord) {
                 if (currentRecord.id) {
