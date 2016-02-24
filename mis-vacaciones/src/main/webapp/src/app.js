@@ -1,6 +1,8 @@
 (function (ng) {
     /* TODO Se debe declarar las dependencias a los módulos en el módulo principal de la aplicación.*/
-    var mod = ng.module("mainApp", ["ui.router"]);
+    var mod = ng.module("mainApp", ["ui.router",
+    "perfilUsuarioModule"
+    ]);
 
     mod.config(['$logProvider', function ($logProvider) {
             $logProvider.debugEnabled(true);
@@ -22,9 +24,9 @@
                     })
                     .state('perfilUsuario', {
                         url: '/perfil',
-                        /* controller: "perfilUsuarioCtrl",
-                        controllerAs: "ctrl",*/
-                        templateUrl: "src/modules/perfilUsuario/perfilUsuario.html",
+                        controller: "perfilUsuarioCtrl",
+                        controllerAs: "ctrl",
+                        templateUrl: "src/modules/perfilUsuario/perfilUsuario.html"
                     })
 
                     .state('ciudad', {

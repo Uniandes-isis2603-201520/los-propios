@@ -14,9 +14,8 @@
 <!-- Container (Menu) -->
 <ul class="nav nav-tabs bg-4">
     <li class="active"><a data-toggle="tab" href="perfil#sitio">Sitios Visitados</a></li>
-    <!--    <li><a data-toggle="tab">Foro</a></li>-->
-    <li><a data-toggle="tab" href="mis-vacaciones/#foro">Foro</a></li>
-    <li><a data-toggle="tab" href="mis-vacaciones/#itinerario">Mis itinerarios</a></li>
+    <li><a data-toggle="tab" href="perfil#agregarAlbum">Agregar un album</a></li>
+    <!--<li><a data-toggle="tab" href="mis-vacaciones/#itinerario">Mis itinerarios</a></li>-->
 </ul>
 <div class="tab-content">
     <div id="sitio" class="tab-pane fade in active">
@@ -54,26 +53,56 @@
         <button class="button" id="botonSitio">Agregar Sitio</button>
     </div>
 
-    <div id="itinerario" class="tabe-pane fade">
-        <h2>Itinerario</h2>
-        <p>Aquí podrás ver todos los itinerarios que estan relacionados con tu cuenta.</p>
-        <input name="boton" id="boton" type="button" value="Mis itinerarios" />
-    </div>
+    <div id="agregarAlbum" class="tabe-pane fade">
+        <h2>Crear un nuevo Album</h2>
+        <form class="form-horizontal" role="form">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Nombre Album:</label>
+                <div class="col-sm-10">
+                    <input type="text" ng-model="idAlbum">
+                </div>
+                <br>
+            </div>
 
-    <div id="foro" class="tabe-pane fade">
-        <a   class="button">Agregar Sitio</a>
-        <h2>Foro</h2>
-        <p>Los foros de discusión te permiten dejar tus comentarios hacer de los itinerarios o temas específicos del viaje.
-            Por ejemplo, en San Andres realizaste actividades que otros viajeros deberían hacer.
-            La comunidad podrá verlos y agregar las actividades mencionadas anteriormente a sus itinerarios.
-            Para participar sólo basta con dejar un comentario como estás apunto de hacerlo, y los miembros encontrarán una diversidad de posibilidades. </p>
-        <input name="botonDos" id="botonDos" type="button" value="Foro"  />
-        <br>
-        <br>
-    </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="sel1" >Seleccionar ciudad donde se creo el albúm:</label>
+                <div class="col-sm-10">
+                    <select class ="form-control" id="sel1">
+                        <option>Roma</option>
+                        <option>Paris</option>
+                        <option>Tunja</option>
+                    </select>
+                </div>
+                <div align="right"><input name="boton" id="boton" type="button" value="Más ciudades" class="btn btn-lg" ></div>
+                <br>
+            </div>
 
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="sel1" >Seleccionar Eventos</label>
+                <div class="col-sm-10">
+                    <select class ="form-control" id="sel1">
+                        <option>Stereo picnic</option>
+                        <option>Los comediantes de la noche</option>
+                        <option>Ultra music festival</option>
+                    </select>
+                </div>
+                <div align="right"><input name="botonDos" id="botonDos" type="button" value="Más Eventos" class="btn btn-lg" ></div>
+                <br>
+            </div>
+
+            <div align="right">
+                <label class="col-sm-2 control-label" for="sel1" >Seleccionar Fecha</label>
+                <iframe src="https://calendar.google.com/calendar/embed?src=55dq8f9bpgscp2cmkgd9lieo24%40group.calendar.google.com&ctz=America/Bogota" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+                <a target="_blank" href="https://calendar.google.com/calendar/event?action=TEMPLATE&amp;tmeid=ZGg1dnJsazR2MXJyMDNsajdocGRwNm0xMWsgbWNhbWloMkBt&amp;tmsrc=mcamih2%40gmail.com"><img border="0" src="https://www.google.com/calendar/images/ext/gc_button1_es.gif"></a>
+                <br>
+                <br>
+            </div>
+        </form>
+        <button ng-click="agregarAlbum()">Guardar Album</button>
+    </div>
 </div>
-<!--<div ui-view></div>-->
+
+
 <!-- Container (Redes sociales) -->
 
 <div class="container-fluid1 bg-5 text-center">
