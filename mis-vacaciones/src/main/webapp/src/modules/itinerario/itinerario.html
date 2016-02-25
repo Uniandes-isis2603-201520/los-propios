@@ -54,7 +54,7 @@
                     <h2>Mis itinerarios</h2>
                     <h4>Seleccione el itinerario que desea editar</h4>
 
-                    <!--div para busqueda-->
+                    div para busqueda
                     <div class="row">
                         <div class="container-fluid">
                             <div class="input-group">
@@ -78,7 +78,7 @@
                         </div>
 
                     </div>
-                    <!--finaliza div para busqueda-->
+                    finaliza div para busqueda
                 </div>
                 <br>
                 <div class="row">
@@ -88,7 +88,7 @@
                                 <h1>Viaje por America</h1>
                             </div>
                             <div>
-                                <!--mapa con las rutas-->
+                                mapa con las rutas
                                 <iframe src="https://www.google.com/maps/d/embed?mid=z-SPDBJYQeFw.kH6UuC_oVMsE" width="350" height="480"></iframe>
                             </div>
                             <div class="panel-body">
@@ -310,13 +310,13 @@
                 </div> <!-- cd-timeline-block -->
             </section> <!-- cd-timeline -->
         </div>
-        <div id="agregarAlbum" class="tabe-pane fade">
-        <h2>Crear un nuevo Album</h2>
+        <div id="itinerarioNuevo" class="tabe-pane fade">
+        <h2>Crear un nuevo itinerario</h2>
         <br>
         <br>
         <form class="form-horizontal" role="form">
             <div class="form-group">
-                <label class="col-sm-2 control-label" >Nombre Album:</label>
+                <label class="col-sm-2 control-label" >Nombre Itinerario:</label>
                 <div class="col-sm-10">
                     <input type="text" ng-model="idAlbum">
                 </div>
@@ -338,19 +338,6 @@
                 </div>
                 <br>
             </div>
-
-<!--            <div class="form-group">
-                <label class="col-sm-2 control-label" for="sel1" >Seleccionar ciudad donde se creo el albúm:</label>
-                <div class="col-sm-10">
-                    <select class ="form-control" id="sel1">
-                        <option>Roma</option>
-                        <option>Paris</option>
-                        <option>Tunja</option>
-                    </select>
-                </div>
-                <div align="right"><input name="boton" id="boton" type="button" value="Más ciudades" class="btn btn-lg" ></div>
-                <br>
-            </div>-->
         </form>
         <div align="center">
         <button ng-click="agregarAlbum()">Guardar Album</button>
