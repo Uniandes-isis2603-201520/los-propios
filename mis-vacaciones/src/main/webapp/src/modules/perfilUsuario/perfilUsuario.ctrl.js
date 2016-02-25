@@ -1,5 +1,5 @@
 // src/modules/perfilUsuario/perfilUsuario.ctrl.js
-// Controlador para el módulo de personas
+// Controlador para el módulo de perfil Usuario
 
 (function (ng) {
 
