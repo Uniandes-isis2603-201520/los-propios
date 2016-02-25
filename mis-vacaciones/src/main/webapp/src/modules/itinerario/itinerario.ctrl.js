@@ -16,7 +16,8 @@
 
             // TODO: define los atributos en el scope
             $scope.itinerarios = [];
-            $scope.idItinerario = "";
+            $scope.fechaInicio = "";
+            $scope.fechaFin = "";
             $scope.ciudad = "";
             $scope.descripcion = "";
 

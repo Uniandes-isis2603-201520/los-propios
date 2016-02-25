@@ -54,7 +54,6 @@
                     <h2>Mis itinerarios</h2>
                     <h4>Seleccione el itinerario que desea editar</h4>
 
-                    div para busqueda
                     <div class="row">
                         <div class="container-fluid">
                             <div class="input-group">
@@ -78,7 +77,6 @@
                         </div>
 
                     </div>
-                    finaliza div para busqueda
                 </div>
                 <br>
 
@@ -316,32 +314,40 @@
         <br>
         <form class="form-horizontal" role="form">
             <div class="form-group">
-                <label class="col-sm-2 control-label" >Nombre Itinerario:</label>
+                <label class="col-md-2 control-label" >Nombre Itinerario:</label>
                 <div class="col-sm-10">
-                    <input type="text" ng-model="idItinerario">
+                    <input type="text"class="form-control" ng-model="idItinerario">
                 </div>
                 <br>
             </div>
 
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Seleccionar ciudad donde se inicia el itinerario:</label>
-                <div class="col-sm-10">
-                    <input type="text" ng-model="ciudad">
+            <div class="form-group col-md-12" >
+                <label for="publishDate" class="col-md-2 control-label">Fecha inicio</label>
+                <div class="col-md-10">
+                    <p class="input-group">
+                        <input type="text" id="fechaInicio" name="fechaInicio" class="form-control" ng-model="currentRecord.fechaInicio" ng-required="model.required" datepicker-popup is-open="opened" />
+                        <span class="input-group-btn">
+                            <button type="button" id="fechaInicio-datepicker" class="btn btn-default" ng-click="open($event)"><span class="glyphicon glyphicon-calendar"></span></button>
+                        </span>
+                    </p>
                 </div>
-                <br>
             </div>
 
-             <div class="form-group">
-                <label class="col-sm-2 control-label">Dar información adicional:</label>
-                <div class="col-sm-10">
-                    <input type="text" ng-model="descripcion">
+             <div class="form-group col-md-12" >
+                <label for="fechaFin" class="col-md-2 control-label">Fecha fin</label>
+                <div class="col-md-10">
+                    <p class="input-group">
+                        <input type="text" id="fechaFin" name="fechaFin" class="form-control" ng-model="currentRecord.fechaFin" ng-required="model.required" datepicker-popup is-open="opened" />
+                        <span class="input-group-btn">
+                            <button type="button" id="fechaFin-datepicker" class="btn btn-default" ng-click="open($event)"><span class="glyphicon glyphicon-calendar"></span></button>
+                        </span>
+                    </p>
                 </div>
-                <br>
             </div>
         </form>
         <div align="center">
-        <button ng-click="agregarItinerario)">Guardar Itinerario</button>
-        <button ng-click="listarItinerarios()">Mostrar Itinerarios</button>
+        <button   class="btn btn-lg" ng-click="agregarItinerario();"  class="btn btn-lg">Guardar Itinerario</button>
+        <button  class="btn btn-lg" ng-click="listarItinerarios();  ">Mostrar Itinerarios</button>
         <p ng-repeat="i in itinerarios">{{i}}</p>
         <br>
         <br>
