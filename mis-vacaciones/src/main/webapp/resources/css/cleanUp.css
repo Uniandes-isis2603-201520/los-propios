@@ -10,6 +10,7 @@
 .social {
     position: fixed;
     top: 20%;
+    z-index: 50;
 }
 .social ul {
     padding: 0px;
@@ -22,7 +23,7 @@
 .social ul li {
     display: block;
     margin: 5px;
-    background: rgba(0, 0, 0, 0.36);
+    background: rgba(3, 103, 250, 0.36);
     width: 300px;
     text-align: right;
     padding: 10px;
@@ -41,7 +42,7 @@
     -ms-transform: translate(110px, 0);
     -o-transform: translate(110px, 0);
     transform: translate(110px, 0);
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(3, 103, 250, 0.4);
 }
 .social ul li:hover a {
     color: #000;
