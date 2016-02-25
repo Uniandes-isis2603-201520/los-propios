@@ -3,16 +3,16 @@
 (function (ng) {
 
     // define la aplicación con sus dependencias
-//    var mod = ng.module("mainApp", [
-//        "ui.router",
-//        "perfilUsuarioModule",
-//        "itinerarioModule",
-//        "ciudadModule",
-//        "perfilUsuarioMock",
-//        "ciudadMock",
-//        "itinerarioMock",
-//    ]);
-  var mod = ng.module("mainApp", ["ui.router"]);
+    var mod = ng.module("mainApp", [
+        "ui.router",
+        "perfilUsuarioModule",
+        "itinerarioModule",
+        "ciudadModule",
+        "perfilUsuarioMock",
+        "ciudadMock",
+        "itinerarioMock"
+    ]);
+  //var mod = ng.module("mainApp", ["ui.router", "perfilUsuarioModule"]);
 
     mod.config(['$logProvider', function ($logProvider) {
             $logProvider.debugEnabled(true);

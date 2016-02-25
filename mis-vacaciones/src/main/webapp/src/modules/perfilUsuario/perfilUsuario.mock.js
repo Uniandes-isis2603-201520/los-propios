@@ -20,7 +20,7 @@
             var records = [
                 {idAlbum: 48454,
                     ciudad: 'Bogota',
-                    descripcion: 'Vacaciones 2016'},
+                    descripcion: 'Vacaciones 2016'}
 
             ];
 

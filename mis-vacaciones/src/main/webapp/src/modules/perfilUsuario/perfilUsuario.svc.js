@@ -2,7 +2,7 @@
 
     var mod = ng.module("perfilUsuarioModule");
 
-    mod.service("perfilUsuarioService", ["$http", "personContext", function ($http, context) {
+    mod.service("perfilUsuarioService", ["$http", "perfilUsuarioContext", function ($http, context) {
             /**
              * Obtener la lista de albums.
              * Hace una petición GET con $http a /albums para obtener la lista
@@ -31,19 +31,17 @@
                 }
             };
 
-//            /**
-//             * Obtener un registro de persons.
-//             * Hace una petición GET a /persons/:id para obtener
-//             * los datos de un registro específico de persons
-//             * @param {number} id del registro a obtener
-//             * @returns {promise} promise para leer la respuesta del servidor
-//             * Devuelve un objeto de persons con sus atributos
-//             */
-//            this.fetchRecord = function (id) {
-//                return $http.get(context + "/" + id);
-//            };
-//
-//
+            /**
+             * Obtener un registro de persons.
+             * Hace una petición GET a /persons/:id para obtener
+             * los datos de un registro específico de persons
+             * @param {number} id del registro a obtener
+             * @returns {promise} promise para leer la respuesta del servidor
+             * Devuelve un objeto de persons con sus atributos
+             */
+            this.fetchRecord = function (id) {
+                return $http.get(context + "/" + id);
+            };
 
             /**
              * Hace una petición DELETE a /foto/:id para eliminar una foto
