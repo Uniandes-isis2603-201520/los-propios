@@ -6,9 +6,9 @@
 
 (function (ng) {
 
-    var mod = ng.module("perfilUsuarioModule");
+    var mod = ng.module("itinerarioModule");
 
-    mod.service("perfilUsuarioService", ["$http", "personContext", function ($http, context) {
+    mod.service("itinerarioService", ["$http", "personContext", function ($http, context) {
             /**
              * Obtener la lista de persons.
              * Hace una petición GET con $http a /persons para obtener la lista
