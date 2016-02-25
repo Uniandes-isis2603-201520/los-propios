@@ -6,11 +6,14 @@
     var mod = ng.module("mainApp", [
         "ui.router",
         "perfilUsuarioModule",
+        "perfilUsuarioMock"
+        /*
         "itinerarioModule",
         "ciudadModule",
         "perfilUsuarioMock",
         "ciudadMock",
         "itinerarioMock"
+        */
     ]);
   //var mod = ng.module("mainApp", ["ui.router", "perfilUsuarioModule"]);
 
@@ -32,7 +35,8 @@
                     })
                     .state('perfilUsuario', {
                         url: '/perfil',
-
+                        controller: "perfilUsuarioCtrl",
+                        controllerAs: "ctrl",
                         templateUrl: "src/modules/perfilUsuario/perfilUsuario.html"
                     })
 
