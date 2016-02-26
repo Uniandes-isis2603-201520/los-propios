@@ -15,7 +15,6 @@
         "itinerarioMock"
         */
     ]);
-  //var mod = ng.module("mainApp", ["ui.router", "perfilUsuarioModule"]);
 
     mod.config(['$logProvider', function ($logProvider) {
             $logProvider.debugEnabled(true);

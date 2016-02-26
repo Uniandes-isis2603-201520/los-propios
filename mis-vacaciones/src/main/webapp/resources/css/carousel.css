@@ -136,8 +136,6 @@ Version: 1.0
 /* ____________________________________________________________ */
 
 
-.carousel .slides .videoOverlay { background : url("http://www.jqueryscript.net/demo/Coverflow-Style-Image-Carousel-Plugin-For-jQuery-Carousel-Evolution/images/video.png") no-repeat center; /* play button */ }
-
 .carousel .slides .spinner { background : #000 url("http://www.jqueryscript.net/demo/Coverflow-Style-Image-Carousel-Plugin-For-jQuery-Carousel-Evolution/images/loading.gif") no-repeat center; /* video preloader */ }
 
 /* _____________________________ *
