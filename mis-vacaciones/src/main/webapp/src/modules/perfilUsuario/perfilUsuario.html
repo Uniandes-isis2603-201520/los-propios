@@ -57,18 +57,18 @@
         <h2>Crear un nuevo Album</h2>
         <br>
         <br>
-        <form class="form-horizontal" role="form">
-            <div class="form-group" align ="center">
-                <label>Nombre Album:</label>
-                <input type="text" ng-model="id">
+        <form role="form">
+            <div class="form-group" >
+                <label for="ex1">Nombre Album:</label>
+                <input class= "form-control" type="text" ng-model="id">
                 <br>
 
-                <label>Ciudad del albúm:</label>
-                <input type="text" ng-model="ciudad">
+                <label for="ex2">Ciudad del albúm:</label>
+                <input class= "form-control" type="text" ng-model="ciudad">
                 <br>
 
-                <label>Dar información adicional:</label>
-                <input type="text" ng-model="descripcion">
+                <label for="ex3">Dar información adicional:</label>
+                <input class= "form-control" type="text" ng-model="descripcion">
                 <br>
                 <br>
                 <br>
@@ -76,8 +76,11 @@
 
 
                 <button ng-click="listarAlbumes()">Mostrar albumes</button>
-                <h3>Lista Albumes </h3>
-                <p ng-repeat="a in albumnes">{{ a}}</p>
+                <div align="center">
+                    <h3>Lista Albumes </h3>
+                    <p ng-repeat="a in albumnes">{{ a}}</p>
+                </div>
+                <!--<p ng-repeat="a in albumnes">{{ a}}</p>-->
                 <!--                <ul>
                                     <li ng-repeat="a in albumnes">{{ a }} </li>
                                 </ul>-->
