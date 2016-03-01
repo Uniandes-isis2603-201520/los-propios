@@ -23,9 +23,12 @@
              * records: Array con un album por defecto
              */
             var records = [
-                {idAlbum: 48454,
-                    ciudad: 'Bogota',
-                    descripcion: 'Vacaciones 2016'},
+                {idItinerario: 48454,
+                    fechaInicio: '2016-01-22',
+                    fechaFin: '2016-01-26'},
+                {idItinerario: 252364,
+                    fechaInicio: '2014-01-01',
+                    fechaFin: '2015-01-01'}
 
             ];
 

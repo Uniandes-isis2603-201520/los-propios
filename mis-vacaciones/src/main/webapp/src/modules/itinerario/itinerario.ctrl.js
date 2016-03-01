@@ -18,13 +18,12 @@
             $scope.itinerarios = [];
             $scope.fechaInicio = "";
             $scope.fechaFin = "";
-            $scope.ciudad = "";
-            $scope.descripcion = "";
+            $scope.idItinerario = "";
 
             // TODO: define funciones que son invocadas desde la pantalla
             // y que usan funciones definidas en el servicio
             $scope.agregarItinerario = function () {
-                var itinerario = [$scope.idItinerario, $scope.ciudad, $scope.descripcion];
+                var itinerario = [$scope.idItinerario, $scope.fechaInicio, $scope.fechaFin];
                 svc.saveRecord(itinerario);
             };
 
@@ -32,7 +31,7 @@
                 return svc.fetchRecords().then(function (response)
                 {
                     $scope.itinerarios = response.data;
-                })
+                });
             };
 
         }]);
