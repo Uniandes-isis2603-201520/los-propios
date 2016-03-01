@@ -93,7 +93,7 @@
              */
             $httpBackend.whenPOST('api/itinerarios').respond(function (method, url, data) {
                 var record = ng.fromJson(data);
-                record.id = Math.floor(Math.random() * 10000);
+                record.idItinerario = Math.floor(Math.random() * 10000);
                 records.push(record);
                 return [201, record, {}];
             });
