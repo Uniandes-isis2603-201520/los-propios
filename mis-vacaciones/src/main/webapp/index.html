@@ -132,8 +132,8 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li class="dropdown">
-                                    <!----><a class="dropdown-toggle" data-toggle="dropdown" name="testing"> Iniciar Sesion <b class="caret"></b></a>
+                                <li>
+                                    <div ui-view="asd"></div><a class="dropdown-toggle" data-toggle="dropdown" name="testing"> Iniciar Sesion <b class="caret"></b></a>
                                     <ul class="dropdown-menu" id="formulario">
                                         <li>
                                             <h6>Usuario</h6>
@@ -149,7 +149,7 @@
                                         </li>
                                         <li>
                                             <br>
-                                            <input type ="button" value="Aceptar" onClick="clicked()">
+                                            <input type ="button" value="Aceptar" ui-sref="entrar">
                                         </li>
                                     </ul><!---->
                                 </li>
@@ -159,16 +159,8 @@
                     </div> <!-- /.container-fluid -->
                 </nav>
             </div>
-            <nav class="social">
-                <ul >
-                    <li ><a ui-sref="perfilUsuario">Mi perfil <i class="fa fa-user"></i></a></li>
-                    <li ><a ui-sref="itinerario">Mis itinerarios <i class="fa fa-plane"></i></a></li>
-                    <li><a ui-sref="foro">Acceso rápido foro <i class="fa fa-bookmark"></i></a></li>
-                    <li><a href="">Albumes<i class="fa fa-camera"></i></a></li>
-
-                </ul>
-            </nav>
-            <div ui-view></div>
+            <div ui-view="barraLateral"></div>
+            <div ui-view=""></div>
         </div>
     </body>
 </html>
