@@ -61,7 +61,7 @@
             <div class="form-group">
                 <label class="col-sm-2 control-label" >Nombre Album:</label>
                 <div class="col-sm-10">
-                    <input type="text" ng-model="idAlbum">
+                    <input type="text" ng-model="id">
                 </div>
                 <br>
             </div>
@@ -74,34 +74,36 @@
                 <br>
             </div>
 
-             <div class="form-group">
+            <div class="form-group">
                 <label class="col-sm-2 control-label">Dar información adicional:</label>
                 <div class="col-sm-10">
                     <input type="text" ng-model="descripcion">
                 </div>
                 <br>
             </div>
-
-<!--            <div class="form-group">
-                <label class="col-sm-2 control-label" for="sel1" >Seleccionar ciudad donde se creo el albúm:</label>
-                <div class="col-sm-10">
-                    <select class ="form-control" id="sel1">
-                        <option>Roma</option>
-                        <option>Paris</option>
-                        <option>Tunja</option>
-                    </select>
-                </div>
-                <div align="right"><input name="boton" id="boton" type="button" value="Más ciudades" class="btn btn-lg" ></div>
-                <br>
-            </div>-->
+            <!--            <div class="form-group">
+                            <label class="col-sm-2 control-label" for="sel1" >Seleccionar ciudad donde se creo el albúm:</label>
+                            <div class="col-sm-10">
+                                <select class ="form-control" id="sel1">
+                                    <option>Roma</option>
+                                    <option>Paris</option>
+                                    <option>Tunja</option>
+                                </select>
+                            </div>
+                            <div align="right"><input name="boton" id="boton" type="button" value="Más ciudades" class="btn btn-lg" ></div>
+                            <br>
+                        </div>-->
+            <div align="center">
+                <button ng-click="agregarAlbum()">Guardar Album</button>
+                <h2>Albumes </h2>
+                <button ng-click="listarAlbumes()">Mostrar albumes</button>
+                <p>hola</p>
+<!--                <p ng-bind="a in albumnes">{{a}}</p>-->
+                <p ng-repeat="a in albumnes">{{ a }}</p>
+                 <p>hola2</p>
+            </div>
         </form>
-        <div align="center">
-        <button ng-click="agregarAlbum()">Guardar Album</button>
-        <button ng-click="listarAlbumes()">Mostrar albumes</button>
-        <p ng-repeat="p in albumnes">{{p}}</p>
-        <br>
-        <br>
-        </div>
+
     </div>
 </div>
 

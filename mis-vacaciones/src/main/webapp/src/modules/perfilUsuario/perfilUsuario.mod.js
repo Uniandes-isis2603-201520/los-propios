@@ -4,8 +4,12 @@
  * and open the template in the editor.
  */
 (function (ng) {
+     // define el módulo "pefilUsuarioModule" con dependencia a ui.bootstrap
     var mod = ng.module("perfilUsuarioModule", ["ui.bootstrap"]);
-    mod.constant("perfilUsuarioContext", "api/Mis-vacaciones");
+
+      // define una constante usada por el servicio y el mock del servicio
+    mod.constant("perfilUsuarioContext", "api/albumnes");
+
 
 })(window.angular);
 

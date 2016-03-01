@@ -9,18 +9,21 @@
              * @type RegExp
              * recordUrl acepta cualquier url con el formato
              * api/(cualquierpalabra)/(numero)
-             * ej: api/books/1
+             * ej: api/albumnes/1
              */
-            var recordUrl = new RegExp('api/albumes/([0-9]+)');
+            var recordUrl = new RegExp('api/perfilUsuario/([0-9]+)');
 
             /*
              * @type Array
              * records: Array con un album por defecto
              */
             var records = [
-                {idAlbum: 48454,
+                {id: 48454,
                     ciudad: 'Bogota',
-                    descripcion: 'Vacaciones 2016'}
+                    descripcion: 'Vacaciones 2016'},
+                {id: 25759,
+                    ciudad: 'Bogota',
+                    descripcion: 'Vacaciones 2014'}
 
             ];
 
@@ -46,7 +49,7 @@
              * se realiza la simulacion de la paginacion.
              * Response: 200 -> Status ok, array de libros y los headers.
              */
-            $httpBackend.whenGET('api/books').respond(function (method, url) {
+            $httpBackend.whenGET('api/albumnes').respond(function (method, url) {
                 var queryParams = getQueryParams(url);
                 var responseObj = [];
                 var page = queryParams.page;
@@ -84,7 +87,7 @@
              * array de records.
              * Response: 201 -> Status created, record -> libro y ningún header.
              */
-            $httpBackend.whenPOST('api/books').respond(function (method, url, data) {
+            $httpBackend.whenPOST('api/albumnes').respond(function (method, url, data) {
                 var record = ng.fromJson(data);
                 record.id = Math.floor(Math.random() * 10000);
                 records.push(record);

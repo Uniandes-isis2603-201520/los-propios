@@ -11,14 +11,14 @@
 
             // TODO: define los atributos en el scope
             $scope.albumnes = [];
-            $scope.idAlbum = "";
+            $scope.id = "";
             $scope.ciudad = "";
             $scope.descripcion = "";
 
             // TODO: define funciones que son invocadas desde la pantalla
             // y que usan funciones definidas en el servicio
             $scope.agregarAlbum = function () {
-                var album = [$scope.idAlbum, $scope.ciudad, $scope.descripcion];
+                var album = [$scope.id, $scope.ciudad, $scope.descripcion];
                 svc.saveRecord(album);
             };
 
@@ -26,7 +26,7 @@
                 return svc.fetchRecords().then(function (response)
                 {
                     $scope.albumnes = response.data;
-                })
+                });
             };
 
         }]);
