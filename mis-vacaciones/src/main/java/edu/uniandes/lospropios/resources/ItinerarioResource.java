@@ -24,7 +24,7 @@ import javax.ws.rs.Produces;
 
 
 /**
- * Clase que implementa el recurso REST correspondiente a "cities".
+ * Clase que implementa el recurso REST correspondiente a "itinerario".
  *
  * Note que la aplicación (definida en RestConfig.java) define la ruta
  * "/api" y este recurso tiene la ruta "cities".
@@ -33,7 +33,7 @@ import javax.ws.rs.Produces;
  *
  * @author Asistente
  */
-@Path("itinerrios")
+@Path("itinerario")
 @Produces("application/json")
 @RequestScoped
 public class ItinerarioResource {
@@ -52,7 +52,7 @@ public class ItinerarioResource {
 
     return 5;
     }
- 
+
     /**
      * Obtiene una ciudad
      * @param id identificador de la ciudad
