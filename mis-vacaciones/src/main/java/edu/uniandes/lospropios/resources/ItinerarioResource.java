@@ -22,6 +22,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
+
 /**
  * Clase que implementa el recurso REST correspondiente a "cities".
  *
@@ -32,11 +33,11 @@ import javax.ws.rs.Produces;
  *
  * @author Asistente
  */
-//@Path("itinerrios")
-//@Produces("application/json")
-//@RequestScoped
-//public class ItinerarioResource {
-//
+@Path("itinerrios")
+@Produces("application/json")
+@RequestScoped
+public class ItinerarioResource {
+
 //	@Inject
 //	CityLogicMock cityLogic;
 
@@ -45,11 +46,13 @@ import javax.ws.rs.Produces;
 	 * @return lista de ciudades
 	 * @throws CityLogicException excepción retornada por la lógica
 	 */
-//    @GET
-//    public List<CityDTO> getCities() throws CityLogicException {
-//        return cityLogic.getCities();
-//    }
+    @GET
+    public int getItinerario()
+    {
 
+    return 5;
+    }
+ 
     /**
      * Obtiene una ciudad
      * @param id identificador de la ciudad
@@ -97,4 +100,4 @@ import javax.ws.rs.Produces;
 //    	cityLogic.deleteCity(id);
 //    }
 
-//}
+}
