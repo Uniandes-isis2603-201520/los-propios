@@ -23,26 +23,26 @@
              * records: Array con un libro por defecto
              */
             var records = [
-                {name: 'Roma',
-                    country: 'Italia',
-                    sites: '10',
-                    events: '10'},
-                {name: 'Paris',
-                    country: 'Francia',
-                    sites: '10',
-                    events: '10'},
-                {name: 'Berlín',
-                    country: 'Alemania',
-                    sites: '10',
-                    events: '10'},
-                {name: 'Madrid',
-                    country: 'España',
-                    sites: '10',
-                    events: '10'},
-                {name: 'Londres',
-                    country: 'Inglaterra',
-                    sites: '10',
-                    events: '10'}
+                {nombreCiudad: 'Roma',
+                    paisCiudad: 'Italia',
+                    sitiosCiudad: '10',
+                    eventosCiudad: '10'},
+                {nombreCiudad: 'Paris',
+                    paisCiudad: 'Francia',
+                    sitiosCiudad: '10',
+                    eventosCiudad: '10'},
+                {nombreCiudad: 'Berlín',
+                    paisCiudad: 'Alemania',
+                    sitiosCiudad: '10',
+                    eventosCiudad: '10'},
+                {nombreCiudad: 'Madrid',
+                    paisCiudad: 'España',
+                    sitiosCiudad: '10',
+                    eventosCiudad: '10'},
+                {nombreCiudad: 'Londres',
+                    paisCiudad: 'Inglaterra',
+                    sitiosCiudad: '10',
+                    eventosCiudad: '10'}
             ];
 
             function getQueryParams(url) {

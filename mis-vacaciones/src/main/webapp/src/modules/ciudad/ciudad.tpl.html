@@ -47,12 +47,14 @@
                 </tr>
             </tbody>
         </table>
+        <div ng-repeat="record in records">
         <div class="col-md-4 col-sm-6 col-lg-3 well">
             <div class="caption" >
-                <p><strong>Ciudad:</strong> <span id="{{$index}}-name">{{record.name}}</span></p>
-                <p><strong>Pais:</strong> <span id="{{$index}}-country">{{record.country}}</span></p>
-                <p><strong>Sitios de interés:</strong> <span id="{{$index}}-sites">{{record.sites}}</span></p>
-                <p><strong>Eventos:</strong> <span id="{{$index}}-events">{{record.events}}</span></p>
+                <p><strong>Ciudad:</strong> <span id="{{$index}}-nombreCiudad">{{record.nombreCiudad}}</span></p>
+                <p><strong>Pais:</strong> <span id="{{$index}}-paisCiudad">{{record.paisCiudad}}</span></p>
+                <p><strong>Sitios de interés:</strong> <span id="{{$index}}-sitiosCiudad">{{record.sitiosCiudad}}</span></p>
+                <p><strong>Eventos:</strong> <span id="{{$index}}-eventosCiudad">{{record.eventosCiudad}}</span></p>
             </div>
+        </div>
         </div>
     </div>
