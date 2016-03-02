@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.uniandes.lospropios.itinerarios.resources;
+package edu.uniandes.lospropios.resources;
 
 //import Source.Packages.edu.uniandes.lospropios.dtos.CityDTO;
 //import edu.uniandes.lospropios.exceptions.CityLogicException;
