@@ -5,9 +5,9 @@
  */
 package edu.uniandes.lospropios.itinerarios.resources;
 
-import edu.uniandes.lospropios.dtos.CityDTO;
-import edu.uniandes.lospropios.exceptions.CityLogicException;
-import edu.uniandes.lospropios.mocks.CityLogicMock;
+//import Source.Packages.edu.uniandes.lospropios.dtos.CityDTO;
+//import edu.uniandes.lospropios.exceptions.CityLogicException;
+//import edu.uniandes.lospropios.mocks.CityLogicMock;
 
 import java.util.List;
 
@@ -32,23 +32,23 @@ import javax.ws.rs.Produces;
  *
  * @author Asistente
  */
-@Path("itinerrios")
-@Produces("application/json")
-@RequestScoped
-public class ItinerarioResource {
-
-	@Inject
-	CityLogicMock cityLogic;
+//@Path("itinerrios")
+//@Produces("application/json")
+//@RequestScoped
+//public class ItinerarioResource {
+//
+//	@Inject
+//	CityLogicMock cityLogic;
 
 	/**
 	 * Obtiene el listado de personas.
 	 * @return lista de ciudades
 	 * @throws CityLogicException excepción retornada por la lógica
 	 */
-    @GET
-    public List<CityDTO> getCities() throws CityLogicException {
-        return cityLogic.getCities();
-    }
+//    @GET
+//    public List<CityDTO> getCities() throws CityLogicException {
+//        return cityLogic.getCities();
+//    }
 
     /**
      * Obtiene una ciudad
@@ -56,11 +56,11 @@ public class ItinerarioResource {
      * @return ciudad encontrada
      * @throws CityLogicException cuando la ciudad no existe
      */
-    @GET
-    @Path("{id: \\d+}")
-    public CityDTO getCity(@PathParam("id") Long id) throws CityLogicException {
-        return cityLogic.getCity(id);
-    }
+//    @GET
+//    @Path("{id: \\d+}")
+//    public CityDTO getCity(@PathParam("id") Long id) throws CityLogicException {
+//        return cityLogic.getCity(id);
+//    }
 
     /**
      * Agrega una ciudad
@@ -68,10 +68,10 @@ public class ItinerarioResource {
      * @return datos de la ciudad a agregar
      * @throws CityLogicException cuando ya existe una ciudad con el id suministrado
      */
-    @POST
-    public CityDTO createCity(CityDTO city) throws CityLogicException {
-        return cityLogic.createCity(city);
-    }
+//    @POST
+//    public CityDTO createCity(CityDTO city) throws CityLogicException {
+//        return cityLogic.createCity(city);
+//    }
 
     /**
      * Actualiza los datos de una ciudad
@@ -80,21 +80,21 @@ public class ItinerarioResource {
      * @return datos de la ciudad modificada
      * @throws CityLogicException cuando no existe una ciudad con el id suministrado
      */
-    @PUT
-    @Path("{id: \\d+}")
-    public CityDTO updateCity(@PathParam("id") Long id, CityDTO city) throws CityLogicException {
-        return cityLogic.updateCity(id, city);
-    }
+//    @PUT
+//    @Path("{id: \\d+}")
+//    public CityDTO updateCity(@PathParam("id") Long id, CityDTO city) throws CityLogicException {
+//        return cityLogic.updateCity(id, city);
+//    }
 
     /**
      * Elimina los datos de una ciudad
      * @param id identificador de la ciudad a eliminar
      * @throws CityLogicException cuando no existe una ciudad con el id suministrado
      */
-    @DELETE
-    @Path("{id: \\d+}")
-    public void deleteCity(@PathParam("id") Long id) throws CityLogicException {
-    	cityLogic.deleteCity(id);
-    }
+//    @DELETE
+//    @Path("{id: \\d+}")
+//    public void deleteCity(@PathParam("id") Long id) throws CityLogicException {
+//    	cityLogic.deleteCity(id);
+//    }
 
-}
+//}

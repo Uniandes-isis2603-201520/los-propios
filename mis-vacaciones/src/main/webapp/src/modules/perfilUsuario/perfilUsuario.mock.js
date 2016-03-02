@@ -11,7 +11,7 @@
              * api/(cualquierpalabra)/(numero)
              * ej: api/albumnes/1
              */
-            var recordUrl = new RegExp('api/perfilUsuario/([0-9]+)');
+            var recordUrl = new RegExp('api/albumnes/([0-9]+)');
 
             /*
              * @type Array
