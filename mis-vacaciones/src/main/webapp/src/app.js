@@ -66,7 +66,7 @@
                                 '': {
                                     controller: "itinerarioCtrl",
                                     controllerAs: "ctrl",
-                                    templateUrl: "src/modules/itinerario/itinerario.html"
+                                    templateUrl: "src/modules/itinerario/itinerario.tpl.html"
                                 },
                                 'barraLateral': {templateUrl: "src/modules/principal/prueba.tpl.html"}
                             }
@@ -150,7 +150,7 @@
                             url: '/itinerario',
                             controller: "itinerarioCtrl",
                             controllerAs: "ctrl",
-                            templateUrl: "src/modules/itinerario/itinerario.html"
+                            templateUrl: "src/modules/itinerario/itinerario.tpl.html"
                         })
                         .state('foro', {
                             url: '/foro',
