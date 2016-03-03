@@ -8,10 +8,10 @@
 
     var mod = ng.module("itinerarioModule");
 
-    mod.service("itinerarioService", ["$http", "personContext", function ($http, context) {
+    mod.service("itinerarioService", ["$http", "itinerarioContext", function ($http, context) {
             /**
-             * Obtener la lista de persons.
-             * Hace una petición GET con $http a /persons para obtener la lista
+             * Obtener la lista de itinerarios.
+             * Hace una petición GET con $http a /itinerarios para obtener la lista
              * @returns {promise} promise para leer la respuesta del servidor}
              * Devuelve una lista de objetos de persons con sus atributos
              */
