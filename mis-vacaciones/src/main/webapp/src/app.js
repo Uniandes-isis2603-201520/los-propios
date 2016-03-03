@@ -7,6 +7,7 @@
         "ui.router",
         "perfilUsuarioModule",
         "perfilUsuarioMock"
+
                 /*
                  "itinerarioModule",
                  "ciudadModule",
@@ -36,7 +37,10 @@
                         .state('evento', {
                             url: '/evento',
                             views: {
-                                '': {templateUrl: "src/modules/evento/evento.tpl.html"},
+                                '': {
+                                    controller: "eventoCtrl",
+                                    controllerAs: "ctrl",
+                                    templateUrl: "src/modules/evento/evento.tpl.html"},
                                 'barraLateral': {templateUrl: "src/modules/principal/prueba.tpl.html"}
                             }
                         })
@@ -127,7 +131,9 @@
                         })
                         .state('evento', {
                             url: '/evento',
-                            templateUrl: "src/modules/evento/evento.tpl.html"
+                            templateUrl: "src/modules/evento/evento.tpl.html",
+                            controller: "eventoCtrl",
+                            controllerAs: "ctrl",
                         })
                         .state('perfilUsuario', {
                             url: '/perfil',

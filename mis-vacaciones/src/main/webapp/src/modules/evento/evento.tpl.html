@@ -5,6 +5,7 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.-->
 <title>Eventos</title>
     <div id="eventos">
+        <button type="submit" ng-click="ctrl.listarEventos()"></button>
         <table id="catalogo">
             <tr>
                 <td>
@@ -18,24 +19,24 @@ and open the template in the editor.-->
             <tr>
             <!--Columna del catalogo que contiene los eventos-->
             <td id="eventos">
-                <div ng-repeat="record in records | filter:{clasificacion: 'evento'}">
+                <div ng-repeat="evento in eventos | filter:{clasificacion: 'evento'}">
                     <div class="col-md-4 col-sm-6 col-lg-3 well">
                         <div class="col-md-12">
-                            <div class="img-thumbnail" id="image" ng-if="record.img">
-                                <a ng-href="{{record.img}}" target="_blank"><img class="img-responsive" style="height: 20vmax;" ng-src="{{record.img}}" alt="{{record.img}}"></a>
+                            <div class="img-thumbnail" id="image" ng-if="evento.img">
+                                <a ng-href="{{evento.img}}" target="_blank"><img class="img-responsive" style="height: 20vmax;" ng-src="{{evento.img}}" alt="{{evento.img}}"></a>
                             </div>
                         </div>
                         <div class="caption">
-                            <p><strong>Nombre:</strong> <span id="{{$index}}-nombre">{{record.nombre}}</span></p>
-                            <p><strong>Descripción:</strong> <span id="{{$index}}-descripcion">{{record.descripcion}}</span></p>
-                            <p><strong>Tipo:</strong> <span id="{{$index}}-isbn">{{record.tipo}}</span></p>
-                            <p><strong>Lugar/Dirección:</strong> <span id="{{$index}}-lugar">{{record.lugar}}</span></p>
-                            <p><strong>Fecha:</strong> <span id="{{$index}}-fecha">{{record.fecha}}</span></p>
-                            <p><strong>Precio:</strong> <span id="{{$index}}-precio">{{record.precio}}</span></p>
+                            <p><strong>Nombre:</strong> <span>{{evento.nombre}}</span></p>
+                            <p><strong>Descripción:</strong> <span>{{evento.descripcion}}</span></p>
+                            <p><strong>Tipo:</strong> <span >{{evento.tipo}}</span></p>
+                            <p><strong>Lugar/Dirección:</strong> <span>{{evento.lugar}}</span></p>
+                            <p><strong>Fecha:</strong> <span>{{evento.fecha}}</span></p>
+                            <p><strong>Precio:</strong> <span>{{evento.precio}}</span></p>
                         </div>
                         <p class="text-center">
-                            <button id="{{$index}}-edit-btn" class="btn btn-default btn-sm" ng-click="ctrl.editRecord(record)"><span class="glyphicon glyphicon-edit"></span> Editar</button>
-                            <button id="{{$index}}-delete-btn" class="btn btn-default btn-sm" ng-click="ctrl.deleteRecord(record)"><span class="glyphicon glyphicon-minus"></span> Remover</button>
+                            <button class="btn btn-default btn-sm"><span class="glyphicon glyphicon-edit"></span> Editar</button>
+                            <button class="btn btn-default btn-sm"><span class="glyphicon glyphicon-minus"></span> Remover</button>
                         </p>
                     </div>
                 </div>
@@ -43,23 +44,23 @@ and open the template in the editor.-->
             <!--Columna del catalogo que contiene los sitios de interes-->
             <td id ="sitios">
                 <div>
-                    <div ng-repeat="record in records | filter:{clasificacion: 'sitio'}">
+                    <div ng-repeat="evento in eventos | filter:{clasificacion: 'sitio'}">
                     <div class="col-md-4 col-sm-6 col-lg-3 well">
                         <div class="col-md-12">
-                            <div class="img-thumbnail" id="image" ng-if="record.img">
-                                <a ng-href="{{record.img}}" target="_blank"><img class="img-responsive" style="height: 20vmax;" ng-src="{{record.img}}" alt="{{record.img}}"></a>
+                            <div class="img-thumbnail" id="image" ng-if="evento.img">
+                                <a ng-href="{{evento.img}}" target="_blank"><img class="img-responsive" style="height: 20vmax;" ng-src="{{evento.img}}" alt="{{evento.img}}"></a>
                             </div>
                         </div>
                         <div class="caption">
-                            <p><strong>Nombre:</strong> <span id="{{$index}}-nombre">{{record.nombre}}</span></p>
-                            <p><strong>Descripción:</strong> <span id="{{$index}}-descripcion">{{record.descripcion}}</span></p>
-                            <p><strong>Tipo:</strong> <span id="{{$index}}-isbn">{{record.tipo}}</span></p>
-                            <p><strong>Lugar/Dirección:</strong> <span id="{{$index}}-lugar">{{record.tipo}}</span></p>
-                            <p><strong>Precio:</strong> <span id="{{$index}}-precio">{{record.precio}}</span></p>
+                            <p><strong>Nombre:</strong> <span>{{evento.nombre}}</span></p>
+                            <p><strong>Descripción:</strong> <span>{{evento.descripcion}}</span></p>
+                            <p><strong>Tipo:</strong> <span>{{evento.tipo}}</span></p>
+                            <p><strong>Lugar/Dirección:</strong> <span>{{evento.tipo}}</span></p>
+                            <p><strong>Precio:</strong> <span>{{evento.precio}}</span></p>
                         </div>
                         <p class="text-center">
-                            <button id="{{$index}}-edit-btn" class="btn btn-default btn-sm" ng-click="ctrl.editRecord(record)"><span class="glyphicon glyphicon-edit"></span> Editar</button>
-                            <button id="{{$index}}-delete-btn" class="btn btn-default btn-sm" ng-click="ctrl.deleteRecord(record)"><span class="glyphicon glyphicon-minus"></span> Remover</button>
+                            <button class="btn btn-default btn-sm"><span class="glyphicon glyphicon-edit"></span> Editar</button>
+                            <button class="btn btn-default btn-sm"><span class="glyphicon glyphicon-minus"></span> Remover</button>
                         </p>
                     </div>
                 </div>
