@@ -11,6 +11,8 @@ import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import edu.uniandes.lospropios.resources.dtos.CiudadDTO;
+import edu.uniandes.lospropios.resources.exceptions.CiudadLogicException;
 /**
  *
  * @author s.trujillo10
