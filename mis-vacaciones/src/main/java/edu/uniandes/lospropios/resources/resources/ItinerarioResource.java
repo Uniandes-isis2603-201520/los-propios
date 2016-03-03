@@ -54,50 +54,50 @@ public class ItinerarioResource {
     }
 
     /**
-     * Obtiene una ciudad
-     * @param id identificador de la ciudad
-     * @return ciudad encontrada
-     * @throws CityLogicException cuando la ciudad no existe
+     * Obtiene un itinerario
+     * @param id identificador del itinerario
+     * @return itinerario encontrada
+     * @throws ItinerarioException cuando la ciudad no existe
      */
 //    @GET
 //    @Path("{id: \\d+}")
-//    public CityDTO getCity(@PathParam("id") Long id) throws CityLogicException {
-//        return cityLogic.getCity(id);
-//    }
+//    public ItinerarioDTO getItinerario(@PathParam("id") Long id) throws ItinerarioLogicException {
+////        return cityLogic.getCity(id);
+//   }
 
     /**
-     * Agrega una ciudad
-     * @param city ciudad a agregar
-     * @return datos de la ciudad a agregar
-     * @throws CityLogicException cuando ya existe una ciudad con el id suministrado
+     * Agrega un itinerario
+     * @param itinerario itinerario a agregar
+     * @return datos del itinerario a agregar
+     * @throws ItinerioLogicException cuando ya existe un itinerario con el id suministrado
      */
 //    @POST
-//    public CityDTO createCity(CityDTO city) throws CityLogicException {
-//        return cityLogic.createCity(city);
+//    public ItinerarioDTO createItinerario(ItinerarioDTO itinerario) throws ItinerarioLogicException {
+//        return itinerarioLogic.createItinerario(itinerario);
 //    }
 
     /**
-     * Actualiza los datos de una ciudad
-     * @param id identificador de la ciudad a modificar
-     * @param city ciudad a modificar
-     * @return datos de la ciudad modificada
-     * @throws CityLogicException cuando no existe una ciudad con el id suministrado
+     * Actualiza los datos de un itinerario
+     * @param id identificador del itinerario a modificar
+     * @param itinerario itinerario a modificar
+     * @return datos del itinierario modificado
+     * @throws ItinerarioLogicException cuando no existe un itinerario con el id suministrado
      */
 //    @PUT
 //    @Path("{id: \\d+}")
-//    public CityDTO updateCity(@PathParam("id") Long id, CityDTO city) throws CityLogicException {
-//        return cityLogic.updateCity(id, city);
+//    public ItinerarioDTO updateItinerario(@PathParam("id") Long id, ItinerarioDTO itinerario) throws ItinerarioLogicException {
+//        return itinerarioLogic.updateCity(id, city);
 //    }
 
     /**
-     * Elimina los datos de una ciudad
-     * @param id identificador de la ciudad a eliminar
-     * @throws CityLogicException cuando no existe una ciudad con el id suministrado
+     * Elimina los datos de un itinerario
+     * @param id identificador del itinerario a eliminar
+     * @throws ItinerarioLogicException cuando no existe un itinerario con el id suministrado
      */
 //    @DELETE
 //    @Path("{id: \\d+}")
-//    public void deleteCity(@PathParam("id") Long id) throws CityLogicException {
-//    	cityLogic.deleteCity(id);
+//    public void deleteItinerario(@PathParam("id") Long id) throws ItinerarioLogicException {
+//    	itinerarioLogic.deleteItinerario(id);
 //    }
 
 }

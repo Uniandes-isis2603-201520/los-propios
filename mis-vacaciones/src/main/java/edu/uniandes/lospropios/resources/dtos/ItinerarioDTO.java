@@ -12,14 +12,22 @@ import java.util.Date;
  * @author josedanielcardenasrincon
  */
 public class ItinerarioDTO {
-    
+
     private Long id;
-    private Date fechaInicio;
-    private Date fechaFin;
+    private String fechaInicio;
+    private String fechaFin;
 
     public ItinerarioDTO() {
     }
-    
+
+    public ItinerarioDTO(Long id, String fechaInicio, String fechaFin) {
+        super();
+        this.id = id;
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
+
+    }
+
     public Long getId() {
         return id;
     }
@@ -28,22 +36,20 @@ public class ItinerarioDTO {
         this.id = id;
     }
 
-    public Date getFechaInicio() {
+    public String getFechaInicio() {
         return fechaInicio;
     }
 
-    public void setFechaInicio(Date fechaInicio) {
+    public void setFechaInicio(String fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
 
-    public Date getFechaFin() {
+    public String getFechaFin() {
         return fechaFin;
     }
 
-    public void setFechaFin(Date fechaFin) {
+    public void setFechaFin(String fechaFin) {
         this.fechaFin = fechaFin;
     }
-    
-    
-    
+
 }
