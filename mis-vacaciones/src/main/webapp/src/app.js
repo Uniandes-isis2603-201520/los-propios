@@ -6,15 +6,11 @@
     var mod = ng.module("mainApp", [
         "ui.router",
         "perfilUsuarioModule",
-        "perfilUsuarioMock"
-
-                /*
-                 "itinerarioModule",
-                 "ciudadModule",
-                 "perfilUsuarioMock",
-                 "ciudadMock",
-                 "itinerarioMock"
-                 */
+        "perfilUsuarioMock",
+        "eventoModule",
+        "eventoMock",
+        "itinerarioModule",
+        "itinerarioMock"
     ]);
 
     var sesion = true;
@@ -144,10 +140,14 @@
 
                         .state('ciudad', {
                             url: '/ciudad',
+                            controller: "eventoCtrl",
+                            controllerAs: "ctrl",
                             templateUrl: "src/modules/ciudad/ciudad.tpl.html"
                         })
                         .state('itinerario', {
                             url: '/itinerario',
+                            controller: "itinerarioCtrl",
+                            controllerAs: "ctrl",
                             templateUrl: "src/modules/itinerario/itinerario.html"
                         })
                         .state('foro', {

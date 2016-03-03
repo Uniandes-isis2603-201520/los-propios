@@ -4,8 +4,6 @@
  * and open the template in the editor.
  */
 
-
-
 (function (ng) {
 
     // es parte del módulo "personModule"
