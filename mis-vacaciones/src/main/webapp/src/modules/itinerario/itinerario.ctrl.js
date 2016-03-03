@@ -6,7 +6,7 @@
 
 (function (ng) {
 
-    // es parte del módulo "personModule"
+    // es parte del módulo "itinerarioModule"
     var mod = ng.module("itinerarioModule");
 
     // crea el controlador con dependencias a $scope y a personService
