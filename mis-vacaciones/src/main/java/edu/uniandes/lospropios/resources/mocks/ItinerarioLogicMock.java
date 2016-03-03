@@ -30,7 +30,7 @@ public class ItinerarioLogicMock {
 
     private final static Logger logger = Logger.getLogger(ItinerarioLogicMock.class.getName());
 
-    // listado de ciudades
+    // listado de itinerarios
     private static ArrayList<ItinerarioDTO> itinerarios;
 
     /**
@@ -65,60 +65,60 @@ public class ItinerarioLogicMock {
             throw new ItinerarioLogicException("Error interno: lista de itinerarios no existe.");
         }
 
-        logger.info("retornando todas las ciudades");
+        logger.info("retornando todas las itinerarios");
         return itinerarios;
     }
 
     /**
      * Obtiene un itinerario
      *
-     * @param id identificador de la ciudad
-     * @return ciudad encontrada
-     * @throws CityLogicException cuando la ciudad no existe
+     * @param id identificador de el itinerario
+     * @return itinerario encontrada
+     * @throws ItinerarioLogicException cuando el itinerario no existe
      */
-    public ItinerarioDTO getCity(Long id) throws ItinerarioLogicException {
-        logger.info("recibiendo solicitud de ciudad con id " + id);
+    public ItinerarioDTO getItinerario(Long id) throws ItinerarioLogicException {
+        logger.info("recibiendo solicitud de itinerario con id " + id);
 
-        // busca la ciudad con el id suministrado
+        // busca el itinerario con el id suministrado
         for (ItinerarioDTO itinerario : itinerarios) {
             if (Objects.equals(itinerario.getId(), id)) {
-                logger.info("retornando ciudad " + itinerario);
+                logger.info("retornando itinerario " + itinerario);
                 return itinerario;
             }
         }
 
-        // si no encuentra la ciudad
-        logger.severe("No existe ciudad con ese id");
+        // si no encuentra el itinerario
+        logger.severe("No existe itinerario con ese id");
         throw new ItinerarioLogicException("No existe un itinerario con ese id");
     }
 
     /**
-     * Agrega una ciudad a la lista.
+     * Agrega un itinerario a la lista.
      *
-     * @param newItinerario ciudad a adicionar
-     * @throws CityLogicException cuando ya existe una ciudad con el id
+     * @param newItinerario itinerario a adicionar
+     * @throws ItinerarioLogicException cuando ya existe un itinerario con el id
      * suministrado
-     * @return ciudad agregada
+     * @return itinerario agregada
      */
     public ItinerarioDTO createItinerario(ItinerarioDTO newItinerario) throws ItinerarioLogicException {
-        logger.info("recibiendo solicitud de agregar ciudad " + newItinerario);
+        logger.info("recibiendo solicitud de agregar itinerario " + newItinerario);
 
-        // la nueva ciudad tiene id ?
+        // el nuevo itinerario tiene id ?
         if (newItinerario.getId() != null) {
-            // busca la ciudad con el id suministrado
+            // busca el itinerario con el id suministrado
             for (ItinerarioDTO itinerario : itinerarios) {
-                // si existe una ciudad con ese id
+                // si existe un itinerario con ese id
                 if (Objects.equals(itinerario.getId(), newItinerario.getId())) {
-                    logger.severe("Ya existe una ciudad con ese id");
-                    throw new ItinerarioLogicException("Ya existe una ciudad con ese id");
+                    logger.severe("Ya existe un itinerario con ese id");
+                    throw new ItinerarioLogicException("Ya existe un itinerario con ese id");
                 }
             }
 
-            // la nueva ciudad no tiene id ?
+            // el nuevo itinerario no tiene id ?
         } else {
 
-            // genera un id para la ciudad
-            logger.info("Generando id paa la nueva ciudad");
+            // genera un id para el itinerario
+            logger.info("Generando id paa el nuevo itinerario");
             long newId = 1;
             for (ItinerarioDTO itinerario : itinerarios) {
                 if (newId <= itinerario.getId()) {
@@ -128,66 +128,66 @@ public class ItinerarioLogicMock {
             newItinerario.setId(newId);
         }
 
-        // agrega la ciudad
-        logger.info("agregando ciudad " + newItinerario);
+        // agrega el itinerario
+        logger.info("agregando itinerario " + newItinerario);
         itinerarios.add(newItinerario);
         return newItinerario;
     }
 
     /**
-     * Actualiza los datos de una ciudad
+     * Actualiza los datos de un itinerario
      *
-     * @param id identificador de la ciudad a modificar
-     * @param itinerario ciudad a modificar
-     * @return datos de la ciudad modificada
-     * @throws CityLogicException cuando no existe una ciudad con el id
+     * @param id identificador de el itinerario a modificar
+     * @param itinerario itinerario a modificar
+     * @return datos de el itinerario modificada
+     * @throws ItinerarioLogicException cuando no existe un itinerario con el id
      * suministrado
      */
-    public ItinerarioDTO updateCity(Long id, ItinerarioDTO updatedCity) throws ItinerarioLogicException {
-        logger.info("recibiendo solictud de modificar ciudad " + updatedCity);
+    public ItinerarioDTO updateItinerario(Long id, ItinerarioDTO updatedCity) throws ItinerarioLogicException {
+        logger.info("recibiendo solictud de modificar itinerario " + updatedCity);
 
-        // busca la ciudad con el id suministrado
+        // busca el itinerario con el id suministrado
         for (ItinerarioDTO itinerario : itinerarios) {
             if (Objects.equals(itinerario.getId(), id)) {
 
-                // modifica la ciudad
+                // modifica el itinerario
                 itinerario.setId(updatedCity.getId());
                 itinerario.setFechaInicio(updatedCity.getFechaInicio());
 
-                // retorna la ciudad modificada
-                logger.info("Modificando ciudad " + itinerario);
+                // retorna el itinerario modificada
+                logger.info("Modificando itinerario " + itinerario);
                 return itinerario;
             }
         }
 
-        // no encontró la ciudad con ese id ?
-        logger.severe("No existe una ciudad con ese id");
-        throw new ItinerarioLogicException("No existe una ciudad con ese id");
+        // no encontró el itinerario con ese id ?
+        logger.severe("No existe un itinerario con ese id");
+        throw new ItinerarioLogicException("No existe un itinerario con ese id");
     }
 
     /**
-     * Elimina los datos de una ciudad
+     * Elimina los datos de un itinerario
      *
-     * @param id identificador de la ciudad a eliminar
-     * @throws CityLogicException cuando no existe una ciudad con el id
+     * @param id identificador de el itinerario a eliminar
+     * @throws ItinerarioLogicException cuando no existe un itinerario con el id
      * suministrado
      */
-    public void deleteCity(Long id) throws ItinerarioLogicException {
-        logger.info("recibiendo solictud de eliminar ciudad con id " + id);
+    public void deleteItinerario(Long id) throws ItinerarioLogicException {
+        logger.info("recibiendo solictud de eliminar itinerario con id " + id);
 
-        // busca la ciudad con el id suministrado
+        // busca el itinerario con el id suministrado
         for (ItinerarioDTO itinerario : itinerarios) {
             if (Objects.equals(itinerario.getId(), id)) {
 
-                // elimina la ciudad
-                logger.info("eliminando ciudad " + itinerario);
+                // elimina el itinerario
+                logger.info("eliminando itinerario " + itinerario);
                 itinerarios.remove(itinerario);
                 return;
             }
         }
 
-        // no encontró la ciudad con ese id ?
-        logger.severe("No existe una ciudad con ese id");
-        throw new ItinerarioLogicException("No existe una ciudad con ese id");
+        // no encontró el itinerario con ese id ?
+        logger.severe("No existe un itinerario con ese id");
+        throw new ItinerarioLogicException("No existe un itinerario con ese id");
     }
 }

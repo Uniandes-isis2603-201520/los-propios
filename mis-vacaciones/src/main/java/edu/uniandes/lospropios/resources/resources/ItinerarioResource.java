@@ -9,7 +9,12 @@ package edu.uniandes.lospropios.resources.resources;
 //import edu.uniandes.lospropios.exceptions.CityLogicException;
 //import edu.uniandes.lospropios.mocks.CityLogicMock;
 
+import edu.uniandes.lospropios.resources.dtos.ItinerarioDTO;
+import edu.uniandes.lospropios.resources.exceptions.ItinerarioLogicException;
+import edu.uniandes.lospropios.resources.mocks.ItinerarioLogicMock;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -38,19 +43,23 @@ import javax.ws.rs.Produces;
 @RequestScoped
 public class ItinerarioResource {
 
-//	@Inject
-//	CityLogicMock cityLogic;
+	@Inject	
+        ItinerarioLogicMock itinerarioLogic;
 
 	/**
-	 * Obtiene el listado de personas.
-	 * @return lista de ciudades
-	 * @throws CityLogicException excepción retornada por la lógica
+	 * Obtiene el listado de itineratios.
+	 * @return lista de itinerarios
+	 * @throws itinerarioLogicException excepción retornada por la lógica
 	 */
     @GET
-    public int getItinerario()
+    public List<ItinerarioDTO> getItinerario()
     {
-
-    return 5;
+            try {
+                return itinerarioLogic.getItinerarios();
+            } catch (ItinerarioLogicException ex) {
+                Logger.getLogger(ItinerarioResource.class.getName()).log(Level.SEVERE, null, ex);
+                return null;
+            }
     }
 
     /**
@@ -59,11 +68,11 @@ public class ItinerarioResource {
      * @return itinerario encontrada
      * @throws ItinerarioException cuando la ciudad no existe
      */
-//    @GET
-//    @Path("{id: \\d+}")
-//    public ItinerarioDTO getItinerario(@PathParam("id") Long id) throws ItinerarioLogicException {
-////        return cityLogic.getCity(id);
-//   }
+    @GET
+    @Path("{id: \\d+}")
+    public ItinerarioDTO getItinerario(@PathParam("id") Long id) throws ItinerarioLogicException {
+       return itinerarioLogic.getItinerario(id);
+   }
 
     /**
      * Agrega un itinerario
@@ -71,10 +80,10 @@ public class ItinerarioResource {
      * @return datos del itinerario a agregar
      * @throws ItinerioLogicException cuando ya existe un itinerario con el id suministrado
      */
-//    @POST
-//    public ItinerarioDTO createItinerario(ItinerarioDTO itinerario) throws ItinerarioLogicException {
-//        return itinerarioLogic.createItinerario(itinerario);
-//    }
+    @POST
+    public ItinerarioDTO createItinerario(ItinerarioDTO itinerario) throws ItinerarioLogicException {
+        return itinerarioLogic.createItinerario(itinerario);
+    }
 
     /**
      * Actualiza los datos de un itinerario
@@ -83,21 +92,21 @@ public class ItinerarioResource {
      * @return datos del itinierario modificado
      * @throws ItinerarioLogicException cuando no existe un itinerario con el id suministrado
      */
-//    @PUT
-//    @Path("{id: \\d+}")
-//    public ItinerarioDTO updateItinerario(@PathParam("id") Long id, ItinerarioDTO itinerario) throws ItinerarioLogicException {
-//        return itinerarioLogic.updateCity(id, city);
-//    }
+    @PUT
+    @Path("{id: \\d+}")
+    public ItinerarioDTO updateItinerario(@PathParam("id") Long id, ItinerarioDTO itinerario) throws ItinerarioLogicException {
+        return itinerarioLogic.updateItinerario(id, itinerario);
+    }
 
     /**
      * Elimina los datos de un itinerario
      * @param id identificador del itinerario a eliminar
      * @throws ItinerarioLogicException cuando no existe un itinerario con el id suministrado
      */
-//    @DELETE
-//    @Path("{id: \\d+}")
-//    public void deleteItinerario(@PathParam("id") Long id) throws ItinerarioLogicException {
-//    	itinerarioLogic.deleteItinerario(id);
-//    }
+    @DELETE
+    @Path("{id: \\d+}")
+    public void deleteItinerario(@PathParam("id") Long id) throws ItinerarioLogicException {
+    	itinerarioLogic.deleteItinerario(id);
+    }
 
 }
