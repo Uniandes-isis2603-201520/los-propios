@@ -1,7 +1,7 @@
 package edu.uniandes.lospropios.resources.exceptions;
 
 /**
- * Representa las excepciones de la lógica de CityLogic 
+ * Representa las excepciones de la lógica de CityLogic
  */
 public class PerfilLogicException extends Exception {
 

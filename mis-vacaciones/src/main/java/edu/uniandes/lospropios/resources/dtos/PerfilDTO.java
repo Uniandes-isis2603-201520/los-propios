@@ -13,7 +13,7 @@ package edu.uniandes.lospropios.resources.dtos;
 public class PerfilDTO {
 
     private Long id;
-    private String name;
+    private String ciudad;
 
     /**
      * Constructor por defecto
@@ -23,13 +23,18 @@ public class PerfilDTO {
 
     /**
      * Constructor con parámetros.
-     * @param id identificador de la ciudad
-     * @param name nombre de la ciudad
+     *   $scope.albumnes = [];
+            $scope.id = "";
+            $scope.ciudad = "";
+            $scope.descripcion = "";
+     * @param id identificador del album
+     * @param ciudad ciudad donde se realizo el album
      */
-    public PerfilDTO(Long id, String name) {
+    public PerfilDTO(Long id, String ciudad) {
 		super();
 		this.id = id;
-		this.name = name;
+		this.ciudad = ciudad;
+
 	}
 
 	/**
@@ -47,17 +52,17 @@ public class PerfilDTO {
     }
 
     /**
-     * @return the name
+     * @return the ciudad
      */
-    public String getName() {
-        return name;
+    public String getCiudad() {
+        return ciudad;
     }
 
     /**
-     * @param name the name to set
+     * @param ciudad the name to set
      */
-    public void setName(String name) {
-        this.name = name;
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
     }
 
     /**
@@ -65,6 +70,6 @@ public class PerfilDTO {
      */
     @Override
     public String toString() {
-    	return "{ id : " + getId() + ", name : \"" + getName() + "\" }" ;
+    	return "{ id : " + getId() + ", ciudad : \"" + getCiudad() + "\" }" ;
     }
 }
