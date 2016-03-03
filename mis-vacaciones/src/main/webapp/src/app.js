@@ -64,6 +64,8 @@
                             url: '/itinerario',
                             views: {
                                 '': {
+                                    controller: "itinerarioCtrl",
+                                    controllerAs: "ctrl",
                                     templateUrl: "src/modules/itinerario/itinerario.html"
                                 },
                                 'barraLateral': {templateUrl: "src/modules/principal/prueba.tpl.html"}
