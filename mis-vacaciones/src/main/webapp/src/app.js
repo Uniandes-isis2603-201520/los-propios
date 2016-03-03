@@ -6,11 +6,7 @@
     var mod = ng.module("mainApp", [
         "ui.router",
         "perfilUsuarioModule",
-        "perfilUsuarioMock",
-        "eventoModule",
-        "eventoMock",
-        "itinerarioModule",
-        "itinerarioMock"
+        "perfilUsuarioMock"
     ]);
 
     var sesion = true;
