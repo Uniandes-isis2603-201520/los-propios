@@ -15,6 +15,7 @@ import edu.uniandes.lospropios.resources.exceptions.CiudadLogicException;
  *
  * @author s.trujillo10
  */
+@Provider
 public class CiudadLogicExceptionMapper implements ExceptionMapper<CiudadLogicException>{
 
     /**

@@ -5,7 +5,6 @@
  */
 package edu.uniandes.lospropios.resources.converters;
 
-import edu.uniandes.lospropios.resources.exceptions.CiudadLogicException;
 import edu.uniandes.lospropios.resources.exceptions.EventoLogicException;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
@@ -15,6 +14,7 @@ import javax.ws.rs.ext.Provider;
  *
  * @author js.gomez14
  */
+@Provider
 public class EventoLogicExceptionMapper implements ExceptionMapper<EventoLogicException>
 {
     /**

@@ -20,18 +20,20 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.PathParam;
 
 import javax.ws.rs.Produces;
-import static org.glassfish.jersey.server.model.Parameter.Source.PATH;
-import static org.glassfish.jersey.uri.UriComponent.Type.PATH;
+
+
 
 @Path("perfilUsuario")
 @Produces("application/json")
 @RequestScoped
 public class PerfilResource {
+
+
     @Inject
     PerfilLogicMock perfilLogic;
 
     @GET
-    public String getPerfil() {
+    public String getPerfil() throws PerfilLogicException {
         return perfilLogic.getPerfil();
     }
 
@@ -46,6 +48,12 @@ public class PerfilResource {
     public PerfilDTO updatePerfil(@PathParam("id") Long id, PerfilDTO perfil) throws PerfilLogicException
     {
         return perfilLogic.updatePerfil(id, perfil);
+    }
+
+    @DELETE
+    @Path("{id: \\d+}")
+    public void deleteCity(@PathParam("id") Long id) throws PerfilLogicException {
+        perfilLogic.deletePerfil(id);
     }
 
 }

@@ -8,7 +8,6 @@ package edu.uniandes.lospropios.resources.resources;
 //import Source.Packages.edu.uniandes.lospropios.dtos.CityDTO;
 //import edu.uniandes.lospropios.exceptions.CityLogicException;
 //import edu.uniandes.lospropios.mocks.CityLogicMock;
-
 import edu.uniandes.lospropios.resources.dtos.ItinerarioDTO;
 import edu.uniandes.lospropios.resources.exceptions.ItinerarioLogicException;
 import edu.uniandes.lospropios.resources.mocks.ItinerarioLogicMock;
@@ -27,14 +26,12 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
-
 /**
  * Clase que implementa el recurso REST correspondiente a "itinerario".
  *
- * Note que la aplicación (definida en RestConfig.java) define la ruta
- * "/api" y este recurso tiene la ruta "cities".
- * Al ejecutar la aplicación, el recurse será accesibe a través de la
- * ruta "/api/cities"
+ * Note que la aplicación (definida en RestConfig.java) define la ruta "/api" y
+ * este recurso tiene la ruta "cities". Al ejecutar la aplicación, el recurse
+ * será accesibe a través de la ruta "/api/cities"
  *
  * @author Asistente
  */
@@ -43,42 +40,41 @@ import javax.ws.rs.Produces;
 @RequestScoped
 public class ItinerarioResource {
 
-	@Inject	
-        ItinerarioLogicMock itinerarioLogic;
+    @Inject
+    ItinerarioLogicMock itinerarioLogic;
 
-	/**
-	 * Obtiene el listado de itineratios.
-	 * @return lista de itinerarios
-	 * @throws itinerarioLogicException excepción retornada por la lógica
-	 */
+    /**
+     * Obtiene el listado de itineratios.
+     *
+     * @return lista de itinerarios
+     * @throws
+     * edu.uniandes.lospropios.resources.exceptions.ItinerarioLogicException
+     */
     @GET
-    public List<ItinerarioDTO> getItinerario()
-    {
-            try {
-                return itinerarioLogic.getItinerarios();
-            } catch (ItinerarioLogicException ex) {
-                Logger.getLogger(ItinerarioResource.class.getName()).log(Level.SEVERE, null, ex);
-                return null;
-            }
+    public List<ItinerarioDTO> getItinerario() throws ItinerarioLogicException {
+        return itinerarioLogic.getItinerarios();
     }
 
     /**
      * Obtiene un itinerario
+     *
      * @param id identificador del itinerario
      * @return itinerario encontrada
-     * @throws ItinerarioException cuando la ciudad no existe
+     * @throws
+     * edu.uniandes.lospropios.resources.exceptions.ItinerarioLogicException
      */
     @GET
     @Path("{id: \\d+}")
     public ItinerarioDTO getItinerario(@PathParam("id") Long id) throws ItinerarioLogicException {
-       return itinerarioLogic.getItinerario(id);
-   }
+        return itinerarioLogic.getItinerario(id);
+    }
 
     /**
      * Agrega un itinerario
+     *
      * @param itinerario itinerario a agregar
      * @return datos del itinerario a agregar
-     * @throws ItinerioLogicException cuando ya existe un itinerario con el id suministrado
+     * @throws edu.uniandes.lospropios.resources.exceptions.ItinerarioLogicException
      */
     @POST
     public ItinerarioDTO createItinerario(ItinerarioDTO itinerario) throws ItinerarioLogicException {
@@ -87,10 +83,12 @@ public class ItinerarioResource {
 
     /**
      * Actualiza los datos de un itinerario
+     *
      * @param id identificador del itinerario a modificar
      * @param itinerario itinerario a modificar
      * @return datos del itinierario modificado
-     * @throws ItinerarioLogicException cuando no existe un itinerario con el id suministrado
+     * @throws ItinerarioLogicException cuando no existe un itinerario con el id
+     * suministrado
      */
     @PUT
     @Path("{id: \\d+}")
@@ -100,13 +98,15 @@ public class ItinerarioResource {
 
     /**
      * Elimina los datos de un itinerario
+     *
      * @param id identificador del itinerario a eliminar
-     * @throws ItinerarioLogicException cuando no existe un itinerario con el id suministrado
+     * @throws ItinerarioLogicException cuando no existe un itinerario con el id
+     * suministrado
      */
     @DELETE
     @Path("{id: \\d+}")
     public void deleteItinerario(@PathParam("id") Long id) throws ItinerarioLogicException {
-    	itinerarioLogic.deleteItinerario(id);
+        itinerarioLogic.deleteItinerario(id);
     }
 
 }

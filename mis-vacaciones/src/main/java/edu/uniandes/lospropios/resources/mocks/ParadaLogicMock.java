@@ -12,11 +12,16 @@ import java.util.List;
 import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Named;
 
 /**
  *
  * @author mc.hernandez1
  */
+
+@Named
+@ApplicationScoped
 public class ParadaLogicMock
 {
 // objeto para presentar logs de las operaciones

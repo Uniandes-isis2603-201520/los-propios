@@ -13,7 +13,7 @@ package edu.uniandes.lospropios.resources.dtos;
 public class PerfilDTO {
 
     private Long id;
-    private String ciudad;
+    private String perfil;
 
     /**
      * Constructor por defecto
@@ -30,10 +30,10 @@ public class PerfilDTO {
      * @param id identificador del album
      * @param ciudad ciudad donde se realizo el album
      */
-    public PerfilDTO(Long id, String ciudad) {
+    public PerfilDTO(Long id, String perfil) {
 		super();
 		this.id = id;
-		this.ciudad = ciudad;
+		this.perfil = perfil;
 
 	}
 
@@ -54,15 +54,15 @@ public class PerfilDTO {
     /**
      * @return the ciudad
      */
-    public String getCiudad() {
-        return ciudad;
+    public String getPerfil() {
+        return perfil;
     }
 
     /**
      * @param ciudad the name to set
      */
-    public void setCiudad(String ciudad) {
-        this.ciudad = ciudad;
+    public void setPerfil(String Perfil) {
+        this.perfil = perfil;
     }
 
     /**
@@ -70,6 +70,10 @@ public class PerfilDTO {
      */
     @Override
     public String toString() {
-    	return "{ id : " + getId() + ", ciudad : \"" + getCiudad() + "\" }" ;
+    	return "{ id : " + getId() + ", ciudad : \"" + getPerfil() + "\" }" ;
+    }
+
+    public void setName(String perfil) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

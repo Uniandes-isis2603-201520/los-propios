@@ -138,7 +138,7 @@ public class ItinerarioLogicMock {
      * Actualiza los datos de un itinerario
      *
      * @param id identificador de el itinerario a modificar
-     * @param itinerario itinerario a modificar
+     * @param updatedCity
      * @return datos de el itinerario modificada
      * @throws ItinerarioLogicException cuando no existe un itinerario con el id
      * suministrado
