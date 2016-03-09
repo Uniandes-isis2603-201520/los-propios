@@ -48,6 +48,8 @@
                         url: '/ciudad',
                         views: {
                             '': {
+                                controller: "ciudadCtrl",
+                                controllerAs: "ctrl",
                                 templateUrl: "src/modules/ciudad/ciudad.tpl.html"
                             },
                             'barraLateral': {templateUrl: "src/modules/principal/prueba.tpl.html"}
