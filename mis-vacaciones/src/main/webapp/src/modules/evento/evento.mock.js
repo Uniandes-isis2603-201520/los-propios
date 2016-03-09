@@ -31,7 +31,7 @@
                     fecha: '10/02/2016',
                     precio: '£20',
                     img: 'https://academymusicgroup.com/o2academybrixton/sites/default/files/artists/2bf94d27-34c5-4da3-8a42-32f843452c41.jpg',
-                    clasificacion: 'evento',
+                    clasificacion: 'evento'
                 },
                 {
                     nombre: 'The Color Run',
@@ -41,7 +41,7 @@
                     fecha: '11/04/2016',
                     precio: 'COP$35.000',
                     img: 'http://www.lafm.com.co/sites/default/files/imagecache/600xy/imagenes/thecolorrun.jpg',
-                    clasificacion: 'evento',
+                    clasificacion: 'evento'
                 },
                 {
                     nombre: 'Trafalgar Square',
@@ -51,7 +51,7 @@
                     fecha: '',
                     precio: 'Gratis',
                     img: 'https://upload.wikimedia.org/wikipedia/commons/a/a6/Trafalgar_Square,_London_2_-_Jun_2009.jpg',
-                    clasificacion: 'sitio',
+                    clasificacion: 'sitio'
                 },
                 {
                     nombre: 'Eiffel Tower',
@@ -61,8 +61,8 @@
                     fecha: '',
                     precio: 'Gratis',
                     img: 'http://mexico.cnn.com/media/2013/02/15/torre-eiffel.jpg',
-                    clasificacion: 'sitio',
-                },
+                    clasificacion: 'sitio'
+                }
             ];
 
             function getQueryParams(url) {
