@@ -1,0 +1,99 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package edu.uniandes.lospropios.resources.resources;
+
+import edu.uniandes.lospropios.resources.dtos.VisitaDTO;
+import edu.uniandes.lospropios.resources.exceptions.VisitaLogicException;
+import edu.uniandes.lospropios.resources.mocks.VisitaLogicMock;
+import java.util.List;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+
+/**
+ *
+ * @author josedanielcardenasrincon
+ */
+@Path("visita")
+@Produces("application/json")
+@RequestScoped
+public class VisitaResource {
+    
+    @Inject
+    VisitaLogicMock visitaLogic;
+
+    /**
+     * Obtiene el listado de itineratios.
+     *
+     * @return lista de visitas
+     * @throws
+     * edu.uniandes.lospropios.resources.exceptions.VisitaLogicException
+     */
+    @GET
+    public List<VisitaDTO> getVisita() throws VisitaLogicException {
+        return visitaLogic.getVisitas();
+    }
+
+    /**
+     * Obtiene un visita
+     *
+     * @param id identificador del visita
+     * @return visita encontrada
+     * @throws
+     * edu.uniandes.lospropios.resources.exceptions.VisitaLogicException
+     */
+    @GET
+    @Path("{id: \\d+}")
+    public VisitaDTO getVisita(@PathParam("id") Long id) throws VisitaLogicException {
+        return visitaLogic.getVisita(id);
+    }
+
+    /**
+     * Agrega un visita
+     *
+     * @param visita visita a agregar
+     * @return datos del visita a agregar
+     * @throws edu.uniandes.lospropios.resources.exceptions.VisitaLogicException
+     */
+    @POST
+    public VisitaDTO createVisita(VisitaDTO visita) throws VisitaLogicException {
+        return visitaLogic.createVisita(visita);
+    }
+
+    /**
+     * Actualiza los datos de un visita
+     *
+     * @param id identificador del visita a modificar
+     * @param visita visita a modificar
+     * @return datos del itinierario modificado
+     * @throws VisitaLogicException cuando no existe un visita con el id
+     * suministrado
+     */
+    @PUT
+    @Path("{id: \\d+}")
+    public VisitaDTO updateVisita(@PathParam("id") Long id, VisitaDTO visita) throws VisitaLogicException {
+        return visitaLogic.updateVisita(id, visita);
+    }
+
+    /**
+     * Elimina los datos de un visita
+     *
+     * @param id identificador del visita a eliminar
+     * @throws VisitaLogicException cuando no existe un visita con el id
+     * suministrado
+     */
+    @DELETE
+    @Path("{id: \\d+}")
+    public void deleteVisita(@PathParam("id") Long id) throws VisitaLogicException {
+        visitaLogic.deleteVisita(id);
+    }
+}
