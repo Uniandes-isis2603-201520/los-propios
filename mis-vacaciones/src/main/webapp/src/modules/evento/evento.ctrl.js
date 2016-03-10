@@ -12,15 +12,17 @@
     // TODO:define los atributos en el escope
 
             $scope.eventos = [];
-            $scope.nombreEv ="";
-            $scope.descripcionEv ="";
-            $scope.tipoEv ="";
-            $scope.lugarEv="";
-            $scope.fechaEv="";
-            $scope.precioEv="";
-            $scope.imgEv="";
-            $scope.clasificacionEv="";
-
+            $scope.eventoActual={
+                id: 0, /**Tipo long**/
+                nombre: "", /** Tipo String**/
+                descripcion: "", /**Tipo String**/
+                tipo: "", /**Tipo String**/
+                lugar: "",/**Tipo String**/
+                fecha: "", /**Vacío o null si clasificacion: "sitioInteres" y Tipo Date**/
+                precio: 0, /**Tipo Double**/
+                img: "", /**Tipo String**/
+                clasificacion:"" /**Tipo String**/
+            }
             /* $scope.agregarEvento = function () {
                 $scope.eventoActual = {$scope.id, $scope.ciudad, $scope.descripcion};
                 svc.saveRecord(eventoActual);

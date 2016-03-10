@@ -9,6 +9,7 @@ import edu.uniandes.lospropios.resources.dtos.CiudadDTO;
 import edu.uniandes.lospropios.resources.dtos.EventoDTO;
 import edu.uniandes.lospropios.resources.exceptions.EventoLogicException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 import java.util.logging.Level;
@@ -34,9 +35,9 @@ public class EventoLogicMock {
 
     	if (eventos == null) {
             eventos = new ArrayList<>();
-            eventos.add(new EventoDTO(1L, "evento1"));
-            eventos.add(new EventoDTO(2L, "evento2"));
-            eventos.add(new EventoDTO(3L, "evento3"));
+            eventos.add(new EventoDTO(1L, "evento1", "A", "COL", new Date(), 2000, "http://UrlImg.com", EventoDTO.EVENTO));
+            eventos.add(new EventoDTO(2L, "evento2", "B", "COL", new Date(), 2001, "http://UrlImg2.com", EventoDTO.SITIO_INTERES));
+            eventos.add(new EventoDTO(3L, "evento3", "C", "CHILE", new Date(), 30000, "http://UrlImg3.com", EventoDTO.EVENTO));
         }
 
     	// indica que se muestren todos los mensajes
@@ -126,7 +127,7 @@ public class EventoLogicMock {
 
             	// modifica la ciudad
             	actual.setId(evento.getId());
-                actual.setName(evento.getName());
+                actual.setNombre(evento.getNombre());
 
                 // retorna la ciudad modificada
             	logger.info("Modificando ciudad " + actual);
