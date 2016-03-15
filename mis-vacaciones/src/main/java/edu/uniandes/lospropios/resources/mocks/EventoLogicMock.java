@@ -65,22 +65,22 @@ public class EventoLogicMock {
 
             	logger.info("recibiendo solicitud de agregar ciudad " + evento);
 
-    	// la nueva ciudad tiene id ?
+    	// el nuevo evento tiene id ?
     	if ( evento.getId() != null ) {
-	    	// busca la ciudad con el id suministrado
+	    	// busca el vento con el id suministrado
 	        for (EventoDTO actual : eventos) {
-	        	// si existe una ciudad con ese id
+	        	// si existe un evento con ese id
 	            if (Objects.equals(actual.getId(), evento.getId())){
-	            	logger.severe("Ya existe una ciudad con ese id");
-	                throw new EventoLogicException("Ya existe una ciudad con ese id");
+	            	logger.severe("Ya existe un evento con ese id");
+	                throw new EventoLogicException("Ya existe un evento con ese id");
 	            }
 	        }
 
-	    // la nueva ciudad no tiene id ?
+	    // el nuevo evento no tiene id ?
     	} else {
 
-    		// genera un id para la ciudad
-    		logger.info("Generando id paa la nueva ciudad");
+    		// genera un id para el evento
+    		logger.info("Generando id para el nuevo evento");
     		long newId = 1;
 	        for (EventoDTO actual : eventos) {
 	            if (newId <= actual.getId()){
@@ -90,8 +90,8 @@ public class EventoLogicMock {
 	        evento.setId(newId);
     	}
 
-        // agrega la ciudad
-    	logger.info("agregando ciudad " + evento);
+        // agrega el evento
+    	logger.info("agregando evento " + evento);
         eventos.add(evento);
         return evento;
 
@@ -99,44 +99,44 @@ public class EventoLogicMock {
 
     public void deleteEvento(Long id) throws EventoLogicException {
 
-            	logger.info("recibiendo solictud de eliminar ciudad con id " + id);
+            	logger.info("recibiendo solictud de eliminar evento con id " + id);
 
-    	// busca la ciudad con el id suministrado
+    	// busca el evento con el id suministrado
         for (EventoDTO actual : eventos) {
             if (Objects.equals(actual.getId(), id)) {
 
-            	// elimina la ciudad
-            	logger.info("eliminando ciudad " + actual);
+            	// elimina el evento
+            	logger.info("eliminando evento " + actual);
                 eventos.remove(actual);
                 return;
             }
         }
 
-        // no encontró la ciudad con ese id ?
-        logger.severe("No existe una ciudad con ese id");
-        throw new EventoLogicException("No existe una ciudad con ese id");
+        // no encontró el evento con ese id ?
+        logger.severe("No existe un evento con ese id");
+        throw new EventoLogicException("No existe un evento con ese id");
     }
 
     public EventoDTO updateEvento(Long id, EventoDTO evento) throws EventoLogicException {
 
-        logger.info("recibiendo solictud de modificar ciudad " + evento);
+        logger.info("recibiendo solictud de modificar evento " + evento);
 
-    	// busca la ciudad con el id suministrado
+    	// busca el evento con el id suministrado
         for (EventoDTO actual : eventos) {
             if (Objects.equals(actual.getId(), id)) {
 
-            	// modifica la ciudad
+            	// modifica el evento
             	actual.setId(evento.getId());
                 actual.setNombre(evento.getNombre());
 
-                // retorna la ciudad modificada
-            	logger.info("Modificando ciudad " + actual);
+                // retorna el evento modificada
+            	logger.info("Modificando evento " + actual);
                 return actual;
             }
         }
 
-        // no encontró la ciudad con ese id ?
-        logger.severe("No existe una ciudad con ese id");
-        throw new EventoLogicException("No existe una ciudad con ese id");
+        // no encontró el evento con ese id ?
+        logger.severe("No existe un evento con ese id");
+        throw new EventoLogicException("No existe un evento con ese id");
     }
 }

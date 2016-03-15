@@ -71,8 +71,14 @@ public class EventoDTO
 
     /**
      * Constructor con parámetros.
-     * @param id identificador de la ciudad
-     * @param name nombre de la ciudad
+     * @param id identificador de la actividad.
+     * @param name nombre de la actividad.
+     * @param desc descripcion de la actividad.
+     * @param lugar lugar de la actividad.
+     * @param fecha fecha de la actividad (Null si clasificacion == SITIO_INTERES).
+     * @param precio precio de la actividad.
+     * @param img url de la imagen que representa la actividad.
+     * @param clas clasificacion de la actividad.
      */
     public EventoDTO(Long id, String name, String desc, String lugar, Date fecha, double precio, String img, String clas)
     {

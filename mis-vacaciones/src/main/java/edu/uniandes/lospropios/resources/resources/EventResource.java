@@ -35,25 +35,24 @@ public class EventResource
 
 
     @GET
-    public List<EventoDTO> getCities() throws EventoLogicException {
+    public List<EventoDTO> getEventos() throws EventoLogicException {
         return eventoLogic.getEventos();
     }
 
     @POST
-    public EventoDTO createCity(EventoDTO city) throws EventoLogicException {
-        return eventoLogic.createEvento(city);
+    public EventoDTO createEvento(EventoDTO evento) throws EventoLogicException {
+        return eventoLogic.createEvento(evento);
     }
 
     @PUT
     @Path("{id: \\d+}")
-    public EventoDTO updateCity(@PathParam("id") Long id, EventoDTO city) throws EventoLogicException {
-        return eventoLogic.updateEvento(id, city);
+    public EventoDTO updateEvento(@PathParam("id") Long id, EventoDTO evento) throws EventoLogicException {
+        return eventoLogic.updateEvento(id, evento);
     }
 
     @DELETE
     @Path("{id: \\d+}")
-    public void deleteCity(@PathParam("id") Long id) throws EventoLogicException {
+    public void deleteEvento(@PathParam("id") Long id) throws EventoLogicException {
         eventoLogic.deleteEvento(id);
     }
-
 }
