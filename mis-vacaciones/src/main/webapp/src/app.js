@@ -8,6 +8,8 @@
         "perfilUsuarioModule",
         "perfilUsuarioMock",
         "ciudadMock",
+        "eventoModule",
+        "eventoMock",
         "ciudadModule",
         "itinerarioModule",
         "itinerarioMock"
