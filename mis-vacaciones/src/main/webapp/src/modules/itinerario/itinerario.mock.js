@@ -16,6 +16,7 @@
              * api/(cualquierpalabra)/(numero)
              */
             var recordUrl = new RegExp('api/itinerarios/([0-9]+)');
+            var recordUrlDos = new RegExp('api/itinerarios/([0-9]+)');
 
             /*
              * @type Array
@@ -29,6 +30,15 @@
                     fechaInicio: '2014-01-01',
                     fechaFin: '2015-01-01'}
 
+            ];
+
+            var recordsDos = [
+                {idParada: 3554,
+                    nombreParada: "buu",
+                    ciudadParada: "Cali",
+                    actividadParada: "parque",
+                    fechaInicioParada: '2015-02-24',
+                    fechaFinParada: '2015-03-24'},
             ];
 
             function getQueryParams(url) {
@@ -69,6 +79,31 @@
                 }
                 return [200, responseObj, headers];
             });
+
+             /*
+             * Esta funcion se ejecuta al invocar una solicitud GET a la url "api/books"
+             * Obtiene los parámetros de consulta "queryParams" para establecer
+             * la pagina y la maxima cantida de records. Con los anteriores parametros
+             * se realiza la simulacion de la paginacion.
+             * Response: 200 -> Status ok, array de libros y los headers.
+             */
+            $httpBackend.whenGET('api/itinerarios/paradas').respond(function (method, url) {
+                var queryParams = getQueryParams(url);
+                var responseObj = [];
+                var page = queryParams.page;
+                var maxRecords = queryParams.maxRecords;
+                var headers = {};
+                if (page && maxRecords) {
+                    var start_index = (page - 1) * maxRecords;
+                    var end_index = start_index + maxRecords;
+                    responseObj = records.slice(start_index, end_index);
+                    headers = {"X-Total-Count": records.length};
+                } else {
+                    responseObj = recordsDos;
+                }
+                return [200, responseObj, headers];
+            });
+
             /*
              * Esta funcion se ejecuta al invocar una solicitud GET a la url "api/books/[numero]"
              * Obtiene el id de la url y el registro asociado dentro del array records.
@@ -83,6 +118,22 @@
                     }
                 });
                 return [200, record, {}];
+            });
+
+             /*
+             * Esta funcion se ejecuta al invocar una solicitud GET a la url "api/itinerarios/[numero]/parada"
+             * Obtiene el id de la url y el registro asociado dentro del array records.
+             * Response: 200 -> Status ok, record -> libro y ningún header.
+             */
+            $httpBackend.whenGET(recordUrlDos).respond(function (method, url) {
+                var id = parseInt(url.split('/').pop());
+                var record;
+                ng.forEach(recordsDos, function (value) {
+                    if (value.id === id) {
+                        record = ng.copy(value);
+                    }
+                });
+                return [200, recordDos, {}];
             });
             /*
              * Esta funcion se ejecuta al invocar una solicitud POST a la url "api/books"

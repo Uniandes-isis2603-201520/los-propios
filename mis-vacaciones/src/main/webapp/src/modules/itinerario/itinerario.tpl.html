@@ -28,7 +28,7 @@
             <td><img src="http://www.omicrono.com/wp-content/uploads/2012/09/aterrizaje-avion-noche.jpg" style="width:330px;height:193px;" alt="train"></td>
         </tr>
     </table>
-    <br></br>
+    <br>
     <!--    <h1>Lista de itinerarios</h1>-->
     <!--    <div class="list-group">
             <a href="itinerario#viaje1" class="viaje1">Viaje por America</a>
@@ -38,16 +38,17 @@
                 <button>Quitar</button></div>
         </div>-->
     <!-- Container (Pricing Section) -->
-    <br></br>
-    <br></br>
+    <br>
+    <br>
     <ul class="nav nav-tabs bg-4">
         <li class="active"><a data-toggle="tab" href="itinerario#misItinerarios">Mis itinerarios</a></li>
-        <li><a data-toggle="tab" href="itinerario#misLineas">Mis líneas de tiempo</a></li>
+        <!--<li><a data-toggle="tab" href="itinerario#misLineas">Mis líneas de tiempo</a></li>-->
         <li><a data-toggle="tab" href="itinerario#itinerarioNuevo">Nuevo itinerario</a></li>
+        <li><a data-toggle="tab" href="itinerario#paradaNueva">Nueva Parada</a></li>
     </ul>
     <div class="tab-content">
 
-    <div id="misItinerarios" class="tab-pane fade in active">
+        <div id="misItinerarios" class="tab-pane fade in active">
 
             <div class="container-fluid">
                 <div class="text-center">
@@ -308,103 +309,88 @@
                 </div> <!-- cd-timeline-block -->
             </section> <!-- cd-timeline -->
         </div>
+
         <div id="itinerarioNuevo" class="tabe-pane fade">
-        <h2>Crear un nuevo itinerario</h2>
-        <br>
-        <br>
-        <form class="form-horizontal" role="form">
-            <div class="form-group">
-                <label class="col-md-2 control-label" >Nombre Itinerario:</label>
-                <div class="col-sm-10">
-                    <input type="text"class="form-control" ng-model="idItinerario">
-                </div>
-                <br>
-            </div>
-
-            <div class="form-group col-md-12" >
-                <label for="publishDate" class="col-md-2 control-label">Fecha inicio</label>
-                <div class="col-md-10">
-                    <p class="input-group">
-                        <input type="text" id="fechaInicio" name="fechaInicio" class="form-control" ng-model="currentRecord.fechaInicio" ng-required="model.required" datepicker-popup is-open="opened" />
-                        <span class="input-group-btn">
-                            <button type="button" id="fechaInicio-datepicker" class="btn btn-default" ng-click="open($event)"><span class="glyphicon glyphicon-calendar"></span></button>
-                        </span>
-                    </p>
-                </div>
-            </div>
-
-             <div class="form-group col-md-12" >
-                <label for="fechaFin" class="col-md-2 control-label">Fecha fin</label>
-                <div class="col-md-10">
-                    <p class="input-group">
-                        <input type="text" id="fechaFin" name="fechaFin" class="form-control" ng-model="currentRecord.fechaFin" ng-required="model.required" datepicker-popup is-open="opened" />
-                        <span class="input-group-btn">
-                            <button type="button" id="fechaFin-datepicker" class="btn btn-default" ng-click="open($event)"><span class="glyphicon glyphicon-calendar"></span></button>
-                        </span>
-                    </p>
-                </div>
-            </div>
-        </form>
-        <div align="center">
-        <button   class="btn btn-lg" ng-click="agregarItinerario();">Guardar Itinerario</button>
-        <button  class="btn btn-lg" ng-click="listarItinerarios();  ">Mostrar Itinerarios</button>
-        <h2>Itinerarios</h2>
-        <p ng-repeat="i in itinerarios">{{ i}}</p>
-        <br>
-        <br>
-        </div>
-    </div>
-<!--        <div id="itinerarioNuevo" class="tabe-pane fade">
             <h2>Crear un nuevo itinerario</h2>
+            <br>
+            <br>
             <form class="form-horizontal" role="form">
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Nombre itinerario</label>
+                    <label class="col-md-2 control-label" >Nombre Itinerario:</label>
                     <div class="col-sm-10">
-                        <input class="form-control" id="inputSuccess" type="text" value="Escriba aquí el nombre del itinerario...">
-
+                        <input type="text" class="form-control" ng-model="idItinerario">
                     </div>
-                    <br></br>
-                    <h3>Agregar parada</h3>
+                    <br>
                 </div>
 
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" for="sel1" >Seleccionar ciudad</label>
-                    <div class="col-sm-10">
-                        <select class ="form-control" id="sel1">
-                            <option>Roma</option>
-                            <option>Paris</option>
-                            <option>Tunja</option>
-                        </select>
+                <div class="form-group col-md-12" >
+                    <label for="publishDate" class="col-md-2 control-label">Fecha inicio</label>
+                    <div class="col-md-10">
+                        <p class="input-group">
+                            <input type="text" id="fechaInicio" name="fechaInicio" class="form-control" ng-model="currentRecord.fechaInicio" ng-required="model.required" datepicker-popup is-open="opened" />
+                            <span class="input-group-btn">
+                                <button type="button" id="fechaInicio-datepicker" class="btn btn-default" ng-click="open($event)"><span class="glyphicon glyphicon-calendar"></span></button>
+                            </span>
+                        </p>
                     </div>
-                    <div align="right"><input name="boton" id="boton" type="button" value="Más ciudades" class="btn btn-lg" ></div>
-                    <br></br>
                 </div>
 
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" for="sel1" >Seleccionar Eventos</label>
-                    <div class="col-sm-10">
-                        <select class ="form-control" id="sel1">
-                            <option>Stereo picnic</option>
-                            <option>Los comediantes de la noche</option>
-                            <option>Ultra music festival</option>
-                        </select>
+                <div class="form-group col-md-12" >
+                    <label for="fechaFin" class="col-md-2 control-label">Fecha fin</label>
+                    <div class="col-md-10">
+                        <p class="input-group">
+                            <input type="text" id="fechaFin" name="fechaFin" class="form-control" ng-model="currentRecord.fechaFin" ng-required="model.required" datepicker-popup is-open="opened" />
+                            <span class="input-group-btn">
+                                <button type="button" id="fechaFin-datepicker" class="btn btn-default" ng-click="open($event)"><span class="glyphicon glyphicon-calendar"></span></button>
+                            </span>
+                        </p>
                     </div>
-                    <div align="right"><input name="botonDos" id="botonDos" type="button" value="Más Eventos" class="btn btn-lg" ></div>
-                    <br></br>
-                </div>
-
-                <div align="right">
-                    <label class="col-sm-2 control-label" for="sel1" >Seleccionar Fecha</label>
-                    <iframe src="https://calendar.google.com/calendar/embed?src=55dq8f9bpgscp2cmkgd9lieo24%40group.calendar.google.com&ctz=America/Bogota" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-                    <a target="_blank" href="https://calendar.google.com/calendar/event?action=TEMPLATE&amp;tmeid=ZGg1dnJsazR2MXJyMDNsajdocGRwNm0xMWsgbWNhbWloMkBt&amp;tmsrc=mcamih2%40gmail.com"><img border="0" src="https://www.google.com/calendar/images/ext/gc_button1_es.gif"></a>
-                    <br></br>
-                    <br></br>
-
-                    <div align="center"><input name="botonGuardar" id="botonGuardar" type="button" value="Guardar cambios" class="btn btn-lg" ></div>
                 </div>
             </form>
+            <div align="center">
+                <button   class="btn btn-lg" ng-click="agregarItinerario();">Guardar Itinerario</button>
+                <button  class="btn btn-lg" ng-click="listarItinerarios();">Mostrar Itinerarios</button>
+                <h2>Itinerarios</h2>
+                <p ng-repeat="i in itinerarios">{{ i}}</p>
+                <br>
+                <br>
+            </div>
         </div>
-    </div>-->
+
+        <div id="paradaNueva" class="tabe-pane fade">
+            <h2>Crear una nueva parada</h2>
+            <br>
+            <label>Identificador parada:</label>
+            <input class= "form-control" type="text" ng-model="idParada">
+            <br>
+            <br>
+            <label>Nombre parada:</label>
+            <input class= "form-control" type="text" ng-model="nombreParada">
+            <br>
+            <label>Ciudad:</label>
+            <input class= "form-control" type="text" ng-model="ciudadParada">
+            <br>
+
+            <label>Actividad:</label>
+            <input class= "form-control" type="text" ng-model="actividadParada">
+            <br>
+
+            <label>Fecha inicio:</label>
+            <input class= "form-control" type="text" ng-model="fechaInicioParada">
+            <br>
+            <label>Fecha fin:</label>
+            <input class= "form-control" type="text" ng-model="fechaFinParada">
+            <br>
+            <br>
+            <button ng-click="agregarParada()">Guaradar Parada</button>
+
+
+            <button ng-click="listarParadas()">Mostrar Paradas</button>
+            <div align="center">
+                <h3>Lista Paradas </h3>
+                <p ng-repeat="c in paradas">{{ c }}</p>
+            </div>
+             </div>
 
     <h2>Seleccione opcion de visualizacion</h2>
     <ul class="nav nav-tabs">

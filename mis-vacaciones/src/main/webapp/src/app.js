@@ -6,7 +6,12 @@
     var mod = ng.module("mainApp", [
         "ui.router",
         "perfilUsuarioModule",
-        "perfilUsuarioMock"
+        "perfilUsuarioMock",
+        "ciudadMock",
+        "ciudadModule",
+        "itinerarioModule",
+        "itinerarioMock"
+
     ]);
 
     mod.config(['$logProvider', function ($logProvider) {

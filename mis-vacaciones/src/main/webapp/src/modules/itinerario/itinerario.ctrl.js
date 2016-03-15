@@ -17,6 +17,13 @@
             $scope.fechaInicio = "";
             $scope.fechaFin = "";
             $scope.idItinerario = "";
+            $scope.idParada = "";
+            $scope.nombreParada = "";
+            $scope.ciudadParada = "";
+            $scope.actividadParada = "";
+            $scope.fechaInicioParada = "";
+            $scope.fechaFinParada = "";
+            $scope.paradas = [];
 
             // TODO: define funciones que son invocadas desde la pantalla
             // y que usan funciones definidas en el servicio
@@ -31,6 +38,21 @@
                     $scope.itinerarios = response.data;
                 });
             };
+
+            $scope.agregarParada = function () {
+                var parada = [$scope.idParada, $scope.nombreParada, $scope.ciudadParada, $scope.actividadParada, $scope.fechaInicioParada, $scope.fechaFinParada];
+                svc.saveRecord(parada);
+            };
+
+            $scope.listarParadas = function () {
+                return svc.fetchRecords().then(function (response)
+                {
+                    $scope.paradas = response.data;
+                });
+            };
+
+
+
 
         }]);
 

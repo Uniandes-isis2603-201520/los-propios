@@ -5,6 +5,8 @@
  */
 package edu.uniandes.lospropios.resources.dtos;
 
+import edu.uniandes.lospropios.resources.dtos.CiudadDTO;
+
 /**
  *
  * @author mc.hernandez1
@@ -13,6 +15,7 @@ public class ParadaDTO {
 
     private Long id;
     private String nombre;
+//    private CiudadDTO ciudad;
     private String ciudad;
     private String actividad;
     private String fechaInicio;
@@ -24,7 +27,7 @@ public class ParadaDTO {
     public ParadaDTO(Long id, String nombre, String ciudad, String actividad, String fechaInicio, String fechaFin) {
         super();
         this.id = id;
-        this.nombre =  nombre;
+        this.nombre = nombre;
         this.ciudad = ciudad;
         this.actividad = actividad;
         this.fechaInicio = fechaInicio;
@@ -69,9 +72,9 @@ public class ParadaDTO {
     }
 
     public void setFechaInicio(String fechaInicio) {
-        this.fechaInicio= fechaInicio;
+        this.fechaInicio = fechaInicio;
     }
-    
+
     public String getFechaFin() {
         return fechaFin;
     }
