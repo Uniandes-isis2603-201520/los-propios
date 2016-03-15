@@ -5,9 +5,6 @@
  */
 package edu.uniandes.lospropios.resources.resources;
 
-//import Source.Packages.edu.uniandes.lospropios.dtos.CityDTO;
-//import edu.uniandes.lospropios.exceptions.CityLogicException;
-//import edu.uniandes.lospropios.mocks.CityLogicMock;
 import edu.uniandes.lospropios.resources.dtos.ItinerarioDTO;
 import edu.uniandes.lospropios.resources.exceptions.ItinerarioLogicException;
 import edu.uniandes.lospropios.resources.mocks.ItinerarioLogicMock;
@@ -35,11 +32,12 @@ import javax.ws.rs.Produces;
  *
  * @author Asistente
  */
-@Path("itinerario")
+@Path("itinerarios")
 @Produces("application/json")
 @RequestScoped
 public class ItinerarioResource {
 
+    
     @Inject
     ItinerarioLogicMock itinerarioLogic;
 

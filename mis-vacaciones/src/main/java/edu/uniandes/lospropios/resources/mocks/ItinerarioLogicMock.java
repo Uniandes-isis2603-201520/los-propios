@@ -138,21 +138,22 @@ public class ItinerarioLogicMock {
      * Actualiza los datos de un itinerario
      *
      * @param id identificador de el itinerario a modificar
-     * @param updatedCity
+     * @param updatedItinerario
      * @return datos de el itinerario modificada
      * @throws ItinerarioLogicException cuando no existe un itinerario con el id
      * suministrado
      */
-    public ItinerarioDTO updateItinerario(Long id, ItinerarioDTO updatedCity) throws ItinerarioLogicException {
-        logger.info("recibiendo solictud de modificar itinerario " + updatedCity);
+    
+    public ItinerarioDTO updateItinerario(Long id, ItinerarioDTO updatedItinerario) throws ItinerarioLogicException {
+        logger.info("recibiendo solictud de modificar itinerario " + updatedItinerario);
 
         // busca el itinerario con el id suministrado
         for (ItinerarioDTO itinerario : itinerarios) {
             if (Objects.equals(itinerario.getId(), id)) {
 
                 // modifica el itinerario
-                itinerario.setId(updatedCity.getId());
-                itinerario.setFechaInicio(updatedCity.getFechaInicio());
+                itinerario.setId(updatedItinerario.getId());
+                itinerario.setFechaInicio(updatedItinerario.getFechaInicio());
 
                 // retorna el itinerario modificada
                 logger.info("Modificando itinerario " + itinerario);

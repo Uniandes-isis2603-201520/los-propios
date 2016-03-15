@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -10,7 +11,7 @@ package edu.uniandes.lospropios.resources.exceptions;
  * @author josedanielcardenasrincon
  */
 public class ItinerarioLogicException extends Exception{
-    
+
     /**
 	 * versión usada en la serialización de la clase
 	 */
