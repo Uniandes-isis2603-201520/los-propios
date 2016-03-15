@@ -20,11 +20,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
-/**
- *
- * @author jg.murillo10
- */
-@Path("cities")
+@Path("ciudades")
 @Produces("application/json")
 
 public class CiudadResource {

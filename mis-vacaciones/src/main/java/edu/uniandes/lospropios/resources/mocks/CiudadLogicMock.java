@@ -13,11 +13,12 @@ import java.util.logging.Logger;
 
 import edu.uniandes.lospropios.resources.dtos.CiudadDTO;
 import edu.uniandes.lospropios.resources.exceptions.CiudadLogicException;
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Named;
 
-/**
- *
- * @author s.trujillo10
- */
+
+@Named
+@ApplicationScoped
 public class CiudadLogicMock {
 // objeto para presentar logs de las operaciones
 

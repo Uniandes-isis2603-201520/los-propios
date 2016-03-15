@@ -5,7 +5,7 @@
  */
 (function (ng) {
     var mod = ng.module("ciudadModule", ["ui.bootstrap"]);
-    mod.constant("ciudadContext", "api/books");
+    mod.constant("ciudadContext", "api/ciudades");
 
 })(window.angular);
 

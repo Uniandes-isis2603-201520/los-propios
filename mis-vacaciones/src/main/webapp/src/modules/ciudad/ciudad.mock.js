@@ -23,23 +23,28 @@
              * records: Array con un libro por defecto
              */
             var records = [
-                {nombreCiudad: 'Roma',
+                {
+                    nombreCiudad: 'Roma',
                     paisCiudad: 'Italia',
                     sitiosCiudad: '10',
                     eventosCiudad: '10'},
-                {nombreCiudad: 'Paris',
+                {
+                    nombreCiudad: 'Paris',
                     paisCiudad: 'Francia',
                     sitiosCiudad: '10',
                     eventosCiudad: '10'},
-                {nombreCiudad: 'Berlín',
+                {
+                    nombreCiudad: 'Berlín',
                     paisCiudad: 'Alemania',
                     sitiosCiudad: '10',
                     eventosCiudad: '10'},
-                {nombreCiudad: 'Madrid',
+                {
+                    nombreCiudad: 'Madrid',
                     paisCiudad: 'España',
                     sitiosCiudad: '10',
                     eventosCiudad: '10'},
-                {nombreCiudad: 'Londres',
+                {
+                    nombreCiudad: 'Londres',
                     paisCiudad: 'Inglaterra',
                     sitiosCiudad: '10',
                     eventosCiudad: '10'}
@@ -67,7 +72,7 @@
              * se realiza la simulacion de la paginacion.
              * Response: 200 -> Status ok, array de libros y los headers.
              */
-            $httpBackend.whenGET('api/books').respond(function (method, url) {
+            $httpBackend.whenGET('api/ciudades').respond(function (method, url) {
                 var queryParams = getQueryParams(url);
                 var responseObj = [];
                 var page = queryParams.page;
@@ -105,7 +110,7 @@
              * array de records.
              * Response: 201 -> Status created, record -> libro y ningún header.
              */
-            $httpBackend.whenPOST('api/books').respond(function (method, url, data) {
+            $httpBackend.whenPOST('api/ciudades').respond(function (method, url, data) {
                 var record = ng.fromJson(data);
                 record.id = Math.floor(Math.random() * 10000);
                 records.push(record);
