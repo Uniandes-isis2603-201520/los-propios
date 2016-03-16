@@ -13,7 +13,6 @@ import edu.uniandes.lospropios.resources.exceptions.CiudadLogicException;
 
 /**
  *
- * @author s.trujillo10
  */
 @Provider
 public class CiudadLogicExceptionMapper implements ExceptionMapper<CiudadLogicException>{
@@ -22,6 +21,7 @@ public class CiudadLogicExceptionMapper implements ExceptionMapper<CiudadLogicEx
      * Generador de una respuesta a partir de una excepción
      *
      * @param ex excecpión a convertir a una respuesta REST
+     * @return
      */
     @Override
     public Response toResponse(CiudadLogicException ex) {

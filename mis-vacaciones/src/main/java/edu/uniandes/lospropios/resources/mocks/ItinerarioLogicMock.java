@@ -143,7 +143,7 @@ public class ItinerarioLogicMock {
      * @throws ItinerarioLogicException cuando no existe un itinerario con el id
      * suministrado
      */
-    
+
     public ItinerarioDTO updateItinerario(Long id, ItinerarioDTO updatedItinerario) throws ItinerarioLogicException {
         logger.info("recibiendo solictud de modificar itinerario " + updatedItinerario);
 

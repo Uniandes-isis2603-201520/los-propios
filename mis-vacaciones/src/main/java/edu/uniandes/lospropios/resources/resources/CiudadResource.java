@@ -9,6 +9,7 @@ import edu.uniandes.lospropios.resources.dtos.CiudadDTO;
 import edu.uniandes.lospropios.resources.exceptions.CiudadLogicException;
 import edu.uniandes.lospropios.resources.mocks.CiudadLogicMock;
 import java.util.List;
+import javax.enterprise.context.RequestScoped;
 
 import javax.inject.Inject;
 import javax.ws.rs.DELETE;
@@ -22,7 +23,7 @@ import javax.ws.rs.Produces;
 
 @Path("ciudades")
 @Produces("application/json")
-
+@RequestScoped
 public class CiudadResource {
 
     @Inject

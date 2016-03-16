@@ -5,6 +5,9 @@
  */
 package edu.uniandes.lospropios.resources.dtos;
 
+import java.util.ArrayList;
+import java.util.Objects;
+
 /**
  *
  * @author s.trujillo10
@@ -13,22 +16,30 @@ public class CiudadDTO {
 
     private Long id;
     private String name;
+    private String country;
+    private double calificacion;
+    private int numerClasificaciones;
+    private ArrayList<EventoDTO> eventos;
 
-    /**
-     * Constructor por defecto
-     */
-    public CiudadDTO() {
-	}
+
+    public CiudadDTO(){
+        
+    }
 
     /**
      * Constructor con parámetros.
      * @param id identificador de la ciudad
      * @param name nombre de la ciudad
+     * @param country nombre del pais
      */
-    public CiudadDTO(Long id, String name) {
+    public CiudadDTO(Long id, String name, String country) {
 		super();
 		this.id = id;
 		this.name = name;
+                this.country=country;
+                calificacion = -1;
+                numerClasificaciones = -1;
+                eventos = new ArrayList<EventoDTO>();
 	}
 
 	/**
@@ -58,12 +69,66 @@ public class CiudadDTO {
     public void setName(String name) {
         this.name = name;
     }
+    /**
+     * @return the country
+     */
+    public String getCountry() {
+        return country;
+    }
+
+    /**
+     * @param country the country to set
+     */
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public double getCalificacion()
+    {
+        return (calificacion==-1)?0:calificacion;
+    }
+
+    public void setCalificacion( double cal){
+        numerClasificaciones++;
+        if(calificacion== -1)
+        {
+            calificacion = cal;
+        }
+        else
+            calificacion = (((numerClasificaciones-1)*calificacion)+cal)/numerClasificaciones;
+    }
+
+
+    public boolean addEvent(EventoDTO x){
+        boolean rta = false;
+        if(!existeEvento(x)){
+        eventos.add(x);
+        rta = true;
+        }
+        return rta;
+
+    }
+
+    public boolean existeEvento(EventoDTO x)
+    {
+        boolean rta = false;
+        for (int i = 0; i < eventos.size() && !rta; i++)
+        {
+            EventoDTO actual = eventos.get(i);
+            if(Objects.equals(x.getId(), actual.getId()))
+                rta = true;
+        }
+        return rta;
+    }
+
 
     /**
      * Convierte el objeto a una cadena
+     * @return
      */
     @Override
     public String toString() {
     	return "{ id : " + getId() + ", name : \"" + getName() + "\" }" ;
     }
+
 }

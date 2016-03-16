@@ -34,16 +34,16 @@ public class CiudadLogicMock {
 
         if (cities == null) {
             cities = new ArrayList<>();
-            cities.add(new CiudadDTO(1L, "Bogota"));
-            cities.add(new CiudadDTO(2L, "Cali"));
-            cities.add(new CiudadDTO(3L, "Medellin"));
+            cities.add(new CiudadDTO(1L, "Bogota", "Colombia"));
+            cities.add(new CiudadDTO(2L, "Cali", "Colombia"));
+            cities.add(new CiudadDTO(3L, "Medellin", "Colombia"));
         }
 
         // indica que se muestren todos los mensajes
         logger.setLevel(Level.INFO);
 
         // muestra información
-        logger.info("Inicializa la lista de ciudades");
+        logger.info("Inicializa la lista de ciudades 1");
         logger.info("ciudades" + cities);
     }
 
