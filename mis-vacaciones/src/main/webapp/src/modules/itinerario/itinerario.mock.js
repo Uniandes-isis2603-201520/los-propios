@@ -16,7 +16,7 @@
              * api/(cualquierpalabra)/(numero)
              */
             var recordUrl = new RegExp('api/itinerarios/([0-9]+)');
-            var recordUrlDos = new RegExp('api/itinerarios/([0-9]+)');
+            var recordUrlDos = new RegExp('api/itinerarios/id/paradas/([0-9]+)');
 
             /*
              * @type Array
@@ -50,6 +50,7 @@
                 }
                 return vars;
             }
+
 
             /*
              * Ignora las peticiones GET, no contempladas en la Exp regular ignore_regexp
@@ -87,7 +88,7 @@
              * se realiza la simulacion de la paginacion.
              * Response: 200 -> Status ok, array de libros y los headers.
              */
-            $httpBackend.whenGET('api/itinerarios/paradas').respond(function (method, url) {
+            $httpBackend.whenGET('api/itinerarios/id/paradas').respond(function (method, url) {
                 var queryParams = getQueryParams(url);
                 var responseObj = [];
                 var page = queryParams.page;
@@ -96,8 +97,8 @@
                 if (page && maxRecords) {
                     var start_index = (page - 1) * maxRecords;
                     var end_index = start_index + maxRecords;
-                    responseObj = records.slice(start_index, end_index);
-                    headers = {"X-Total-Count": records.length};
+                    responseObj = recordsDos.slice(start_index, end_index);
+                    headers = {"X-Total-Count": recordsDos.length};
                 } else {
                     responseObj = recordsDos;
                 }
@@ -127,7 +128,7 @@
              */
             $httpBackend.whenGET(recordUrlDos).respond(function (method, url) {
                 var id = parseInt(url.split('/').pop());
-                var record;
+                var recordDos;
                 ng.forEach(recordsDos, function (value) {
                     if (value.id === id) {
                         record = ng.copy(value);
@@ -146,6 +147,20 @@
                 var record = ng.fromJson(data);
                 record.idItinerario = Math.floor(Math.random() * 10000);
                 records.push(record);
+                return [201, record, {}];
+            });
+
+            /*
+             * Esta funcion se ejecuta al invocar una solicitud POST a la url "api/books"
+             * Obtiene el record de libro desde el cuerpo de la peticion
+             * Genera un id aleatorio y lo asocia al record de libro y lo guarda en el
+             * array de records.
+             * Response: 201 -> Status created, record -> libro y ningún header.
+             */
+            $httpBackend.whenPOST('api/itinerarios/id/paradas').respond(function (method, url, data) {
+                var record = ng.fromJson(data);
+                record.idParada = Math.floor(Math.random() * 10000);
+                recordsDos.push(record);
                 return [201, record, {}];
             });
 

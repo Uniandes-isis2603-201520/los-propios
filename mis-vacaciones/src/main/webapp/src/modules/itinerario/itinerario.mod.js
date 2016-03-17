@@ -6,6 +6,7 @@
 (function (ng) {
     var mod = ng.module("itinerarioModule", ["ui.bootstrap"]);
     mod.constant("itinerarioContext", "api/itinerarios");
+    mod.constant("itinerarioContext", "api/itinerarios/id/paradas");
 
 
 })(window.angular);

@@ -1,4 +1,4 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -16,6 +16,16 @@
              * Devuelve una lista de objetos de persons con sus atributos
              */
             this.fetchRecords = function () {
+                return $http.get(context);
+            };
+
+            /**
+             * Obtener la lista de paradas.
+             * Hace una petición GET con $http a /itinerarios para obtener la lista
+             * @returns {promise} promise para leer la respuesta del servidor}
+             * Devuelve una lista de objetos de persons con sus atributos
+             */
+            this.fetchRecordsDos = function () {
                 return $http.get(context);
             };
 
@@ -46,6 +56,24 @@
                     return $http.put(context + "/" + currentRecord.id, currentRecord);
                 } else {
                     return $http.post(context, currentRecord);
+                }
+            };
+
+            /**
+             * Guardar un registro de un albumes.
+             * Si currentRecord tiene la propiedad id, hace un PUT a /perfilUsuario/:id con los
+             * nuevos datos de la instancia de albumes.
+             * Si currentRecord no tiene la propiedad id, se hace un POST a /albumes
+             * para crear el nuevo registro de albumes
+             * @param {object} currentRecord instancia de albumes a guardar/actualizar
+             * @returns {promise} promise para leer la respuesta del servidor
+             * Devuelve un objeto de albumes con sus datos incluyendo el id
+             */
+            this.saveRecordDos = function (currentRecordDos) {
+                if (currentRecordDos.id) {
+                    return $http.put(context + "/" + currentRecordDos.id, currentRecordDos);
+                } else {
+                    return $http.post(context, currentRecordDos);
                 }
             };
 

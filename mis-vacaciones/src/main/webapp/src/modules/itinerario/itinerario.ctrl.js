@@ -41,19 +41,15 @@
 
             $scope.agregarParada = function () {
                 var parada = [$scope.idParada, $scope.nombreParada, $scope.ciudadParada, $scope.actividadParada, $scope.fechaInicioParada, $scope.fechaFinParada];
-                svc.saveRecord(parada);
+                svc.saveRecordDos(parada);
             };
 
             $scope.listarParadas = function () {
-                return svc.fetchRecords().then(function (response)
+                return svc.fetchRecordsDos().then(function (response)
                 {
                     $scope.paradas = response.data;
                 });
             };
-
-
-
-
         }]);
 
 })(window.angular);

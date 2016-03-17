@@ -42,7 +42,6 @@
     <br>
     <ul class="nav nav-tabs bg-4">
         <li class="active"><a data-toggle="tab" href="itinerario#misItinerarios">Mis itinerarios</a></li>
-        <!--<li><a data-toggle="tab" href="itinerario#misLineas">Mis líneas de tiempo</a></li>-->
         <li><a data-toggle="tab" href="itinerario#itinerarioNuevo">Nuevo itinerario</a></li>
         <li><a data-toggle="tab" href="itinerario#paradaNueva">Nueva Parada</a></li>
     </ul>
@@ -228,6 +227,43 @@
         </div>
 
 
+
+               <div id="paradaNueva" class="tabe-pane fade">
+            <h2>Crear una nueva parada</h2>
+            <br>
+            <div class="form-group" >
+                <label for= "ex11">Identificador parada:</label>
+                <input class= "form-control" type="text" ng-model="idParada">
+                <br>
+                <br>
+                <label for= "ex12">Nombre parada:</label>
+                <input class= "form-control" type="text" ng-model="nombreParada">
+                <br>
+                <label for= "ex13">Ciudad:</label>
+                <input class= "form-control" type="text" ng-model="ciudadParada">
+                <br>
+
+                <label for= "ex14">Actividad:</label>
+                <input class= "form-control" type="text" ng-model="actividadParada">
+                <br>
+
+                <label for= "ex15">Fecha inicio:</label>
+                <input class= "form-control" type="text" ng-model="fechaInicioParada">
+                <br>
+                <label for= "ex15">Fecha fin:</label>
+                <input class= "form-control" type="text" ng-model="fechaFinParada">
+                <br>
+                <br>
+                <button ng-click="agregarParada()">Guardar Parada</button>
+                <button ng-click="listarParadas()">Mostrar Paradas</button>
+                <div align="center">
+                    <h3>Lista Paradas </h3>
+                    <p ng-repeat="p in paradas">{{ p}}</p>
+                </div>
+
+            </div>
+        </div>
+        
         <div id="misLineas" class="tabe-pane fade">
             <!--ACA DEBEN PONER EL TIMELINE QUE VAN A HACER-->
             <section id="cd-timeline" class="cd-container">
@@ -357,79 +393,46 @@
             </div>
         </div>
 
-        <div id="paradaNueva" class="tabe-pane fade">
-            <h2>Crear una nueva parada</h2>
-            <br>
-            <label>Identificador parada:</label>
-            <input class= "form-control" type="text" ng-model="idParada">
-            <br>
-            <br>
-            <label>Nombre parada:</label>
-            <input class= "form-control" type="text" ng-model="nombreParada">
-            <br>
-            <label>Ciudad:</label>
-            <input class= "form-control" type="text" ng-model="ciudadParada">
-            <br>
+    </div>
 
-            <label>Actividad:</label>
-            <input class= "form-control" type="text" ng-model="actividadParada">
-            <br>
+        <h2>Seleccione opcion de visualizacion</h2>
+        <ul class="nav nav-tabs">
+            <li><a data-toggle="tab" href="itinerario#menu1">Eventos y lugares</a></li>
+            <li><a data-toggle="tab" href="itinerario#menu2">Mapa</a></li>
+            <li><a data-toggle="tab" href="itinerario#menu3">TimeLine</a></li>
+        </ul>
 
-            <label>Fecha inicio:</label>
-            <input class= "form-control" type="text" ng-model="fechaInicioParada">
-            <br>
-            <label>Fecha fin:</label>
-            <input class= "form-control" type="text" ng-model="fechaFinParada">
-            <br>
-            <br>
-            <button ng-click="agregarParada()">Guaradar Parada</button>
-
-
-            <button ng-click="listarParadas()">Mostrar Paradas</button>
-            <div align="center">
-                <h3>Lista Paradas </h3>
-                <p ng-repeat="c in paradas">{{ c }}</p>
+        <div class="tab-content">
+            <div id="menu1" class="tab-pane in active">
+                <table style="width:100%">
+                    <tr>
+                        <td><img src="http://foto.hrsstatic.com/fotos/0/3/256/256/80/000000/http%3A%2F%2Ffoto-origin.hrsstatic.com%2Ffoto%2F0%2F4%2F5%2F8%2F045816%2F045816_z_116477.jpg/kC0K8lFE5N4nEz0kTQq8Ag%3D%3D/256,196/6/Sun_Club_Playa_del_Ingles_Bungalows-San_Bartolome_de_Tirajana-Room-1-45816.jpg" class="img-circle" alt="Cinque Terre" width="150" height="150"></td>
+                        <td><img src="https://pbs.twimg.com/profile_images/585623532119416832/F7MSFJqD.jpg" class="img-circle" alt="Cinque Terre" width="150" height="150"> </td>
+                        <td><img src="http://cdn3.clasipar.com/pictures/photos/007/932/051/vga_Maxum_Boat16.jpg" class="img-circle" alt="Cinque Terre" width="150" height="150"> </td>
+                        <td><img src="https://blueecology.files.wordpress.com/2013/05/cropped-chalo.jpg?w=256&h=256&crop=1" class="img-circle" alt="Cinque Terre" width="150" height="150"> </td>
+                    </tr>
+                    <tr>
+                        <td><img src="https://pbs.twimg.com/profile_images/609158294876258304/K0Cd0fZv_400x400.jpg" class="img-circle" alt="Cinque Terre" width="150" height="150"></td>
+                        <td><img src="https://media-cdn.tripadvisor.com/media/photo-s/05/1a/95/bf/melia-caribe-tropical.jpg" class="img-circle" alt="Cinque Terre" width="150" height="150"> </td>
+                        <td><img src="https://s-media-cache-ak0.pinimg.com/564x/12/44/be/1244be0b41affd6395dfdb4145118e0c.jpg" class="img-circle" alt="Cinque Terre" width="150" height="150"> </td>
+                        <td><img src="https://tequesquitengo.files.wordpress.com/2010/05/rafting118.jpg" class="img-circle" alt="Cinque Terre" width="150" height="150"> </td>
+                    </tr>
+                    <tr>
+                        <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Parque_tayrona_cabo.jpg/200px-Parque_tayrona_cabo.jpg" class="img-circle" alt="Cinque Terre" width="150" height="150"></td>
+                        <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/155_Cathedral_San_Pedro_Claver_Cartagena.JPG/250px-155_Cathedral_San_Pedro_Claver_Cartagena.JPG" class="img-circle" alt="Cinque Terre" width="150" height="150"> </td>
+                        <td><img src="http://versionfinal.com.ve/wp-content/uploads/2015/09/maracaibo.version-final.jpg" class="img-circle" alt="Cinque Terre" width="150" height="150"> </td>
+                        <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/SaltoAngel4.jpg/290px-SaltoAngel4.jpg" class="img-circle" alt="Cinque Terre" width="150" height="150"> </td>
+                    </tr>
+                </table>
             </div>
-             </div>
-
-    <h2>Seleccione opcion de visualizacion</h2>
-    <ul class="nav nav-tabs">
-        <li><a data-toggle="tab" href="itinerario#menu1">Eventos y lugares</a></li>
-        <li><a data-toggle="tab" href="itinerario#menu2">Mapa</a></li>
-        <li><a data-toggle="tab" href="itinerario#menu3">TimeLine</a></li>
-    </ul>
-
-    <div class="tab-content">
-        <div id="menu1" class="tab-pane in active">
-            <table style="width:100%">
-                <tr>
-                    <td><img src="http://foto.hrsstatic.com/fotos/0/3/256/256/80/000000/http%3A%2F%2Ffoto-origin.hrsstatic.com%2Ffoto%2F0%2F4%2F5%2F8%2F045816%2F045816_z_116477.jpg/kC0K8lFE5N4nEz0kTQq8Ag%3D%3D/256,196/6/Sun_Club_Playa_del_Ingles_Bungalows-San_Bartolome_de_Tirajana-Room-1-45816.jpg" class="img-circle" alt="Cinque Terre" width="150" height="150"></td>
-                    <td><img src="https://pbs.twimg.com/profile_images/585623532119416832/F7MSFJqD.jpg" class="img-circle" alt="Cinque Terre" width="150" height="150"> </td>
-                    <td><img src="http://cdn3.clasipar.com/pictures/photos/007/932/051/vga_Maxum_Boat16.jpg" class="img-circle" alt="Cinque Terre" width="150" height="150"> </td>
-                    <td><img src="https://blueecology.files.wordpress.com/2013/05/cropped-chalo.jpg?w=256&h=256&crop=1" class="img-circle" alt="Cinque Terre" width="150" height="150"> </td>
-                </tr>
-                <tr>
-                    <td><img src="https://pbs.twimg.com/profile_images/609158294876258304/K0Cd0fZv_400x400.jpg" class="img-circle" alt="Cinque Terre" width="150" height="150"></td>
-                    <td><img src="https://media-cdn.tripadvisor.com/media/photo-s/05/1a/95/bf/melia-caribe-tropical.jpg" class="img-circle" alt="Cinque Terre" width="150" height="150"> </td>
-                    <td><img src="https://s-media-cache-ak0.pinimg.com/564x/12/44/be/1244be0b41affd6395dfdb4145118e0c.jpg" class="img-circle" alt="Cinque Terre" width="150" height="150"> </td>
-                    <td><img src="https://tequesquitengo.files.wordpress.com/2010/05/rafting118.jpg" class="img-circle" alt="Cinque Terre" width="150" height="150"> </td>
-                </tr>
-                <tr>
-                    <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Parque_tayrona_cabo.jpg/200px-Parque_tayrona_cabo.jpg" class="img-circle" alt="Cinque Terre" width="150" height="150"></td>
-                    <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/155_Cathedral_San_Pedro_Claver_Cartagena.JPG/250px-155_Cathedral_San_Pedro_Claver_Cartagena.JPG" class="img-circle" alt="Cinque Terre" width="150" height="150"> </td>
-                    <td><img src="http://versionfinal.com.ve/wp-content/uploads/2015/09/maracaibo.version-final.jpg" class="img-circle" alt="Cinque Terre" width="150" height="150"> </td>
-                    <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/SaltoAngel4.jpg/290px-SaltoAngel4.jpg" class="img-circle" alt="Cinque Terre" width="150" height="150"> </td>
-                </tr>
-            </table>
-        </div>
-        <div id="menu2" class="tab-pane fade">
-            <img src="http://maps.googleapis.com/maps/api/staticmap?center=brazil&size=640x400&zoom=4">
-            <!--<div class="container"><div id="googleMap" style="width:500px;height:380px;"></div></div>-->
-        </div>
-        <div id="menu3" class="tab-pane fade">
-            <ul class="timeline">
-            </ul>
-            <img src="http://seetio.com/blog/wp-content/uploads/2013/11/JoGuru.jpg"  alt="itinerario" width="900" height="300">
+            <div id="menu2" class="tab-pane fade">
+                <img src="http://maps.googleapis.com/maps/api/staticmap?center=brazil&size=640x400&zoom=4">
+                <!--<div class="container"><div id="googleMap" style="width:500px;height:380px;"></div></div>-->
+            </div>
+            <div id="menu3" class="tab-pane fade">
+                <ul class="timeline">
+                </ul>
+                <img src="http://seetio.com/blog/wp-content/uploads/2013/11/JoGuru.jpg"  alt="itinerario" width="900" height="300">
+            </div>
         </div>
     </div>
-</div>
