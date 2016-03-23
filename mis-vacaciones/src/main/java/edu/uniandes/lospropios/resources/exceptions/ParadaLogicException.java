@@ -15,11 +15,6 @@ public class ParadaLogicException extends Exception{
 	 */
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Constructor por defecto
-	 */
-	public ParadaLogicException() {
-	}
 
 	/**
 	 * Constructor con un mensaje

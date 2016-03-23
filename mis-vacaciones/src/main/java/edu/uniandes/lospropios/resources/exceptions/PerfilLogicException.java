@@ -10,11 +10,6 @@ public class PerfilLogicException extends Exception {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Constructor por defecto
-	 */
-	public PerfilLogicException() {
-	}
 
 	/**
 	 * Constructor con un mensaje

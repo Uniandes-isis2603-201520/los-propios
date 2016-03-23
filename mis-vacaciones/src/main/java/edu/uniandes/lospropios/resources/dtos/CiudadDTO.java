@@ -21,10 +21,6 @@ public class CiudadDTO {
     private int numerClasificaciones;
     private ArrayList<EventoDTO> eventos;
 
-    public CiudadDTO() {
-
-    }
-
     /**
      * Constructor con parámetros.
      *

@@ -5,7 +5,6 @@
  */
 package edu.uniandes.lospropios.resources.mocks;
 
-import edu.uniandes.lospropios.resources.dtos.CiudadDTO;
 import edu.uniandes.lospropios.resources.dtos.EventoDTO;
 import edu.uniandes.lospropios.resources.exceptions.EventoLogicException;
 import java.util.ArrayList;
@@ -35,9 +34,15 @@ public class EventoLogicMock {
 
     	if (eventos == null) {
             eventos = new ArrayList<>();
-            eventos.add(new EventoDTO(1L, "evento1", "A", "COL", new Date(), 2000, "http://UrlImg.com", EventoDTO.EVENTO));
-            eventos.add(new EventoDTO(2L, "evento2", "B", "COL", new Date(), 2001, "http://UrlImg2.com", EventoDTO.SITIO_INTERES));
-            eventos.add(new EventoDTO(3L, "evento3", "C", "CHILE", new Date(), 30000, "http://UrlImg3.com", EventoDTO.EVENTO));
+            EventoDTO e1 =new EventoDTO(1L, "evento1", "A", "COL");
+            e1.agregarPreferenciasEvento(new Date(), 2000, "http://UrlImg.com", EventoDTO.EVENTO);
+            eventos.add(e1);
+            e1 = new EventoDTO(2L, "evento2", "B", "COL");
+            e1.agregarPreferenciasEvento(new Date(), 2001, "http://UrlImg2.com", EventoDTO.SITIO_INTERES);
+            eventos.add(e1);
+            e1 = new EventoDTO(3L, "evento3", "C", "CHILE");
+            e1.agregarPreferenciasEvento(new Date(), 30000, "http://UrlImg3.com", EventoDTO.EVENTO);
+            eventos.add(e1);
         }
 
     	// indica que se muestren todos los mensajes

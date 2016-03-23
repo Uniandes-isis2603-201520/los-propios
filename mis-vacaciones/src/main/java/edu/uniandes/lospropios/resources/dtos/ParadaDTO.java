@@ -5,7 +5,6 @@
  */
 package edu.uniandes.lospropios.resources.dtos;
 
-import edu.uniandes.lospropios.resources.dtos.CiudadDTO;
 
 /**
  *
@@ -15,14 +14,11 @@ public class ParadaDTO {
 
     private Long id;
     private String nombre;
-//    private CiudadDTO ciudad;
     private String ciudad;
     private String actividad;
     private String fechaInicio;
     private String fechaFin;
 
-    public ParadaDTO() {
-    }
 
     public ParadaDTO(Long id, String nombre, String ciudad, String actividad, String fechaInicio, String fechaFin) {
         super();

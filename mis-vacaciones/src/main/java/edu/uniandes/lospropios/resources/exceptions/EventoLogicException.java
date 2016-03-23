@@ -17,12 +17,6 @@ public class EventoLogicException extends Exception
 	private static final long serialVersionUID = 2L;
 
 	/**
-	 * Constructor por defecto
-	 */
-	public EventoLogicException() {
-	}
-
-	/**
 	 * Constructor con un mensaje
 	 * @param message mensaje de la excepción
 	 */

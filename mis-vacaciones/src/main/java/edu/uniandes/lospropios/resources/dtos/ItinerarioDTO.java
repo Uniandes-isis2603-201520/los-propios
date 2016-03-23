@@ -6,7 +6,6 @@
  */
 package edu.uniandes.lospropios.resources.dtos;
 
-import java.util.Date;
 
 /**
  *
@@ -18,8 +17,6 @@ public class ItinerarioDTO {
     private String fechaInicio;
     private String fechaFin;
 
-    public ItinerarioDTO() {
-    }
 
     public ItinerarioDTO(Long id, String fechaInicio, String fechaFin) {
         super();

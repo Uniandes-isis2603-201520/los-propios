@@ -7,37 +7,29 @@ package edu.uniandes.lospropios.resources.dtos;
 
 /**
  * Objeto de transferencia de datos del perfil.
+ *
  * @author mc.hernandez1
  */
-
 public class PerfilDTO {
 
     private Long id;
     private String perfil;
 
     /**
-     * Constructor por defecto
-     */
-    public PerfilDTO() {
-	}
-
-    /**
-     * Constructor con parámetros.
-     *   $scope.albumnes = [];
-            $scope.id = "";
-            $scope.ciudad = "";
-            $scope.descripcion = "";
+     * Constructor con parámetros. $scope.albumnes = []; $scope.id = "";
+     * $scope.ciudad = ""; $scope.descripcion = "";
+     *
      * @param id identificador del album
-     * @param ciudad ciudad donde se realizo el album
+     * @param perfil perfil donde se realizo el album
      */
     public PerfilDTO(Long id, String perfil) {
-		super();
-		this.id = id;
-		this.perfil = perfil;
+        super();
+        this.id = id;
+        this.perfil = perfil;
 
-	}
+    }
 
-	/**
+    /**
      * @return the id
      */
     public Long getId() {
@@ -70,7 +62,7 @@ public class PerfilDTO {
      */
     @Override
     public String toString() {
-    	return "{ id : " + getId() + ", ciudad : \"" + getPerfil() + "\" }" ;
+        return "{ id : " + getId() + ", ciudad : \"" + getPerfil() + "\" }";
     }
 
     public void setName(String perfil) {

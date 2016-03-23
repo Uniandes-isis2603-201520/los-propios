@@ -18,12 +18,6 @@ public class ItinerarioLogicException extends Exception{
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Constructor por defecto
-	 */
-	public ItinerarioLogicException() {
-	}
-
-	/**
 	 * Constructor con un mensaje
 	 * @param message mensaje de la excepción
 	 */

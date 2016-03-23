@@ -11,8 +11,8 @@ import java.util.Date;
  *
  * @author js.gomez14
  */
-public class EventoDTO
-{
+public class EventoDTO {
+
     /**
      * Representa si la actividad es un evento.
      */
@@ -23,10 +23,10 @@ public class EventoDTO
      */
     public static final String SITIO_INTERES = "SitioInteres";
 
-
     /**
      * Representa el id de la actividad.
-    **/
+    *
+     */
     private Long id;
 
     /**
@@ -45,7 +45,8 @@ public class EventoDTO
     private String lugar;
 
     /**
-     * Representa la fecha de la actividad, si clasificación == "SITIO_INTERES" entonces la fecha es null.
+     * Representa la fecha de la actividad, si clasificación == "SITIO_INTERES"
+     * entonces la fecha es null.
      */
     private Date fecha;
 
@@ -64,39 +65,40 @@ public class EventoDTO
      */
     private String clasificacion;
 
-    public EventoDTO()
-    {
-
-    }
-
     /**
      * Constructor con parámetros.
+     *
      * @param id identificador de la actividad.
      * @param name nombre de la actividad.
      * @param desc descripcion de la actividad.
      * @param lugar lugar de la actividad.
-     * @param fecha fecha de la actividad (Null si clasificacion == SITIO_INTERES).
+     */
+    public EventoDTO(Long id, String name, String desc, String lugar) {
+        super();
+        this.id = id;
+        this.nombre = name;
+        this.descripcion = desc;
+        this.lugar = lugar;
+    }
+
+    /**
+     *
+     * @param fecha fecha de la actividad (Null si clasificacion ==
+     * SITIO_INTERES).
      * @param precio precio de la actividad.
      * @param img url de la imagen que representa la actividad.
      * @param clas clasificacion de la actividad.
      */
-    public EventoDTO(Long id, String name, String desc, String lugar, Date fecha, double precio, String img, String clas)
-    {
-		super();
-		this.id = id;
-		this.nombre = name;
-                this.descripcion = desc;
-                this.clasificacion = clas;
-                if(clas.equalsIgnoreCase(SITIO_INTERES))
-                {
-                    this.fecha = null;
-                }
-                else if(clas.equalsIgnoreCase(EVENTO))
-                {
-                    this.fecha = fecha;
-                }
-                this.precio = precio;
-                this.img = img;
+    public void agregarPreferenciasEvento(Date fecha, double precio, String img, String clas) {
+
+        this.clasificacion = clas;
+        if (clas.equalsIgnoreCase(SITIO_INTERES)) {
+            this.fecha = null;
+        } else if (clas.equalsIgnoreCase(EVENTO)) {
+            this.fecha = fecha;
+        }
+        this.precio = precio;
+        this.img = img;
     }
 
     /**
@@ -127,7 +129,7 @@ public class EventoDTO
         this.nombre = name;
     }
 
-     /**
+    /**
      * @return la descripcion
      */
     public String getDescripcion() {
@@ -211,14 +213,12 @@ public class EventoDTO
         this.clasificacion = clas;
     }
 
-
     /**
      * Convierte el objeto a una cadena
      */
     @Override
-    public String toString()
-    {
-    	return "{ id : " + getId() + ", name : \"" + getNombre() + "\" }" ;
+    public String toString() {
+        return "{ id : " + getId() + ", name : \"" + getNombre() + "\" }";
     }
 
 }
