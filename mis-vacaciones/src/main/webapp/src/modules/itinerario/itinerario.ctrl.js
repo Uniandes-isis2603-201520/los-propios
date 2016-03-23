@@ -12,7 +12,6 @@
     // crea el controlador con dependencias a $scope y a personService
     mod.controller("itinerarioCtrl", ["$scope", "itinerarioService", function ($scope, svc) {
 
-            // TODO: define los atributos en el scope
             $scope.itinerarios = [];
             $scope.fechaInicio = "";
             $scope.fechaFin = "";
@@ -25,7 +24,6 @@
             $scope.fechaFinParada = "";
             $scope.paradas = [];
 
-            // TODO: define funciones que son invocadas desde la pantalla
             // y que usan funciones definidas en el servicio
             $scope.agregarItinerario = function () {
                 var itinerario = [$scope.idItinerario, $scope.fechaInicio, $scope.fechaFin];

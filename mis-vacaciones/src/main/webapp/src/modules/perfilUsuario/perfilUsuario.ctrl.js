@@ -9,7 +9,6 @@
     // crea el controlador con dependencias a $scope y a perfilUsuarioService
     mod.controller("perfilUsuarioCtrl", ["$scope", "perfilUsuarioService", function ($scope, svc) {
 
-            // TODO: define los atributos en el scope
             $scope.albumnes = [];
             $scope.id = "";
             $scope.ciudad = "";

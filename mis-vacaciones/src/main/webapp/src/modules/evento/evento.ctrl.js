@@ -9,7 +9,6 @@
   // crea el controlador con dependencias a $scope y a personService
   mod.controller("eventoCtrl", ["$scope", "eventoService", function ($scope, svc) {
 
-    // TODO:define los atributos en el escope
 
             $scope.eventos = [];
             $scope.eventoActual={

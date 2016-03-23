@@ -9,8 +9,6 @@ import edu.uniandes.lospropios.resources.dtos.ItinerarioDTO;
 import edu.uniandes.lospropios.resources.exceptions.ItinerarioLogicException;
 import edu.uniandes.lospropios.resources.mocks.ItinerarioLogicMock;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -37,7 +35,7 @@ import javax.ws.rs.Produces;
 @RequestScoped
 public class ItinerarioResource {
 
-    
+
     @Inject
     ItinerarioLogicMock itinerarioLogic;
 

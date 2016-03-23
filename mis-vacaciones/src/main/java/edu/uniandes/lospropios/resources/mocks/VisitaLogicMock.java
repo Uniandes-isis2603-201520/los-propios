@@ -23,8 +23,8 @@ import javax.inject.Named;
 @Named
 @ApplicationScoped
 public class VisitaLogicMock {
-    
-    private final static Logger logger = Logger.getLogger(VisitaLogicMock.class.getName());
+
+    private final static Logger LOGGER = Logger.getLogger(VisitaLogicMock.class.getName());
 
     // listado de visitas
     private static ArrayList<VisitaDTO> visitas;
@@ -36,17 +36,17 @@ public class VisitaLogicMock {
 
         if (visitas == null) {
             visitas = new ArrayList<>();
-            visitas.add(new VisitaDTO(2L,2,3.5,new Date()));
-            visitas.add(new VisitaDTO(3L,3,5,new Date()));
-            visitas.add(new VisitaDTO(1L,1,4,new Date()));
+            visitas.add(new VisitaDTO(2L, 2, 3.5, new Date()));
+            visitas.add(new VisitaDTO(3L, 3, 5, new Date()));
+            visitas.add(new VisitaDTO(1L, 1, 4, new Date()));
         }
 
         // indica que se muestren todos los mensajes
-        logger.setLevel(Level.INFO);
+        LOGGER.setLevel(Level.INFO);
 
         // muestra información
-        logger.info("Inicializa la lista de visitas");
-        logger.info("visitas" + visitas);
+        LOGGER.info("Inicializa la lista de visitas");
+        LOGGER.info("visitas" + visitas);
     }
 
     /**
@@ -57,11 +57,11 @@ public class VisitaLogicMock {
      */
     public List<VisitaDTO> getVisitas() throws VisitaLogicException {
         if (visitas == null) {
-            logger.severe("Error interno: lista de visitas no existe.");
+            LOGGER.severe("Error interno: lista de visitas no existe.");
             throw new VisitaLogicException("Error interno: lista de visitas no existe.");
         }
 
-        logger.info("retornando todas las visitas");
+        LOGGER.info("retornando todas las visitas");
         return visitas;
     }
 
@@ -73,18 +73,18 @@ public class VisitaLogicMock {
      * @throws EventoLogicException cuando el visita no existe
      */
     public VisitaDTO getVisita(Long id) throws VisitaLogicException {
-        logger.info("recibiendo solicitud de visita con id " + id);
+        LOGGER.info("recibiendo solicitud de visita con id " + id);
 
         // busca el visita con el id suministrado
         for (VisitaDTO visita : visitas) {
             if (Objects.equals(visita.getId(), id)) {
-                logger.info("retornando visita " + visita);
+                LOGGER.info("retornando visita " + visita);
                 return visita;
             }
         }
 
         // si no encuentra el visita
-        logger.severe("No existe visita con ese id");
+        LOGGER.severe("No existe visita con ese id");
         throw new VisitaLogicException("No existe un visita con ese id");
     }
 
@@ -97,7 +97,7 @@ public class VisitaLogicMock {
      * @return visita agregada
      */
     public VisitaDTO createVisita(VisitaDTO newVisita) throws VisitaLogicException {
-        logger.info("recibiendo solicitud de agregar visita " + newVisita);
+        LOGGER.info("recibiendo solicitud de agregar visita " + newVisita);
 
         // el nuevo visita tiene id ?
         if (newVisita.getId() != null) {
@@ -105,7 +105,7 @@ public class VisitaLogicMock {
             for (VisitaDTO visita : visitas) {
                 // si existe un visita con ese id
                 if (Objects.equals(visita.getId(), newVisita.getId())) {
-                    logger.severe("Ya existe un visita con ese id");
+                    LOGGER.severe("Ya existe un visita con ese id");
                     throw new VisitaLogicException("Ya existe un visita con ese id");
                 }
             }
@@ -114,7 +114,7 @@ public class VisitaLogicMock {
         } else {
 
             // genera un id para el visita
-            logger.info("Generando id paa el nuevo visita");
+            LOGGER.info("Generando id paa el nuevo visita");
             long newId = 1;
             for (VisitaDTO visita : visitas) {
                 if (newId <= visita.getId()) {
@@ -125,7 +125,7 @@ public class VisitaLogicMock {
         }
 
         // agrega el visita
-        logger.info("agregando visita " + newVisita);
+        LOGGER.info("agregando visita " + newVisita);
         visitas.add(newVisita);
         return newVisita;
     }
@@ -140,7 +140,7 @@ public class VisitaLogicMock {
      * suministrado
      */
     public VisitaDTO updateVisita(Long id, VisitaDTO updatedVisita) throws VisitaLogicException {
-        logger.info("recibiendo solictud de modificar visita " + updatedVisita);
+        LOGGER.info("recibiendo solictud de modificar visita " + updatedVisita);
 
         // busca el visita con el id suministrado
         for (VisitaDTO visita : visitas) {
@@ -153,13 +153,13 @@ public class VisitaLogicMock {
                 visita.setOrdenVisita(updatedVisita.getOrdenVisita());
 
                 // retorna el visita modificada
-                logger.info("Modificando visita " + visita);
+                LOGGER.info("Modificando visita " + visita);
                 return visita;
             }
         }
 
         // no encontró el visita con ese id ?
-        logger.severe("No existe un visita con ese id");
+        LOGGER.severe("No existe un visita con ese id");
         throw new VisitaLogicException("No existe un visita con ese id");
     }
 
@@ -171,21 +171,21 @@ public class VisitaLogicMock {
      * suministrado
      */
     public void deleteVisita(Long id) throws VisitaLogicException {
-        logger.info("recibiendo solictud de eliminar visita con id " + id);
+        LOGGER.info("recibiendo solictud de eliminar visita con id " + id);
 
         // busca el visita con el id suministrado
         for (VisitaDTO visita : visitas) {
             if (Objects.equals(visita.getId(), id)) {
 
                 // elimina el visita
-                logger.info("eliminando visita " + visita);
+                LOGGER.info("eliminando visita " + visita);
                 visitas.remove(visita);
                 return;
             }
         }
 
         // no encontró el visita con ese id ?
-        logger.severe("No existe un visita con ese id");
+        LOGGER.severe("No existe un visita con ese id");
         throw new VisitaLogicException("No existe un visita con ese id");
     }
 }

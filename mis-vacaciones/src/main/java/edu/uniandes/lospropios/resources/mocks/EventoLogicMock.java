@@ -25,16 +25,16 @@ import javax.inject.Named;
 public class EventoLogicMock {
 
     // objeto para presentar logs de las operaciones
-    private final static Logger logger = Logger.getLogger(EventoLogicMock.class.getName());
+    private final static Logger LOGGER = Logger.getLogger(EventoLogicMock.class.getName());
 
     // listado de ciudades
     private static ArrayList<EventoDTO> eventos;
 
     public EventoLogicMock() {
 
-    	if (eventos == null) {
+        if (eventos == null) {
             eventos = new ArrayList<>();
-            EventoDTO e1 =new EventoDTO(1L, "evento1", "A", "COL");
+            EventoDTO e1 = new EventoDTO(1L, "evento1", "A", "COL");
             e1.agregarPreferenciasEvento(new Date(), 2000, "http://UrlImg.com", EventoDTO.EVENTO);
             eventos.add(e1);
             e1 = new EventoDTO(2L, "evento2", "B", "COL");
@@ -45,58 +45,57 @@ public class EventoLogicMock {
             eventos.add(e1);
         }
 
-    	// indica que se muestren todos los mensajes
-    	logger.setLevel(Level.INFO);
+        // indica que se muestren todos los mensajes
+        LOGGER.setLevel(Level.INFO);
 
-    	// muestra información
-    	logger.info("Inicializa la lista de ciudades");
-    	logger.info("ciudades" + eventos );
-
+        // muestra información
+        LOGGER.info("Inicializa la lista de ciudades");
+        LOGGER.info("ciudades" + eventos);
 
     }
 
     public List<EventoDTO> getEventos() throws EventoLogicException {
         if (eventos == null) {
-    		logger.severe("Error interno: lista de ciudades no existe.");
-    		throw new EventoLogicException("Error interno: lista de ciudades no existe.");
-    	}
+            LOGGER.severe("Error interno: lista de ciudades no existe.");
+            throw new EventoLogicException("Error interno: lista de ciudades no existe.");
+        }
 
-    	logger.info("retornando todas las ciudades");
-    	return eventos;
+        LOGGER.info("retornando todas las ciudades");
+        return eventos;
 
     }
 
     public EventoDTO createEvento(EventoDTO evento) throws EventoLogicException {
 
-            	logger.info("recibiendo solicitud de agregar ciudad " + evento);
+        LOGGER.info("recibiendo solicitud de agregar ciudad " + evento);
 
-    	// el nuevo evento tiene id ?
-    	if ( evento.getId() != null ) {
-	    	// busca el vento con el id suministrado
-	        for (EventoDTO actual : eventos) {
-	        	// si existe un evento con ese id
-	            if (Objects.equals(actual.getId(), evento.getId())){
-	            	logger.severe("Ya existe un evento con ese id");
-	                throw new EventoLogicException("Ya existe un evento con ese id");
-	            }
-	        }
+        // el nuevo evento tiene id ?
+        if (evento.getId() != null) {
+            // busca el vento con el id suministrado
+            for (EventoDTO actual : eventos) {
+                // si existe un evento con ese id
+                if (Objects.equals(actual.getId(), evento.getId())) {
+                    LOGGER.severe("Ya existe un evento con ese id");
+                    throw new EventoLogicException("Ya existe un evento con ese id");
+                }
+            }
 
-	    // el nuevo evento no tiene id ?
-    	} else {
+            // el nuevo evento no tiene id ?
+        } else {
 
-    		// genera un id para el evento
-    		logger.info("Generando id para el nuevo evento");
-    		long newId = 1;
-	        for (EventoDTO actual : eventos) {
-	            if (newId <= actual.getId()){
-	                newId =  actual.getId() + 1;
-	            }
-	        }
-	        evento.setId(newId);
-    	}
+            // genera un id para el evento
+            LOGGER.info("Generando id para el nuevo evento");
+            long newId = 1;
+            for (EventoDTO actual : eventos) {
+                if (newId <= actual.getId()) {
+                    newId = actual.getId() + 1;
+                }
+            }
+            evento.setId(newId);
+        }
 
         // agrega el evento
-    	logger.info("agregando evento " + evento);
+        LOGGER.info("agregando evento " + evento);
         eventos.add(evento);
         return evento;
 
@@ -104,44 +103,44 @@ public class EventoLogicMock {
 
     public void deleteEvento(Long id) throws EventoLogicException {
 
-            	logger.info("recibiendo solictud de eliminar evento con id " + id);
+        LOGGER.info("recibiendo solictud de eliminar evento con id " + id);
 
-    	// busca el evento con el id suministrado
+        // busca el evento con el id suministrado
         for (EventoDTO actual : eventos) {
             if (Objects.equals(actual.getId(), id)) {
 
-            	// elimina el evento
-            	logger.info("eliminando evento " + actual);
+                // elimina el evento
+                LOGGER.info("eliminando evento " + actual);
                 eventos.remove(actual);
                 return;
             }
         }
 
         // no encontró el evento con ese id ?
-        logger.severe("No existe un evento con ese id");
+        LOGGER.severe("No existe un evento con ese id");
         throw new EventoLogicException("No existe un evento con ese id");
     }
 
     public EventoDTO updateEvento(Long id, EventoDTO evento) throws EventoLogicException {
 
-        logger.info("recibiendo solictud de modificar evento " + evento);
+        LOGGER.info("recibiendo solictud de modificar evento " + evento);
 
-    	// busca el evento con el id suministrado
+        // busca el evento con el id suministrado
         for (EventoDTO actual : eventos) {
             if (Objects.equals(actual.getId(), id)) {
 
-            	// modifica el evento
-            	actual.setId(evento.getId());
+                // modifica el evento
+                actual.setId(evento.getId());
                 actual.setNombre(evento.getNombre());
 
                 // retorna el evento modificada
-            	logger.info("Modificando evento " + actual);
+                LOGGER.info("Modificando evento " + actual);
                 return actual;
             }
         }
 
         // no encontró el evento con ese id ?
-        logger.severe("No existe un evento con ese id");
+        LOGGER.severe("No existe un evento con ese id");
         throw new EventoLogicException("No existe un evento con ese id");
     }
 }

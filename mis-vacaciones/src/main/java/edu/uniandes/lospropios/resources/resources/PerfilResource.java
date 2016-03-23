@@ -8,7 +8,6 @@ package edu.uniandes.lospropios.resources.resources;
 import edu.uniandes.lospropios.resources.dtos.PerfilDTO;
 import edu.uniandes.lospropios.resources.exceptions.PerfilLogicException;
 import edu.uniandes.lospropios.resources.mocks.PerfilLogicMock;
-import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;

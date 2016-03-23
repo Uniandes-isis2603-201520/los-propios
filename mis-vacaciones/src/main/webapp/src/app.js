@@ -1,5 +1,4 @@
 
-/* TODO Se debe declarar las dependencias a los módulos en el módulo principal de la aplicación.*/
 (function (ng) {
 
     // define la aplicación con sus dependencias
