@@ -22,11 +22,7 @@
                 precio: 0, /**Tipo Double**/
                 img: "", /**Tipo String**/
                 clasificacion:"" /**Tipo String**/
-            }
-            /* $scope.agregarEvento = function () {
-                $scope.eventoActual = {$scope.id, $scope.ciudad, $scope.descripcion};
-                svc.saveRecord(eventoActual);
-            };*/
+            };
 
             $scope.listarEventos = function () {
                 return svc.fetchRecords().then(function (response)

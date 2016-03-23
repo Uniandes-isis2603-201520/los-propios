@@ -4,67 +4,28 @@
  * and open the template in the editor.
  */
 (function (ng) {
-
     var mod = ng.module('eventoMock', ['ngMockE2E']);
-
-
     mod.run(['$httpBackend', function ($httpBackend) {
             var ignore_regexp = new RegExp('^((?!api).)*$');
-            /*
-             * @type RegExp
-             * recordUrl acepta cualquier url con el formato
-             * api/(cualquierpalabra)/(numero)
-             * ej: api/books/1
-             */
             var recordUrl = new RegExp('api/evento/([0-9]+)');
-
-            /*
-             * @type Array
-             * records: Array con un evento por defecto
-             */
             var records = [
                 {
-                    nombre: 'Concierto KSI',
-                    descripción: 'Concierto del cantante y youtuber ingles',
-                    tipo: 'Concierto',
-                    lugar: 'O2 Brixton Academy, 211 Stockwell Rd, London SW9 9SL, United Kingdom',
-                    fecha: '10/02/2016',
-                    precio: '£20',
-                    img: 'https://academymusicgroup.com/o2academybrixton/sites/default/files/artists/2bf94d27-34c5-4da3-8a42-32f843452c41.jpg',
-                    clasificacion: 'evento'
+                    nombre: 'Concierto KSI', descripción: 'Concierto del cantante y youtuber ingles', tipo: 'Concierto', lugar: 'O2 Brixton Academy, 211 Stockwell Rd, London SW9 9SL, United Kingdom',
+                    fecha: '10/02/2016', precio: '£20', img: 'https://academymusicgroup.com/o2academybrixton/sites/default/files/artists/2bf94d27-34c5-4da3-8a42-32f843452c41.jpg', clasificacion: 'evento'
                 },
                 {
-                    nombre: 'The Color Run',
-                    descripción: 'Los 5 kilometros más coloridos',
-                    tipo: 'Maratón',
-                    lugar: 'Parque Simón Bolivar, Bogotá, Colombia',
-                    fecha: '11/04/2016',
-                    precio: 'COP$35.000',
-                    img: 'http://www.lafm.com.co/sites/default/files/imagecache/600xy/imagenes/thecolorrun.jpg',
-                    clasificacion: 'evento'
+                    nombre: 'The Color Run', descripción: 'Los 5 kilometros más coloridos', tipo: 'Maratón', lugar: 'Parque Simón Bolivar, Bogotá, Colombia',
+                    fecha: '11/04/2016', precio: 'COP$35.000', img: 'http://www.lafm.com.co/sites/default/files/imagecache/600xy/imagenes/thecolorrun.jpg', clasificacion: 'evento'
                 },
                 {
-                    nombre: 'Trafalgar Square',
-                    descripción: 'Emblematico sitio turistico de londres',
-                    tipo: 'Parque',
-                    lugar: 'Trafalgar Square, Westminster, London WC2N 5DN, United Kingdom',
-                    fecha: '',
-                    precio: 'Gratis',
-                    img: 'https://upload.wikimedia.org/wikipedia/commons/a/a6/Trafalgar_Square,_London_2_-_Jun_2009.jpg',
-                    clasificacion: 'sitio'
+                    nombre: 'Trafalgar Square', descripción: 'Emblematico sitio turistico de londres', tipo: 'Parque', lugar: 'Trafalgar Square, Westminster, London WC2N 5DN, United Kingdom',
+                    fecha: '', precio: 'Gratis', img: 'https://upload.wikimedia.org/wikipedia/commons/a/a6/Trafalgar_Square,_London_2_-_Jun_2009.jpg', clasificacion: 'sitio'
                 },
                 {
-                    nombre: 'Eiffel Tower',
-                    descripción: 'Uno de los monumentos más visitados en el mundo, una de las maravillas del mundo',
-                    tipo: 'Monumento',
-                    lugar: 'Champ de Mars, 5 Avenue Anatole France, 75007 Paris, Francia',
-                    fecha: '',
-                    precio: 'Gratis',
-                    img: 'http://mexico.cnn.com/media/2013/02/15/torre-eiffel.jpg',
-                    clasificacion: 'sitio'
+                    nombre: 'Eiffel Tower', descripción: 'Uno de los monumentos más visitados en el mundo, una de las maravillas del mundo', tipo: 'Monumento', lugar: 'Champ de Mars, 5 Avenue Anatole France, 75007 Paris, Francia',
+                    fecha: '', precio: 'Gratis', img: 'http://mexico.cnn.com/media/2013/02/15/torre-eiffel.jpg', clasificacion: 'sitio'
                 }
             ];
-
             function getQueryParams(url) {
                 var vars = {}, hash;
                 var hashes = url.slice(url.indexOf('?') + 1).split('&');
@@ -74,12 +35,10 @@
                 }
                 return vars;
             }
-
             /*
              * Ignora las peticiones GET, no contempladas en la Exp regular ignore_regexp
              */
             $httpBackend.whenGET(ignore_regexp).passThrough();
-
             /*
              * Esta funcion se ejecuta al invocar una solicitud GET a la url "api/books"
              * Obtiene los parámetros de consulta "queryParams" para establecer
@@ -131,14 +90,12 @@
                 records.push(record);
                 return [201, record, {}];
             });
-
             /*
              * Esta funcion se ejecuta al invocar una solicitud DELETE a la url "api/books/[numero]"
              * Obtiene el id del la url y el registro asociado dentro del array records.
              * Luego realiza un splice "eliminar registro del array".
              * Response: 204, no retorna ningun dato ni headers.
              */
-
             $httpBackend.whenDELETE(recordUrl).respond(function (method, url) {
                 var id = parseInt(url.split('/').pop());
                 ng.forEach(records, function (value, key) {
@@ -148,7 +105,6 @@
                 });
                 return [204, null, {}];
             });
-
             /*
              * Esta funcion se ejecuta al invocar una solicitud PUT a la url "api/books/[numero]"
              * Obtiene el id del la url y el record de libro desde el cuerpo de la peticion
@@ -166,9 +122,5 @@
                 });
                 return [204, null, {}];
             });
-
         }]);
 })(window.angular);
-
-
-

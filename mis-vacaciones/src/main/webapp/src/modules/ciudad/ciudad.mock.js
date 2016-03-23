@@ -4,24 +4,10 @@
  * and open the template in the editor.
  */
 (function (ng) {
-
     var mod = ng.module('ciudadMock', ['ngMockE2E']);
-
-
     mod.run(['$httpBackend', function ($httpBackend) {
             var ignore_regexp = new RegExp('^((?!api).)*$');
-            /*
-             * @type RegExp
-             * recordUrl acepta cualquier url con el formato
-             * api/(cualquierpalabra)/(numero)
-             * ej: api/books/1
-             */
             var recordUrl = new RegExp('api/books/([0-9]+)');
-
-            /*
-             * @type Array
-             * records: Array con un libro por defecto
-             */
             var records = [
                 {
                     nombreCiudad: 'Roma',
@@ -49,7 +35,6 @@
                     sitiosCiudad: '10',
                     eventosCiudad: '10'}
             ];
-
             function getQueryParams(url) {
                 var vars = {}, hash;
                 var hashes = url.slice(url.indexOf('?') + 1).split('&');
@@ -59,12 +44,10 @@
                 }
                 return vars;
             }
-
             /*
              * Ignora las peticiones GET, no contempladas en la Exp regular ignore_regexp
              */
             $httpBackend.whenGET(ignore_regexp).passThrough();
-
             /*
              * Esta funcion se ejecuta al invocar una solicitud GET a la url "api/books"
              * Obtiene los parámetros de consulta "queryParams" para establecer
@@ -116,14 +99,12 @@
                 records.push(record);
                 return [201, record, {}];
             });
-
             /*
              * Esta funcion se ejecuta al invocar una solicitud DELETE a la url "api/books/[numero]"
              * Obtiene el id del la url y el registro asociado dentro del array records.
              * Luego realiza un splice "eliminar registro del array".
              * Response: 204, no retorna ningun dato ni headers.
              */
-
             $httpBackend.whenDELETE(recordUrl).respond(function (method, url) {
                 var id = parseInt(url.split('/').pop());
                 ng.forEach(records, function (value, key) {
@@ -133,13 +114,11 @@
                 });
                 return [204, null, {}];
             });
-
             /*
              * Esta funcion se ejecuta al invocar una solicitud PUT a la url "api/books/[numero]"
              * Obtiene el id del la url y el record de libro desde el cuerpo de la peticion
              * Busca y reemplaza el anterior registro por el enviado en el cuerpo de la solicitud
              * Response: 204, no retorna ningun dato ni headers.
-             *
              */
             $httpBackend.whenPUT(recordUrl).respond(function (method, url, data) {
                 var id = parseInt(url.split('/').pop());
@@ -151,7 +130,5 @@
                 });
                 return [204, null, {}];
             });
-
         }]);
 })(window.angular);
-

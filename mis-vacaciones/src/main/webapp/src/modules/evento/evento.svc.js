@@ -25,7 +25,7 @@
              * Devuelve un objeto de persons con sus atributos
              */
             this.fetchRecord = function (id) {
-                return $http.get(context + "/" + nombre);
+                return $http.get(context + "/" + id);
             };
 
             /**
