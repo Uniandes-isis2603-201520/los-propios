@@ -38,7 +38,7 @@
                     ciudadParada: "Cali",
                     actividadParada: "parque",
                     fechaInicioParada: '2015-02-24',
-                    fechaFinParada: '2015-03-24'},
+                    fechaFinParada: '2015-03-24'}
             ];
 
             function getQueryParams(url) {
