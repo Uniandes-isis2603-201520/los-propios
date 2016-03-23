@@ -51,14 +51,15 @@ public class PerfilDTO {
     }
 
     /**
-     * @param ciudad the name to set
+     * @param perfil the name to set
      */
-    public void setPerfil(String Perfil) {
+    public void setPerfil(String perfil) {
         this.perfil = perfil;
     }
 
     /**
      * Convierte el objeto a una cadena
+     * @return 
      */
     @Override
     public String toString() {

@@ -4,18 +4,8 @@
 
     // define la aplicación con sus dependencias
     var mod = ng.module("mainApp", [
-        "ui.router",
-        "perfilUsuarioModule",
-        "perfilUsuarioMock",
-        "ciudadMock",
-        "eventoModule",
-        "eventoMock",
-        "ciudadModule",
-        "itinerarioModule",
-        "itinerarioMock"
-
+        "ui.router","perfilUsuarioModule","perfilUsuarioMock","ciudadMock","eventoModule","eventoMock","ciudadModule","itinerarioModule","itinerarioMock"
     ]);
-
     mod.config(['$logProvider', function ($logProvider) {
             $logProvider.debugEnabled(true);
         }]);
@@ -27,7 +17,6 @@
                         views: {
                             '': {templateUrl: "src/modules/principal/principal.tpl.html"},
                             'barraLateral': {templateUrl: "src/modules/principal/prueba.tpl.html"}
-
                         }
                     })
                     .state('evento', {
@@ -85,43 +74,22 @@
                     .state('contacto', {
                         url: '/contacto',
                         views: {
-                            '': {
-                                /* controller: "contactoCtrl",
-                                 controllerAs: "ctrl",*/
-                                templateUrl: "src/modules/contactenos/contactenos.tpl.html"
-                            },
-                            'barraLateral': {templateUrl: "src/modules/principal/prueba.tpl.html"}
-                        }
-                    })
-
+                            '': {templateUrl: "src/modules/contactenos/contactenos.tpl.html"},'barraLateral': {templateUrl: "src/modules/principal/prueba.tpl.html"}
+                        }})
                     .state('infoCiudad', {
                         url: '/infoCiudad',
                         views: {
-                            '': {
-                                templateUrl: "src/modules/ciudad/infoCiudad.tpl.html"},
-                            'barraLateral': {templateUrl: "src/modules/principal/prueba.tpl.html"}
-                        }
-                    })
+                            '': {templateUrl: "src/modules/ciudad/infoCiudad.tpl.html"},'barraLateral': {templateUrl: "src/modules/principal/prueba.tpl.html"}
+                        }})
                     .state('servicios', {
                         url: '/servicios',
                         views: {
-                            '': {
-                                templateUrl: "src/modules/servicios/servicios.tpl.html"
-                            },
-                            'barraLateral': {templateUrl: "src/modules/principal/prueba.tpl.html"}
-                        }
-                    })
+                            '': {templateUrl: "src/modules/servicios/servicios.tpl.html"},'barraLateral': {templateUrl: "src/modules/principal/prueba.tpl.html"}
+                        }})
                     .state('about', {
                         url: '/about',
                         views: {
-                            '': {
-                                /* controller: "aboutCtrl",
-                                 controllerAs: "ctrl",*/
-                                templateUrl: "src/modules/about/about.tpl.html"
-                            },
-                            'barraLateral': {templateUrl: "src/modules/principal/prueba.tpl.html"}
-                        }
-                    });
-
+                            '': {templateUrl: "src/modules/about/about.tpl.html"},'barraLateral': {templateUrl: "src/modules/principal/prueba.tpl.html"}
+                        }});
         }]);
 })(window.angular);
