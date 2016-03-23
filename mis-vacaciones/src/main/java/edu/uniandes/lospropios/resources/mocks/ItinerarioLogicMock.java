@@ -30,6 +30,7 @@ public class ItinerarioLogicMock {
 // objeto para presentar logs de las operaciones
 
     private final static Logger LOGGER = Logger.getLogger(ItinerarioLogicMock.class.getName());
+    private final static String ERROR = "No existe un itinerario con ese id";
 
     // listado de itinerarios
     private static ArrayList<ItinerarioDTO> itinerarios;
@@ -89,8 +90,8 @@ public class ItinerarioLogicMock {
         }
 
         // si no encuentra el itinerario
-        LOGGER.severe("No existe itinerario con ese id");
-        throw new ItinerarioLogicException("No existe un itinerario con ese id");
+        LOGGER.severe(ERROR);
+        throw new ItinerarioLogicException(ERROR);
     }
 
     /**
@@ -162,8 +163,8 @@ public class ItinerarioLogicMock {
         }
 
         // no encontró el itinerario con ese id ?
-        LOGGER.severe("No existe un itinerario con ese id");
-        throw new ItinerarioLogicException("No existe un itinerario con ese id");
+        LOGGER.severe(ERROR);
+        throw new ItinerarioLogicException(ERROR);
     }
 
     /**
@@ -188,7 +189,7 @@ public class ItinerarioLogicMock {
         }
 
         // no encontró el itinerario con ese id ?
-        LOGGER.severe("No existe un itinerario con ese id");
-        throw new ItinerarioLogicException("No existe un itinerario con ese id");
+        LOGGER.severe(ERROR);
+        throw new ItinerarioLogicException(ERROR);
     }
 }

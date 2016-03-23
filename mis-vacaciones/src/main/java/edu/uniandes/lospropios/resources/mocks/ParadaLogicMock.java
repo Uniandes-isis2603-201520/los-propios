@@ -25,6 +25,7 @@ public class ParadaLogicMock {
 // objeto para presentar logs de las operaciones
 
     private final static Logger LOGGER = Logger.getLogger(ParadaLogicMock.class.getName());
+    private final static String ERROR = "No existe una parada con ese id";
 
     // listado de itinerarios
     private static ArrayList<ParadaDTO> paradas;
@@ -38,7 +39,7 @@ public class ParadaLogicMock {
             paradas = new ArrayList<>();
             paradas.add(new ParadaDTO(1L, "paradaUno", "Cali", "Festival de la salsa", "01/02/2015", "02/02/2015"));
             paradas.add(new ParadaDTO(2L, "paradaDos", "Pasto", "Festival de blancos y negros", "02/02/2015", "05/02/2015"));
-            paradas.add(new ParadaDTO(3L, "paradaTres", "Ibague", "Festival musical", "02/02/2015", "05/02/2015"));
+            paradas.add(new ParadaDTO(3L, "paradaTres", "Ibague", "Festival musical", "04/02/2015", "07/02/2015"));
         }
 
         // indica que se muestren todos los mensajes
@@ -84,8 +85,8 @@ public class ParadaLogicMock {
         }
 
         // si no encuentra el itinerario
-        LOGGER.severe("No existe una parada con ese id");
-        throw new ParadaLogicException("No existe una parada con ese id");
+        LOGGER.severe(ERROR);
+        throw new ParadaLogicException(ERROR);
     }
 
     /**
@@ -157,8 +158,8 @@ public class ParadaLogicMock {
         }
 
         // no encontró la parada con ese id ?
-        LOGGER.severe("No existe una parada con ese id");
-        throw new ParadaLogicException("No existe una parada con ese id");
+        LOGGER.severe(ERROR);
+        throw new ParadaLogicException(ERROR);
     }
 
     /**
@@ -183,7 +184,7 @@ public class ParadaLogicMock {
         }
 
         // no encontró la parada con ese id ?
-        LOGGER.severe("No existe una parada con ese id");
-        throw new ParadaLogicException("No existe una parada con ese id");
+        LOGGER.severe(ERROR);
+        throw new ParadaLogicException(ERROR);
     }
 }

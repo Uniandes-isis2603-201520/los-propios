@@ -25,6 +25,7 @@ import javax.inject.Named;
 public class VisitaLogicMock {
 
     private final static Logger LOGGER = Logger.getLogger(VisitaLogicMock.class.getName());
+    private final static String ERROR = "No existe un visita con ese id";
 
     // listado de visitas
     private static ArrayList<VisitaDTO> visitas;
@@ -84,8 +85,8 @@ public class VisitaLogicMock {
         }
 
         // si no encuentra el visita
-        LOGGER.severe("No existe visita con ese id");
-        throw new VisitaLogicException("No existe un visita con ese id");
+        LOGGER.severe(ERROR);
+        throw new VisitaLogicException(ERROR);
     }
 
     /**
@@ -159,8 +160,8 @@ public class VisitaLogicMock {
         }
 
         // no encontró el visita con ese id ?
-        LOGGER.severe("No existe un visita con ese id");
-        throw new VisitaLogicException("No existe un visita con ese id");
+        LOGGER.severe(ERROR);
+        throw new VisitaLogicException(ERROR);
     }
 
     /**
@@ -185,7 +186,7 @@ public class VisitaLogicMock {
         }
 
         // no encontró el visita con ese id ?
-        LOGGER.severe("No existe un visita con ese id");
-        throw new VisitaLogicException("No existe un visita con ese id");
+        LOGGER.severe(ERROR);
+        throw new VisitaLogicException(ERROR);
     }
 }

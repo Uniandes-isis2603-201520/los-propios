@@ -14,7 +14,6 @@
             $scope.ciudad = "";
             $scope.descripcion = "";
 
-            // TODO: define funciones que son invocadas desde la pantalla
             // y que usan funciones definidas en el servicio
             $scope.agregarAlbum = function () {
                 var album = [$scope.id, $scope.ciudad, $scope.descripcion];

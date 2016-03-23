@@ -26,6 +26,7 @@ public class EventoLogicMock {
 
     // objeto para presentar logs de las operaciones
     private final static Logger LOGGER = Logger.getLogger(EventoLogicMock.class.getName());
+    private final static String ERROR = "No existe un evento con ese id";
 
     // listado de ciudades
     private static ArrayList<EventoDTO> eventos;
@@ -117,8 +118,8 @@ public class EventoLogicMock {
         }
 
         // no encontró el evento con ese id ?
-        LOGGER.severe("No existe un evento con ese id");
-        throw new EventoLogicException("No existe un evento con ese id");
+        LOGGER.severe(ERROR);
+        throw new EventoLogicException(ERROR);
     }
 
     public EventoDTO updateEvento(Long id, EventoDTO evento) throws EventoLogicException {
@@ -140,7 +141,7 @@ public class EventoLogicMock {
         }
 
         // no encontró el evento con ese id ?
-        LOGGER.severe("No existe un evento con ese id");
-        throw new EventoLogicException("No existe un evento con ese id");
+        LOGGER.severe(ERROR);
+        throw new EventoLogicException(ERROR);
     }
 }
