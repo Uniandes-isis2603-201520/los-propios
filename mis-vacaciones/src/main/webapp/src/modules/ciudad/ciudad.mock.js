@@ -9,39 +9,17 @@
             var ignore_regexp = new RegExp('^((?!api).)*$');
             var recordUrl = new RegExp('api/books/([0-9]+)');
             var records = [
-                {
-                    nombreCiudad: 'Roma',
-                    paisCiudad: 'Italia',
-                    sitiosCiudad: '10',
-                    eventosCiudad: '10'},
-                {
-                    nombreCiudad: 'Paris',
-                    paisCiudad: 'Francia',
-                    sitiosCiudad: '10',
-                    eventosCiudad: '10'},
-                {
-                    nombreCiudad: 'Berlín',
-                    paisCiudad: 'Alemania',
-                    sitiosCiudad: '10',
-                    eventosCiudad: '10'},
-                {
-                    nombreCiudad: 'Madrid',
-                    paisCiudad: 'España',
-                    sitiosCiudad: '10',
-                    eventosCiudad: '10'},
-                {
-                    nombreCiudad: 'Londres',
-                    paisCiudad: 'Inglaterra',
-                    sitiosCiudad: '10',
-                    eventosCiudad: '10'}
+                {nombreCiudad: 'Roma', paisCiudad: 'Italia', sitiosCiudad: '10', eventosCiudad: '10'},
+                {nombreCiudad: 'Paris', paisCiudad: 'Francia', sitiosCiudad: '10', eventosCiudad: '10'},
+                {nombreCiudad: 'Berlín', paisCiudad: 'Alemania', sitiosCiudad: '10', eventosCiudad: '10'},
+                {nombreCiudad: 'Madrid', paisCiudad: 'España', sitiosCiudad: '10', eventosCiudad: '10'},
+                {nombreCiudad: 'Londres', paisCiudad: 'Inglaterra', sitiosCiudad: '10', eventosCiudad: '10'}
             ];
             function getQueryParams(url) {
-                var vars = {}, hash;
-                var hashes = url.slice(url.indexOf('?') + 1).split('&');
+                var vars = {}, hash; var hashes = url.slice(url.indexOf('?') + 1).split('&');
                 for (var i = 0; i < hashes.length; i++) {
                     hash = hashes[i].split('=');
-                    vars[hash[0]] = hash[1];
-                }
+                    vars[hash[0]] = hash[1];}
                 return vars;
             }
             /*
@@ -65,10 +43,7 @@
                     var start_index = (page - 1) * maxRecords;
                     var end_index = start_index + maxRecords;
                     responseObj = records.slice(start_index, end_index);
-                    headers = {"X-Total-Count": records.length};
-                } else {
-                    responseObj = records;
-                }
+                    headers = {"X-Total-Count": records.length}; } else { responseObj = records; }
                 return [200, responseObj, headers];
             });
             /*
@@ -82,9 +57,7 @@
                 ng.forEach(records, function (value) {
                     if (value.id === id) {
                         record = ng.copy(value);
-                    }
-                });
-                return [200, record, {}];
+                    }});return [200, record, {}];
             });
             /*
              * Esta funcion se ejecuta al invocar una solicitud POST a la url "api/books"
@@ -110,9 +83,7 @@
                 ng.forEach(records, function (value, key) {
                     if (value.id === id) {
                         records.splice(key, 1);
-                    }
-                });
-                return [204, null, {}];
+                    }});return [204, null, {}];
             });
             /*
              * Esta funcion se ejecuta al invocar una solicitud PUT a la url "api/books/[numero]"
@@ -126,9 +97,7 @@
                 ng.forEach(records, function (value, key) {
                     if (value.id === id) {
                         records.splice(key, 1, record);
-                    }
-                });
-                return [204, null, {}];
+                    }});return [204, null, {}];
             });
         }]);
 })(window.angular);
