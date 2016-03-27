@@ -16,6 +16,14 @@ public class PerfilDTO {
     private String perfil;
 
     /**
+     * Método necesario para NetBeans
+     */
+    public PerfilDTO(){
+        //No se puede ejecutar el DTO sin este método.
+    }
+
+
+    /**
      * Constructor con parámetros. $scope.albumnes = []; $scope.id = "";
      * $scope.ciudad = ""; $scope.descripcion = "";
      *
@@ -59,7 +67,7 @@ public class PerfilDTO {
 
     /**
      * Convierte el objeto a una cadena
-     * @return 
+     * @return
      */
     @Override
     public String toString() {

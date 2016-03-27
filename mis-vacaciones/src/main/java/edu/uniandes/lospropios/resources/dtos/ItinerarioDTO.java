@@ -18,6 +18,14 @@ public class ItinerarioDTO {
     private String fechaFin;
 
 
+    /**
+     * Método necesario para NetBeans
+     */
+    public ItinerarioDTO(){
+        //No se puede ejecutar el DTO sin este método.
+    }
+
+
     public ItinerarioDTO(Long id, String fechaInicio, String fechaFin) {
         super();
         this.id = id;

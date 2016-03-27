@@ -22,6 +22,13 @@ public class CiudadDTO {
     private ArrayList<EventoDTO> eventos;
 
     /**
+     * Método necesario para NetBeans
+     */
+    public CiudadDTO(){
+        //No se puede ejecutar el DTO sin este método.
+    }
+
+    /**
      * Constructor con parámetros.
      *
      * @param id identificador de la ciudad

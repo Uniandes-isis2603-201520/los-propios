@@ -20,6 +20,14 @@ public class ParadaDTO {
     private String fechaFin;
 
 
+
+    /**
+     * Método necesario para NetBeans
+     */
+    public ParadaDTO(){
+        //No se puede ejecutar el DTO sin este método.
+    }
+
     public ParadaDTO(Long id, String nombre, String ciudad, String actividad, String fechaInicio, String fechaFin) {
         super();
         this.id = id;

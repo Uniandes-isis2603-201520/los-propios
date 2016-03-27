@@ -66,6 +66,12 @@ public class EventoDTO {
     private String clasificacion;
 
     /**
+     * Método necesario para NetBeans
+     */
+    public EventoDTO(){
+        //No se puede ejecutar el DTO sin este método.
+    }
+    /**
      * Constructor con parámetros.
      *
      * @param id identificador de la actividad.

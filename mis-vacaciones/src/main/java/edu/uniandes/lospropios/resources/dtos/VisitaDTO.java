@@ -12,11 +12,19 @@ import java.util.Date;
  * @author josedanielcardenasrincon
  */
 public class VisitaDTO {
-    
+
     private Long id;
     private int ordenVisita;
     private double calificacion;
     private Date fecha;
+
+    /**
+     * Método necesario para NetBeans
+     */
+    public VisitaDTO(){
+        //No se puede ejecutar el DTO sin este método.
+    }
+
 
     public VisitaDTO(long id,int ordenVisita, double calificacion, Date fecha) {
         this.id=id;
@@ -24,8 +32,8 @@ public class VisitaDTO {
         this.calificacion = calificacion;
         this.fecha = fecha;
     }
-    
-    
+
+
 
     public Long getId() {
         return id;
@@ -58,6 +66,6 @@ public class VisitaDTO {
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
-    
-    
+
+
 }
