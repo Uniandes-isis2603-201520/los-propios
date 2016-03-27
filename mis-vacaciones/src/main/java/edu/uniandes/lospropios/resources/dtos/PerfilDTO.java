@@ -14,6 +14,9 @@ public class PerfilDTO {
 
     private Long id;
     private String perfil;
+    private String nombre;
+    private String informacionPersonal;
+    private String infoAlbumnes;
 
     /**
      * Método necesario para NetBeans
@@ -29,11 +32,17 @@ public class PerfilDTO {
      *
      * @param id identificador del album
      * @param perfil perfil donde se realizo el album
+     * @param nombre
+     * @param informacionPersonal
+     * @param infoAlbumnes
      */
-    public PerfilDTO(Long id, String perfil) {
+    public PerfilDTO(Long id, String perfil, String nombre, String informacionPersonal, String infoAlbumnes) {
         super();
         this.id = id;
         this.perfil = perfil;
+        this.nombre = nombre;
+        this.informacionPersonal = informacionPersonal;
+        this.infoAlbumnes = infoAlbumnes;
 
     }
 
@@ -64,6 +73,50 @@ public class PerfilDTO {
     public void setPerfil(String perfil) {
         this.perfil = perfil;
     }
+
+    /**
+     * @return el nombre
+     */
+    public String getNombre() {
+        return nombre;
+    }
+
+    /**
+     * @param nombre
+     */
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    /**
+     * @return informacionPersonal
+     */
+    public String getInformacionPersonal() {
+        return informacionPersonal;
+    }
+
+    /**
+     * @param informacionPersonal the name to set
+     */
+    public void setInformacionPersonal(String informacionPersonal) {
+        this.informacionPersonal = informacionPersonal;
+    }
+
+     /**
+     * @return infoAlbumnes
+     */
+    public String getInfoAlbumnes() {
+        return infoAlbumnes;
+    }
+
+    /**
+     * @param infoAlbumnes the name to set
+     */
+    public void setInfoAlbumnes(String infoAlbumnes) {
+        this.infoAlbumnes = infoAlbumnes;
+    }
+
+
 
     /**
      * Convierte el objeto a una cadena

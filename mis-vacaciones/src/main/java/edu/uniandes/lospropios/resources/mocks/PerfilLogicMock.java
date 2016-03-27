@@ -35,9 +35,9 @@ public class PerfilLogicMock {
 
         if (perfiles == null) {
             perfiles = new ArrayList<>();
-            perfiles.add(new PerfilDTO(1L, "Camila"));
-            perfiles.add(new PerfilDTO(2L, "Hector"));
-            perfiles.add(new PerfilDTO(3L, "Andres"));
+            perfiles.add(new PerfilDTO(1L, "perfil1", "Camila", "Tengo 30 años", "1 Album"));
+            perfiles.add(new PerfilDTO(2L, "perfil2", "Hector", "Me gustan los videojuegos" , "3 Albumnes"));
+            perfiles.add(new PerfilDTO(3L, "perfil3", "Andres", "Estoy feliz", "2 Albumnes"));
         }
 
         // indica que se muestren todos los mensajes
@@ -55,6 +55,22 @@ public class PerfilLogicMock {
         }
 
         LOGGER.info("retornando el primer perfil");
+        return perfiles.get(0).getPerfil();
+    }
+
+     public String getPerfilDos(Long id) throws PerfilLogicException {
+        if (perfiles == null) {
+            LOGGER.severe("Error interno: lista de ciudades no existe.");
+            throw new PerfilLogicException("Error interno: lista de ciudades no existe.");
+        }
+
+        LOGGER.info("retornando el primer perfil");
+         for (PerfilDTO actual : perfiles) {
+            if (Objects.equals(actual.getId(), id)) {
+
+                return perfiles.get(0).getPerfil();
+            }
+        }
         return perfiles.get(0).getPerfil();
     }
 

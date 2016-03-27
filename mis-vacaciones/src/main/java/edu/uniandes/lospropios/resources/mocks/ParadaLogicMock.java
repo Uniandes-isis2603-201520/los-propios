@@ -6,6 +6,8 @@
 package edu.uniandes.lospropios.resources.mocks;
 
 import edu.uniandes.lospropios.resources.dtos.ParadaDTO;
+import edu.uniandes.lospropios.resources.dtos.PerfilDTO;
+import edu.uniandes.lospropios.resources.dtos.ItinerarioDTO;
 import edu.uniandes.lospropios.resources.exceptions.ParadaLogicException;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +31,10 @@ public class ParadaLogicMock {
 
     // listado de itinerarios
     private static ArrayList<ParadaDTO> paradas;
+
+    private static ArrayList<PerfilDTO> perfiles;
+
+    private static ArrayList<ItinerarioDTO> itinerarios;
 
     /**
      * Constructor. Crea los datos de ejemplo.
@@ -83,6 +89,44 @@ public class ParadaLogicMock {
                 return parada;
             }
         }
+
+        // si no encuentra el itinerario
+        LOGGER.severe(ERROR);
+        throw new ParadaLogicException(ERROR);
+    }
+
+    /**
+     * Obtiene una parada
+     *
+     * @param idPerfilUsuario identificador de la parada
+     * @return parada encontrada
+     * @throws ParadaLogicException cuando la parada no existe
+     */
+    public ParadaDTO getParadaUsuario(Long idPerfilUsuario, Long idItinerario, Long idParada) throws ParadaLogicException {
+        LOGGER.info("recibiendo solicitud de perifl usuario con parada" + idPerfilUsuario);
+
+        // busca el paradero que le pertenece al id del viajero
+        for (PerfilDTO perfil: perfiles)
+        {
+            if (Objects.equals(perfil.getId(), idPerfilUsuario))
+            {
+                for(ItinerarioDTO itinerario: itinerarios)
+                {
+                    if(Objects.equals(itinerario.getId(), idItinerario))
+                    {
+                       for (ParadaDTO parada : paradas)
+                       {
+                         if (Objects.equals(parada.getId(), idParada))
+                         {
+                             LOGGER.info("retornando parada " + parada);
+                             return parada;
+            }
+        }
+                    }
+                }
+            }
+        }
+
 
         // si no encuentra el itinerario
         LOGGER.severe(ERROR);

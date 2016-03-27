@@ -20,9 +20,9 @@ import javax.ws.rs.PathParam;
 
 import javax.ws.rs.Produces;
 
+//Esta es la informacion de cada viajero, el perfil de cada uno de los usuarios
 
-
-@Path("perfilUsuario")
+@Path("perfilesUsuario")
 @Produces("application/json")
 @RequestScoped
 public class PerfilResource {
@@ -31,9 +31,18 @@ public class PerfilResource {
     @Inject
     PerfilLogicMock perfilLogic;
 
+    //Da el primer perfil de un viajero que encuentra
     @GET
     public String getPerfil() throws PerfilLogicException {
         return perfilLogic.getPerfil();
+    }
+
+    //Unico perfil
+    @GET
+    @Path("{id: \\d+}")
+    public String getPerfilDos(@PathParam("id") Long id) throws PerfilLogicException
+    {
+        return perfilLogic.getPerfilDos(id);
     }
 
     @POST

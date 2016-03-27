@@ -32,7 +32,7 @@ import javax.ws.rs.Produces;
  *
  * @author mc.hernandez1
  */
-@Path("parada")
+@Path("perfilesUsuario/{idPerfilUsuario}/itinerarios/idItinerario/paradas")
 @Produces("application/json")
 @RequestScoped
 
@@ -56,15 +56,17 @@ public class ParadaResource {
     /**
      * Obtiene una parada
      *
-     * @param id identificador de la parada
+     * @param idPerfil identificador del perfil
+     * @param idItinerario identificador del itinerario
+     * @param idParada identificador de la parada
      * @return parada encontrada
      * @throws edu.uniandes.lospropios.resources.exceptions.ParadaLogicException
      */
     @GET
     @Path("{id: \\d+}")
-    public ParadaDTO getParada(@PathParam("id") Long id) throws ParadaLogicException
+    public ParadaDTO getParada(@PathParam("idPerfil") Long idPerfil,@PathParam("idItinerario") Long idItinerario, @PathParam("idParada") Long idParada) throws ParadaLogicException
     {
-        return paradaLogic.getParada(id);
+        return paradaLogic.getParadaUsuario(idPerfil, idItinerario, idParada);
     }
 
     /**
