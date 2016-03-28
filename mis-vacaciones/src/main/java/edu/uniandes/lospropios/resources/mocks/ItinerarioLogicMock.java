@@ -44,9 +44,9 @@ public class ItinerarioLogicMock {
 
         if (itinerarios == null) {
             itinerarios = new ArrayList<>();
-            itinerarios.add(new ItinerarioDTO(1L, "02/05/2015", "04/05/2015"));
-            itinerarios.add(new ItinerarioDTO(2L, "01/02/2015", "02/05/2015"));
-            itinerarios.add(new ItinerarioDTO(3L, "05/03/2016", "07/03/2016"));
+            itinerarios.add(new ItinerarioDTO(1L,"Itinerario 1", "02/05/2015", "04/05/2015"));
+            itinerarios.add(new ItinerarioDTO(2L,"Itinerario 2", "01/02/2015", "02/05/2015"));
+            itinerarios.add(new ItinerarioDTO(3L,"Itinerario 3", "05/03/2016", "07/03/2016"));
         }
 
         // indica que se muestren todos los mensajes

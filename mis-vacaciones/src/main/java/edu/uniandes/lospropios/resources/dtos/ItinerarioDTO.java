@@ -9,11 +9,13 @@ package edu.uniandes.lospropios.resources.dtos;
 
 /**
  *
- * @author josedanielcardenasrincon
+ * @author  jg.murillo10
  */
 public class ItinerarioDTO {
 
     private Long id;
+    private String nombreItinerario;
+
     private String fechaInicio;
     private String fechaFin;
 
@@ -26,9 +28,10 @@ public class ItinerarioDTO {
     }
 
 
-    public ItinerarioDTO(Long id, String fechaInicio, String fechaFin) {
+    public ItinerarioDTO(Long id, String nombreItinerario, String fechaInicio, String fechaFin) {
         super();
         this.id = id;
+        this.nombreItinerario=nombreItinerario;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
 
@@ -42,6 +45,12 @@ public class ItinerarioDTO {
         this.id = id;
     }
 
+    public String getNombreItinerario(){
+        return nombreItinerario;
+    }
+    public void setNombreItinerario(String n){
+        this.nombreItinerario=n;
+    }
     public String getFechaInicio() {
         return fechaInicio;
     }
