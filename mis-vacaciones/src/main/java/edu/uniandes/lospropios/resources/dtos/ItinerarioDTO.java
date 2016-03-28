@@ -6,6 +6,9 @@
  */
 package edu.uniandes.lospropios.resources.dtos;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 
 /**
  *
@@ -17,7 +20,7 @@ public class ItinerarioDTO {
     private String nombreItinerario;
     private String fechaInicio;
     private String fechaFin;
-
+    private ArrayList<ParadaDTO> paradas;
 
     /**
      * Método necesario para NetBeans
@@ -33,6 +36,7 @@ public class ItinerarioDTO {
         this.nombreItinerario=nombreItinerario;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
+        paradas = new ArrayList<>();
 
     }
 
@@ -66,4 +70,20 @@ public class ItinerarioDTO {
         this.fechaFin = fechaFin;
     }
 
+    public void addParada(ParadaDTO p){
+        paradas.add(p);
+    }
+    public void modifyParada(ParadaDTO p){
+        for (int i = 0; i < paradas.size(); i++) {
+            ParadaDTO a=paradas.get(i);
+            if(a.getId().compareTo(p.getId())==0)
+                paradas.set(i, p);
+        }
+    }
+    public void deleteParada(long idParada){
+        for (int i=0; i<paradas.size();i++){
+            if(paradas.get(i).getId().compareTo(idParada)==0)
+                paradas.remove(i);
+        }
+    }
 }

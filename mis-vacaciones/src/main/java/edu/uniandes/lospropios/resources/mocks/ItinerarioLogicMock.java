@@ -19,7 +19,7 @@ import edu.uniandes.lospropios.resources.exceptions.ItinerarioLogicException;
  * @author jg.murillo10
  */
 /**
- * Mock del recurso Ciudades (Mock del servicio REST)
+ * Mock del recurso Itinerarios (Mock del servicio REST)
  */
 @Named
 @ApplicationScoped
@@ -31,18 +31,31 @@ public class ItinerarioLogicMock {
 
     // listado de itinerarios
     private static ArrayList<ItinerarioDTO> itinerarios;
+    // listado de perfiles
     private static ArrayList<PerfilDTO> perfiles;
-
+    // listado de paradas
+    private static ArrayList<ParadaDTO> paradas;
     /**
      * Constructor. Crea los datos de ejemplo.
      */
     public ItinerarioLogicMock() {
 
         if (itinerarios == null) {
+            //Inicializa la lista de itinerarios
             itinerarios = new ArrayList<>();
+            //Inicializa la lista de paradas
+            paradas = new ArrayList<>();
+            //Crea paradas para asociales a los itinerarios
+            ParadaDTO p1 = new ParadaDTO(4L, "nombre1", "ciudad1", "actividad1", "01/01/01", "02/02/02");
+            ParadaDTO p2 = new ParadaDTO(5L, "nombre2", "ciudad2", "actividad2", "03/01/01", "05/02/02");
+            ParadaDTO p3 = new ParadaDTO(6L, "nombre3", "ciudad3", "actividad3", "04/01/01", "06/02/02");
+            //Agrega itinerarios a la lista y les agrega una parada a cada uno
             itinerarios.add(new ItinerarioDTO(1L,"Itinerario 1", "02/05/2015", "04/05/2015"));
+            itinerarios.get(0).addParada(p1);
             itinerarios.add(new ItinerarioDTO(2L,"Itinerario 2", "01/02/2015", "02/05/2015"));
+            itinerarios.get(1).addParada(p2);
             itinerarios.add(new ItinerarioDTO(3L,"Itinerario 3", "05/03/2016", "07/03/2016"));
+            itinerarios.get(2).addParada(p3);
         }
 
         // indica que se muestren todos los mensajes
