@@ -5,22 +5,18 @@
  */
 package edu.uniandes.lospropios.resources.mocks;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.*;
+import java.util.logging.*;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
 
-import edu.uniandes.lospropios.resources.dtos.ItinerarioDTO;
-import edu.uniandes.lospropios.resources.dtos.PerfilDTO;
+import edu.uniandes.lospropios.resources.dtos.*;
 import edu.uniandes.lospropios.resources.exceptions.ItinerarioLogicException;
 
 /**
  *
- * @author mc.hernandez1
+ * @author jg.murillo10
  */
 /**
  * Mock del recurso Ciudades (Mock del servicio REST)
@@ -76,16 +72,16 @@ public class ItinerarioLogicMock {
     /**
      * Obtiene un itinerario
      *
-     * @param id identificador de el itinerario
+     * @param idItinerario identificador de el itinerario
      * @return itinerario encontrada
      * @throws ItinerarioLogicException cuando el itinerario no existe
      */
-    public ItinerarioDTO getItinerario(Long id) throws ItinerarioLogicException {
-        LOGGER.info("recibiendo solicitud de itinerario con id " + id);
+    public ItinerarioDTO getItinerario(Long idItinerario) throws ItinerarioLogicException {
+        LOGGER.info("recibiendo solicitud de itinerario con id " + idItinerario);
 
         // busca el itinerario con el id suministrado
         for (ItinerarioDTO itinerario : itinerarios) {
-            if (Objects.equals(itinerario.getId(), id)) {
+            if (Objects.equals(itinerario.getId(), idItinerario)) {
                 LOGGER.info("retornando itinerario " + itinerario);
                 return itinerario;
             }
@@ -98,8 +94,8 @@ public class ItinerarioLogicMock {
 
      /**
      * Obtiene una parada
-     *
-     * @param idPerfilUsuario identificador del itinerario
+     * @param idItinerario identificador del itinerario
+     * @param idPerfilUsuario identificador del perfil usuario
      * @return itinerario encontrado
      * @throws ItinerarioLogicException cuando el itinerario no existe
      */
