@@ -30,7 +30,7 @@ import javax.ws.rs.Produces;
  *
  * @author Asistente
  */
-@Path("itinerarios")
+@Path("perfilesUsuario/{idPerfilUsuario}/itinerarios")
 @Produces("application/json")
 @RequestScoped
 public class ItinerarioResource {
@@ -54,15 +54,16 @@ public class ItinerarioResource {
     /**
      * Obtiene un itinerario
      *
-     * @param id identificador del itinerario
+     * @param idPerfil identificador del viajero
+     * @param idItinerario   identificador del itinerario
      * @return itinerario encontrada
      * @throws
      * edu.uniandes.lospropios.resources.exceptions.ItinerarioLogicException
      */
     @GET
     @Path("{id: \\d+}")
-    public ItinerarioDTO getItinerario(@PathParam("id") Long id) throws ItinerarioLogicException {
-        return itinerarioLogic.getItinerario(id);
+    public ItinerarioDTO getItinerario(@PathParam("idPerfil") Long idPerfil, @PathParam("idItinerario") Long idItinerario) throws ItinerarioLogicException {
+        return itinerarioLogic.getItinerarioUsuario(idPerfil, idItinerario);
     }
 
     /**

@@ -15,6 +15,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
 
 import edu.uniandes.lospropios.resources.dtos.ItinerarioDTO;
+import edu.uniandes.lospropios.resources.dtos.PerfilDTO;
 import edu.uniandes.lospropios.resources.exceptions.ItinerarioLogicException;
 
 /**
@@ -34,6 +35,7 @@ public class ItinerarioLogicMock {
 
     // listado de itinerarios
     private static ArrayList<ItinerarioDTO> itinerarios;
+    private static ArrayList<PerfilDTO> perfiles;
 
     /**
      * Constructor. Crea los datos de ejemplo.
@@ -88,6 +90,39 @@ public class ItinerarioLogicMock {
                 return itinerario;
             }
         }
+
+        // si no encuentra el itinerario
+        LOGGER.severe(ERROR);
+        throw new ItinerarioLogicException(ERROR);
+    }
+
+     /**
+     * Obtiene una parada
+     *
+     * @param idPerfilUsuario identificador del itinerario
+     * @return itinerario encontrado
+     * @throws ItinerarioLogicException cuando el itinerario no existe
+     */
+    public ItinerarioDTO getItinerarioUsuario(Long idPerfilUsuario, Long idItinerario) throws ItinerarioLogicException {
+        LOGGER.info("recibiendo solicitud de perifl usuario con Itinerario" + idPerfilUsuario);
+
+        // busca el paradero que le pertenece al id del viajero
+        for (PerfilDTO perfil: perfiles)
+        {
+            if (Objects.equals(perfil.getId(), idPerfilUsuario))
+            {
+                for(ItinerarioDTO itinerario: itinerarios)
+                {
+                    if(Objects.equals(itinerario.getId(), idItinerario))
+                    {
+                             LOGGER.info("retornando parada " + itinerario);
+                             return itinerario;
+
+                    }
+                }
+            }
+        }
+
 
         // si no encuentra el itinerario
         LOGGER.severe(ERROR);
