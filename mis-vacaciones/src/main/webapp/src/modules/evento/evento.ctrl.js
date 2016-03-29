@@ -30,7 +30,7 @@
                 });
             };
 
-            $scope.eventos = response.data;
+            $scope.listarEventos();
 
 
   }]);
