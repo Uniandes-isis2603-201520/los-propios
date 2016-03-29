@@ -33,16 +33,20 @@ public class EventResource
     EventoLogicMock eventoLogic;
 
 
+    /**Retorna el catalogo de actividades completo**/
     @GET
     public List<EventoDTO> getEventos() throws EventoLogicException {
         return eventoLogic.getEventos();
     }
 
+    /**Retorna una actividad del catalogo de actividades dado el identificador**/
     @GET
-     @Path("{id: \\d+}")
+    @Path("{id: \\d+}")
     public EventoDTO getEvento(@PathParam("id") Long id) throws EventoLogicException {
         return eventoLogic.getEvento(id);
     }
+
+    /**Retorna una actividad especificando usuario, itinerario, parada,**/
 
     @POST
     public EventoDTO createEvento(EventoDTO evento) throws EventoLogicException {

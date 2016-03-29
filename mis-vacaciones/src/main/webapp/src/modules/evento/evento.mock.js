@@ -10,19 +10,19 @@
             var recordUrl = new RegExp('api/evento/([0-9]+)');
             var records = [
                 {
-                    nombre: 'Concierto KSI', descripción: 'Concierto del cantante y youtuber ingles', tipo: 'Concierto', lugar: 'O2 Brixton Academy, 211 Stockwell Rd, London SW9 9SL, United Kingdom',
+                    nombre: 'Concierto KSI', descripcion: 'Concierto del cantante y youtuber ingles', tipo: 'Concierto', lugar: 'O2 Brixton Academy, 211 Stockwell Rd, London SW9 9SL, United Kingdom',
                     fecha: '10/02/2016', precio: '£20', img: 'https://academymusicgroup.com/o2academybrixton/sites/default/files/artists/2bf94d27-34c5-4da3-8a42-32f843452c41.jpg', clasificacion: 'evento'
                 },
                 {
-                    nombre: 'The Color Run', descripción: 'Los 5 kilometros más coloridos', tipo: 'Maratón', lugar: 'Parque Simón Bolivar, Bogotá, Colombia',
+                    nombre: 'The Color Run', descripcion: 'Los 5 kilometros más coloridos', tipo: 'Maratón', lugar: 'Parque Simón Bolivar, Bogotá, Colombia',
                     fecha: '11/04/2016', precio: 'COP$35.000', img: 'http://www.lafm.com.co/sites/default/files/imagecache/600xy/imagenes/thecolorrun.jpg', clasificacion: 'evento'
                 },
                 {
-                    nombre: 'Trafalgar Square', descripción: 'Emblematico sitio turistico de londres', tipo: 'Parque', lugar: 'Trafalgar Square, Westminster, London WC2N 5DN, United Kingdom',
+                    nombre: 'Trafalgar Square', descripcion: 'Emblematico sitio turistico de londres', tipo: 'Parque', lugar: 'Trafalgar Square, Westminster, London WC2N 5DN, United Kingdom',
                     fecha: '', precio: 'Gratis', img: 'https://upload.wikimedia.org/wikipedia/commons/a/a6/Trafalgar_Square,_London_2_-_Jun_2009.jpg', clasificacion: 'sitio'
                 },
                 {
-                    nombre: 'Eiffel Tower', descripción: 'Uno de los monumentos más visitados en el mundo, una de las maravillas del mundo', tipo: 'Monumento', lugar: 'Champ de Mars, 5 Avenue Anatole France, 75007 Paris, Francia',
+                    nombre: 'Eiffel Tower', descripcion: 'Uno de los monumentos más visitados en el mundo, una de las maravillas del mundo', tipo: 'Monumento', lugar: 'Champ de Mars, 5 Avenue Anatole France, 75007 Paris, Francia',
                     fecha: '', precio: 'Gratis', img: 'http://mexico.cnn.com/media/2013/02/15/torre-eiffel.jpg', clasificacion: 'sitio'
                 }
             ];
