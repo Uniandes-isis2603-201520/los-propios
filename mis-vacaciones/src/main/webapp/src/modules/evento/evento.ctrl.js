@@ -30,6 +30,8 @@
                 });
             };
 
+            $scope.eventos = response.data;
+
 
   }]);
 

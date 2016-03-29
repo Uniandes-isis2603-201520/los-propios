@@ -66,6 +66,22 @@ public class EventoLogicMock {
 
     }
 
+     public EventoDTO getEvento(Long idEvento) throws EventoLogicException {
+        LOGGER.info("recibiendo solicitud de itinerario con id " + idEvento);
+
+        // busca el evento con el id suministrado
+        for (EventoDTO evento : eventos) {
+            if (Objects.equals(evento.getId(), idEvento)) {
+                LOGGER.info("retornando itinerario " + evento);
+                return evento;
+            }
+        }
+
+        // si no encuentra el evento
+        LOGGER.severe(ERROR);
+        throw new EventoLogicException(ERROR);
+    }
+
     public EventoDTO createEvento(EventoDTO evento) throws EventoLogicException {
 
         LOGGER.info("recibiendo solicitud de agregar ciudad " + evento);

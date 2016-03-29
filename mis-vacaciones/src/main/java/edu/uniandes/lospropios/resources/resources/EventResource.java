@@ -9,14 +9,13 @@ import edu.uniandes.lospropios.resources.dtos.EventoDTO;
 import edu.uniandes.lospropios.resources.exceptions.EventoLogicException;
 import edu.uniandes.lospropios.resources.mocks.EventoLogicMock;
 import java.util.List;
-
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
-
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 /**
@@ -26,6 +25,7 @@ import javax.ws.rs.Produces;
 
 @Path("eventos")
 @Produces("application/json")
+@RequestScoped
 public class EventResource
 {
 
@@ -36,6 +36,12 @@ public class EventResource
     @GET
     public List<EventoDTO> getEventos() throws EventoLogicException {
         return eventoLogic.getEventos();
+    }
+
+    @GET
+     @Path("{id: \\d+}")
+    public EventoDTO getEvento(@PathParam("id") Long id) throws EventoLogicException {
+        return eventoLogic.getEvento(id);
     }
 
     @POST
