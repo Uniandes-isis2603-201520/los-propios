@@ -1,53 +1,130 @@
+<div>
+
+    <!-- TODO: Crear el contenido de la planilla-->
+    <div id="person-header">
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#person-navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand">Ciudades</a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="person-navbar">
+                    <button id="create-person" class="btn btn-default navbar-btn" ng-hide="ctrl.editMode" ng-click="ctrl.createRecord()"><span class="glyphicon glyphicon-plus"></span> Adicionar </button>
+                    <button id="refresh-person" class="btn btn-default navbar-btn" ng-hide="ctrl.editMode" ng-click="ctrl.fetchRecords()"><span class="glyphicon glyphicon-refresh"></span> Actualizar</button>
+                    <button id="save-person" type="submit" form="person-form" class="btn btn-default navbar-btn" ng-show="ctrl.editMode"><span class="glyphicon glyphicon-save"></span> Guardar </button>
+                    <button id="cancel-person" type="button" form="person-form" class="btn btn-default navbar-btn" ng-show="ctrl.editMode" ng-click="form.$setPristine(); ctrl.fetchRecords();"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+
+
     <div>
-        <div>
-            <p style="text-align:center"><img src="http://i67.tinypic.com/548x1e.png" alt="Img frontal"></p>
-        </div>
-        <input type="search" class="form-control" id="usr" data-table="order-table" placeholder="Búsqueda de ciudades ">
-        <!-- <input type="search" class="light-table-filter" data-table="order-table" placeholder="Filtro "> -->
-        <br>
-        <table class="order-table table">
-            <thead>
-                <tr>
-                    <th>Ciudad</th>
-                    <th>Pais</th>
-                    <th># Sitios de interés</th>
-                    <th>Eventos</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class='clickable-row' data-ui-sref='infoCiudad'>
-                    <td>Roma</td>
-                    <td>Italia</td>
-                    <td>10</td>
-                    <td>10</td>
-                </tr>
-                <tr class='clickable-row' data-ui-sref='infoCiudad'>
-                    <td>Paris</td>
-                    <td>Francia</td>
-                    <td>10</td>
-                    <td>10</td>
-                </tr>
-                <tr class='clickable-row' data-ui-sref='infoCiudad'>
-                    <td>Berlin</td>
-                    <td>Alemania</td>
-                    <td>10</td>
-                    <td>10</td>
-                </tr>
-                <tr class='clickable-row' data-ui-sref='infoCiudad'>
-                    <td>Madrid</td>
-                    <td>España</td>
-                    <td>10</td>
-                    <td>10</td>
-                </tr>
-                <tr class='clickable-row' data-ui-sref='infoCiudad'>
-                    <td>Londres</td>
-                    <td>Inglaterra</td>
-                    <td>10</td>
-                    <td>10</td>
-                </tr>
-            </tbody>
+        <table class="table" ng-hide="ctrl.editMode">
+            <tr>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th></th>
+            </tr>
+            <tr ng-repeat="record in records">
+                <td>
+                    <p><span id="{{$index}}-name">{{record.name}}</span></p>
+                </td>
+                <td>
+                    <p><span id="{{$index}}-email">{{record.email}}</span></p>
+                </td>
+                <td>
+                    <p class="text-center">
+                        <button id="{{$index}}-edit-btn" class="btn btn-default btn-sm" ng-click="ctrl.editRecord(record)"><span class="glyphicon glyphicon-edit"></span> Edit</button>
+                        <button id="{{$index}}-delete-btn" class="btn btn-default btn-sm" ng-click="ctrl.deleteRecord(record)"><span class="glyphicon glyphicon-minus"></span> Remove</button>
+                    </p>
+                </td>
+            </tr>
         </table>
-        <div ng-repeat="record in records">
+        <div ng-show="ctrl.editMode" class="col-md-6 well">
+            <form novalidate name="form" id="person-form" role="form" ng-submit="ctrl.saveRecord()">
+                <alert ng-messages="form.$error" type="danger" close="" ng-hide="!form.$error.required">
+                    <div ng-message="required">
+                        Por favor rellene los campos necesarios.
+                    </div>
+                </alert>
+                <fieldset>
+                    <input id="id" class="form-control" type="hidden" ng-model="currentRecord.id"/>
+                    <div class="form-group col-md-12" ng-class="{'has-success': form.name.$valid && form.name.$dirty, 'has-error': form.name.$invalid && (form.name.$dirty || form.$submitted)}" >
+                        <label for="name" class="col-md-2 control-label">Nombre</label>
+                        <div class="col-md-10">
+                            <input id="name" name="name" class="form-control" type="text" ng-model="currentRecord.name" required />
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12" ng-class="{'has-success': form.email.$valid && form.email.$dirty, 'has-error': form.email.$invalid && (form.email.$dirty || form.$submitted)}" >
+                        <label for="email" class="col-md-2 control-label">Email</label>
+                        <div class="col-md-10">
+                            <input id="email" name="email" class="form-control" type="text" ng-model="currentRecord.email" required />
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--<div>
+    <div>
+        <p style="text-align:center"><img src="http://i67.tinypic.com/548x1e.png" alt="Img frontal"></p>
+    </div>
+    <input type="search" class="form-control" id="usr" data-table="order-table" placeholder="Búsqueda de ciudades ">
+    <!-- <input type="search" class="light-table-filter" data-table="order-table" placeholder="Filtro ">
+    <br>
+    <table class="order-table table">
+        <thead>
+            <tr>
+                <th>Ciudad</th>
+                <th>Pais</th>
+                <th># Sitios de interés</th>
+                <th>Eventos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class='clickable-row' data-ui-sref='infoCiudad'>
+                <td>Roma</td>
+                <td>Italia</td>
+                <td>10</td>
+                <td>10</td>
+            </tr>
+            <tr class='clickable-row' data-ui-sref='infoCiudad'>
+                <td>Paris</td>
+                <td>Francia</td>
+                <td>10</td>
+                <td>10</td>
+            </tr>
+            <tr class='clickable-row' data-ui-sref='infoCiudad'>
+                <td>Berlin</td>
+                <td>Alemania</td>
+                <td>10</td>
+                <td>10</td>
+            </tr>
+            <tr class='clickable-row' data-ui-sref='infoCiudad'>
+                <td>Madrid</td>
+                <td>España</td>
+                <td>10</td>
+                <td>10</td>
+            </tr>
+            <tr class='clickable-row' data-ui-sref='infoCiudad'>
+                <td>Londres</td>
+                <td>Inglaterra</td>
+                <td>10</td>
+                <td>10</td>
+            </tr>
+        </tbody>
+    </table>
+    <div ng-repeat="record in records">
         <div class="col-md-4 col-sm-6 col-lg-3 well">
             <div class="caption" >
                 <p><strong>Ciudad:</strong> <span id="{{$index}}-nombreCiudad">{{record.nombreCiudad}}</span></p>
@@ -56,5 +133,5 @@
                 <p><strong>Eventos:</strong> <span id="{{$index}}-eventosCiudad">{{record.eventosCiudad}}</span></p>
             </div>
         </div>
-        </div>
     </div>
+</div>-->
