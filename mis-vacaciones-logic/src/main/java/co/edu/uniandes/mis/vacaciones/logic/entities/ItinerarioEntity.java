@@ -103,7 +103,7 @@ public class ItinerarioEntity extends BaseEntity implements Serializable {
      * Metodo para modificar las paradas del itinerario
      * @param paradas - nuevas paradas del itinerario
      */
-    public void setReviews(List<ParadaEntity> paradas) {
+    public void setParadas(List<ParadaEntity> paradas) {
         this.paradas = paradas;
     }
 
