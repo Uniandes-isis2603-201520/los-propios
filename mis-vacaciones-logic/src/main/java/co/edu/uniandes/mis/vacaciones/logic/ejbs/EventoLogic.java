@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.uniandes.mis.vacaciones.logic.exceptions;
+package co.edu.uniandes.mis.vacaciones.logic.ejbs;
 
 /**
  *
- * @author hj.calderon10
+ * @author js.gomez14
  */
-public class BusinessLogicException extends Exception
+public class EventoLogic
 {
 
 }
