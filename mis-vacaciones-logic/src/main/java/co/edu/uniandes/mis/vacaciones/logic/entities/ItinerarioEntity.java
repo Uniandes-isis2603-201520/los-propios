@@ -7,8 +7,11 @@ package co.edu.uniandes.mis.vacaciones.logic.entities;
 
 import co.edu.uniandes.csw.crud.spi.entity.BaseEntity;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -27,6 +30,8 @@ public class ItinerarioEntity extends BaseEntity implements Serializable {
     private Date fechaInicial;
     @Temporal(TemporalType.DATE)
     private Date fechaFinal;
+    @OneToMany
+    private List<ParadaEntity> paradas = new ArrayList<>();
 
     /**
      * Metodo para obtener el id del itinerario
@@ -84,6 +89,22 @@ public class ItinerarioEntity extends BaseEntity implements Serializable {
      */
     public void setFechaFinal(Date fechaFinal){
         this.fechaFinal=fechaFinal;
+    }
+
+    /**
+     * Metodo para obtener las paradas del itinerario
+     * @return - paradas del itinerario
+     */
+    public List<ParadaEntity> getParadas() {
+        return paradas;
+    }
+
+    /**
+     * Metodo para modificar las paradas del itinerario
+     * @param paradas - nuevas paradas del itinerario
+     */
+    public void setReviews(List<ParadaEntity> paradas) {
+        this.paradas = paradas;
     }
 
 
