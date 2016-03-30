@@ -12,4 +12,5 @@ package co.edu.uniandes.mis.vacaciones.logic.ejbs;
 public class EventoLogic
 {
 
+    //Prueba
 }
