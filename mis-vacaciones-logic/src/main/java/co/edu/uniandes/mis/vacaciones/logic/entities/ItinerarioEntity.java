@@ -71,11 +71,17 @@ public class ItinerarioEntity extends BaseEntity implements Serializable {
     public void setFechaInicial(Date fechaInicial){
         this.fechaFinal=fechaInicial;
     }
-
+    /**
+     * Metodo para obtener la fecha final del itinerario
+     * @return  - fecha final del itinerario
+     */
     public Date getFechaFinal(){
         return fechaFinal;
     }
-
+    /**
+     * Metodo para modificar la fecha final del itinerario
+     * @param fechaFinal  - nueva fecha final del itinerario
+     */
     public void setFechaFinal(Date fechaFinal){
         this.fechaFinal=fechaFinal;
     }
