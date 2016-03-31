@@ -11,18 +11,23 @@
 
     // crea el controlador con dependencias a $scope y a personService
     mod.controller("itinerarioCtrl", ["$scope", "itinerarioService", function ($scope, svc) {
-
+            // listado de los itinerarios
             $scope.itinerarios = [];
+            // atributos propios de un itinerario
+            $scope.idItinerario = "";
+            $scope.nombreItinerario = "";
             $scope.fechaInicio = "";
             $scope.fechaFin = "";
-            $scope.idItinerario = "";
+            // listado de paradas
+            $scope.paradas = [];
+            // atributos propios de una parada
             $scope.idParada = "";
             $scope.nombreParada = "";
             $scope.ciudadParada = "";
             $scope.actividadParada = "";
             $scope.fechaInicioParada = "";
             $scope.fechaFinParada = "";
-            $scope.paradas = [];
+
 
             // y que usan funciones definidas en el servicio
             $scope.agregarItinerario = function () {

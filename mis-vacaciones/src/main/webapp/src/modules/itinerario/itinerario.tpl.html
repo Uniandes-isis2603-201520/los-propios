@@ -40,11 +40,11 @@
     <!-- Container (Pricing Section) -->
     <br>
     <br>
-    <ul class="nav nav-tabs bg-4">
+<!--    <ul class="nav nav-tabs bg-4">
         <li class="active"><a data-toggle="tab" href="itinerario#misItinerarios">Mis itinerarios</a></li>
         <li><a data-toggle="tab" href="itinerario#itinerarioNuevo">Nuevo itinerario</a></li>
         <li><a data-toggle="tab" href="itinerario#paradaNueva">Nueva Parada</a></li>
-    </ul>
+    </ul>-->
     <div class="tab-content">
 
         <div id="misItinerarios" class="tab-pane fade in active">
@@ -52,23 +52,84 @@
             <div class="container-fluid">
                 <div class="text-center">
                     <h2>Mis itinerarios</h2>
-                    <h4>Seleccione el itinerario que desea editar</h4>
+                    <h4>Aquí se muestran todos tus itinerarios</h4>
 
                     <div class="row">
+                     <div class="panel-group">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" href="itinerario#collapse1">Agregar un nuevo itinerario</a>
+      </h4>
+    </div>
+    <div id="collapse1" class="panel-collapse collapse">
+      <div class="panel-body">
+
+          <!--Panel Body-->
+          <fieldset>
+              <!--revisar form.nombreItinerario exista en vez de form.name-->
+            <input id="id" class="form-control" type="hidden" ng-model="currentRecord.idItinerario"/>
+            <div class="form-group col-md-12" ng-class="{'has-success': form.nombreItinerario.$valid && form.nombreItinerario.$dirty, 'has-error': form.nombreItinerario.$invalid && (form.nombreItinerario.$dirty || form.$submitted)}" >
+                <label for="name" class="col-md-2 control-label">Nombre</label>
+                <div class="col-md-10">
+                    <input id="name" name="name" class="form-control" type="text" ng-model="currentRecord.nombreItinerario" required />
+                </div>
+            </div>
+            <div class="form-group col-md-12" ng-class="{'has-success': form.description.$valid && form.description.$dirty, 'has-error': form.description.$invalid && (form.description.$dirty || form.$submitted)}" >
+                <label for="description" class="col-md-2 control-label">Descripción</label>
+                <div class="col-md-10">
+                    <input id="description" name="description" class="form-control" type="text" ng-model="currentRecord.description" required />
+                </div>
+            </div>
+
+            <!--fecha de inicio-->
+            <div class="form-group col-md-12" ng-class="{'has-success': !form.publishDate.$error.required && form.publishDate.$dirty, 'has-error': form.publishDate.$error.required && (form.publishDate.$dirty || form.$submitted)}" >
+                <label for="publishDate" class="col-md-2 control-label">Fecha inicio</label>
+                <div class="col-md-10">
+                    <p class="input-group">
+                        <input type="text" id="publishDate" name="publishDate" class="form-control" ng-model="currentRecord.publishDate" ng-required="model.required" datepicker-popup is-open="opened" readonly/>
+                        <span class="input-group-btn">
+                            <button type="button" id="publishDate-datepicker" class="btn btn-default" ng-click="open($event)"><span class="glyphicon glyphicon-calendar"></span></button>
+                        </span>
+                    </p>
+                </div>
+            </div>
+            <!--fecha de fin-->
+            <div class="form-group col-md-12" ng-class="{'has-success': !form.publishDate.$error.required && form.publishDate.$dirty, 'has-error': form.publishDate.$error.required && (form.publishDate.$dirty || form.$submitted)}" >
+                <label for="publishDate" class="col-md-2 control-label">Fecha fin</label>
+                <div class="col-md-10">
+                    <p class="input-group">
+                        <input type="text" id="publishDate" name="publishDate" class="form-control" ng-model="currentRecord.publishDate" ng-required="model.required" datepicker-popup is-open="opened" readonly/>
+                        <span class="input-group-btn">
+                            <button type="button" id="publishDate-datepicker" class="btn btn-default" ng-click="open($event)"><span class="glyphicon glyphicon-calendar"></span></button>
+                        </span>
+                    </p>
+                </div>
+            </div>
+
+        </fieldset>
+
+          <!--fin de la recoleccion de datos para un nuevo itinerario-->
+
+      </div>
+
+    </div>
+  </div>
+</div>
+                        <br>
                         <div class="container-fluid">
                             <div class="input-group">
                                 <div class="input-group-btn">
                                     <button type="button" class="btn btn-default dropdown-toggle"
                                             data-toggle="dropdown">
-                                        Filtrar Busqueda<span class="caret"></span>
+                                        Filtrar Búsqueda<span class="caret"></span>
                                     </button>
 
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#">Acción #1</a></li>
-                                        <li><a href="#">Acción #2</a></li>
-                                        <li><a href="#">Acción #3</a></li>
+                                        <li><a href="#">Nombre</a></li>
                                         <li class="divider"></li>
-                                        <li><a href="#">Acción #4</a></li>
+                                        <li><a href="#">Fecha</a></li>
+
                                     </ul>
                                 </div>
 
@@ -227,7 +288,7 @@
         </div>
 
 
-
+<!--
                <div id="paradaNueva" class="tabe-pane fade">
             <h2>Crear una nueva parada</h2>
             <br>
@@ -262,7 +323,7 @@
                 </div>
 
             </div>
-        </div>
+        </div>-->
 
         <div id="misLineas" class="tabe-pane fade">
             <!--ACA DEBEN PONER EL TIMELINE QUE VAN A HACER-->
@@ -345,7 +406,7 @@
                 </div> <!-- cd-timeline-block -->
             </section> <!-- cd-timeline -->
         </div>
-
+<!--
         <div id="itinerarioNuevo" class="tabe-pane fade">
             <h2>Crear un nuevo itinerario</h2>
             <br>
@@ -391,7 +452,7 @@
                 <br>
                 <br>
             </div>
-        </div>
+        </div>-->
 
     </div>
 

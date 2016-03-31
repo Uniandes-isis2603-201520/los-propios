@@ -23,17 +23,22 @@
              * records: Array con un itinerario por defecto
              */
             var records = [
-                {idItinerario: 48454,
+                {
+                    idItinerario: 48454,
+                    nombreItinerario : "Nombre itinerario 1",
                     fechaInicio: '2016-01-22',
                     fechaFin: '2016-01-26'},
-                {idItinerario: 252364,
+                {
+                    idItinerario: 252364,
+                    nombreItinerario : "Nombre itinerario 2",
                     fechaInicio: '2014-01-01',
                     fechaFin: '2015-01-01'}
 
             ];
 
             var recordsDos = [
-                {idParada: 3554,
+                {
+                    idParada: 3554,
                     nombreParada: "buu",
                     ciudadParada: "Cali",
                     actividadParada: "parque",
@@ -88,7 +93,7 @@
              * se realiza la simulacion de la paginacion.
              * Response: 200 -> Status ok, array de libros y los headers.
              */
-            $httpBackend.whenGET('api/itinerarios/id/paradas').respond(function (method, url) {
+            $httpBackend.whenGET('api/itinerarios/idItinerario/paradas').respond(function (method, url) {
                 var queryParams = getQueryParams(url);
                 var responseObj = [];
                 var page = queryParams.page;
@@ -157,7 +162,7 @@
              * array de records.
              * Response: 201 -> Status created, record -> libro y ningún header.
              */
-            $httpBackend.whenPOST('api/itinerarios/id/paradas').respond(function (method, url, data) {
+            $httpBackend.whenPOST('api/itinerarios/idItinerario/paradas').respond(function (method, url, data) {
                 var record = ng.fromJson(data);
                 record.idParada = Math.floor(Math.random() * 10000);
                 recordsDos.push(record);
