@@ -5,6 +5,11 @@
     <artifactId>mis-vacaciones-logic</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
+    <parent>
+        <groupId>co.edu.uniandes.lospropios</groupId>
+        <artifactId>mis-vacaciones.pom</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
     <dependencies>
         <dependency>
             <groupId>org.eclipse.persistence</groupId>
