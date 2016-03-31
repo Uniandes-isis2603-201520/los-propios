@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.uniandes.mis.vacaciones.logic.api;
+package co.edu.uniandes.mis.vacaciones.logic.ejbs;
 
 /**
  *
  * @author hj.calderon10
  */
-public class IinterfaceLogic {
+public class PerfilLogic {
 
 }
