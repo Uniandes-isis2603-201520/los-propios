@@ -67,11 +67,12 @@
 
           <!--Panel Body-->
           <fieldset>
-            <input id="id" class="form-control" type="hidden" ng-model="currentRecord.id"/>
-            <div class="form-group col-md-12" ng-class="{'has-success': form.name.$valid && form.name.$dirty, 'has-error': form.name.$invalid && (form.name.$dirty || form.$submitted)}" >
+              <!--revisar form.nombreItinerario exista en vez de form.name-->
+            <input id="id" class="form-control" type="hidden" ng-model="currentRecord.idItinerario"/>
+            <div class="form-group col-md-12" ng-class="{'has-success': form.nombreItinerario.$valid && form.nombreItinerario.$dirty, 'has-error': form.nombreItinerario.$invalid && (form.nombreItinerario.$dirty || form.$submitted)}" >
                 <label for="name" class="col-md-2 control-label">Nombre</label>
                 <div class="col-md-10">
-                    <input id="name" name="name" class="form-control" type="text" ng-model="currentRecord.name" required />
+                    <input id="name" name="name" class="form-control" type="text" ng-model="currentRecord.nombreItinerario" required />
                 </div>
             </div>
             <div class="form-group col-md-12" ng-class="{'has-success': form.description.$valid && form.description.$dirty, 'has-error': form.description.$invalid && (form.description.$dirty || form.$submitted)}" >
