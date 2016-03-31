@@ -68,40 +68,41 @@
           <!--Panel Body-->
           <fieldset>
               <!--revisar form.nombreItinerario exista en vez de form.name-->
-            <input id="id" class="form-control" type="hidden" ng-model="currentRecord.idItinerario"/>
+            <input id="id" class="form-control" type="hidden" ng-model="idItinerario"/>
             <div class="form-group col-md-12" ng-class="{'has-success': form.nombreItinerario.$valid && form.nombreItinerario.$dirty, 'has-error': form.nombreItinerario.$invalid && (form.nombreItinerario.$dirty || form.$submitted)}" >
                 <label for="name" class="col-md-2 control-label">Nombre</label>
                 <div class="col-md-10">
-                    <input id="name" name="name" class="form-control" type="text" ng-model="currentRecord.nombreItinerario" required />
+                    <input id="name" name="name" class="form-control" type="text" ng-model="nombreItinerario" required />
                 </div>
             </div>
             <div class="form-group col-md-12" ng-class="{'has-success': form.description.$valid && form.description.$dirty, 'has-error': form.description.$invalid && (form.description.$dirty || form.$submitted)}" >
                 <label for="description" class="col-md-2 control-label">Descripción</label>
                 <div class="col-md-10">
-                    <input id="description" name="description" class="form-control" type="text" ng-model="currentRecord.description" required />
+                    <input id="description" name="description" class="form-control" type="text" ng-model="description" required />
                 </div>
             </div>
 
             <!--fecha de inicio-->
-            <div class="form-group col-md-12" ng-class="{'has-success': !form.publishDate.$error.required && form.publishDate.$dirty, 'has-error': form.publishDate.$error.required && (form.publishDate.$dirty || form.$submitted)}" >
+            <div class="form-group col-md-12" ng-class="{'has-success': !form.fechaInicio.$error.required && form.fechaInicio.$dirty, 'has-error': form.fechaInicio.$error.required && (form.publishDate.$dirty || form.$submitted)}" >
                 <label for="publishDate" class="col-md-2 control-label">Fecha inicio</label>
                 <div class="col-md-10">
                     <p class="input-group">
-                        <input type="text" id="publishDate" name="publishDate" class="form-control" ng-model="currentRecord.publishDate" ng-required="model.required" datepicker-popup is-open="opened" readonly/>
+                        <input type="text" id="fechaInicio" name="fechaInicio" class="form-control" ng-model="fechaInicio" ng-required="model.required" datepicker-popup is-open="opened" readonly/>
                         <span class="input-group-btn">
-                            <button type="button" id="publishDate-datepicker" class="btn btn-default" ng-click="open($event)"><span class="glyphicon glyphicon-calendar"></span></button>
+                            <button type="button" id="fechaInicio-datepicker" class="btn btn-default" ng-click="open($event)"><span class="glyphicon glyphicon-calendar"></span></button>
                         </span>
                     </p>
                 </div>
             </div>
             <!--fecha de fin-->
-            <div class="form-group col-md-12" ng-class="{'has-success': !form.publishDate.$error.required && form.publishDate.$dirty, 'has-error': form.publishDate.$error.required && (form.publishDate.$dirty || form.$submitted)}" >
+            <div class="form-group col-md-12" ng-class="{'has-success': !form.fechaFin.$error.required && form.fechaFin.$dirty, 'has-error': form.fechaFin.$error.required && (form.fechaFin.$dirty || form.$submitted)}" >
                 <label for="publishDate" class="col-md-2 control-label">Fecha fin</label>
                 <div class="col-md-10">
                     <p class="input-group">
-                        <input type="text" id="publishDate" name="publishDate" class="form-control" ng-model="currentRecord.publishDate" ng-required="model.required" datepicker-popup is-open="opened" readonly/>
+                        <input type="text" id="fechaFin" name="fechaFin" class="form-control" ng-model="fechaFin" ng-required="model.required" datepicker-popup is-open="opened" readonly/>
                         <span class="input-group-btn">
-                            <button type="button" id="publishDate-datepicker" class="btn btn-default" ng-click="open($event)"><span class="glyphicon glyphicon-calendar"></span></button>
+                            <!--id fecha fin date picker-->
+                            <button type="button" id="fechaFin-datepicker" class="btn btn-default" ng-click="open($event)"><span class="glyphicon glyphicon-calendar"></span></button>
                         </span>
                     </p>
                 </div>
