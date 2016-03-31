@@ -9,6 +9,7 @@
         <groupId>co.edu.uniandes.lospropios</groupId>
         <artifactId>mis-vacaciones.pom</artifactId>
         <version>1.0-SNAPSHOT</version>
+        <relativePath>../mis-vacaciones.pom/pom.xml</relativePath>
     </parent>
     <dependencies>
         <dependency>
