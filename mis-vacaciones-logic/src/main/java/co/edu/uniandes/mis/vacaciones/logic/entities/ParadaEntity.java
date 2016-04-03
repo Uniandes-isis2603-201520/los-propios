@@ -11,13 +11,13 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import javax.persistence.CascadeType;
+//import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+//import javax.persistence.ManyToOne;
+//import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+//import javax.persistence.TemporalType;
 import co.edu.uniandes.mis.vacaciones.entities.VisitaEntity;
 /**
  *
@@ -36,11 +36,11 @@ private String descripcion;
 @ManyToMany
 private List<VisitaEntity> visitas = new ArrayList();
 
-@ManyToMany
-private ItinerarioEntity itinerario;
+//@ManyToMany
+//private ItinerarioEntity itinerario;
 
-@OneToMany(mappedBy = "parada", cascade= CascadeType.ALL, orphanRemoval = true)
-private List<ReviewEntity> reviews = new ArrayList();
+//@OneToMany(mappedBy = "parada", cascade= CascadeType.ALL, orphanRemoval = true)
+//private List<ReviewEntity> reviews = new ArrayList();
 
 /**
  * @return the isbn
@@ -108,6 +108,6 @@ public String getIsbn()
     {
         this.visitas = visitas;
     }
-    
+
 }
 
