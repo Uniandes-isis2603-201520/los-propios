@@ -11,6 +11,12 @@
 
     // crea el controlador con dependencias a $scope y a personService
     mod.controller("itinerarioCtrl", ["$scope", "itinerarioService", function ($scope, svc) {
+
+            var self = this;
+            function responseError(response) {
+                self.showError(response.data);
+            }
+
             // listado de los itinerarios
             $scope.itinerarios = [];
             // atributos propios de un itinerario
@@ -20,18 +26,19 @@
             $scope.fechaFin = "";
             // listado de paradas
             $scope.paradas = [];
+            $scope.ciudadesParadas = [];
             // atributos propios de una parada
-            $scope.idParada = "";
-            $scope.nombreParada = "";
-            $scope.ciudadParada = "";
-            $scope.actividadParada = "";
-            $scope.fechaInicioParada = "";
-            $scope.fechaFinParada = "";
+            //$scope.idParada = "";
+            $scope.nombreParadaUno = "";
+            $scope.ciudadParadaUno = "";
+            $scope.actividadParadaUno = "";
+            $scope.fechaInicioParadaUno = "";
+            $scope.fechaFinParadaUno = "";
 
 
             // y que usan funciones definidas en el servicio
             $scope.agregarItinerario = function () {
-                var itinerario = [$scope.idItinerario, $scope.fechaInicio, $scope.fechaFin];
+                var itinerario = [$scope.nombreParada, $scope.fechaInicio, $scope.fechaFin];
                 svc.saveRecord(itinerario);
             };
 
@@ -43,7 +50,8 @@
             };
 
             $scope.agregarParada = function () {
-                var parada = [$scope.idParada, $scope.nombreParada, $scope.ciudadParada, $scope.actividadParada, $scope.fechaInicioParada, $scope.fechaFinParada];
+//                $scope.idParada
+                var parada = [$scope.nombreParadaUno, $scope.ciudadParadaUno, $scope.actividadParadaUno, $scope.fechaInicioParadaUno, $scope.fechaFinParadaUno];
                 svc.saveRecordDos(parada);
             };
 
@@ -53,6 +61,23 @@
                     $scope.paradas = response.data;
                 });
             };
+
+            this.deleteRecord = function (record) {
+                return svc.deleteRecord(record.id).then(function () {
+                    self.fetchRecords();
+                }, responseError);
+            };
+
+            this.deleteRecordDos = function (record) {
+                return svc.deleteRecord(record.id).then(function () {
+                    self.fetchRecords();
+                }, responseError);
+            };
+
+//            $scope.listarCiudadesParadas = function()
+//            {
+//                return
+//            }
         }]);
 
 })(window.angular);

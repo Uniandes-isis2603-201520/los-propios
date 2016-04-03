@@ -24,26 +24,35 @@
              */
             var records = [
                 {
-                    idItinerario: 48454,
-                    nombreItinerario : "Nombre itinerario 1",
-                    fechaInicio: '2016-01-22',
-                    fechaFin: '2016-01-26'},
-                {
-                    idItinerario: 252364,
-                    nombreItinerario : "Nombre itinerario 2",
-                    fechaInicio: '2014-01-01',
-                    fechaFin: '2015-01-01'}
+//                  idParada: 3554,
+                    nombreParadaUno: "buu",
+                    ciudadParadaUno: "Cali",
+                    actividadParadaUno: "parque",
+                    fechaInicioParadaUno: '2015-02-24',
+                    fechaFinParadaUno: '2015-03-24'}
+
+//                {
+//                    nombreParadaUno: 48454,
+//                    ciudadParadaUno: "Nombre itinerario 1",
+//                    fechaInicioParadaUno: '2016-01-22',
+//
+//                    fechaFinParadaUno: '2016-01-26'},
+//                {
+//                    idItinerario: 252364,
+//                    nombreItinerario: "Nombre itinerario 2",
+//                    fechaInicio: '2014-01-01',
+//                    fechaFin: '2015-01-01'}
 
             ];
 
             var recordsDos = [
                 {
-                    idParada: 3554,
-                    nombreParada: "buu",
-                    ciudadParada: "Cali",
-                    actividadParada: "parque",
-                    fechaInicioParada: '2015-02-24',
-                    fechaFinParada: '2015-03-24'}
+//                  idParada: 3554,
+                    nombreParadaUno: "buu",
+                    ciudadParadaUno: "Cali",
+                    actividadParadaUno: "parque",
+                    fechaInicioParadaUno: '2015-02-24',
+                    fechaFinParadaUno: '2015-03-24'}
             ];
 
             function getQueryParams(url) {
@@ -86,7 +95,7 @@
                 return [200, responseObj, headers];
             });
 
-             /*
+            /*
              * Esta funcion se ejecuta al invocar una solicitud GET a la url "api/books"
              * Obtiene los parámetros de consulta "queryParams" para establecer
              * la pagina y la maxima cantida de records. Con los anteriores parametros
@@ -126,7 +135,7 @@
                 return [200, record, {}];
             });
 
-             /*
+            /*
              * Esta funcion se ejecuta al invocar una solicitud GET a la url "api/itinerarios/[numero]/parada"
              * Obtiene el id de la url y el registro asociado dentro del array records.
              * Response: 200 -> Status ok, record -> libro y ningún header.
@@ -186,6 +195,16 @@
                 return [204, null, {}];
             });
 
+            $httpBackend.whenDELETE(recordUrlDos).respond(function (method, url) {
+                var id = parseInt(url.split('/').pop());
+                ng.forEach(recordsDos, function (value, key) {
+                    if (value.id === id) {
+                        recordsDos.splice(key, 1);
+                    }
+                });
+                return [204, null, {}];
+            });
+
             /*
              * Esta funcion se ejecuta al invocar una solicitud PUT a la url "api/books/[numero]"
              * Obtiene el id del la url y el record de libro desde el cuerpo de la peticion
@@ -204,6 +223,16 @@
                 return [204, null, {}];
             });
 
+            $httpBackend.whenPUT(recordUrlDos).respond(function (method, url, data) {
+                var id = parseInt(url.split('/').pop());
+                var record = ng.fromJson(data);
+                ng.forEach(recordsDos, function (value, key) {
+                    if (value.id === id) {
+                        recordsDos.splice(key, 1, record);
+                    }
+                });
+                return [204, null, {}];
+            });
         }]);
 })(window.angular);
 

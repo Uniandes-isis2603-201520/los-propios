@@ -21,7 +21,7 @@
 
             /**
              * Obtener la lista de paradas.
-             * Hace una petición GET con $http a /itinerarios para obtener la lista
+             * Hace una petición GET con $http a /paradas para obtener la lista
              * @returns {promise} promise para leer la respuesta del servidor}
              * Devuelve una lista de objetos de persons con sus atributos
              */
@@ -61,11 +61,11 @@
 
             /**
              * Guardar un registro de un albumes.
-             * Si currentRecord tiene la propiedad id, hace un PUT a /perfilUsuario/:id con los
+             * Si currentRecordDos tiene la propiedad id, hace un PUT a /perfilUsuario/:id con los
              * nuevos datos de la instancia de albumes.
              * Si currentRecord no tiene la propiedad id, se hace un POST a /albumes
              * para crear el nuevo registro de albumes
-             * @param {object} currentRecord instancia de albumes a guardar/actualizar
+             * @param {object} currentRecordDos instancia de albumes a guardar/actualizar
              * @returns {promise} promise para leer la respuesta del servidor
              * Devuelve un objeto de albumes con sus datos incluyendo el id
              */
@@ -86,6 +86,10 @@
             this.deleteRecord = function (id) {
                 return $http.delete(context + "/" + id);
             };
+
+            this.deleteRecordDos = function (id) {
+            return $http.delete(context + "/" + id);
+        };
         }]);
 })(window.angular);
 
