@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.mis.vacaciones.logic.persistence;
 
+import co.edu.uniandes.mis.vacaciones.logic.entities.VisitaEntity;
 import javax.ejb.Stateless;
 
 /**
@@ -13,5 +14,9 @@ import javax.ejb.Stateless;
  */
 @Stateless
 public class VisitaPersistence {
-    
+
+    public VisitaEntity find(Long visitaId) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

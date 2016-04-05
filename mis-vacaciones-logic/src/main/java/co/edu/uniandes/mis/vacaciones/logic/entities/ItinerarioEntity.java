@@ -5,12 +5,13 @@
  */
 package co.edu.uniandes.mis.vacaciones.logic.entities;
 
-import co.edu.uniandes.csw.crud.spi.entity.BaseEntity;
+//import co.edu.uniandes.csw.crud.spi.entity.BaseEntity;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -22,8 +23,9 @@ import javax.persistence.TemporalType;
 
 
 @Entity
-public class ItinerarioEntity extends BaseEntity implements Serializable {
+public class ItinerarioEntity implements Serializable {
 
+    @Id
     private long idItinerario;
     private String nombre;
     @Temporal(TemporalType.DATE)

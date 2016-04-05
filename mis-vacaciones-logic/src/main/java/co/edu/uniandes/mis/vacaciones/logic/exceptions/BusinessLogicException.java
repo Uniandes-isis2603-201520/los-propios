@@ -5,10 +5,7 @@
  */
 package co.edu.uniandes.mis.vacaciones.logic.exceptions;
 
-/**
- *
- * @author mc.hernandez1
- */
+
 import javax.ejb.ApplicationException;
 
 @ApplicationException(rollback = true)
@@ -31,7 +28,7 @@ public class BusinessLogicException extends Exception {
      * Constructor con una causa
      * @param cause causa de la excepción. Usada para generar la traza.
      */
-    public BusinessLogicException(Throwable causa) {
+    public BusinessLogicException(Throwable cause) {
         super(cause);
     }
 

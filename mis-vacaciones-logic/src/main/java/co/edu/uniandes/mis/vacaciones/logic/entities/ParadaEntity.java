@@ -1,111 +1,144 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package co.edu.uniandes.mis.vacaciones.logic.entities;
 
-import co.edu.uniandes.csw.crud.spi.entity.BaseEntity;
-import
+//import co.edu.uniandes.csw.crud.spi.entity.BaseEntity;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-//import javax.persistence.CascadeType;
+
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
+import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+//import javax.persistence.CascadeType;
 //import javax.persistence.ManyToOne;
 //import javax.persistence.OneToMany;
-import javax.persistence.Temporal;
+
 //import javax.persistence.TemporalType;
-import co.edu.uniandes.mis.vacaciones.entities.VisitaEntity;
+
 /**
  *
  * @author mc.hernandez1
  */
 @Entity
 
-public class ParadaEntity extends BaseEntity implements Serializable
-{
-private String isbn;
-private String image;
-@Temporal(TermporalType.DATE)
-private Date publishdate;
-private String descripcion;
+public class ParadaEntity implements Serializable {
 
-@ManyToMany
-private List<VisitaEntity> visitas = new ArrayList();
+    @Id
+    private Long id;
+    private String nombreParada;
+    private String ciudadParada;
+    private String actividadParada;
+    @Temporal(TemporalType.DATE)
+    private Date fechaInicioParada;
+    @Temporal(TemporalType.DATE)
+    private Date fechaFinParada;
+
+//private String isbn;
+//private String image;
+//private String descripcion;
+// @Temporal(TemporalType.DATE)
+//    private Date publishDate;
+    @ManyToMany
+    private List<VisitaEntity> visitas = new ArrayList();
 
 //@ManyToMany
 //private ItinerarioEntity itinerario;
 
 //@OneToMany(mappedBy = "parada", cascade= CascadeType.ALL, orphanRemoval = true)
 //private List<ReviewEntity> reviews = new ArrayList();
-
-/**
- * @return the isbn
- */
-public String getIsbn()
-{
-    return isbn;
-}
-
-/**
-     * @param isbn the isbn to set
+    /**
+     * @return the id
      */
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
+    public Long getId() {
+        return id;
     }
 
     /**
-     * @return the image
+     * @param id the id to set
      */
-    public String getImage() {
-        return image;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     /**
-     * @param image the image to set
+     * @return the nombreParada
      */
-    public void setImage(String image) {
-        this.image = image;
+    public String getNombreParada() {
+        return nombreParada;
     }
 
     /**
-     * @return the publishDate
+     * @param nombreParada the nombreParada to set
      */
-    public Date getPublishDate() {
-        return publishDate;
+    public void setNombreParada(String nombreParada) {
+        this.nombreParada = nombreParada;
     }
 
     /**
-     * @param publishDate the publishDate to set
+     * @return the ciudadParada
      */
-    public void setPublishDate(Date publishDate) {
-        this.publishDate = publishDate;
+    public String getCiudadParada() {
+        return ciudadParada;
     }
 
     /**
-     * @return the description
+     * @param ciudadParada the ciudadParada to set
      */
-    public String getDescription() {
-        return description;
+    public void setCiudadParada(String ciudadParada) {
+        this.ciudadParada = ciudadParada;
     }
 
     /**
-     * @param description the description to set
+     * @return the actividadParada
      */
-    public void setDescription(String description) {
-        this.description = description;
+    public String getAcividadParada() {
+        return actividadParada;
     }
 
-    public List<VisitaEntity> getVisitas()
-    {
+    /**
+     * @param actividadParada the actividadParada to set
+     */
+    public void setActividadParada(String actividadParada) {
+        this.actividadParada = actividadParada;
+    }
+
+    /**
+     * @return the fechaInicioParada
+     */
+    public Date getFechaInicioParada() {
+        return fechaInicioParada;
+    }
+
+    /**
+     * @param fechaInicioParada the fechaInicioParada to set
+     */
+    public void setFechaInicioParada(Date fechaInicioParada) {
+        this.fechaInicioParada = fechaInicioParada;
+    }
+
+    /**
+     * @return the fechaFinParada
+     */
+    public Date getFechaFinParada() {
+        return fechaFinParada;
+    }
+
+    /**
+     * @param fechaFinParada the fechaFinParada to set
+     */
+    public void setFechaFinParada(Date fechaFinParada) {
+        this.fechaFinParada = fechaFinParada;
+    }
+
+
+    public List<VisitaEntity> getVisitas() {
         return visitas;
     }
 
-    public void setVisitas(List<VisitaEntity> visitas)
-    {
+    public void setVisitas(List<VisitaEntity> visitas) {
         this.visitas = visitas;
     }
 

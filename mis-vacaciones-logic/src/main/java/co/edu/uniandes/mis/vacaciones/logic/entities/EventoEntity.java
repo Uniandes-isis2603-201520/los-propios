@@ -5,14 +5,14 @@
  */
 package co.edu.uniandes.mis.vacaciones.logic.entities;
 
-import co.edu.uniandes.csw.crud.spi.entity.BaseEntity;
+//import co.edu.uniandes.csw.crud.spi.entity.BaseEntity;
 import java.io.Serializable;
 
 /**
  *
  * @author js.gomez14
  */
-public class EventoEntity extends BaseEntity implements Serializable
+public class EventoEntity implements Serializable
 {
 
 }

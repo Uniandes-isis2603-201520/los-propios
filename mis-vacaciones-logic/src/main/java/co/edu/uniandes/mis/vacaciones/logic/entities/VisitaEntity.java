@@ -73,4 +73,8 @@ public class VisitaEntity implements Serializable {
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
+
+    public Date getFechaInicio() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
