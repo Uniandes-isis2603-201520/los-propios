@@ -18,7 +18,7 @@ public interface IParadaLogic
 {
 public List<ParadaEntity> getParadas();
 
-    public ParadaEntity getParada(Long id) throws BusinessLogicException ;
+    public ParadaEntity getParada(Long id) throws BusinessLogicException;
 
     public ParadaEntity createParada(ParadaEntity entity) throws BusinessLogicException;
 
