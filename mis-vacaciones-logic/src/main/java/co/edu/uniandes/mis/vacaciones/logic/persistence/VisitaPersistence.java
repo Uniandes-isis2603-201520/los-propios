@@ -6,7 +6,13 @@
 package co.edu.uniandes.mis.vacaciones.logic.persistence;
 
 import co.edu.uniandes.mis.vacaciones.logic.entities.VisitaEntity;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -14,9 +20,20 @@ import javax.ejb.Stateless;
  */
 @Stateless
 public class VisitaPersistence {
+    private static final Logger logger = Logger.getLogger(ItinerarioPersistence.class.getName());
 
-    public VisitaEntity find(Long visitaId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    @PersistenceContext(unitName = "MisVacacionesPU")
+    protected EntityManager em;
+
+
+    public VisitaEntity find(long id){
+        logger.log(Level.INFO, "Consultando ivisita con id={0}", id);
+        return em.find(VisitaEntity.class, id);
+
     }
-
+    public List<VisitaEntity>   findAll(){
+         logger.info("Consultando todos las visitas");
+        Query q = em.createQuery("select u from VisitaEntity u");
+        return q.getResultList();
+    }
 }
