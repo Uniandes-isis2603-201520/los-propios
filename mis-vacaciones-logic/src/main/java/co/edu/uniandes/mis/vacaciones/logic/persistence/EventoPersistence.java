@@ -5,10 +5,21 @@
  */
 package co.edu.uniandes.mis.vacaciones.logic.persistence;
 
+import java.util.logging.Logger;
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 /**
  *
  * @author js.gomez14
  */
-public class EventoPersistence {
+@Stateless
+public class EventoPersistence
+{
+    private static final Logger logger = Logger.getLogger(EventoPersistence.class.getName());
+
+    @PersistenceContext(unitName = "MisVacacionesPU")
+    protected EntityManager em;
 
 }

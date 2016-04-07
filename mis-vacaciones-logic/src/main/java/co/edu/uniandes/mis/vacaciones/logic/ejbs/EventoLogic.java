@@ -5,12 +5,53 @@
  */
 package co.edu.uniandes.mis.vacaciones.logic.ejbs;
 
+import co.edu.uniandes.mis.vacaciones.logic.api.IEventoLogic;
+import co.edu.uniandes.mis.vacaciones.logic.entities.EventoEntity;
+import co.edu.uniandes.mis.vacaciones.logic.exceptions.BusinessLogicException;
+import co.edu.uniandes.mis.vacaciones.logic.persistence.EventoPersistence;
+import java.util.List;
+import java.util.logging.Logger;
+import javax.ejb.Stateless;
+import javax.inject.Inject;
+
 /**
  *
  * @author js.gomez14
  */
-public class EventoLogic
+@Stateless
+public class EventoLogic implements IEventoLogic
 {
+    private static final Logger logger = Logger.getLogger(EventoLogic.class.getName());
 
-    //Prueba
+    @Inject
+    private EventoPersistence persistence;
+
+    public EventoLogic()
+    {
+
+    }
+
+    public List<EventoEntity> getEventos(){
+        return null;
+    }
+
+    public EventoEntity getEvento(Long id) throws BusinessLogicException
+    {
+        return null;
+    }
+
+    public EventoEntity createBook(EventoEntity entity) throws BusinessLogicException
+    {
+        return null;
+    }
+
+    public EventoEntity updateBook(EventoEntity entity) throws BusinessLogicException
+    {
+        return null;
+    }
+
+    public void deleteBook(Long id)
+    {
+
+    }
 }
