@@ -5,10 +5,15 @@
  */
 package co.edu.uniandes.mis.vacaciones.logic.entities;
 
+import co.edu.uniandes.csw.crud.spi.entity.BaseEntity;
+import java.io.Serializable;
+import javax.persistence.Entity;
+
 /**
  *
  * @author hj.calderon10
  */
-public class PerfilEntity {
+@Entity
+public class PerfilEntity extends BaseEntity implements Serializable{
 
 }
