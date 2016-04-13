@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
-
+//TODO completar metodos
 @Stateless
 public class ItinerarioLogic implements IItinerarioLogic {
 
@@ -30,5 +30,30 @@ public class ItinerarioLogic implements IItinerarioLogic {
         return itinerarios;
 
  }
+
+    @Override
+    public ItinerarioEntity createItinerario(ItinerarioEntity itinerario) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public ItinerarioEntity getItinerarioUsuario(long idPerfil, long idItinerario) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public ItinerarioEntity updateItinerario(long idItinerario, ItinerarioEntity itinerario) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void deleteItinerario(long idItinerario) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+
+
+
+
 
 }

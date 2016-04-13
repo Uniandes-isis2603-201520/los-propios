@@ -5,7 +5,7 @@
  */
 package co.edu.uniandes.mis.vacaciones.logic.entities;
 
-//import co.edu.uniandes.csw.crud.spi.entity.BaseEntity;
+import co.edu.uniandes.csw.crud.spi.entity.BaseEntity;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
