@@ -5,12 +5,12 @@
  */
 package co.edu.uniandes.mis.vacaciones.logic.entities;
 
-//import co.edu.uniandes.csw.crud.spi.entity.BaseEntity;
 import co.edu.uniandes.csw.crud.spi.entity.BaseEntity;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -21,10 +21,6 @@ import javax.persistence.TemporalType;
 @Entity
 public class EventoEntity extends BaseEntity implements Serializable
 {
-
-    @Id
-    private Long id;
-
     private String img;
 
     @Temporal(TemporalType.DATE)
@@ -38,14 +34,91 @@ public class EventoEntity extends BaseEntity implements Serializable
 
     private String descripcion;
 
+    private String tipo;
 
-    public Long getId() {
-        return id;
+    @OneToOne
+    private VisitaEntity visita;
+
+
+    public VisitaEntity getVisita()
+    {
+        return visita;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setVisita(VisitaEntity visita)
+    {
+        this.visita = visita;
     }
 
+
+    public String getImg()
+    {
+        return img;
+    }
+
+    public void setImg(String img)
+    {
+        this.img = img;
+    }
+
+    public Date getFecha()
+    {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha)
+    {
+        this.fecha = fecha;
+    }
+
+    public String getLugar()
+    {
+        return lugar;
+    }
+
+    public void setLugar(String lugar)
+    {
+        this.lugar = lugar;
+    }
+
+    public String getClasificacion()
+    {
+        return clasificacion;
+    }
+
+    public void setClasificacion(String clasificacion)
+    {
+        this.clasificacion = clasificacion;
+    }
+
+    public double getPrecio()
+    {
+        return precio;
+    }
+
+    public void setPrecio(double precio)
+    {
+        this.precio = precio;
+    }
+
+    public String getTipo()
+    {
+        return tipo;
+    }
+
+    public void setTipo(String tipo)
+    {
+        this.tipo = tipo;
+    }
+
+    public String getDescripcion()
+    {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion)
+    {
+        this.descripcion = descripcion;
+    }
 
 }
