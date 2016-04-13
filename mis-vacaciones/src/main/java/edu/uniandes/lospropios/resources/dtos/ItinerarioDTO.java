@@ -7,6 +7,7 @@
 package edu.uniandes.lospropios.resources.dtos;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 
 
@@ -18,8 +19,8 @@ public class ItinerarioDTO {
 
     private Long idItinerario;
     private String nombreItinerario;
-    private String fechaInicio;
-    private String fechaFin;
+    private Date fechaInicio;
+    private Date fechaFin;
     private ArrayList<ParadaDTO> paradas;
 
     /**
@@ -30,7 +31,7 @@ public class ItinerarioDTO {
     }
 
 
-    public ItinerarioDTO(Long idItinerario, String nombreItinerario, String fechaInicio, String fechaFin) {
+    public ItinerarioDTO(Long idItinerario, String nombreItinerario, Date fechaInicio, Date fechaFin) {
         super();
         this.idItinerario = idItinerario;
         this.nombreItinerario=nombreItinerario;
@@ -40,11 +41,11 @@ public class ItinerarioDTO {
 
     }
 
-    public Long getId() {
+    public Long getIdItinerario() {
         return idItinerario;
     }
 
-    public void setId(Long idItinerario) {
+    public void setIdItinerario(Long idItinerario) {
         this.idItinerario = idItinerario;
     }
 
@@ -54,22 +55,25 @@ public class ItinerarioDTO {
     public void setNombreItinerario(String n){
         this.nombreItinerario=n;
     }
-    public String getFechaInicio() {
+    public Date getFechaInicio() {
         return fechaInicio;
     }
 
-    public void setFechaInicio(String fechaInicio) {
+    public void setFechaInicio(Date fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
 
-    public String getFechaFin() {
+    public Date getFechaFin() {
         return fechaFin;
     }
 
-    public void setFechaFin(String fechaFin) {
+    public void setFechaFin(Date fechaFin) {
         this.fechaFin = fechaFin;
     }
 
+    public void setParadas(ArrayList<ParadaDTO> paradas){
+        this.paradas=paradas;
+    }
     public void addParada(ParadaDTO p){
         paradas.add(p);
     }

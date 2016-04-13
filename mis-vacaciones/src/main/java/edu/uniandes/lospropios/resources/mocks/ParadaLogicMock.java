@@ -112,7 +112,7 @@ public class ParadaLogicMock {
             {
                 for(ItinerarioDTO itinerario: itinerarios)
                 {
-                    if(Objects.equals(itinerario.getId(), idItinerario))
+                    if(Objects.equals(itinerario.getIdItinerario(), idItinerario))
                     {
                        for (ParadaDTO parada : paradas)
                        {

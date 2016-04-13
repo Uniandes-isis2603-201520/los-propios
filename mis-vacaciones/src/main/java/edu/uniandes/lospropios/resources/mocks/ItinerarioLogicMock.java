@@ -50,11 +50,11 @@ public class ItinerarioLogicMock {
             ParadaDTO p2 = new ParadaDTO(5L, "nombre2", "ciudad2", "actividad2", "03/01/01", "05/02/02");
             ParadaDTO p3 = new ParadaDTO(6L, "nombre3", "ciudad3", "actividad3", "04/01/01", "06/02/02");
             //Agrega itinerarios a la lista y les agrega una parada a cada uno
-            itinerarios.add(new ItinerarioDTO(1L,"Itinerario 1", "02/05/2015", "04/05/2015"));
+            itinerarios.add(new ItinerarioDTO(1L,"Itinerario 1", new Date(), new Date()));
             itinerarios.get(0).addParada(p1);
-            itinerarios.add(new ItinerarioDTO(2L,"Itinerario 2", "01/02/2015", "02/05/2015"));
+            itinerarios.add(new ItinerarioDTO(2L,"Itinerario 2", new Date(), new Date()));
             itinerarios.get(1).addParada(p2);
-            itinerarios.add(new ItinerarioDTO(3L,"Itinerario 3", "05/03/2016", "07/03/2016"));
+            itinerarios.add(new ItinerarioDTO(3L,"Itinerario 3", new Date(), new Date()));
             itinerarios.get(2).addParada(p3);
         }
 
@@ -94,7 +94,7 @@ public class ItinerarioLogicMock {
 
         // busca el itinerario con el id suministrado
         for (ItinerarioDTO itinerario : itinerarios) {
-            if (Objects.equals(itinerario.getId(), idItinerario)) {
+            if (Objects.equals(itinerario.getIdItinerario(), idItinerario)) {
                 LOGGER.info("retornando itinerario " + itinerario);
                 return itinerario;
             }
@@ -122,7 +122,7 @@ public class ItinerarioLogicMock {
             {
                 for(ItinerarioDTO itinerario: itinerarios)
                 {
-                    if(Objects.equals(itinerario.getId(), idItinerario))
+                    if(Objects.equals(itinerario.getIdItinerario(), idItinerario))
                     {
                              LOGGER.info("retornando parada " + itinerario);
                              return itinerario;
@@ -150,11 +150,11 @@ public class ItinerarioLogicMock {
         LOGGER.info("recibiendo solicitud de agregar itinerario " + newItinerario);
 
         // el nuevo itinerario tiene id ?
-        if (newItinerario.getId() != null) {
+        if (newItinerario.getIdItinerario()!= null) {
             // busca el itinerario con el id suministrado
             for (ItinerarioDTO itinerario : itinerarios) {
                 // si existe un itinerario con ese id
-                if (Objects.equals(itinerario.getId(), newItinerario.getId())) {
+                if (Objects.equals(itinerario.getIdItinerario(), newItinerario.getIdItinerario())) {
                     LOGGER.severe("Ya existe un itinerario con ese id");
                     throw new ItinerarioLogicException("Ya existe un itinerario con ese id");
                 }
@@ -167,11 +167,11 @@ public class ItinerarioLogicMock {
             LOGGER.info("Generando id paa el nuevo itinerario");
             long newId = 1;
             for (ItinerarioDTO itinerario : itinerarios) {
-                if (newId <= itinerario.getId()) {
-                    newId = itinerario.getId() + 1;
+                if (newId <= itinerario.getIdItinerario()) {
+                    newId = itinerario.getIdItinerario()+ 1;
                 }
             }
-            newItinerario.setId(newId);
+            newItinerario.setIdItinerario(newId);
         }
 
         // agrega el itinerario
@@ -194,10 +194,10 @@ public class ItinerarioLogicMock {
 
         // busca el itinerario con el id suministrado
         for (ItinerarioDTO itinerario : itinerarios) {
-            if (Objects.equals(itinerario.getId(), id)) {
+            if (Objects.equals(itinerario.getIdItinerario(), id)) {
 
                 // modifica el itinerario
-                itinerario.setId(updatedItinerario.getId());
+                itinerario.setIdItinerario(updatedItinerario.getIdItinerario());
                 itinerario.setFechaInicio(updatedItinerario.getFechaInicio());
 
                 // retorna el itinerario modificada
@@ -223,7 +223,7 @@ public class ItinerarioLogicMock {
 
         // busca el itinerario con el id suministrado
         for (ItinerarioDTO itinerario : itinerarios) {
-            if (Objects.equals(itinerario.getId(), id)) {
+            if (Objects.equals(itinerario.getIdItinerario(), id)) {
 
                 // elimina el itinerario
                 LOGGER.info("eliminando itinerario " + itinerario);

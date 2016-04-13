@@ -5,9 +5,11 @@
  */
 package edu.uniandes.lospropios.resources.resources;
 
+import co.edu.uniandes.mis.vacaciones.logic.ejbs.ItinerarioLogic;
+import edu.uniandes.lospropios.resources.converters.ItinerarioConverter;
 import edu.uniandes.lospropios.resources.dtos.ItinerarioDTO;
 import edu.uniandes.lospropios.resources.exceptions.ItinerarioLogicException;
-import edu.uniandes.lospropios.resources.mocks.ItinerarioLogicMock;
+//import edu.uniandes.lospropios.resources.mocks.ItinerarioLogicMock;
 import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
@@ -36,9 +38,11 @@ import javax.ws.rs.Produces;
 public class ItinerarioResource {
 
 
+    //Modificar ItinerarioLogicMock a ItinerarioLogic
     @Inject
-    ItinerarioLogicMock itinerarioLogic;
+    ItinerarioLogic itinerarioLogic;
 
+    ItinerarioConverter converter;
     /**
      * Obtiene el listado de itineratios.
      *
@@ -48,7 +52,9 @@ public class ItinerarioResource {
      */
     @GET
     public List<ItinerarioDTO> getItinerario() throws ItinerarioLogicException {
-        return itinerarioLogic.getItinerarios();
+        //TODO usar convertidor
+        return null;
+//        return itinerarioLogic.getItinerarios();
     }
 
     /**
@@ -63,7 +69,8 @@ public class ItinerarioResource {
     @GET
     @Path("{id: \\d+}")
     public ItinerarioDTO getItinerario(@PathParam("idPerfil") Long idPerfil, @PathParam("idItinerario") Long idItinerario) throws ItinerarioLogicException {
-        return itinerarioLogic.getItinerarioUsuario(idPerfil, idItinerario);
+//        return itinerarioLogic.getItinerarioUsuario(idPerfil, idItinerario);
+        return null;
     }
 
     /**
@@ -75,7 +82,8 @@ public class ItinerarioResource {
      */
     @POST
     public ItinerarioDTO createItinerario(ItinerarioDTO itinerario) throws ItinerarioLogicException {
-        return itinerarioLogic.createItinerario(itinerario);
+//        return itinerarioLogic.createItinerario(itinerario);
+        return null;
     }
 
     /**
@@ -90,7 +98,8 @@ public class ItinerarioResource {
     @PUT
     @Path("{id: \\d+}")
     public ItinerarioDTO updateItinerario(@PathParam("id") Long id, ItinerarioDTO itinerario) throws ItinerarioLogicException {
-        return itinerarioLogic.updateItinerario(id, itinerario);
+//        return itinerarioLogic.updateItinerario(id, itinerario);
+        return null;
     }
 
     /**
@@ -100,10 +109,10 @@ public class ItinerarioResource {
      * @throws ItinerarioLogicException cuando no existe un itinerario con el id
      * suministrado
      */
-    @DELETE
-    @Path("{id: \\d+}")
-    public void deleteItinerario(@PathParam("id") Long id) throws ItinerarioLogicException {
-        itinerarioLogic.deleteItinerario(id);
-    }
+//    @DELETE
+//    @Path("{id: \\d+}")
+//    public void deleteItinerario(@PathParam("id") Long id) throws ItinerarioLogicException {
+//        itinerarioLogic.deleteItinerario(id);
+//    }
 
 }
