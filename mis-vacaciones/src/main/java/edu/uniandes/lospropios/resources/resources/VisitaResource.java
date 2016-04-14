@@ -5,9 +5,10 @@
  */
 package edu.uniandes.lospropios.resources.resources;
 
+import co.edu.uniandes.mis.vacaciones.logic.ejbs.VisitaLogic;
+import edu.uniandes.lospropios.resources.converters.VisitaConverter;
 import edu.uniandes.lospropios.resources.dtos.VisitaDTO;
 import edu.uniandes.lospropios.resources.exceptions.VisitaLogicException;
-import edu.uniandes.lospropios.resources.mocks.VisitaLogicMock;
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -29,7 +30,7 @@ import javax.ws.rs.Produces;
 public class VisitaResource {
     
     @Inject
-    VisitaLogicMock visitaLogic;
+    VisitaLogic visitaLogic;
 
     /**
      * Obtiene el listado de itineratios.
@@ -40,7 +41,7 @@ public class VisitaResource {
      */
     @GET
     public List<VisitaDTO> getVisita() throws VisitaLogicException {
-        return visitaLogic.getVisitas();
+        return VisitaConverter.listEntity2DTO( visitaLogic.getVisitas());
     }
 
     /**
@@ -54,7 +55,7 @@ public class VisitaResource {
     @GET
     @Path("{id: \\d+}")
     public VisitaDTO getVisita(@PathParam("id") Long id) throws VisitaLogicException {
-        return visitaLogic.getVisita(id);
+        return VisitaConverter.refEntity2DTO(visitaLogic.getVisita(id));
     }
 
     /**
@@ -66,7 +67,7 @@ public class VisitaResource {
      */
     @POST
     public VisitaDTO createVisita(VisitaDTO visita) throws VisitaLogicException {
-        return visitaLogic.createVisita(visita);
+        return VisitaConverter.refEntity2DTO(visitaLogic.createVisita(VisitaConverter.fullDTO2Entity(visita)));
     }
 
     /**
@@ -81,7 +82,7 @@ public class VisitaResource {
     @PUT
     @Path("{id: \\d+}")
     public VisitaDTO updateVisita(@PathParam("id") Long id, VisitaDTO visita) throws VisitaLogicException {
-        return visitaLogic.updateVisita(id, visita);
+        return VisitaConverter.refEntity2DTO(visitaLogic.updateVisita(id, VisitaConverter.fullDTO2Entity(visita)));
     }
 
     /**
