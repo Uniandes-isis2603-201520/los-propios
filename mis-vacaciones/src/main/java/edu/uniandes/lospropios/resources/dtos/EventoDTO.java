@@ -70,6 +70,14 @@ public class EventoDTO {
     */
     private VisitaDTO visita;
 
+    public EventoDTO(long l, String evento1, String a, String col) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public EventoDTO(){
+        
+    }
+
     /**
      * @return actividad
      */
@@ -204,6 +212,10 @@ public class EventoDTO {
     @Override
     public String toString() {
         return "{ id : " + getId() + ", name : \"" + getNombre() + "\" }";
+    }
+
+    public void agregarPreferenciasEvento(Date date, int i, String httpUrlImgcom, String EVENTO) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
