@@ -8,14 +8,23 @@ package co.edu.uniandes.mis.vacaciones.logic.persistence;
 import co.edu.uniandes.mis.vacaciones.logic.entities.PerfilEntity;
 import java.util.List;
 import javax.ejb.embeddable.EJBContainer;
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
+import org.jboss.shrinkwrap.api.ShrinkWrap;
+import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.runner.RunWith;
+import uk.co.jemos.podam.api.PodamFactory;
+import uk.co.jemos.podam.api.PodamFactoryImpl;
 
 /**
  *
@@ -24,24 +33,40 @@ import org.junit.runner.RunWith;
 @RunWith(Arquillian.class)
 public class PerfilPersistenceTest {
 
+
+    @Inject
+    private PerfilPersistence perfilPersistence;
+    @PersistenceContext
+    private EntityManager em;
+    private final PodamFactory factory = new PodamFactoryImpl();
+
+    @Deployment
+    public static JavaArchive createDeployment()
+    {
+        return ShrinkWrap.create(JavaArchive.class)
+                .addPackage(PerfilEntity.class.getPackage())
+                .addPackage(PerfilPersistence.class.getPackage())
+                .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
+                .addAsManifestResource("META-INF/beans.xml", "beans.xml");
+    }
+
+
     public PerfilPersistenceTest() {
     }
 
-    @BeforeClass
-    public static void setUpClass() {
+
+    @Test
+    public void createPerfilTest(){
+        PerfilEntity newEntity = factory.manufacturePojo(PerfilEntity.class);
+
+        PerfilEntity result = perfilPersistence.create(newEntity);
+
+        Assert.assertNotNull(result);
+
+        PerfilEntity entity = em.find(PerfilEntity.class, result.getId());
+        Assert.assertEquals(newEntity.getName(), entity.getName());
     }
 
-    @AfterClass
-    public static void tearDownClass() {
-    }
-
-    @Before
-    public void setUp() {
-    }
-
-    @After
-    public void tearDown() {
-    }
 
     /**
      * Test of find method, of class PerfilPersistence.
