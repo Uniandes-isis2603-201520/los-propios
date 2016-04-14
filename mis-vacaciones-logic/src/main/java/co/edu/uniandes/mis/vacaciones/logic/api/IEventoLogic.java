@@ -19,9 +19,9 @@ public interface IEventoLogic
 
     public EventoEntity getEvento(Long id) throws BusinessLogicException;
 
-    public EventoEntity createBook(EventoEntity entity) throws BusinessLogicException;
+    public EventoEntity createEvento(EventoEntity entity) throws BusinessLogicException;
 
-    public EventoEntity updateBook(EventoEntity entity) throws BusinessLogicException;
+    public EventoEntity updateEvento(EventoEntity entity) throws BusinessLogicException;
 
-    public void deleteBook(Long id);
+    public void deleteEvento(Long id);
 }

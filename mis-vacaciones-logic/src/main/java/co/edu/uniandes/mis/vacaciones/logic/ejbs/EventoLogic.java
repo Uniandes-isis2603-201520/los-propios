@@ -26,13 +26,12 @@ public class EventoLogic implements IEventoLogic
     @Inject
     private EventoPersistence persistence;
 
-    public EventoLogic()
+    public List<EventoEntity> getEventos()
     {
-
-    }
-
-    public List<EventoEntity> getEventos(){
-        return null;
+        logger.info("Inicia proceso de consultar todos los eventos");
+        List<EventoEntity> eventos = persistence.findAll();
+        logger.info("Termina proceso de consultar todos los eventos");
+        return eventos;
     }
 
     public EventoEntity getEvento(Long id) throws BusinessLogicException
@@ -40,17 +39,17 @@ public class EventoLogic implements IEventoLogic
         return null;
     }
 
-    public EventoEntity createBook(EventoEntity entity) throws BusinessLogicException
+    public EventoEntity createEvento(EventoEntity entity) throws BusinessLogicException
     {
         return null;
     }
 
-    public EventoEntity updateBook(EventoEntity entity) throws BusinessLogicException
+    public EventoEntity updateEvento(EventoEntity entity) throws BusinessLogicException
     {
         return null;
     }
 
-    public void deleteBook(Long id)
+    public void deleteEvento(Long id)
     {
 
     }

@@ -28,7 +28,6 @@ public class ItinerarioLogic implements IItinerarioLogic {
         List<ItinerarioEntity> itinerarios = persistence.findAll();
         logger.info("Termina proceso de consultar todos los itinerarios");
         return itinerarios;
-
  }
 
     @Override
