@@ -23,7 +23,7 @@ import javax.persistence.TemporalType;
 
 
 @Entity
-public class ItinerarioEntity implements Serializable {
+public class ItinerarioEntity extends BaseEntity implements Serializable {
 
     @Id
     private long idItinerario;
@@ -35,21 +35,21 @@ public class ItinerarioEntity implements Serializable {
     @OneToMany
     private List<ParadaEntity> paradas = new ArrayList<>();
 
-    /**
-     * Metodo para obtener el id del itinerario
-     * @return id del itinerario
-     */
-
-    public long getIdItinerario(){
-        return idItinerario;
-    }
-    /**
-     * Metodo para modificar el id del itinerario
-     * @param idItinerario  - nuevo id del itinerario
-     */
-    public void setIdItinerario(long idItinerario){
-        this.idItinerario=idItinerario;
-    }
+//    /**
+//     * Metodo para obtener el id del itinerario
+//     * @return id del itinerario
+//     */
+//
+//    public long getIdItinerario(){
+//        return idItinerario;
+//    }
+//    /**
+//     * Metodo para modificar el id del itinerario
+//     * @param idItinerario  - nuevo id del itinerario
+//     */
+//    public void setIdItinerario(long idItinerario){
+//        this.idItinerario=idItinerario;
+//    }
     /**
      * Metodo para obtener el nombre de un itinerario
      * @return el nombre del itinerario
