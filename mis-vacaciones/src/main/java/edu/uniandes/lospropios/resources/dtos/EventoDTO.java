@@ -65,46 +65,25 @@ public class EventoDTO {
      */
     private String clasificacion;
 
+    /*
+    *Representa la visita relacionada con el evento
+    */
+    private VisitaDTO visita;
+
     /**
-     * Método necesario para NetBeans
+     * @return actividad
      */
-    public EventoDTO(){
-        //No se puede ejecutar el DTO sin este método.
-    }
-    /**
-     * Constructor con parámetros.
-     *
-     * @param id identificador de la actividad.
-     * @param name nombre de la actividad.
-     * @param desc descripcion de la actividad.
-     * @param lugar lugar de la actividad.
-     */
-    public EventoDTO(Long id, String name, String desc, String lugar) {
-        super();
-        this.id = id;
-        this.nombre = name;
-        this.descripcion = desc;
-        this.lugar = lugar;
+    private VisitaDTO getVisita()
+    {
+        return visita;
     }
 
     /**
-     *
-     * @param fecha fecha de la actividad (Null si clasificacion ==
-     * SITIO_INTERES).
-     * @param precio precio de la actividad.
-     * @param img url de la imagen que representa la actividad.
-     * @param clas clasificacion de la actividad.
+     * @param visita the 'visita' to set
      */
-    public void agregarPreferenciasEvento(Date fecha, double precio, String img, String clas) {
-
-        this.clasificacion = clas;
-        if (clas.equalsIgnoreCase(SITIO_INTERES)) {
-            this.fecha = null;
-        } else if (clas.equalsIgnoreCase(EVENTO)) {
-            this.fecha = fecha;
-        }
-        this.precio = precio;
-        this.img = img;
+    public void setVisita(VisitaDTO visita)
+    {
+        this.visita = visita;
     }
 
     /**

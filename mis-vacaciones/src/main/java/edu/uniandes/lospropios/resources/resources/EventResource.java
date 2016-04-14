@@ -5,6 +5,7 @@
  */
 package edu.uniandes.lospropios.resources.resources;
 
+import co.edu.uniandes.mis.vacaciones.logic.ejbs.EventoLogic;
 import edu.uniandes.lospropios.resources.dtos.EventoDTO;
 import edu.uniandes.lospropios.resources.exceptions.EventoLogicException;
 import edu.uniandes.lospropios.resources.mocks.EventoLogicMock;
@@ -30,33 +31,37 @@ public class EventResource
 {
 
     @Inject
-    EventoLogicMock eventoLogic;
+    EventoLogic eventoLogic;
 
 
     /**Retorna el catalogo de actividades completo**/
     @GET
     public List<EventoDTO> getEventos() throws EventoLogicException {
-        return eventoLogic.getEventos();
+       // return eventoLogic.getEventos();
+       return null;
     }
 
     /**Retorna una actividad del catalogo de actividades dado el identificador**/
     @GET
     @Path("{id: \\d+}")
     public EventoDTO getEvento(@PathParam("id") Long id) throws EventoLogicException {
-        return eventoLogic.getEvento(id);
+        //return eventoLogic.getEvento(id);
+        return null;
     }
 
     /**Retorna una actividad especificando usuario, itinerario, parada,**/
 
     @POST
     public EventoDTO createEvento(EventoDTO evento) throws EventoLogicException {
-        return eventoLogic.createEvento(evento);
+        //return eventoLogic.createEvento(evento);
+        return null;
     }
 
     @PUT
     @Path("{id: \\d+}")
     public EventoDTO updateEvento(@PathParam("id") Long id, EventoDTO evento) throws EventoLogicException {
-        return eventoLogic.updateEvento(id, evento);
+        //return eventoLogic.updateEvento(id, evento);
+        return null;
     }
 
     @DELETE
