@@ -17,7 +17,7 @@ import javax.persistence.Query;
 @Stateless
 public class ParadaPersistence {
 
-    private static final Logger logger = Logger.getLogger(ItinerarioPersistence.class.getName());
+    private static final Logger logger = Logger.getLogger(ParadaPersistence.class.getName());
 
     @PersistenceContext(unitName = "MisVacacionesPU")
     protected EntityManager em;
