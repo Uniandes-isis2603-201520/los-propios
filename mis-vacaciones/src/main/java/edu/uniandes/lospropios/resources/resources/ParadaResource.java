@@ -5,12 +5,18 @@
  */
 package edu.uniandes.lospropios.resources.resources;
 
+import co.edu.uniandes.mis.vacaciones.logic.ejbs.ParadaLogic;
+import co.edu.uniandes.mis.vacaciones.logic.entities.ParadaEntity;
+import co.edu.uniandes.mis.vacaciones.logic.exceptions.BusinessLogicException;
+import edu.uniandes.lospropios.resources.converters.ParadaConverter;
 import edu.uniandes.lospropios.resources.dtos.ParadaDTO;
 import edu.uniandes.lospropios.resources.exceptions.ParadaLogicException;
 import edu.uniandes.lospropios.resources.mocks.ParadaLogicMock;
 import javax.enterprise.context.RequestScoped;
 
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.inject.Inject;
 import javax.ws.rs.DELETE;
@@ -36,10 +42,12 @@ import javax.ws.rs.Produces;
 @Produces("application/json")
 @RequestScoped
 
-public class ParadaResource {
+public class ParadaResource
+{
 
+    private static final Logger logger = Logger.getLogger(ParadaResource.class.getName());
     @Inject
-    ParadaLogicMock paradaLogic;
+    private ParadaLogic paradaLogic;
 
     /**
      * Obtiene el listado de paradas.
@@ -48,9 +56,10 @@ public class ParadaResource {
      * @throws edu.uniandes.lospropios.resources.exceptions.ParadaLogicException
      */
     @GET
-    public List<ParadaDTO> getParada() throws ParadaLogicException
-    {
-        return paradaLogic.getParadas();
+    public List<ParadaDTO> getParadas() throws ParadaLogicException {
+        logger.info("Se ejecuta el metodo getParadas");
+        List<ParadaEntity> paradas = paradaLogic.getParadas();
+        return ParadaConverter.listEntity2DTO(paradas);
     }
 
     /**
@@ -61,26 +70,32 @@ public class ParadaResource {
      * @param idParada identificador de la parada
      * @return parada encontrada
      * @throws edu.uniandes.lospropios.resources.exceptions.ParadaLogicException
+     * @throws
+     * co.edu.uniandes.mis.vacaciones.logic.exceptions.BusinessLogicException
      */
     @GET
     @Path("{id: \\d+}")
-    public ParadaDTO getParada(@PathParam("idPerfil") Long idPerfil,@PathParam("idItinerario") Long idItinerario, @PathParam("idParada") Long idParada) throws ParadaLogicException
-    {
-        return paradaLogic.getParadaUsuario(idPerfil, idItinerario, idParada);
+    public ParadaDTO getParada(@PathParam("idPerfil") Long idPerfil, @PathParam("idItinerario") Long idItinerario, @PathParam("idParada") Long idParada) throws ParadaLogicException, BusinessLogicException {
+        logger.log(Level.INFO, "Se ejecuta metodo getParada con id={0}", idPerfil);
+        ParadaEntity parada = paradaLogic.getParada(idPerfil);
+        return ParadaConverter.fullEntity2DTO(parada);
     }
 
     /**
      * Agrega una parada
      *
-     * @param parada parada a agregar
+     * @param dtoParada dto de parada a agregar
      * @return datos de la parada a agregar
      * @throws ParadaLogicException cuando ya existe una parada con el id
      * suministrado
      */
     @POST
-    public ParadaDTO createParada(ParadaDTO parada) throws ParadaLogicException
-    {
-        return paradaLogic.createParada(parada);
+    public ParadaDTO createParada(ParadaDTO dtoParada) throws ParadaLogicException, BusinessLogicException {
+        logger.info("Se ejecuta método createParada");
+        ParadaEntity entity = ParadaConverter.fullDTO2Entity(dtoParada);
+        ParadaEntity entityDos =paradaLogic.createParada(entity);
+
+        return ParadaConverter.fullEntity2DTO(entityDos);
     }
 
     /**
@@ -91,12 +106,19 @@ public class ParadaResource {
      * @return datos de la parada modificados
      * @throws ParadaLogicException cuando no existe una parada con el id
      * suministrado
+     * @throws co.edu.uniandes.mis.vacaciones.logic.exceptions.BusinessLogicException
      */
     @PUT
     @Path("{id: \\d+}")
-    public ParadaDTO updateParada(@PathParam("id") Long id, ParadaDTO parada) throws ParadaLogicException
+    public ParadaDTO updateParada(@PathParam("id") Long idParada, ParadaDTO parada) throws ParadaLogicException, BusinessLogicException
     {
-        return paradaLogic.updateParada(id, parada);
+        logger.log(Level.INFO,"Se ejecuta método updateParada con id={0}", idParada);
+        ParadaEntity entity = ParadaConverter.fullDTO2Entity(parada);
+        entity.setId(idParada);
+
+        ParadaEntity savedParada = paradaLogic.updateParada(entity);
+        return ParadaConverter.fullEntity2DTO(savedParada);
+
     }
 
     /**
@@ -108,8 +130,7 @@ public class ParadaResource {
      */
     @DELETE
     @Path("{id: \\d+}")
-    public void deleteParada(@PathParam("id") Long id) throws ParadaLogicException
-    {
+    public void deleteParada(@PathParam("id") Long id) throws ParadaLogicException {
         paradaLogic.deleteParada(id);
     }
 

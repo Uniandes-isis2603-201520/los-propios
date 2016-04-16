@@ -10,6 +10,7 @@ import edu.uniandes.lospropios.resources.dtos.PerfilDTO;
 import edu.uniandes.lospropios.resources.dtos.ItinerarioDTO;
 import edu.uniandes.lospropios.resources.exceptions.ParadaLogicException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 import java.util.logging.Level;
@@ -43,9 +44,9 @@ public class ParadaLogicMock {
 
         if (paradas == null) {
             paradas = new ArrayList<>();
-            paradas.add(new ParadaDTO(1L, "paradaUno", "Cali", "Festival de la salsa", "01/02/2015", "02/02/2015"));
-            paradas.add(new ParadaDTO(2L, "paradaDos", "Pasto", "Festival de blancos y negros", "02/02/2015", "05/02/2015"));
-            paradas.add(new ParadaDTO(3L, "paradaTres", "Ibague", "Festival musical", "04/02/2015", "07/02/2015"));
+            paradas.add(new ParadaDTO(1L, "paradaUno", "Cali", "Festival de la salsa", new Date(), new Date()));
+            paradas.add(new ParadaDTO(2L, "paradaDos", "Pasto", "Festival de blancos y negros", new Date(), new Date()));
+            paradas.add(new ParadaDTO(3L, "paradaTres", "Ibague", "Festival musical", new Date(), new Date()));
         }
 
         // indica que se muestren todos los mensajes

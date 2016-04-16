@@ -6,9 +6,7 @@
 package edu.uniandes.lospropios.resources.resources;
 
 import co.edu.uniandes.mis.vacaciones.logic.api.IItinerarioLogic;
-import co.edu.uniandes.mis.vacaciones.logic.ejbs.ItinerarioLogic;
 import co.edu.uniandes.mis.vacaciones.logic.entities.ItinerarioEntity;
-import co.edu.uniandes.mis.vacaciones.logic.exceptions.BusinessLogicException;
 import edu.uniandes.lospropios.resources.converters.ItinerarioConverter;
 import edu.uniandes.lospropios.resources.dtos.ItinerarioDTO;
 import edu.uniandes.lospropios.resources.exceptions.ItinerarioLogicException;
@@ -18,7 +16,6 @@ import java.util.logging.Level;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
-import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -26,8 +23,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import java.util.logging.Logger;
-import javax.ws.rs.WebApplicationException;
-import javax.ws.rs.core.Response;
+
 /**
  * Clase que implementa el recurso REST correspondiente a "itinerario".
  *

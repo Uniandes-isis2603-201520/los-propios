@@ -5,6 +5,8 @@
  */
 package edu.uniandes.lospropios.resources.dtos;
 
+import java.util.Date;
+
 
 /**
  *
@@ -16,8 +18,8 @@ public class ParadaDTO {
     private String nombre;
     private String ciudad;
     private String actividad;
-    private String fechaInicio;
-    private String fechaFin;
+    private Date fechaInicio;
+    private Date fechaFin;
 
 
 
@@ -28,7 +30,7 @@ public class ParadaDTO {
         //No se puede ejecutar el DTO sin este método.
     }
 
-    public ParadaDTO(Long id, String nombre, String ciudad, String actividad, String fechaInicio, String fechaFin) {
+    public ParadaDTO(Long id, String nombre, String ciudad, String actividad, Date fechaInicio, Date fechaFin) {
         super();
         this.id = id;
         this.nombre = nombre;
@@ -71,19 +73,19 @@ public class ParadaDTO {
         this.actividad = actividad;
     }
 
-    public String getFechaInicio() {
+    public Date getFechaInicio() {
         return fechaInicio;
     }
 
-    public void setFechaInicio(String fechaInicio) {
+    public void setFechaInicio(Date fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
 
-    public String getFechaFin() {
+    public Date getFechaFin() {
         return fechaFin;
     }
 
-    public void setFechaFin(String fechaFin) {
+    public void setFechaFin(Date fechaFin) {
         this.fechaFin = fechaFin;
     }
 }
