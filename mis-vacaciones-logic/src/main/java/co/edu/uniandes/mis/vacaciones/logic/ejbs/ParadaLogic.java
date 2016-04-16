@@ -16,7 +16,9 @@ import co.edu.uniandes.mis.vacaciones.logic.exceptions.BusinessLogicException;
 import co.edu.uniandes.mis.vacaciones.logic.persistence.VisitaPersistence;
 
 import co.edu.uniandes.mis.vacaciones.logic.persistence.ParadaPersistence;
+import java.text.SimpleDateFormat;
 
+//import java.util.SimpleDateFormat;
 import java.util.Date;
 
 import java.util.List;
@@ -28,6 +30,7 @@ import java.util.logging.Logger;
 import javax.ejb.Stateless;
 
 import javax.inject.Inject;
+import static org.eclipse.persistence.expressions.spatial.SpatialParameters.Units.MM;
 
 /**
  *
@@ -65,15 +68,16 @@ public class ParadaLogic implements IParadaLogic {
         }
 
         logger.log(Level.INFO, "Termina proceso de consultar parada con id = {0}", id);
+
         return parada;
     }
 
     @Override
     public ParadaEntity createParada(ParadaEntity entity) throws BusinessLogicException {
         logger.info("Inicia proceso de creación de parada");
-//        if (!validateLong(entity.getId())) {
-//            throw new BusinessLogicException("El Id es inválido");
-//        }
+        if (!validateId(entity.getId())) {
+            throw new BusinessLogicException("El Id es inválido");
+        }
         persistence.create(entity);
         logger.info("Termina proceso de creación de parada");
         return entity;
@@ -158,6 +162,7 @@ public class ParadaLogic implements IParadaLogic {
     }
 
     private boolean visitaAntesDeParada(Date fechaInicioVisita, Date fechaInicioParada) {
+
         if (fechaInicioParada != null && fechaInicioVisita != null) {
             if (fechaInicioVisita.before(fechaInicioParada)) {
                 return true;

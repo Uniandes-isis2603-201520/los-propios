@@ -2,6 +2,7 @@
 package co.edu.uniandes.mis.vacaciones.logic.entities;
 
 //import co.edu.uniandes.csw.crud.spi.entity.BaseEntity;
+import co.edu.uniandes.csw.crud.spi.entity.BaseEntity;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
@@ -9,9 +10,10 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
-import javax.persistence.Id;
+
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
 //import javax.persistence.CascadeType;
 //import javax.persistence.ManyToOne;
 //import javax.persistence.OneToMany;
@@ -24,11 +26,11 @@ import javax.persistence.TemporalType;
  */
 @Entity
 
-public class ParadaEntity implements Serializable {
+public class ParadaEntity extends BaseEntity implements Serializable {
 
-    @Id
-    private Long id;
-    private String nombreParada;
+//    @Id
+//    private Long id;
+//    private String nombreParada;
     private String ciudadParada;
     private String actividadParada;
     @Temporal(TemporalType.DATE)
@@ -36,11 +38,6 @@ public class ParadaEntity implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date fechaFinParada;
 
-//private String isbn;
-//private String image;
-//private String descripcion;
-// @Temporal(TemporalType.DATE)
-//    private Date publishDate;
     @ManyToMany
     private List<VisitaEntity> visitas = new ArrayList();
 
@@ -52,30 +49,30 @@ public class ParadaEntity implements Serializable {
     /**
      * @return the id
      */
-    public Long getId() {
-        return id;
-    }
-
-    /**
-     * @param id the id to set
-     */
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    /**
-     * @return the nombreParada
-     */
-    public String getNombreParada() {
-        return nombreParada;
-    }
-
-    /**
-     * @param nombreParada the nombreParada to set
-     */
-    public void setNombreParada(String nombreParada) {
-        this.nombreParada = nombreParada;
-    }
+//    public Long getId() {
+//        return id;
+//    }
+//
+//    /**
+//     * @param id the id to set
+//     */
+//    public void setId(Long id) {
+//        this.id = id;
+//    }
+//
+//    /**
+//     * @return the nombreParada
+//     */
+//    public String getNombreParada() {
+//        return nombreParada;
+//    }
+//
+//    /**
+//     * @param nombreParada the nombreParada to set
+//     */
+//    public void setNombreParada(String nombreParada) {
+//        this.nombreParada = nombreParada;
+//    }
 
     /**
      * @return the ciudadParada
