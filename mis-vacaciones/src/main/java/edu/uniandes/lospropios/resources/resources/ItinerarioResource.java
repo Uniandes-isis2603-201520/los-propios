@@ -114,7 +114,7 @@ public class ItinerarioResource {
 //        return itinerarioLogic.updateItinerario(id, itinerario);
          logger.log(Level.INFO, "Se ejecuta método updateBook con id={0}", idItinerario);
         ItinerarioEntity entity = ItinerarioConverter.fullDTO2Entity(itinerario);
-        entity.setIdItinerario(idItinerario);
+        entity.setId(idItinerario);
         // estos comentarios se usan para asociar a itinerarios las paradas
 //        ItinerarioEntity oldEntity = itinerarioLogic.getItinerarioUsuario(idPerfil, idItinerario);
 //        entity.setParadas(oldEntity.getParadas());

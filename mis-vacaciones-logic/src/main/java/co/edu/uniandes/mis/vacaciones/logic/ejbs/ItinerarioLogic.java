@@ -32,7 +32,8 @@ public class ItinerarioLogic implements IItinerarioLogic {
 
     @Override
     public ItinerarioEntity createItinerario(ItinerarioEntity itinerario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return null;
     }
 
     @Override
