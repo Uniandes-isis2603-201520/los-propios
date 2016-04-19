@@ -2,6 +2,7 @@
 package co.edu.uniandes.mis.vacaciones.logic.entities;
 
 //import co.edu.uniandes.csw.crud.spi.entity.BaseEntity;
+import co.edu.uniandes.csw.crud.api.podam.strategy.DateStrategy;
 import co.edu.uniandes.csw.crud.spi.entity.BaseEntity;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -13,6 +14,8 @@ import javax.persistence.ManyToMany;
 
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import uk.co.jemos.podam.common.PodamExclude;
+import uk.co.jemos.podam.common.PodamStrategyValue;
 
 //import javax.persistence.CascadeType;
 //import javax.persistence.ManyToOne;
@@ -33,12 +36,15 @@ public class ParadaEntity extends BaseEntity implements Serializable {
 //    private String nombreParada;
     private String ciudadParada;
     private String actividadParada;
+    @PodamStrategyValue(DateStrategy.class)
     @Temporal(TemporalType.DATE)
     private Date fechaInicioParada;
+    @PodamStrategyValue(DateStrategy.class)
     @Temporal(TemporalType.DATE)
     private Date fechaFinParada;
 
     @ManyToMany
+    @PodamExclude
     private List<VisitaEntity> visitas = new ArrayList();
 
 //@ManyToMany
