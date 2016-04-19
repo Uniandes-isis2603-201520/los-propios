@@ -5,6 +5,7 @@
  */
 package edu.uniandes.lospropios.resources.resources;
 
+import co.edu.uniandes.mis.vacaciones.logic.api.IPerfilLogic;
 import co.edu.uniandes.mis.vacaciones.logic.ejbs.PerfilLogic;
 import co.edu.uniandes.mis.vacaciones.logic.entities.PerfilEntity;
 import co.edu.uniandes.mis.vacaciones.logic.exceptions.BusinessLogicException;
@@ -37,7 +38,7 @@ import javax.ws.rs.core.Response;
 public class PerfilResource {
 
     @Inject
-    PerfilLogic perfilLogic;
+    IPerfilLogic perfilLogic;
 
     private static final Logger LOGGER = Logger.getLogger(PerfilResource.class.getName());
 

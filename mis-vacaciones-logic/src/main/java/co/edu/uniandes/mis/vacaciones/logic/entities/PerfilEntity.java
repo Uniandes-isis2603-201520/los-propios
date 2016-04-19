@@ -32,8 +32,6 @@ public class PerfilEntity extends BaseEntity implements Serializable{
     private String nombre;
 
     private String algo;
-    @PodamStrategyValue(DateStrategy.class)
-    @Temporal(TemporalType.DATE)
 
     @OneToMany
     private List<ItinerarioEntity> itinerarios = new ArrayList<>();

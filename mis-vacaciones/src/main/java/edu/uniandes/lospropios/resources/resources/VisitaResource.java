@@ -28,7 +28,7 @@ import javax.ws.rs.Produces;
 @Produces("application/json")
 @RequestScoped
 public class VisitaResource {
-    
+
     @Inject
     VisitaLogic visitaLogic;
 

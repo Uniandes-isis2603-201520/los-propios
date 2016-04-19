@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.mis.vacaciones.logic.entities;
 
+import co.edu.uniandes.csw.crud.api.podam.strategy.DateStrategy;
 import co.edu.uniandes.csw.crud.spi.entity.BaseEntity;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import uk.co.jemos.podam.common.PodamStrategyValue;
 
 /**
  *
@@ -28,8 +30,10 @@ public class ItinerarioEntity extends BaseEntity implements Serializable {
     @Id
     private long idItinerario;
     private String nombre;
+    @PodamStrategyValue(DateStrategy.class)
     @Temporal(TemporalType.DATE)
     private Date fechaInicial;
+    @PodamStrategyValue(DateStrategy.class)
     @Temporal(TemporalType.DATE)
     private Date fechaFinal;
     @OneToMany
