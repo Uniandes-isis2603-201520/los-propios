@@ -5,7 +5,7 @@
  */
 package edu.uniandes.lospropios.resources.resources;
 
-import co.edu.uniandes.mis.vacaciones.logic.ejbs.EventoLogic;
+import co.edu.uniandes.mis.vacaciones.logic.api.IEventoLogic;
 import edu.uniandes.lospropios.resources.dtos.EventoDTO;
 import edu.uniandes.lospropios.resources.exceptions.EventoLogicException;
 import edu.uniandes.lospropios.resources.mocks.EventoLogicMock;
@@ -31,7 +31,7 @@ public class EventResource
 {
 
     @Inject
-    EventoLogic eventoLogic;
+    IEventoLogic eventoLogic;
 
 
     /**Retorna el catalogo de actividades completo**/
