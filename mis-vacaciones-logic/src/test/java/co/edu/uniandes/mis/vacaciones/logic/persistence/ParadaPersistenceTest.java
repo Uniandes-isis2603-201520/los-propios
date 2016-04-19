@@ -29,7 +29,7 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
 
 /**
  *
- * @author hj.calderon10
+ * @author mc.hernandez1
  */
 @RunWith(Arquillian.class)
 public class ParadaPersistenceTest {
@@ -45,8 +45,8 @@ public class ParadaPersistenceTest {
     public static JavaArchive createDeployment()
     {
         return ShrinkWrap.create(JavaArchive.class)
-                .addPackage(PerfilEntity.class.getPackage())
-                .addPackage(PerfilPersistence.class.getPackage())
+                .addPackage(ParadaEntity.class.getPackage())
+                .addPackage(ParadaPersistence.class.getPackage())
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }

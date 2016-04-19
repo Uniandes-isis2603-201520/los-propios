@@ -6,7 +6,7 @@
 package edu.uniandes.lospropios.resources.resources;
 
 import co.edu.uniandes.mis.vacaciones.logic.api.IParadaLogic;
-import co.edu.uniandes.mis.vacaciones.logic.ejbs.ParadaLogic;
+//import co.edu.uniandes.mis.vacaciones.logic.ejbs.ParadaLogic;
 import co.edu.uniandes.mis.vacaciones.logic.entities.ParadaEntity;
 import co.edu.uniandes.mis.vacaciones.logic.exceptions.BusinessLogicException;
 import edu.uniandes.lospropios.resources.converters.ParadaConverter;

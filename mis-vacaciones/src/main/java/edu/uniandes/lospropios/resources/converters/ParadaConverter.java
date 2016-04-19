@@ -138,7 +138,7 @@ public static ParadaDTO fullEntity2DTO(ParadaEntity entity)
      * @generated
      */
     public static List<ParadaDTO> listEntity2DTO(List<ParadaEntity> entities) {
-        List<ParadaDTO> dtos = new ArrayList<ParadaDTO>();
+        List<ParadaDTO> dtos = new ArrayList<>();
         if (entities != null) {
             for (ParadaEntity entity : entities) {
                 dtos.add(basicEntity2DTO(entity));
@@ -156,7 +156,7 @@ public static ParadaDTO fullEntity2DTO(ParadaEntity entity)
      * @generated
      */
     public static List<ParadaEntity> listDTO2Entity(List<ParadaDTO> dtos) {
-        List<ParadaEntity> entities = new ArrayList<ParadaEntity>();
+        List<ParadaEntity> entities = new ArrayList<>();
         if (dtos != null) {
             for (ParadaDTO dto : dtos) {
                 entities.add(basicDTO2Entity(dto));
