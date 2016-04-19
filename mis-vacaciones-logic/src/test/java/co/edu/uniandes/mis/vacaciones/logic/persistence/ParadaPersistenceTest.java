@@ -6,23 +6,21 @@
 package co.edu.uniandes.mis.vacaciones.logic.persistence;
 
 import co.edu.uniandes.mis.vacaciones.logic.entities.ParadaEntity;
-import co.edu.uniandes.mis.vacaciones.logic.entities.PerfilEntity;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.embeddable.EJBContainer;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.UserTransaction;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Before;
 import org.junit.runner.RunWith;
 import uk.co.jemos.podam.api.PodamFactory;
 import uk.co.jemos.podam.api.PodamFactoryImpl;
@@ -33,13 +31,6 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
  */
 @RunWith(Arquillian.class)
 public class ParadaPersistenceTest {
-
-
-    @Inject
-    private ParadaPersistence paradaPersistence;
-    @PersistenceContext
-    private EntityManager em;
-    private final PodamFactory factory = new PodamFactoryImpl();
 
     @Deployment
     public static JavaArchive createDeployment()
@@ -52,9 +43,53 @@ public class ParadaPersistenceTest {
     }
 
 
-    public ParadaPersistenceTest() {
+    @Inject
+    private ParadaPersistence paradaPersistence;
+
+    @PersistenceContext
+    private EntityManager em;
+
+    @Inject
+    UserTransaction utx;
+
+    private final PodamFactory factory = new PodamFactoryImpl();
+
+    @Before
+    public void configTest()
+    {
+        try {
+            utx.begin();
+            clearData();
+            insertData();
+            utx.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            try {
+                utx.rollback();
+            } catch (Exception e1) {
+                e1.printStackTrace();
+            }
+        }
     }
 
+     private void clearData() {
+        em.createQuery("delete from ParadaEntity").executeUpdate();
+    }
+
+      private List<ParadaEntity> data = new ArrayList<>();
+
+    private void insertData() {
+        for (int i = 0; i < 3; i++) {
+            ParadaEntity entity = factory.manufacturePojo(ParadaEntity.class);
+            em.persist(entity);
+            data.add(entity);
+        }
+    }
+
+//    public ParadaPersistenceTest()
+//    {
+//    }
+//
 
     @Test
     public void createParadaTest(){
