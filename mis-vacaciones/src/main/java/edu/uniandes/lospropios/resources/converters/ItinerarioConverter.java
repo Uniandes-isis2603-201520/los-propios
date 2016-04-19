@@ -41,7 +41,6 @@ public abstract class ItinerarioConverter {
 //            dto.setIdItinerario(entity.getIdItinerario());
 
             dto.setIdItinerario(entity.getId());
-            dto.setNombreItinerario(entity.getNombre());
             dto.setFechaInicio(entity.getFechaInicial());
             dto.setFechaFin(entity.getFechaFinal());
 //            dto.setParadas(entity.getParadas());
@@ -82,7 +81,6 @@ public abstract class ItinerarioConverter {
         if(entity!=null){
             ItinerarioDTO dto = new ItinerarioDTO();
             dto.setIdItinerario(entity.getId());
-            dto.setNombreItinerario(entity.getNombre());
             dto.setFechaInicio(entity.getFechaInicial());
             dto.setFechaFin(entity.getFechaFinal());
 //            dto.setParadas(entity.getParadas());
@@ -109,7 +107,6 @@ public abstract class ItinerarioConverter {
            ItinerarioEntity entity = new ItinerarioEntity();
 
            entity.setId(dto.getIdItinerario());
-           entity.setNombre(dto.getNombreItinerario());
            entity.setFechaFinal(dto.getFechaFin());
            entity.setFechaInicial(dto.getFechaInicio());
 
