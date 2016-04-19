@@ -6,22 +6,19 @@
 package co.edu.uniandes.mis.vacaciones.logic.persistence;
 
 import co.edu.uniandes.mis.vacaciones.logic.entities.PerfilEntity;
+import java.util.ArrayList;
 import java.util.List;
-import javax.ejb.embeddable.EJBContainer;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.UserTransaction;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 import org.junit.runner.RunWith;
 import uk.co.jemos.podam.api.PodamFactory;
 import uk.co.jemos.podam.api.PodamFactoryImpl;
@@ -48,10 +45,40 @@ public class PerfilPersistenceTest {
     @PersistenceContext
     private EntityManager em;
 
+    @Inject
+    UserTransaction utx;
 
     private final PodamFactory factory = new PodamFactoryImpl();
 
-    public PerfilPersistenceTest() {
+    @Before
+    public void configTest() {
+        try {
+            utx.begin();
+            clearData();
+            insertData();
+            utx.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            try {
+                utx.rollback();
+            } catch (Exception e1) {
+                e1.printStackTrace();
+            }
+        }
+    }
+
+    private void clearData() {
+        em.createQuery("delete from PerfilEntity").executeUpdate();
+    }
+
+    private List<PerfilEntity> data = new ArrayList<>();
+
+    private void insertData() {
+        for (int i = 0; i < 3; i++) {
+            PerfilEntity entity = factory.manufacturePojo(PerfilEntity.class);
+            em.persist(entity);
+            data.add(entity);
+        }
     }
 
     @Test
@@ -66,86 +93,48 @@ public class PerfilPersistenceTest {
         Assert.assertEquals(newEntity.getName(), entity.getName());
     }
 
-    /**
-     * Test of find method, of class PerfilPersistence.
-     */
     @Test
-    public void testFind() throws Exception {
-        System.out.println("find");
-        Long id = null;
-        EJBContainer container = javax.ejb.embeddable.EJBContainer.createEJBContainer();
-        PerfilPersistence instance = (PerfilPersistence) container.getContext().lookup("java:global/classes/PerfilPersistence");
-        PerfilEntity expResult = null;
-        PerfilEntity result = instance.find(id);
-        assertEquals(expResult, result);
-        container.close();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void getPerfilesTest() {
+        List<PerfilEntity> list = perfilPersistence.findAll();
+        Assert.assertEquals(data.size(), list.size());
+        for (PerfilEntity ent : list) {
+            boolean found = false;
+            for (PerfilEntity entity : data) {
+                if (ent.getId().equals(entity.getId())) {
+                    found = true;
+                }
+            }
+            Assert.assertTrue(found);
+        }
     }
 
-    /**
-     * Test of findAll method, of class PerfilPersistence.
-     */
     @Test
-    public void testFindAll() throws Exception {
-        System.out.println("findAll");
-        EJBContainer container = javax.ejb.embeddable.EJBContainer.createEJBContainer();
-        PerfilPersistence instance = (PerfilPersistence) container.getContext().lookup("java:global/classes/PerfilPersistence");
-        List<PerfilEntity> expResult = null;
-        List<PerfilEntity> result = instance.findAll();
-        assertEquals(expResult, result);
-        container.close();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void getPerfilTest() {
+        PerfilEntity entity = data.get(0);
+        PerfilEntity newEntity = perfilPersistence.find(entity.getId());
+        Assert.assertNotNull(newEntity);
+        Assert.assertEquals(entity.getName(), newEntity.getName());
     }
 
-    /**
-     * Test of create method, of class PerfilPersistence.
-     */
     @Test
-    public void testCreate() throws Exception {
-        System.out.println("create");
-        PerfilEntity entity = null;
-        EJBContainer container = javax.ejb.embeddable.EJBContainer.createEJBContainer();
-        PerfilPersistence instance = (PerfilPersistence) container.getContext().lookup("java:global/classes/PerfilPersistence");
-        PerfilEntity expResult = null;
-        PerfilEntity result = instance.create(entity);
-        assertEquals(expResult, result);
-        container.close();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void deletePerfilTest() {
+        PerfilEntity entity = data.get(0);
+        perfilPersistence.delete(entity.getId());
+        PerfilEntity deleted = em.find(PerfilEntity.class, entity.getId());
+        Assert.assertNull(deleted);
     }
 
-    /**
-     * Test of update method, of class PerfilPersistence.
-     */
     @Test
-    public void testUpdate() throws Exception {
-        System.out.println("update");
-        PerfilEntity entity = null;
-        EJBContainer container = javax.ejb.embeddable.EJBContainer.createEJBContainer();
-        PerfilPersistence instance = (PerfilPersistence) container.getContext().lookup("java:global/classes/PerfilPersistence");
-        PerfilEntity expResult = null;
-        PerfilEntity result = instance.update(entity);
-        assertEquals(expResult, result);
-        container.close();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+    public void updatePerfilTest(){
+        PerfilEntity entity = data.get(0);
+        PerfilEntity newEntity = factory.manufacturePojo(PerfilEntity.class);
+        newEntity.setId(entity.getId());
 
-    /**
-     * Test of delete method, of class PerfilPersistence.
-     */
-    @Test
-    public void testDelete() throws Exception {
-        System.out.println("delete");
-        Long id = null;
-        EJBContainer container = javax.ejb.embeddable.EJBContainer.createEJBContainer();
-        PerfilPersistence instance = (PerfilPersistence) container.getContext().lookup("java:global/classes/PerfilPersistence");
-        instance.delete(id);
-        container.close();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        perfilPersistence.update(newEntity);
+
+        PerfilEntity resp = em.find(PerfilEntity.class, entity.getId());
+
+        Assert.assertEquals(newEntity.getName(), resp.getName());
     }
 
 }

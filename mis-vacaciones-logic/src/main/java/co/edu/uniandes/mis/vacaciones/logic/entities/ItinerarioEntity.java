@@ -27,9 +27,6 @@ import uk.co.jemos.podam.common.PodamStrategyValue;
 @Entity
 public class ItinerarioEntity extends BaseEntity implements Serializable {
 
-    @Id
-    private long idItinerario;
-    private String nombre;
     @PodamStrategyValue(DateStrategy.class)
     @Temporal(TemporalType.DATE)
     private Date fechaInicial;
@@ -57,14 +54,14 @@ public class ItinerarioEntity extends BaseEntity implements Serializable {
     /**
      * Metodo para obtener el nombre de un itinerario
      * @return el nombre del itinerario
-     */
+
     public String getNombre(){
         return nombre;
     }
     /**
      * Metodo para modificar el nombre de un itinerario
      * @param nombre - nuevo nombre del itinerario
-     */
+     
     public void setNombre(String nombre){
         this.nombre=nombre;
     }
