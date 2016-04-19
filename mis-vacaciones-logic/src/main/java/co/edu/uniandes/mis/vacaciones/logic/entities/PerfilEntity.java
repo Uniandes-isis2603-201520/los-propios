@@ -5,22 +5,13 @@
  */
 package co.edu.uniandes.mis.vacaciones.logic.entities;
 
-import co.edu.uniandes.csw.crud.api.podam.strategy.DateStrategy;
 import co.edu.uniandes.csw.crud.spi.entity.BaseEntity;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import uk.co.jemos.podam.common.PodamExclude;
-import uk.co.jemos.podam.common.PodamStrategyValue;
-
 /**
  *
  * @author hj.calderon10
@@ -28,12 +19,17 @@ import uk.co.jemos.podam.common.PodamStrategyValue;
 @Entity
 public class PerfilEntity extends BaseEntity implements Serializable{
 
-
     private String nombre;
+
+    private int edad;
+
+    
+
 
     private String algo;
 
     @OneToMany
+    @PodamExclude
     private List<ItinerarioEntity> itinerarios = new ArrayList<>();
 
     public List<ItinerarioEntity> getItinerarios()

@@ -33,16 +33,8 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
 @RunWith(Arquillian.class)
 public class PerfilPersistenceTest {
 
-
-    @Inject
-    private PerfilPersistence perfilPersistence;
-    @PersistenceContext
-    private EntityManager em;
-    private final PodamFactory factory = new PodamFactoryImpl();
-
     @Deployment
-    public static JavaArchive createDeployment()
-    {
+    public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
                 .addPackage(PerfilEntity.class.getPackage())
                 .addPackage(PerfilPersistence.class.getPackage())
@@ -50,13 +42,20 @@ public class PerfilPersistenceTest {
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }
 
+    @Inject
+    private PerfilPersistence perfilPersistence;
+
+    @PersistenceContext
+    private EntityManager em;
+
+
+    private final PodamFactory factory = new PodamFactoryImpl();
 
     public PerfilPersistenceTest() {
     }
 
-
     @Test
-    public void createPerfilTest(){
+    public void createPerfilTest() {
         PerfilEntity newEntity = factory.manufacturePojo(PerfilEntity.class);
 
         PerfilEntity result = perfilPersistence.create(newEntity);
@@ -67,7 +66,6 @@ public class PerfilPersistenceTest {
         Assert.assertEquals(newEntity.getName(), entity.getName());
     }
 
-
     /**
      * Test of find method, of class PerfilPersistence.
      */
@@ -76,7 +74,7 @@ public class PerfilPersistenceTest {
         System.out.println("find");
         Long id = null;
         EJBContainer container = javax.ejb.embeddable.EJBContainer.createEJBContainer();
-        PerfilPersistence instance = (PerfilPersistence)container.getContext().lookup("java:global/classes/PerfilPersistence");
+        PerfilPersistence instance = (PerfilPersistence) container.getContext().lookup("java:global/classes/PerfilPersistence");
         PerfilEntity expResult = null;
         PerfilEntity result = instance.find(id);
         assertEquals(expResult, result);
@@ -92,7 +90,7 @@ public class PerfilPersistenceTest {
     public void testFindAll() throws Exception {
         System.out.println("findAll");
         EJBContainer container = javax.ejb.embeddable.EJBContainer.createEJBContainer();
-        PerfilPersistence instance = (PerfilPersistence)container.getContext().lookup("java:global/classes/PerfilPersistence");
+        PerfilPersistence instance = (PerfilPersistence) container.getContext().lookup("java:global/classes/PerfilPersistence");
         List<PerfilEntity> expResult = null;
         List<PerfilEntity> result = instance.findAll();
         assertEquals(expResult, result);
@@ -109,7 +107,7 @@ public class PerfilPersistenceTest {
         System.out.println("create");
         PerfilEntity entity = null;
         EJBContainer container = javax.ejb.embeddable.EJBContainer.createEJBContainer();
-        PerfilPersistence instance = (PerfilPersistence)container.getContext().lookup("java:global/classes/PerfilPersistence");
+        PerfilPersistence instance = (PerfilPersistence) container.getContext().lookup("java:global/classes/PerfilPersistence");
         PerfilEntity expResult = null;
         PerfilEntity result = instance.create(entity);
         assertEquals(expResult, result);
@@ -126,7 +124,7 @@ public class PerfilPersistenceTest {
         System.out.println("update");
         PerfilEntity entity = null;
         EJBContainer container = javax.ejb.embeddable.EJBContainer.createEJBContainer();
-        PerfilPersistence instance = (PerfilPersistence)container.getContext().lookup("java:global/classes/PerfilPersistence");
+        PerfilPersistence instance = (PerfilPersistence) container.getContext().lookup("java:global/classes/PerfilPersistence");
         PerfilEntity expResult = null;
         PerfilEntity result = instance.update(entity);
         assertEquals(expResult, result);
@@ -143,7 +141,7 @@ public class PerfilPersistenceTest {
         System.out.println("delete");
         Long id = null;
         EJBContainer container = javax.ejb.embeddable.EJBContainer.createEJBContainer();
-        PerfilPersistence instance = (PerfilPersistence)container.getContext().lookup("java:global/classes/PerfilPersistence");
+        PerfilPersistence instance = (PerfilPersistence) container.getContext().lookup("java:global/classes/PerfilPersistence");
         instance.delete(id);
         container.close();
         // TODO review the generated test code and remove the default call to fail.
