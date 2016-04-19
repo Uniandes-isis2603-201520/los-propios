@@ -6,47 +6,76 @@
 package co.edu.uniandes.mis.vacaciones.logic.persistence;
 
 import co.edu.uniandes.mis.vacaciones.logic.entities.ParadaEntity;
+import co.edu.uniandes.mis.vacaciones.logic.entities.PerfilEntity;
 import java.util.List;
 import javax.ejb.embeddable.EJBContainer;
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import org.jboss.arquillian.container.test.api.Deployment;
+import org.jboss.arquillian.junit.Arquillian;
+import org.jboss.shrinkwrap.api.ShrinkWrap;
+import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.runner.RunWith;
+import uk.co.jemos.podam.api.PodamFactory;
+import uk.co.jemos.podam.api.PodamFactoryImpl;
 
 /**
  *
  * @author hj.calderon10
  */
+@RunWith(Arquillian.class)
 public class ParadaPersistenceTest {
+
+
+    @Inject
+    private ParadaPersistence paradaPersistence;
+    @PersistenceContext
+    private EntityManager em;
+    private final PodamFactory factory = new PodamFactoryImpl();
+
+    @Deployment
+    public static JavaArchive createDeployment()
+    {
+        return ShrinkWrap.create(JavaArchive.class)
+                .addPackage(PerfilEntity.class.getPackage())
+                .addPackage(PerfilPersistence.class.getPackage())
+                .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
+                .addAsManifestResource("META-INF/beans.xml", "beans.xml");
+    }
+
 
     public ParadaPersistenceTest() {
     }
 
-    @BeforeClass
-    public static void setUpClass() {
+
+    @Test
+    public void createParadaTest(){
+        ParadaEntity newEntity = factory.manufacturePojo(ParadaEntity.class);
+
+        ParadaEntity result = paradaPersistence.create(newEntity);
+
+        Assert.assertNotNull(result);
+
+        ParadaEntity entity = em.find(ParadaEntity.class, result.getId());
+        Assert.assertEquals(newEntity.getName(), entity.getName());
     }
 
-    @AfterClass
-    public static void tearDownClass() {
-    }
-
-    @Before
-    public void setUp() {
-    }
-
-    @After
-    public void tearDown() {
-    }
 
     /**
-     * Test of find method, of class ParadaPersistence.
+     * Test of find method, of class PerfilPersistence.
      */
     @Test
     public void testFind() throws Exception {
         System.out.println("find");
-        long id = 0L;
+        Long id = null;
         EJBContainer container = javax.ejb.embeddable.EJBContainer.createEJBContainer();
         ParadaPersistence instance = (ParadaPersistence)container.getContext().lookup("java:global/classes/ParadaPersistence");
         ParadaEntity expResult = null;
