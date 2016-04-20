@@ -5,46 +5,23 @@
  */
 package edu.uniandes.lospropios.resources.dtos;
 
+import java.util.Date;
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * Objeto de transferencia de datos del perfil.
  *
  * @author mc.hernandez1
  */
+@XmlRootElement
 public class PerfilDTO {
 
     private Long id;
-    private String perfil;
     private String nombre;
-    private String informacionPersonal;
-    private String infoAlbumnes;
-
-    /**
-     * Método necesario para NetBeans
-     */
-    public PerfilDTO(){
-        //No se puede ejecutar el DTO sin este método.
-    }
-
-
-    /**
-     * Constructor con parámetros. $scope.albumnes = []; $scope.id = "";
-     * $scope.ciudad = ""; $scope.descripcion = "";
-     *
-     * @param id identificador del album
-     * @param perfil perfil donde se realizo el album
-     * @param nombre
-     * @param informacionPersonal
-     * @param infoAlbumnes
-     */
-    public PerfilDTO(Long id, String perfil, String nombre, String informacionPersonal, String infoAlbumnes) {
-        super();
-        this.id = id;
-        this.perfil = perfil;
-        this.nombre = nombre;
-        this.informacionPersonal = informacionPersonal;
-        this.infoAlbumnes = infoAlbumnes;
-
-    }
+    private Integer cedula;
+    private Integer edad;
+    private Date fechaNacimiento;
+    private String profesion;
 
     /**
      * @return the id
@@ -53,25 +30,43 @@ public class PerfilDTO {
         return id;
     }
 
+    public Integer getCedula() {
+        return cedula;
+    }
+
+    public void setCedula(Integer cedula) {
+        this.cedula = cedula;
+    }
+
+    public Integer getEdad() {
+        return edad;
+    }
+
+    public void setEdad(Integer edad) {
+        this.edad = edad;
+    }
+
+    public Date getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(Date fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public String getProfesion() {
+        return profesion;
+    }
+
+    public void setProfesion(String profesion) {
+        this.profesion = profesion;
+    }
+
     /**
      * @param id the id to set
      */
     public void setId(Long id) {
         this.id = id;
-    }
-
-    /**
-     * @return the ciudad
-     */
-    public String getPerfil() {
-        return perfil;
-    }
-
-    /**
-     * @param perfil the name to set
-     */
-    public void setPerfil(String perfil) {
-        this.perfil = perfil;
     }
 
     /**
@@ -89,45 +84,12 @@ public class PerfilDTO {
     }
 
     /**
-     * @return informacionPersonal
-     */
-    public String getInformacionPersonal() {
-        return informacionPersonal;
-    }
-
-    /**
-     * @param informacionPersonal the name to set
-     */
-    public void setInformacionPersonal(String informacionPersonal) {
-        this.informacionPersonal = informacionPersonal;
-    }
-
-     /**
-     * @return infoAlbumnes
-     */
-    public String getInfoAlbumnes() {
-        return infoAlbumnes;
-    }
-
-    /**
-     * @param infoAlbumnes the name to set
-     */
-    public void setInfoAlbumnes(String infoAlbumnes) {
-        this.infoAlbumnes = infoAlbumnes;
-    }
-
-
-
-    /**
      * Convierte el objeto a una cadena
+     *
      * @return
      */
     @Override
     public String toString() {
-        return "{ id : " + getId() + ", ciudad : \"" + getPerfil() + "\" }";
-    }
-
-    public void setName(String perfil) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "{ id : " + getId() + ", ciudad : \"" + getNombre() + "\" }";
     }
 }

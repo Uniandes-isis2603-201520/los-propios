@@ -5,39 +5,77 @@
  */
 package co.edu.uniandes.mis.vacaciones.logic.entities;
 
+import co.edu.uniandes.csw.crud.api.podam.strategy.DateStrategy;
 import co.edu.uniandes.csw.crud.spi.entity.BaseEntity;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import uk.co.jemos.podam.common.PodamExclude;
+import uk.co.jemos.podam.common.PodamStrategyValue;
+
 /**
  *
  * @author hj.calderon10
  */
 @Entity
-public class PerfilEntity extends BaseEntity implements Serializable{
+public class PerfilEntity extends BaseEntity implements Serializable {
 
-    private String nombre;
+    private Integer edad;
 
-    private int edad;
+    private Integer cedula;
 
-    
+    @PodamStrategyValue(DateStrategy.class)
+    @Temporal(TemporalType.DATE)
+    private Date fechaNacimiento;
 
-
-    private String algo;
+    private String profesion;
 
     @OneToMany
     @PodamExclude
     private List<ItinerarioEntity> itinerarios = new ArrayList<>();
 
-    public List<ItinerarioEntity> getItinerarios()
-    {
-        return itinerarios;
+    public void setEdad(Integer edad) {
+        this.edad = edad;
     }
 
+    public void setCedula(Integer cedula) {
+        this.cedula = cedula;
+    }
 
+    public void setFechaNacimiento(Date fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
 
+    public void setProfesion(String profesion) {
+        this.profesion = profesion;
+    }
 
+    public void setItinerarios(List<ItinerarioEntity> itinerarios) {
+        this.itinerarios = itinerarios;
+    }
+
+    public Integer getEdad() {
+        return edad;
+    }
+
+    public Integer getCedula() {
+        return cedula;
+    }
+
+    public Date getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public String getProfesion() {
+        return profesion;
+    }
+
+    public List<ItinerarioEntity> getItinerarios() {
+        return itinerarios;
+    }
 }

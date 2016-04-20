@@ -24,7 +24,7 @@ public abstract class PerfilConverter {
         if (entity != null) {
             PerfilDTO dto = new PerfilDTO();
             dto.setId(entity.getId());
-            dto.setName(entity.getName());
+            dto.setNombre(entity.getName());
             return dto;
         } else {
             return null;
@@ -35,7 +35,7 @@ public abstract class PerfilConverter {
         if (entity != null) {
             PerfilDTO dto = new PerfilDTO();
             dto.setId(entity.getId());
-            dto.setName(entity.getName());
+            dto.setNombre(entity.getName());
 
             return dto;
         } else {

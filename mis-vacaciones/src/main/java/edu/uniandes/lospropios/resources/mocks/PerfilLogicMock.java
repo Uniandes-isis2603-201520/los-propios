@@ -35,10 +35,10 @@ public class PerfilLogicMock {
 
         if (perfiles == null) {
             perfiles = new ArrayList<>();
-            perfiles.add(new PerfilDTO(1L, "perfil1", "Camila", "Tengo 30 años", "1 Album"));
+/*            perfiles.add(new PerfilDTO(1L, "perfil1", "Camila", "Tengo 30 años", "1 Album"));
             perfiles.add(new PerfilDTO(2L, "perfil2", "Hector", "Me gustan los videojuegos" , "3 Albumnes"));
             perfiles.add(new PerfilDTO(3L, "perfil3", "Andres", "Estoy feliz", "2 Albumnes"));
-        }
+      */  }
 
         // indica que se muestren todos los mensajes
         LOGGER.setLevel(Level.INFO);
@@ -55,7 +55,7 @@ public class PerfilLogicMock {
         }
 
         LOGGER.info("retornando el primer perfil");
-        return perfiles.get(0).getPerfil();
+        return perfiles.get(0).getNombre();
     }
 
      public String getPerfilDos(Long id) throws PerfilLogicException {
@@ -68,10 +68,10 @@ public class PerfilLogicMock {
          for (PerfilDTO actual : perfiles) {
             if (Objects.equals(actual.getId(), id)) {
 
-                return perfiles.get(0).getPerfil();
+                return perfiles.get(0).getNombre();
             }
         }
-        return perfiles.get(0).getPerfil();
+        return perfiles.get(0).getNombre();
     }
 
     public PerfilDTO createPerfil(PerfilDTO perfil) throws PerfilLogicException {
@@ -117,7 +117,7 @@ public class PerfilLogicMock {
 
                 // modifica la ciudad
                 actual.setId(perfil.getId());
-                actual.setName(perfil.getPerfil());
+                actual.setNombre(perfil.getNombre());
 
                 // retorna la ciudad modificada
                 LOGGER.info("Modificando ciudad " + actual);

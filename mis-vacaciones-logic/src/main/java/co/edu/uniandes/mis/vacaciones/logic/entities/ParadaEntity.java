@@ -31,9 +31,6 @@ import uk.co.jemos.podam.common.PodamStrategyValue;
 
 public class ParadaEntity extends BaseEntity implements Serializable {
 
-//    @Id
-//    private Long id;
-//    private String nombreParada;
     private String ciudadParada;
     private String actividadParada;
     @PodamStrategyValue(DateStrategy.class)
