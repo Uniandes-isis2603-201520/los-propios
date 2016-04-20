@@ -36,4 +36,23 @@ public class EventoPersistence
         Query q = em.createQuery("select u from EventoEntity u");
         return q.getResultList();
     }
+
+    EventoEntity create(EventoEntity entity)
+    {
+        logger.info("Creando un evento nuevo");
+        em.persist(entity);
+        logger.info("Evento creado");
+        return entity;
+    }
+
+    EventoEntity update(EventoEntity entity) {
+        logger.log(Level.INFO, "Actualizando evento con id={0}", entity.getId());
+        return em.merge(entity);
+    }
+
+    void delete(Long id) {
+        logger.log(Level.INFO, "Borrando evento con id={0}", id);
+        EventoEntity entity = em.find(EventoEntity.class, id);
+        em.remove(entity);
+    }
 }
