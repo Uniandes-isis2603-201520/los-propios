@@ -5,25 +5,32 @@
  */
 package co.edu.uniandes.mis.vacaciones.logic.entities;
 
+import co.edu.uniandes.csw.crud.api.podam.strategy.DateStrategy;
+import co.edu.uniandes.csw.crud.spi.entity.BaseEntity;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import uk.co.jemos.podam.common.PodamExclude;
+import uk.co.jemos.podam.common.PodamStrategyValue;
 
 /**
  *
  * @author josedanielcardenasrincon
  */
 @Entity
-public class VisitaEntity implements Serializable {
-    @Id
-    private Long id;
-    private int ordenVisita;
-    private double calificacion;
+public class VisitaEntity extends BaseEntity implements Serializable {
+    private Integer ordenVisita;
+    private Double calificacion;
+    @PodamStrategyValue(DateStrategy.class)
     @Temporal(TemporalType.DATE)
     private Date fecha;
+    @ManyToOne
+    @PodamExclude
+    private EventoEntity evento;
 
     /**
      * Método necesario para NetBeans
@@ -32,23 +39,6 @@ public class VisitaEntity implements Serializable {
         //No se puede ejecutar el DTO sin este método.
     }
 
-
-    public VisitaEntity(long id,int ordenVisita, double calificacion, Date fecha) {
-        this.id=id;
-        this.ordenVisita = ordenVisita;
-        this.calificacion = calificacion;
-        this.fecha = fecha;
-    }
-
-
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public int getOrdenVisita() {
         return ordenVisita;
@@ -72,9 +62,5 @@ public class VisitaEntity implements Serializable {
 
     public void setFecha(Date fecha) {
         this.fecha = fecha;
-    }
-
-    public Date getFechaInicio() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

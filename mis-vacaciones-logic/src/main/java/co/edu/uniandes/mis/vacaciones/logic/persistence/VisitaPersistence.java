@@ -36,4 +36,19 @@ public class VisitaPersistence {
         Query q = em.createQuery("select u from VisitaEntity u");
         return q.getResultList();
     }
+
+    public void create(VisitaEntity visitaEntity) {
+        logger.info("Creando una visita");
+        em.persist(visitaEntity);
+    }
+
+    public VisitaEntity update(VisitaEntity visitaEntity) {
+        return em.merge(visitaEntity);
+    }
+
+    public void delete(Long id) {
+        VisitaEntity visita= em.find(VisitaEntity.class, id);
+        em.remove(visita);
+        
+    }
 }
