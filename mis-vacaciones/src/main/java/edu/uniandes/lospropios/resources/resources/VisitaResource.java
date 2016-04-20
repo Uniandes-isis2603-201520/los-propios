@@ -6,6 +6,7 @@
 package edu.uniandes.lospropios.resources.resources;
 
 import co.edu.uniandes.mis.vacaciones.logic.ejbs.VisitaLogic;
+//import com.sun.istack.internal.logging.Logger;
 import edu.uniandes.lospropios.resources.converters.VisitaConverter;
 import edu.uniandes.lospropios.resources.dtos.VisitaDTO;
 import edu.uniandes.lospropios.resources.exceptions.VisitaLogicException;
@@ -19,6 +20,8 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -29,8 +32,9 @@ import javax.ws.rs.Produces;
 @RequestScoped
 public class VisitaResource {
 
+    private static final Logger logger = Logger.getLogger(VisitaResource.class.getName());
     @Inject
-    VisitaLogic visitaLogic;
+    private VisitaLogic visitaLogic;
 
     /**
      * Obtiene el listado de itineratios.

@@ -76,7 +76,7 @@ public abstract class VisitaConverter {
      * @generated
      */
     public static List<VisitaEntity> listDTO2Entity(List<VisitaDTO> dtos) {
-        List<VisitaEntity> entities = new ArrayList<VisitaEntity>();
+        List<VisitaEntity> entities = new ArrayList<>();
         if (dtos != null) {
             for (VisitaDTO dto : dtos) {
                 entities.add(fullDTO2Entity(dto));
