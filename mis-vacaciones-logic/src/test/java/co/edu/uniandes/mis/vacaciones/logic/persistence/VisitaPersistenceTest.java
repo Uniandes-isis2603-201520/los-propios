@@ -31,18 +31,18 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
  */
 @RunWith(Arquillian.class)
 public class VisitaPersistenceTest {
-    
+
     @Inject
     private VisitaPersistence visitaPersistence;
-    
+
     @PersistenceContext
     private EntityManager em;
-    
+
     @Inject
     UserTransaction utx;
-    
+
     private final PodamFactory factory = new PodamFactoryImpl();
-    
+
     @Before
     public void configTest() {
         try {
@@ -74,11 +74,11 @@ public class VisitaPersistenceTest {
             data.add(entity);
         }
     }
-    
-    public VisitaPersistenceTest(){
-        
-    }
-    
+
+//    public VisitaPersistenceTest(){
+//
+//    }
+
     @Deployment
     public static JavaArchive createDeployment(){
                 return ShrinkWrap.create(JavaArchive.class)
@@ -87,7 +87,7 @@ public class VisitaPersistenceTest {
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }
-    
+
     @Test
     public void agregarTest(){
 
@@ -100,13 +100,13 @@ public class VisitaPersistenceTest {
         VisitaEntity entity = em.find(VisitaEntity.class, newEntity.getId());
         Assert.assertEquals(newEntity.getFecha(), entity.getFecha());
     }
-    
+
     @Test
     public void buscarVisitasTest(){
-        
+
 
     }
-    
+
     @Test
     public void buscarVisitaIdTest(){
         VisitaEntity entity = data.get(0);
@@ -114,7 +114,7 @@ public class VisitaPersistenceTest {
         Assert.assertNotNull(newEntity);
         Assert.assertEquals(entity.getName(), newEntity.getName());
     }
-    
+
     @Test
     public void eliminarVisitaIdTest(){
         VisitaEntity entity = data.get(0);
@@ -122,7 +122,7 @@ public class VisitaPersistenceTest {
         VisitaEntity deleted = em.find(VisitaEntity.class, entity.getId());
         Assert.assertNull(deleted);
     }
-    
+
     @Test
     public void actualizarVisitaTest(){
         VisitaEntity entity = data.get(0);
@@ -135,6 +135,6 @@ public class VisitaPersistenceTest {
 
         Assert.assertEquals(newEntity.getName(), resp.getName());
     }
-    
-    
+
+
 }
