@@ -3,7 +3,6 @@
   <persistence-unit name="MisVacacionesPU" transaction-type="JTA">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
-    <shared-cache-moder>NONE</shared-cache-moder>
     <shared-cache-mode>NONE</shared-cache-mode>
     <properties>
       <property name="eclipselink.logging.level" value="WARNING"/>
