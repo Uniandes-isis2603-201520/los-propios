@@ -6,13 +6,16 @@
 package edu.uniandes.lospropios.resources.dtos;
 
 import java.util.Date;
+import javax.xml.bind.annotation.XmlRootElement;
 
 
 /**
  *
  * @author mc.hernandez1
  */
-public class ParadaDTO {
+@XmlRootElement
+public class ParadaDTO
+{
 
     private Long id;
     private String nombre;
@@ -22,25 +25,6 @@ public class ParadaDTO {
     private Date fechaFin;
 
 
-
-    /**
-     * Método necesario para NetBeans
-     */
-    public ParadaDTO(){
-        //No se puede ejecutar el DTO sin este método.
-    }
-
-    public ParadaDTO(Long id, String nombre, String ciudad, String actividad, Date fechaInicio, Date fechaFin) {
-        super();
-        this.id = id;
-        this.nombre = nombre;
-        this.ciudad = ciudad;
-        this.actividad = actividad;
-        this.fechaInicio = fechaInicio;
-        this.fechaFin = fechaFin;
-
-    }
-
     public Long getId() {
         return id;
     }
@@ -49,11 +33,11 @@ public class ParadaDTO {
         this.id = id;
     }
 
-    public String getName() {
+    public String getNombre() {
         return nombre;
     }
 
-    public void setName(String nombre) {
+    public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 

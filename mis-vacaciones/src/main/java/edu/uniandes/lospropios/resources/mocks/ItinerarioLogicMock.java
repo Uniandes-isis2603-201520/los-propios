@@ -46,9 +46,9 @@ public class ItinerarioLogicMock {
             //Inicializa la lista de paradas
             paradas = new ArrayList<>();
             //Crea paradas para asociales a los itinerarios
-            ParadaDTO p1 = new ParadaDTO(4L, "nombre1", "ciudad1", "actividad1", new Date(), new Date());
-            ParadaDTO p2 = new ParadaDTO(5L, "nombre2", "ciudad2", "actividad2", new Date(), new Date());
-            ParadaDTO p3 = new ParadaDTO(6L, "nombre3", "ciudad3", "actividad3", new Date(), new Date());
+            ParadaDTO p1 = new ParadaDTO();
+            ParadaDTO p2 = new ParadaDTO();
+            ParadaDTO p3 = new ParadaDTO();
             //Agrega itinerarios a la lista y les agrega una parada a cada uno
             itinerarios.add(new ItinerarioDTO(1L,"Itinerario 1", new Date(), new Date()));
             itinerarios.get(0).addParada(p1);

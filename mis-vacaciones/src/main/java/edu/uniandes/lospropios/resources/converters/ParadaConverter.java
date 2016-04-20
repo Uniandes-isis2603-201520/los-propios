@@ -25,7 +25,7 @@ public abstract class ParadaConverter {
         if (entity != null) {
             ParadaDTO dto = new ParadaDTO();
             dto.setId(entity.getId());
-            dto.setName(entity.getName());
+            dto.setNombre(entity.getName());
             dto.setActividad(entity.getAcividadParada());
             dto.setCiudad(entity.getCiudadParada());
             dto.setFechaFin(entity.getFechaFinParada());
@@ -58,7 +58,7 @@ public abstract class ParadaConverter {
         {
             ParadaDTO dto = new ParadaDTO();
             dto.setId(entity.getId());
-            dto.setName(entity.getName());
+            dto.setNombre(entity.getName());
             dto.setActividad(entity.getAcividadParada());
             dto.setCiudad(entity.getCiudadParada());
             dto.setFechaFin(entity.getFechaFinParada());
@@ -79,7 +79,7 @@ public abstract class ParadaConverter {
         {
             ParadaEntity entity = new ParadaEntity();
             entity.setId(dto.getId());
-            entity.setName(dto.getName());
+            entity.setName(dto.getNombre());
             entity.setCiudadParada(dto.getCiudad());
             entity.setActividadParada(dto.getActividad());
             entity.setFechaFinParada(dto.getFechaFin());
