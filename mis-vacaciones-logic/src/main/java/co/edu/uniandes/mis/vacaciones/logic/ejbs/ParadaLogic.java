@@ -51,7 +51,7 @@ public class ParadaLogic implements IParadaLogic {
     public List<ParadaEntity> getParadas() {
         logger.info("Inicia el proceso de consultar todas las paradas");
         List<ParadaEntity> paradas = persistence.findAll();
-        logger.info("Termina proceso de consultar todos los libros");
+        logger.info("Termina proceso de consultar todos las paradas");
         return paradas;
     }
 
@@ -126,7 +126,7 @@ public class ParadaLogic implements IParadaLogic {
         if (visitaEntity == visitaEntityDos) {
             if (!visitaAntesDeParada(visitaEntity.getFecha(), paradaEntity.getFechaInicioParada()));
             {
-                throw new BusinessLogicException("La fecha de publicación no puede der anterior a la fecha en que se creo la parada");
+                throw new BusinessLogicException("La fecha de visita no puede ser anterior a la fecha en que se creo la parada");
             }
         }
         paradaEntity.getVisitas().add(visitaEntity);
@@ -147,7 +147,7 @@ public class ParadaLogic implements IParadaLogic {
         paradaEntity.setVisitas(visitas);
         for (VisitaEntity visita : visitas) {
             if (!visitaAntesDeParada(visita.getFecha(), paradaEntity.getFechaInicioParada())) {
-                throw new BusinessLogicException("La fecha de publicación no puede ser anterior a la fecha en que se creo la parada");
+                throw new BusinessLogicException("La fecha de visita no puede ser anterior a la fecha en que se creo la parada");
             }
         }
         return paradaEntity.getVisitas();

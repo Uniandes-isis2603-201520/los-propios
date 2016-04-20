@@ -6,9 +6,9 @@
 package co.edu.uniandes.mis.vacaciones.logic.persistence;
 
 import co.edu.uniandes.mis.vacaciones.logic.entities.ParadaEntity;
+import co.edu.uniandes.mis.vacaciones.logic.entities.PerfilEntity;
 import java.util.ArrayList;
 import java.util.List;
-import javax.ejb.embeddable.EJBContainer;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -19,7 +19,6 @@ import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.Assert;
 import org.junit.Test;
-import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.runner.RunWith;
 import uk.co.jemos.podam.api.PodamFactory;
@@ -106,84 +105,78 @@ public class ParadaPersistenceTest {
 
     /**
      * Test of find method, of class PerfilPersistence.
+     * @throws java.lang.Exception
      */
     @Test
-    public void testFind() throws Exception {
-        System.out.println("find");
-        Long id = null;
-        EJBContainer container = javax.ejb.embeddable.EJBContainer.createEJBContainer();
-        ParadaPersistence instance = (ParadaPersistence)container.getContext().lookup("java:global/classes/ParadaPersistence");
-        ParadaEntity expResult = null;
-        ParadaEntity result = instance.find(id);
-        assertEquals(expResult, result);
-        container.close();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testFindParada() throws Exception {
+         ParadaEntity entity = data.get(0);
+        ParadaEntity newEntity = paradaPersistence.find(entity.getId());
+        Assert.assertNotNull(newEntity);
+        Assert.assertEquals(entity.getName(), newEntity.getName());
     }
 
     /**
      * Test of findAll method, of class ParadaPersistence.
+     * @throws java.lang.Exception
      */
     @Test
-    public void testFindAll() throws Exception {
-        System.out.println("findAll");
-        EJBContainer container = javax.ejb.embeddable.EJBContainer.createEJBContainer();
-        ParadaPersistence instance = (ParadaPersistence)container.getContext().lookup("java:global/classes/ParadaPersistence");
-        List<ParadaEntity> expResult = null;
-        List<ParadaEntity> result = instance.findAll();
-        assertEquals(expResult, result);
-        container.close();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testFindAllParadas() throws Exception {
+         List<ParadaEntity> list = paradaPersistence.findAll();
+        Assert.assertEquals(data.size(), list.size());
+        for (ParadaEntity ent : list) {
+            boolean found = false;
+            for (ParadaEntity entity : data) {
+                if (ent.getId().equals(entity.getId())) {
+                    found = true;
+                }
+            }
+            Assert.assertTrue(found);
+        }
     }
 
     /**
      * Test of create method, of class ParadaPersistence.
+     * @throws java.lang.Exception
      */
     @Test
-    public void testCreate() throws Exception {
-        System.out.println("create");
-        ParadaEntity entity = null;
-        EJBContainer container = javax.ejb.embeddable.EJBContainer.createEJBContainer();
-        ParadaPersistence instance = (ParadaPersistence)container.getContext().lookup("java:global/classes/ParadaPersistence");
-        ParadaEntity expResult = null;
-        ParadaEntity result = instance.create(entity);
-        assertEquals(expResult, result);
-        container.close();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testCreateParada() throws Exception {
+        ParadaEntity newEntity = factory.manufacturePojo(ParadaEntity.class);
+
+        ParadaEntity result = paradaPersistence.create(newEntity);
+
+        Assert.assertNotNull(result);
+
+        ParadaEntity entity = em.find(ParadaEntity.class, result.getId());
+        Assert.assertEquals(newEntity.getName(), entity.getName());
     }
 
     /**
      * Test of update method, of class ParadaPersistence.
+     * @throws java.lang.Exception
      */
     @Test
-    public void testUpdate() throws Exception {
-        System.out.println("update");
-        ParadaEntity entity = null;
-        EJBContainer container = javax.ejb.embeddable.EJBContainer.createEJBContainer();
-        ParadaPersistence instance = (ParadaPersistence)container.getContext().lookup("java:global/classes/ParadaPersistence");
-        ParadaEntity expResult = null;
-        ParadaEntity result = instance.update(entity);
-        assertEquals(expResult, result);
-        container.close();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testUpdateParada() throws Exception {
+       ParadaEntity entity = data.get(0);
+        ParadaEntity newEntity = factory.manufacturePojo(ParadaEntity.class);
+        newEntity.setId(entity.getId());
+
+        paradaPersistence.update(newEntity);
+
+        ParadaEntity resp = em.find(ParadaEntity.class, entity.getId());
+
+        Assert.assertEquals(newEntity.getName(), resp.getName());
     }
 
     /**
      * Test of delete method, of class ParadaPersistence.
+     * @throws java.lang.Exception
      */
     @Test
-    public void testDelete() throws Exception {
-        System.out.println("delete");
-        Long id = null;
-        EJBContainer container = javax.ejb.embeddable.EJBContainer.createEJBContainer();
-        ParadaPersistence instance = (ParadaPersistence)container.getContext().lookup("java:global/classes/ParadaPersistence");
-        instance.delete(id);
-        container.close();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testDeleteParada() throws Exception {
+       ParadaEntity entity = data.get(0);
+        paradaPersistence.delete(entity.getId());
+        PerfilEntity deleted = em.find(PerfilEntity.class, entity.getId());
+        Assert.assertNull(deleted);
     }
 
 }
