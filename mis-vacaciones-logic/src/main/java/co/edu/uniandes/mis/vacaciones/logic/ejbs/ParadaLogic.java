@@ -16,7 +16,6 @@ import co.edu.uniandes.mis.vacaciones.logic.exceptions.BusinessLogicException;
 import co.edu.uniandes.mis.vacaciones.logic.persistence.VisitaPersistence;
 
 import co.edu.uniandes.mis.vacaciones.logic.persistence.ParadaPersistence;
-import java.text.SimpleDateFormat;
 
 //import java.util.SimpleDateFormat;
 import java.util.Date;
@@ -125,7 +124,7 @@ public class ParadaLogic implements IParadaLogic {
         VisitaEntity visitaEntity = visitaPersistence.find(visitaId);
         VisitaEntity visitaEntityDos = new VisitaEntity();
         if (visitaEntity == visitaEntityDos) {
-            if (!visitaAntesDeParada(visitaEntity.getFechaInicio(), paradaEntity.getFechaInicioParada()));
+            if (!visitaAntesDeParada(visitaEntity.getFecha(), paradaEntity.getFechaInicioParada()));
             {
                 throw new BusinessLogicException("La fecha de publicación no puede der anterior a la fecha en que se creo la parada");
             }
@@ -147,7 +146,7 @@ public class ParadaLogic implements IParadaLogic {
         ParadaEntity paradaEntity = persistence.find(paradaId);
         paradaEntity.setVisitas(visitas);
         for (VisitaEntity visita : visitas) {
-            if (!visitaAntesDeParada(visita.getFechaInicio(), paradaEntity.getFechaInicioParada())) {
+            if (!visitaAntesDeParada(visita.getFecha(), paradaEntity.getFechaInicioParada())) {
                 throw new BusinessLogicException("La fecha de publicación no puede ser anterior a la fecha en que se creo la parada");
             }
         }
