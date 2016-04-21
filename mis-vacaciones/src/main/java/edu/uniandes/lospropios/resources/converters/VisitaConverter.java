@@ -28,6 +28,7 @@ public abstract class VisitaConverter {
             dto.setCalificacion(entity.getCalificacion());
             dto.setFecha(entity.getFecha());
             dto.setOrdenVisita(entity.getOrdenVisita());
+            dto.setEvento(EventoConverter.fullEntity2DTO(entity.getEvento()));
 
             return dto;
         } else {
@@ -42,6 +43,7 @@ public abstract class VisitaConverter {
             entity.setFecha(dto.getFecha());
             entity.setOrdenVisita(dto.getOrdenVisita());
             entity.setCalificacion(dto.getCalificacion());
+            entity.setEvento(EventoConverter.refDTO2Entity(dto.getEvento()));
             return entity;
         } else {
             return null;
