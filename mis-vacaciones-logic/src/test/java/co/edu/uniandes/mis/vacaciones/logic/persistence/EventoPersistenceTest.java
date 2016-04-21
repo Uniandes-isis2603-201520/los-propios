@@ -6,11 +6,13 @@
 package co.edu.uniandes.mis.vacaciones.logic.persistence;
 
 import co.edu.uniandes.mis.vacaciones.logic.entities.EventoEntity;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.embeddable.EJBContainer;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.UserTransaction;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
@@ -34,14 +36,6 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
 @RunWith(Arquillian.class)
 public class EventoPersistenceTest
 {
-
-    @Inject
-    private EventoPersistence perfilPersistence;
-
-    @PersistenceContext
-    private EntityManager em;
-    private final PodamFactory factory = new PodamFactoryImpl();
-
     @Deployment
     public static JavaArchive createDeployment()
     {
@@ -52,54 +46,57 @@ public class EventoPersistenceTest
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }
 
-      public EventoPersistenceTest()
-    {
+    @Inject
+    private EventoPersistence eventoPersistence;
 
+    @PersistenceContext
+    private EntityManager em;
+
+    @Inject
+    UserTransaction utx;
+
+    private final PodamFactory factory = new PodamFactoryImpl();
+
+    @Before
+    public void configTest() {
+        try {
+            utx.begin();
+            clearData();
+            insertData();
+            utx.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            try {
+                utx.rollback();
+            } catch (Exception e1) {
+                e1.printStackTrace();
+            }
+        }
     }
 
-
-    /**
-     * Test of find method, of class EventoPersistence.
-     */
-    @Test
-    public void testFind() throws Exception {
-        System.out.println("find");
-        long id = 0L;
-        EJBContainer container = javax.ejb.embeddable.EJBContainer.createEJBContainer();
-        EventoPersistence instance = (EventoPersistence)container.getContext().lookup("java:global/classes/EventoPersistence");
-        EventoEntity expResult = null;
-        EventoEntity result = instance.find(id);
-        assertEquals(expResult, result);
-        container.close();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    private void clearData() {
+        em.createQuery("delete from PerfilEntity").executeUpdate();
     }
 
-    /**
-     * Test of findAll method, of class EventoPersistence.
-     */
-    @Test
-    public void testFindAll() throws Exception {
-        System.out.println("findAll");
-        EJBContainer container = javax.ejb.embeddable.EJBContainer.createEJBContainer();
-        EventoPersistence instance = (EventoPersistence)container.getContext().lookup("java:global/classes/EventoPersistence");
-        List<EventoEntity> expResult = null;
-        List<EventoEntity> result = instance.findAll();
-        assertEquals(expResult, result);
-        container.close();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    private List<EventoEntity> data = new ArrayList<>();
+
+    private void insertData() {
+        for (int i = 0; i < 3; i++) {
+            EventoEntity entity = factory.manufacturePojo(EventoEntity.class);
+            em.persist(entity);
+            data.add(entity);
+        }
     }
 
     /**
      * Test of create method, of class EventoPersistence.
      */
     @Test
-    public void testCreate() throws Exception
+    public void createEventoTest() throws Exception
     {
         EventoEntity newEntity = factory.manufacturePojo(EventoEntity.class);
 
-        EventoEntity result = perfilPersistence.create(newEntity);
+        EventoEntity result = eventoPersistence.create(newEntity);
 
         Assert.assertNotNull(result);
 
@@ -108,34 +105,60 @@ public class EventoPersistenceTest
     }
 
     /**
+     * Test of getAll method, of class EventoPersistence.
+     */
+    @Test
+    public void getEventosTest() {
+        List<EventoEntity> list = eventoPersistence.findAll();
+        Assert.assertEquals(data.size(), list.size());
+        for (EventoEntity ent : list) {
+            boolean found = false;
+            for (EventoEntity entity : data) {
+                if (ent.getId().equals(entity.getId())) {
+                    found = true;
+                }
+            }
+            Assert.assertTrue(found);
+        }
+    }
+
+    /**
+     * Test of get method, of class EventoPersistence.
+     */
+    @Test
+    public void getEventoTest(){
+        EventoEntity entity = data.get(0);
+        EventoEntity newEntity = eventoPersistence.find(entity.getId());
+        Assert.assertNotNull(newEntity);
+        Assert.assertEquals(entity.getName(), newEntity.getName());
+    }
+
+
+
+    /**
      * Test of update method, of class EventoPersistence.
      */
     @Test
-    public void testUpdate() throws Exception {
-        System.out.println("update");
-        EventoEntity entity = null;
-        EJBContainer container = javax.ejb.embeddable.EJBContainer.createEJBContainer();
-        EventoPersistence instance = (EventoPersistence)container.getContext().lookup("java:global/classes/EventoPersistence");
-        EventoEntity expResult = null;
-        EventoEntity result = instance.update(entity);
-        assertEquals(expResult, result);
-        container.close();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void updateEventoTest(){
+        EventoEntity entity = data.get(0);
+        EventoEntity newEntity = factory.manufacturePojo(EventoEntity.class);
+        newEntity.setId(entity.getId());
+
+        eventoPersistence.update(newEntity);
+
+        EventoEntity resp = em.find(EventoEntity.class, entity.getId());
+
+        Assert.assertEquals(newEntity.getName(), resp.getName());
     }
 
     /**
      * Test of delete method, of class EventoPersistence.
      */
     @Test
-    public void testDelete() throws Exception {
-        System.out.println("delete");
-        Long id = null;
-        EJBContainer container = javax.ejb.embeddable.EJBContainer.createEJBContainer();
-        EventoPersistence instance = (EventoPersistence)container.getContext().lookup("java:global/classes/EventoPersistence");
-        instance.delete(id);
-        container.close();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void deleteEventoTest(){
+        EventoEntity entity = data.get(0);
+        eventoPersistence.delete(entity.getId());
+        EventoEntity deleted = em.find(EventoEntity.class, entity.getId());
+        Assert.assertNull(deleted);
     }
 }

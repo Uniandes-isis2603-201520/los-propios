@@ -48,7 +48,7 @@ public class EventoEntity extends BaseEntity implements Serializable
     /**
      * Modela el precio del evento.
      */
-    private double precio;
+    private Double precio;
 
     /**
      * Modela la descripción del evento.
@@ -162,7 +162,7 @@ public class EventoEntity extends BaseEntity implements Serializable
      * Retorna el precio del evento.
      * @return el precio del evento.
      */
-    public double getPrecio()
+    public Double getPrecio()
     {
         return precio;
     }
@@ -171,7 +171,7 @@ public class EventoEntity extends BaseEntity implements Serializable
      * Modifica el precio del evento
      * @param precio nuevo precio del evento.
      */
-    public void setPrecio(double precio)
+    public void setPrecio(Double precio)
     {
         this.precio = precio;
     }

@@ -24,4 +24,6 @@ public interface IEventoLogic
     public EventoEntity updateEvento(EventoEntity entity) throws BusinessLogicException;
 
     public void deleteEvento(Long id);
+
+    public EventoEntity getEventoUsuario(Long idPerfil, Long idItinerario, Long idParada, Long idVisita);
 }
