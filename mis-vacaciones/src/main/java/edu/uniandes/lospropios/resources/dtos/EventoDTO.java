@@ -53,7 +53,7 @@ public class EventoDTO {
     /**
      * Representa el costo de la actividad.
      */
-    private double precio;
+    private Double precio;
 
     /**
      * Representa la imagen que representa la actividad.
@@ -167,14 +167,14 @@ public class EventoDTO {
     /**
      * @return el precio
      */
-    public double getPrecio() {
+    public Double getPrecio() {
         return precio;
     }
 
     /**
      * @param precio el precio
      */
-    public void setPrecio(double precio)
+    public void setPrecio(Double precio)
     {
         this.precio = precio;
     }
