@@ -8,7 +8,6 @@ package co.edu.uniandes.mis.vacaciones.logic.persistence;
 import co.edu.uniandes.mis.vacaciones.logic.entities.EventoEntity;
 import java.util.ArrayList;
 import java.util.List;
-import javax.ejb.embeddable.EJBContainer;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -17,13 +16,8 @@ import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Assert;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import uk.co.jemos.podam.api.PodamFactory;
@@ -75,7 +69,7 @@ public class EventoPersistenceTest
     }
 
     private void clearData() {
-        em.createQuery("delete from PerfilEntity").executeUpdate();
+        em.createQuery("delete from EventoEntity").executeUpdate();
     }
 
     private List<EventoEntity> data = new ArrayList<>();
@@ -90,6 +84,7 @@ public class EventoPersistenceTest
 
     /**
      * Test of create method, of class EventoPersistence.
+     * @throws java.lang.Exception
      */
     @Test
     public void createEventoTest() throws Exception
@@ -106,9 +101,11 @@ public class EventoPersistenceTest
 
     /**
      * Test of getAll method, of class EventoPersistence.
+     * @throws java.lang.Exception
      */
+
     @Test
-    public void getEventosTest() {
+    public void getEventosTest() throws Exception {
         List<EventoEntity> list = eventoPersistence.findAll();
         Assert.assertEquals(data.size(), list.size());
         for (EventoEntity ent : list) {
