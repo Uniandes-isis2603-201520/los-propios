@@ -17,6 +17,7 @@ public class VisitaDTO {
     private int ordenVisita;
     private double calificacion;
     private Date fecha;
+    private EventoDTO evento;
 
     /**
      * Método necesario para NetBeans
@@ -67,5 +68,14 @@ public class VisitaDTO {
         this.fecha = fecha;
     }
 
+    public EventoDTO getEvento() {
+        return evento;
+    }
+
+    public void setEvento(EventoDTO evento) {
+        this.evento = evento;
+    }
+
+    
 
 }

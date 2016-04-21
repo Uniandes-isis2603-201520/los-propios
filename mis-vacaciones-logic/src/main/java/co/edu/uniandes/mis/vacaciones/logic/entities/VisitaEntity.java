@@ -63,4 +63,13 @@ public class VisitaEntity extends BaseEntity implements Serializable {
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
+
+    public EventoEntity getEvento() {
+        return evento;
+    }
+
+    public void setEvento(EventoEntity evento) {
+        this.evento = evento;
+    }
+    
 }

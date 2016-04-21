@@ -3,9 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.uniandes.mis.vacaciones.logic.persistence;
+package co.edu.uniandes.mis.vacaciones.logic.logic;
 
+import co.edu.uniandes.mis.vacaciones.logic.ejbs.VisitaLogic;
 import co.edu.uniandes.mis.vacaciones.logic.entities.VisitaEntity;
+import co.edu.uniandes.mis.vacaciones.logic.persistence.VisitaPersistence;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
@@ -16,11 +18,9 @@ import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
-import org.junit.After;
 import org.junit.Assert;
-import org.junit.Test;
-import static org.junit.Assert.*;
 import org.junit.Before;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import uk.co.jemos.podam.api.PodamFactory;
 import uk.co.jemos.podam.api.PodamFactoryImpl;
@@ -30,18 +30,31 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
  * @author josedanielcardenasrincon
  */
 @RunWith(Arquillian.class)
-public class VisitaPersistenceTest {
+public class VisitaLogicTest {
+    
+    private PodamFactory factory = new PodamFactoryImpl();
 
     @Inject
-    private VisitaPersistence visitaPersistence;
+    private VisitaLogic visitaLogic;
 
     @PersistenceContext
     private EntityManager em;
 
     @Inject
-    UserTransaction utx;
+    private UserTransaction utx;
 
-    private final PodamFactory factory = new PodamFactoryImpl();
+    private List<VisitaEntity> data = new ArrayList<VisitaEntity>();
+
+    @Deployment
+    public static JavaArchive createDeployment() {
+        return ShrinkWrap.create(JavaArchive.class)
+                .addPackage(VisitaEntity.class.getPackage())
+                .addPackage(VisitaLogic.class.getPackage())
+                .addPackage(VisitaLogic.class.getPackage())
+                .addPackage(VisitaPersistence.class.getPackage())
+                .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
+                .addAsManifestResource("META-INF/beans.xml", "beans.xml");
+    }
 
     @Before
     public void configTest() {
@@ -60,40 +73,28 @@ public class VisitaPersistenceTest {
         }
     }
 
-    //@After
-    public void clearData() {
-        em.createQuery("delete from VisitaEntity").executeUpdate();
+    private void clearData() {
+        em.createQuery("delete from ItinerarioEntity").executeUpdate();
+//        em.createQuery("delete from BookEntity").executeUpdate();
+//        em.createQuery("delete from AuthorEntity").executeUpdate();
+//        em.createQuery("delete from EditorialEntity").executeUpdate();
     }
+     private void insertData() {
 
-    private List<VisitaEntity> data = new ArrayList<>();
 
-    private void insertData() {
         for (int i = 0; i < 3; i++) {
             VisitaEntity entity = factory.manufacturePojo(VisitaEntity.class);
             em.persist(entity);
             data.add(entity);
         }
     }
-
-//    public VisitaPersistenceTest(){
-//
-//    }
-
-    @Deployment
-    public static JavaArchive createDeployment(){
-                return ShrinkWrap.create(JavaArchive.class)
-                .addPackage(VisitaEntity.class.getPackage())
-                .addPackage(PerfilPersistence.class.getPackage())
-                .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
-                .addAsManifestResource("META-INF/beans.xml", "beans.xml");
-    }
-
+     
     @Test
     public void agregarTest(){
 
         VisitaEntity newEntity = factory.manufacturePojo(VisitaEntity.class);
 
-        visitaPersistence.create(newEntity);
+        visitaLogic.createVisita(newEntity);
 
         Assert.assertNotNull(newEntity);
 
@@ -104,7 +105,7 @@ public class VisitaPersistenceTest {
     @Test
     public void buscarVisitasTest(){
 
-        List<VisitaEntity> list = visitaPersistence.findAll();
+        List<VisitaEntity> list = visitaLogic.getVisitas();
         Assert.assertEquals(data.size(), list.size());
         for (VisitaEntity ent : list) {
             boolean found = false;
@@ -121,15 +122,15 @@ public class VisitaPersistenceTest {
     @Test
     public void buscarVisitaIdTest(){
         VisitaEntity entity = data.get(0);
-        VisitaEntity newEntity = visitaPersistence.find(entity.getId());
+        VisitaEntity newEntity = visitaLogic.getVisita(entity.getId());
         Assert.assertNotNull(newEntity);
-        Assert.assertEquals(entity.getName(), newEntity.getName());
+        Assert.assertEquals(entity.getFecha(), newEntity.getFecha());
     }
 
     @Test
     public void eliminarVisitaIdTest(){
         VisitaEntity entity = data.get(0);
-        visitaPersistence.delete(entity.getId());
+        visitaLogic.deleteVisita(entity.getId());
         VisitaEntity deleted = em.find(VisitaEntity.class, entity.getId());
         Assert.assertNull(deleted);
     }
@@ -140,12 +141,11 @@ public class VisitaPersistenceTest {
         VisitaEntity newEntity = factory.manufacturePojo(VisitaEntity.class);
         newEntity.setId(entity.getId());
 
-        visitaPersistence.update(newEntity);
+        visitaLogic.updateVisita(Long.MIN_VALUE, newEntity);
 
         VisitaEntity resp = em.find(VisitaEntity.class, entity.getId());
 
-        Assert.assertEquals(newEntity.getName(), resp.getName());
+        Assert.assertEquals(newEntity.getFecha(), resp.getFecha());
     }
-
-
+    
 }
