@@ -1,13 +1,13 @@
 ----------------------------------------------------------------
-Wed Apr 20 21:41:28 COT 2016:
- Iniciando instancia a816c00e-0154-36b1-95b9-000009d322a8 de Derby, versiÃ³n The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): 
-en el directorio de base de datos /private/var/folders/vd/snw02ghn14x4pmtpp843vpr40000gn/T/gfembed2261233284236566710tmp/lib/databases/embedded_default con el cargador de clases sun.misc.Launcher$AppClassLoader@6e0be858
-Cargado desde file:/Users/josedanielcardenasrincon/.m2/repository/org/glassfish/main/extras/glassfish-embedded-all/4.1.1/glassfish-embedded-all-4.1.1.jar
+Wed Apr 20 22:02:48 COT 2016:
+ Iniciando instancia a816c00e-0154-36c5-1f3b-000008218c50 de Derby, versión The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): 
+en el directorio de base de datos C:\Users\estudiante\AppData\Local\Temp\gfembed8483044462191266610tmp\lib\databases\embedded_default con el cargador de clases sun.misc.Launcher$AppClassLoader@75b84c92
+Cargado desde file:/C:/Users/estudiante/.m2/repository/org/glassfish/main/extras/glassfish-embedded-all/4.1.1/glassfish-embedded-all-4.1.1.jar
 java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_74-b02
-user.dir=/Users/josedanielcardenasrincon/Desktop/vacaciones2/los-propios/mis-vacaciones-logic
-os.name=Mac OS X
-os.arch=x86_64
-os.version=10.8.5
+java.runtime.version=1.8.0_66-b18
+user.dir=C:\Users\estudiante\Documents\NetBeansProjects\los-propios-ciclo-3\mis-vacaciones-logic
+os.name=Windows 7
+os.arch=amd64
+os.version=6.1
 derby.system.home=null
 Cargador de clases de base de datos iniciado - derby.database.classpath=''

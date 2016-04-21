@@ -10,6 +10,7 @@ package co.edu.uniandes.mis.vacaciones.logic.api;
  * @author jg.murillo10
  */
 import co.edu.uniandes.mis.vacaciones.logic.entities.ItinerarioEntity;
+import co.edu.uniandes.mis.vacaciones.logic.exceptions.BusinessLogicException;
 //Tener en cuenta exception tipo ItinerarioLogicException que arrojan los metodos
 import java.util.List;
 
@@ -27,7 +28,7 @@ public interface IItinerarioLogic {
      * @return - El itinerario creado con un id asignado
      * @throws ItinerarioLogicException
      */
-    public ItinerarioEntity createItinerario(ItinerarioEntity itinerario);
+    public ItinerarioEntity createItinerario(ItinerarioEntity itinerario)throws BusinessLogicException;
 
     /**
      * Metodo para obtener el itinerario de un usuario dado el id del usuario y el id del itinerario
@@ -36,7 +37,7 @@ public interface IItinerarioLogic {
      * @return - ItineararioDTO con toda la informacion del itinerario
      * @throws ItinerarioLogicException
      */
-    public ItinerarioEntity getItinerarioUsuario(long idPerfil, long idItinerario) ;
+    public ItinerarioEntity getItinerarioUsuario(long idItinerario) ;
 
     /**
      * Metodo para actualizar la informacion de un itinerario
@@ -45,7 +46,7 @@ public interface IItinerarioLogic {
      * @return - ItinerarioDTO nuevo
      * @throws ItinerarioLogicException
      */
-    public ItinerarioEntity updateItinerario(long idItinerario, ItinerarioEntity itinerario) ;
+    public ItinerarioEntity updateItinerario( ItinerarioEntity itinerario)throws BusinessLogicException ;
 
     /**
      * Metodo para eliminar un itineario dado su id
