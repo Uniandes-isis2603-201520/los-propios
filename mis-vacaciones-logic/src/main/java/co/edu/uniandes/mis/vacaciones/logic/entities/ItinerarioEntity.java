@@ -17,6 +17,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import uk.co.jemos.podam.common.PodamStrategyValue;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -34,6 +35,7 @@ public class ItinerarioEntity extends BaseEntity implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date fechaFinal;
     @OneToMany
+    @PodamExclude
     private List<ParadaEntity> paradas = new ArrayList<>();
 
 //    /**
@@ -61,7 +63,7 @@ public class ItinerarioEntity extends BaseEntity implements Serializable {
     /**
      * Metodo para modificar el nombre de un itinerario
      * @param nombre - nuevo nombre del itinerario
-     
+
     public void setNombre(String nombre){
         this.nombre=nombre;
     }
