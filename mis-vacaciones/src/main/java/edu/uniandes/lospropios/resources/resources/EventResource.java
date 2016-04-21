@@ -11,7 +11,6 @@ import co.edu.uniandes.mis.vacaciones.logic.exceptions.BusinessLogicException;
 import edu.uniandes.lospropios.resources.converters.EventoConverter;
 import edu.uniandes.lospropios.resources.dtos.EventoDTO;
 import edu.uniandes.lospropios.resources.exceptions.EventoLogicException;
-import edu.uniandes.lospropios.resources.mocks.EventoLogicMock;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
