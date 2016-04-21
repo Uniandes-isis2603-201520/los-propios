@@ -60,8 +60,8 @@ public class VisitaPersistenceTest {
         }
     }
 
-    @After
-    private void clearData() {
+    //@After
+    public void clearData() {
         em.createQuery("delete from VisitaEntity").executeUpdate();
     }
 
