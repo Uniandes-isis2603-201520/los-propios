@@ -24,6 +24,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import java.util.logging.Logger;
+import javax.ws.rs.DELETE;
 
 /**
  * Clase que implementa el recurso REST correspondiente a "itinerario".
@@ -131,10 +132,10 @@ public class ItinerarioResource {
      * @throws ItinerarioLogicException cuando no existe un itinerario con el id
      * suministrado
      */
-//    @DELETE
-//    @Path("{id: \\d+}")
-//    public void deleteItinerario(@PathParam("id") Long id) throws ItinerarioLogicException {
-//        itinerarioLogic.deleteItinerario(id);
-//    }
+    @DELETE
+    @Path("{id: \\d+}")
+    public void deleteItinerario(@PathParam("id") Long id) throws ItinerarioLogicException {
+        itinerarioLogic.deleteItinerario(id);
+    }
 
 }
