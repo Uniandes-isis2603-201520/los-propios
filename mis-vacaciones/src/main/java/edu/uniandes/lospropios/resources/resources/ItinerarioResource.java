@@ -7,6 +7,7 @@ package edu.uniandes.lospropios.resources.resources;
 
 import co.edu.uniandes.mis.vacaciones.logic.api.IItinerarioLogic;
 import co.edu.uniandes.mis.vacaciones.logic.entities.ItinerarioEntity;
+import co.edu.uniandes.mis.vacaciones.logic.exceptions.BusinessLogicException;
 import edu.uniandes.lospropios.resources.converters.ItinerarioConverter;
 import edu.uniandes.lospropios.resources.dtos.ItinerarioDTO;
 import edu.uniandes.lospropios.resources.exceptions.ItinerarioLogicException;
@@ -70,10 +71,10 @@ public class ItinerarioResource {
      */
     @GET
     @Path("{id: \\d+}")
-    public ItinerarioDTO getItinerario(@PathParam("idPerfil") Long idPerfil, @PathParam("idItinerario") Long idItinerario) throws ItinerarioLogicException {
+    public ItinerarioDTO getItinerario( @PathParam("idItinerario") Long idItinerario) throws ItinerarioLogicException {
 //        return itinerarioLogic.getItinerarioUsuario(idPerfil, idItinerario);
-        logger.log(Level.INFO, "Se ejecuta metodo getItinerario con id={0}", idPerfil);
-        ItinerarioEntity itinerario= itinerarioLogic.getItinerarioUsuario(idPerfil, idItinerario);
+        logger.log(Level.INFO, "Se ejecuta metodo getItinerario con id={0}", idItinerario);
+        ItinerarioEntity itinerario= itinerarioLogic.getItinerarioUsuario( idItinerario);
         return ItinerarioConverter.fullEntity2DTO(itinerario);
     }
 
@@ -86,7 +87,7 @@ public class ItinerarioResource {
      */
     @POST
 //    @StatusCreated
-    public ItinerarioDTO createItinerario(ItinerarioDTO dto) throws ItinerarioLogicException {
+    public ItinerarioDTO createItinerario(ItinerarioDTO dto) throws ItinerarioLogicException, BusinessLogicException{
 //        return itinerarioLogic.createItinerario(itinerario);
      logger.info("Se ejecuta método createBook");
         ItinerarioEntity entity = ItinerarioConverter.fullDTO2Entity(dto);
@@ -110,7 +111,7 @@ public class ItinerarioResource {
      */
     @PUT
     @Path("{id: \\d+}")
-    public ItinerarioDTO updateItinerario(@PathParam("idPerfil") Long idPerfil, @PathParam("idItinerario") Long idItinerario, ItinerarioDTO itinerario) throws ItinerarioLogicException {
+    public ItinerarioDTO updateItinerario(@PathParam("idItinerario") Long idItinerario, ItinerarioDTO itinerario) throws ItinerarioLogicException, BusinessLogicException {
 //        return itinerarioLogic.updateItinerario(id, itinerario);
          logger.log(Level.INFO, "Se ejecuta método updateBook con id={0}", idItinerario);
         ItinerarioEntity entity = ItinerarioConverter.fullDTO2Entity(itinerario);
@@ -118,7 +119,7 @@ public class ItinerarioResource {
         // estos comentarios se usan para asociar a itinerarios las paradas
 //        ItinerarioEntity oldEntity = itinerarioLogic.getItinerarioUsuario(idPerfil, idItinerario);
 //        entity.setParadas(oldEntity.getParadas());
-            ItinerarioEntity savedItinerario = itinerarioLogic.updateItinerario(idItinerario, entity);
+            ItinerarioEntity savedItinerario = itinerarioLogic.updateItinerario( entity);
             return ItinerarioConverter.fullEntity2DTO(savedItinerario);
 
     }
