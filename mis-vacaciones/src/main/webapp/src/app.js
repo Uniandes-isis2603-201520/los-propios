@@ -89,6 +89,13 @@
                         url: '/about',
                         views: {
                             '': {templateUrl: "src/modules/about/about.tpl.html"},'barraLateral': {templateUrl: "src/modules/principal/prueba.tpl.html"}
-                        }});
+                        }})
+                    .state('visitas', {
+                        url: '/visitas',
+                        views: {
+                            '': {templateUrl: "src/modules/visita/visita.tpl.html"},'barraLateral': {templateUrl: "src/modules/principal/prueba.tpl.html"}
+                        }})
+            
+                    ;
         }]);
 })(window.angular);
