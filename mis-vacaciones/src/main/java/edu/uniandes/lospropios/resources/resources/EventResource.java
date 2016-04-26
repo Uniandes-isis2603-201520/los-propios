@@ -28,7 +28,7 @@ import javax.ws.rs.Produces;
  * @author js.gomez14
  */
 
-@Path("eventos")
+@Path("perfilesUsuario/{idPerfilUsuario}/itinerarios/(idItinerario)/paradas/(idParada)/visitas/(idVisita)/eventos")
 @Produces("application/json")
 @RequestScoped
 public class EventResource
@@ -46,7 +46,7 @@ public class EventResource
      * @generated
      */
     @GET
-    public List<EventoDTO> getAuthors() {
+    public List<EventoDTO> getEventos() {
         return EventoConverter.listEntity2DTO(eventoLogic.getEventos());
     }
 
@@ -55,6 +55,8 @@ public class EventResource
      *
      * @param id Identificador del objeto a consultar
      * @return Instancia de EventoDTO (representación full)
+     * @throws co.edu.uniandes.mis.vacaciones.logic.exceptions.BusinessLogicException
+     * @throws edu.uniandes.lospropios.resources.exceptions.EventoLogicException
      * @generated
      */
     @GET

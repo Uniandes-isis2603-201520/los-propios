@@ -39,7 +39,7 @@ import javax.ws.rs.Produces;
  *
  * @author mc.hernandez1
  */
-@Path("perfilesUsuario/{idPerfilUsuario}/itinerarios/idItinerario/paradas")
+@Path("perfilesUsuario/{idPerfilUsuario}/itinerarios/(idItinerario)/paradas")
 @Produces("application/json")
 @RequestScoped
 
