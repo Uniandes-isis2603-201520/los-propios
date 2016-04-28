@@ -4,6 +4,94 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.-->
     <div id="eventos">
+
+            <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="evento#collapse1">Agregar un nuevo evento</a>
+                    </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse">
+                    <div class="panel-body">
+
+                        <!--Panel Body-->
+                        <fieldset>
+                            <!--revisar form.nombreItinerario exista en vez de form.name-->
+                            <input id="id" class="form-control" type="hidden" ng-model="eventoActual.id"/>
+                            <!--Input nombre-->
+                            <div class="form-group col-md-12">
+                                <label for="name" class="col-md-2 control-label">Nombre</label>
+                                <div class="col-md-10">
+                                    <input id="name" name="name" class="form-control" type="text" ng-model="eventoActual.nombre" required />
+                                </div>
+                            </div>
+                            <!--Input descripción-->
+                            <div class="form-group col-md-12">
+                                <label for="descripcion" class="col-md-2 control-label">Descripción</label>
+                                <div class="col-md-10">
+                                    <input id="descripcion" name="descripcion" class="form-control" type="text" ng-model="eventoActual.descripcion" required />
+                                </div>
+                            </div>
+                            <!--Input tipo-->
+                            <div class="form-group col-md-12">
+                                <label for="tipo" class="col-md-2 control-label">Tipo</label>
+                                <div class="col-md-10">
+                                        <input type="text" id="tipo" name="tipo" class="form-control" ng-model="eventoActual.tipo" required/>
+                                </div>
+                            </div>
+                             <!--Input lugar-->
+                            <div class="form-group col-md-12">
+                                <label for="tipo" class="col-md-2 control-label">Lugar</label>
+                                <div class="col-md-10">
+                                        <input type="text" id="lugar" name="lugar" class="form-control" ng-model="eventoActual.lugar" required/>
+                                </div>
+                            </div>
+                            <!--Input fecha-->
+                            <div class="form-group col-md-12">
+                                <label for="fecha" class="col-md-2 control-label">Fecha</label>
+                                <div class="col-md-10">
+                                    <p class="input-group">
+                                        <input type="date" id="fecha" name="fecha" class="form-control" ng-model="eventoActual.fecha" ng-required="model.required"/>
+                                    </p>
+                                </div>
+                            </div>
+                            <!--Input precio-->
+                            <div class="form-group col-md-12">
+                                <label for="precio" class="col-md-2 control-label">Precio</label>
+                                <div class="col-md-10">
+                                    <input type="number" step="any" id="precio" name="precio" class="form-control" ng-model="eventoActual.precio" required/>
+                                </div>
+                            </div>
+                            <!--Input URL imagen-->
+                            <div class="form-group col-md-12">
+                                <label for="img" class="col-md-2 control-label">URL de la imagen</label>
+                                <div class="col-md-10">
+                                        <input type="text" id="img" name="img" class="form-control" ng-model="eventoActual.img" required/>
+                                </div>
+                            </div>
+                            <!--Input clasificación (SITIO INTERES O EVENTO)-->
+                            <div class="form-group col-md-12" >
+                                <label for="clasificacion" class="col-md-2 control-label">Clasificación</label>
+                                <div class="col-md-10">
+                                        <input type="text" id="clasificacion" name="clasificacion" class="form-control" ng-model="eventoActual.clasificacion" required/>
+                                </div>
+                            </div>
+
+                            <!--Boton para confirmar la creación del nuevo objeto-->
+                            <div>
+                                <button type="submit" ng-click="agregarEvento()">Agregar</button>
+                            </div>
+                        </fieldset>
+
+                        <!--fin de la recoleccion de datos para un nuevo evento-->
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
         <table id="catalogo">
             <tr>
                 <td>
@@ -34,7 +122,7 @@ and open the template in the editor.-->
                         </div>
                         <p class="text-center">
                             <button class="btn btn-default btn-sm"><span class="glyphicon glyphicon-edit"></span> Editar</button>
-                            <button class="btn btn-default btn-sm"><span class="glyphicon glyphicon-minus"></span> Remover</button>
+                            <button class="btn btn-default btn-sm" ng-click="deleteRecord(evento)"><span class="glyphicon glyphicon-minus"></span> Remover</button>
                         </p>
                     </div>
                 </div>
@@ -58,7 +146,7 @@ and open the template in the editor.-->
                         </div>
                         <p class="text-center">
                             <button class="btn btn-default btn-sm"><span class="glyphicon glyphicon-edit"></span> Editar</button>
-                            <button class="btn btn-default btn-sm"><span class="glyphicon glyphicon-minus"></span> Remover</button>
+                            <button class="btn btn-default btn-sm" ng-click="deleteRecord(evento)"><span class="glyphicon glyphicon-minus"></span> Remover</button>
                         </p>
                     </div>
                     </div>

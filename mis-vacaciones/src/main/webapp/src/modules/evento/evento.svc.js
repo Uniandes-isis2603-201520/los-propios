@@ -39,8 +39,8 @@
              * Devuelve un objeto de persons con sus datos incluyendo el id
              */
             this.saveRecord = function (currentRecord) {
-                if (currentRecord.nombre) {
-                    return $http.put(context + "/" + currentRecord.nombre, currentRecord);
+                if (currentRecord.id) {
+                    return $http.put(context + "/" + currentRecord.id, currentRecord);
                 } else {
                     return $http.post(context, currentRecord);
                 }
@@ -52,8 +52,8 @@
              * @returns {promise} promise para leer la respuesta del servidor
              * No devuelve datos.
              */
-            this.deleteRecord = function (nombre) {
-                return $http.delete(context + "/" + nombre);
+            this.deleteRecord = function (id) {
+                return $http.delete(context + "/" + id);
             };
         }]);
 })(window.angular);

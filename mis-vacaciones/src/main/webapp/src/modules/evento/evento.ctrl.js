@@ -22,12 +22,33 @@
                 img: "", /**Tipo String**/
                 clasificacion:"" /**Tipo String**/
             };
+             var self = this;
 
             $scope.listarEventos = function () {
                 return svc.fetchRecords().then(function (response)
                 {
                     $scope.eventos = response.data;
                 });
+            };
+
+            $scope.agregarEvento = function () {
+                return svc.saveRecord($scope.eventoActual).then(function () {
+                    self.listarEventos();
+                }, responseError);
+            };
+
+            $scope.deleteRecord = function (record) {
+                return svc.deleteRecord(record.id).then(function () {
+                    self.listarEventos();
+                }, responseError);
+            };
+
+            $scope.editRecord = function (record) {
+                return svc.fetchRecord(record.id).then(function (response) {
+                    $scope.eventoActual = response.data;
+                    $scope.$broadcast("post-edit", $scope.eventoActual);
+                    return response;
+                }, responseError);
             };
 
             $scope.listarEventos();
