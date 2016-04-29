@@ -39,8 +39,8 @@
              * @returns {promise} promise para leer la respuesta del servidor
              * Devuelve un objeto de persons con sus atributos
              */
-            this.fetchRecord = function (id) {
-                return $http.get(context + "/" + id);
+            this.fetchRecord = function (idItinerario) {
+                return $http.get(context + "/" + idItinerario);
             };
 
             /**
@@ -54,8 +54,8 @@
              * Devuelve un objeto de albumes con sus datos incluyendo el id
              */
             this.saveRecord = function (currentRecord) {
-                if (currentRecord.id) {
-                    return $http.put(context + "/" + currentRecord.id, currentRecord);
+                if (currentRecord.idItinerario) {
+                    return $http.put(context + "/" + currentRecord.idItinerario, currentRecord);
                 } else {
                     return $http.post(context, currentRecord);
                 }
@@ -85,8 +85,8 @@
              * @returns {promise} promise para leer la respuesta del servidor
              * No devuelve datos.
              */
-            this.deleteRecord = function (id) {
-                return $http.delete(context + "/" + id);
+            this.deleteRecord = function (idItinerario) {
+                return $http.delete(context + "/" + idItinerario);
             };
 
             this.deleteRecordDos = function (id) {

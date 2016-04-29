@@ -1,271 +1,145 @@
 
 <div class="container">
-    <table>
+<!--    <table>
         <tr>
             <td><img src="http://i.telegraph.co.uk/multimedia/archive/02575/Network-Rail_2575826b.jpg" style="width:310px;height:193px;" alt="train"></td>
             <td><img src="http://www.quieropuroviajar.com/wp-content/uploads/2014/05/Untitled-1.jpg" style="width:310px;height:193px;" alt="train"></td>
             <td><img src="http://www.omicrono.com/wp-content/uploads/2012/09/aterrizaje-avion-noche.jpg" style="width:330px;height:193px;" alt="train"></td>
         </tr>
     </table>
-    <br>
-    <!--    <h1>Lista de itinerarios</h1>-->
-    <!--    <div class="list-group">
-            <a href="itinerario#viaje1" class="viaje1">Viaje por America</a>
-            <a href="#" class="viaje2">Paseo norte de Africa</a>
-            <a href="#" class="viaje3">Tour por Europa</a>
-            <div align="center"><button>Agregar</button>
-                <button>Quitar</button></div>
-        </div>-->
-    <!-- Container (Pricing Section) -->
-    <br>
-    <br>
-    <!--    <ul class="nav nav-tabs bg-4">
-            <li class="active"><a data-toggle="tab" href="itinerario#misItinerarios">Mis itinerarios</a></li>
-            <li><a data-toggle="tab" href="itinerario#itinerarioNuevo">Nuevo itinerario</a></li>
-            <li><a data-toggle="tab" href="itinerario#paradaNueva">Nueva Parada</a></li>
-        </ul>-->
-    <!--<div class="tab-content">-->
+    -->
 
-    <!--<div id="misItinerarios" class="tab-pane fade in active">-->
 
-    <!--<div class="container-fluid">-->
-    <!--<div class="text-center">-->
-
-    <div class="row">
-        <div class="panel-group">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" href="itinerario#collapse1">Agregar un nuevo itinerario</a>
-                    </h4>
-                </div>
-                <div id="collapse1" class="panel-collapse collapse">
-                    <div class="panel-body">
-
-                        <!--Panel Body-->
-                        <fieldset>
-                            <!--revisar form.nombreItinerario exista en vez de form.name-->
-                            <input id="id" class="form-control" type="hidden" ng-model="idItinerario"/>
-                            <div class="form-group col-md-12" ng-class="{'has-success': form.nombreItinerario.$valid && form.nombreItinerario.$dirty, 'has-error': form.nombreItinerario.$invalid && (form.nombreItinerario.$dirty || form.$submitted)}" >
-                                <label for="name" class="col-md-2 control-label">Nombre</label>
-                                <div class="col-md-10">
-                                    <input id="name" name="name" class="form-control" type="text" ng-model="nombreItinerario" required />
-                                </div>
-                            </div>
-                            <div class="form-group col-md-12" ng-class="{'has-success': form.description.$valid && form.description.$dirty, 'has-error': form.description.$invalid && (form.description.$dirty || form.$submitted)}" >
-                                <label for="description" class="col-md-2 control-label">Descripción</label>
-                                <div class="col-md-10">
-                                    <input id="description" name="description" class="form-control" type="text" ng-model="description" required />
-                                </div>
-                            </div>
-
-                            <!--fecha de inicio-->
-                            <div class="form-group col-md-12" ng-class="{'has-success': !form.fechaInicio.$error.required && form.fechaInicio.$dirty, 'has-error': form.fechaInicio.$error.required && (form.publishDate.$dirty || form.$submitted)}" >
-                                <label for="publishDate" class="col-md-2 control-label">Fecha inicio</label>
-                                <div class="col-md-10">
-                                    <p class="input-group">
-                                        <input type="text" id="fechaInicio" name="fechaInicio" class="form-control" ng-model="fechaInicio" ng-required="model.required" datepicker-popup is-open="opened" readonly/>
-                                        <span class="input-group-btn">
-                                            <button type="button" id="fechaInicio-datepicker" class="btn btn-default" ng-click="open($event)"><span class="glyphicon glyphicon-calendar"></span></button>
-                                        </span>
-                                    </p>
-                                </div>
-                            </div>
-                            <!--fecha de fin-->
-                            <div class="form-group col-md-12" ng-class="{'has-success': !form.fechaFin.$error.required && form.fechaFin.$dirty, 'has-error': form.fechaFin.$error.required && (form.fechaFin.$dirty || form.$submitted)}" >
-                                <label for="publishDate" class="col-md-2 control-label">Fecha fin</label>
-                                <div class="col-md-10">
-                                    <p class="input-group">
-                                        <input type="text" id="fechaFin" name="fechaFin" class="form-control" ng-model="fechaFin" ng-required="model.required" datepicker-popup is-open="opened" readonly/>
-                                        <span class="input-group-btn">
-                                            <!--id fecha fin date picker-->
-                                            <button type="button" id="fechaFin-datepicker" class="btn btn-default" ng-click="open($event)"><span class="glyphicon glyphicon-calendar"></span></button>
-                                        </span>
-                                    </p>
-                                </div>
-                            </div>
-
-                        </fieldset>
-
-                        <!--fin de la recoleccion de datos para un nuevo itinerario-->
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <br>
-        <h2>Mis itinerarios</h2>
-        <h4>Aquí se muestran todos tus itinerarios</h4>
+    <!--botones principales-->
+    <div id="itinerario-header">
+    <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
-            <div class="input-group">
-                <div class="input-group-btn">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#itinerario-navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand">Itinerarios</a>
+            </div>
 
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Filtrar Búsqueda<span class="caret"></span></button>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="itinerario-navbar">
+                <button id="create-itinerario" class="btn btn-default navbar-btn" ng-hide="ctrl.editMode" ng-click="ctrl.createRecord()"><span class="glyphicon glyphicon-plus"></span> Crear Itinerario</button>
+                <button id="refresh-itinerario" class="btn btn-default navbar-btn" ng-hide="ctrl.editMode" ng-click="ctrl.fetchRecords()"><span class="glyphicon glyphicon-refresh"></span> Refrescar itinerarios</button>
+                <button id="save-itinerario" type="submit" form="itinerario-form" class="btn btn-default navbar-btn" ng-show="ctrl.editMode"><span class="glyphicon glyphicon-save"></span> Guardar itinerario</button>
+                <button id="cancel-itinerario" type="button" form="itinerario-form" class="btn btn-default navbar-btn" ng-show="ctrl.editMode" ng-click=" ctrl.fetchRecords()"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
+            </div>
+        </div>
+    </nav>
+</div>
 
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Nombre</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Fecha</a></li>
+<!--finalizacion botones principales-->
 
-                    </ul>
+
+<!--ctrl.editmode se muestran los campos requeridos para crear un itinerario-->
+<div ng-show="ctrl.editMode" class="col-md-6 well">
+    <form novalidate name="form" id="itinerario-form" role="form" ng-submit="ctrl.saveRecord()">
+
+        <fieldset>
+            <div class="form-group col-md-12"  >
+                <label for="idItinerario" class="col-md-2 control-label">ID itinerario: </label>
+                <div class="col-md-10">
+                    <input id="idItinerario" class="form-control" type="text" ng-model="idItinerario" required />
                 </div>
-
-                <input type="text" class="form-control">
             </div>
-        </div>
+            <!--nombre del itinerario-->
+            <div class="form-group col-md-12"  >
+                <label for="nombreItinerario" class="col-md-2 control-label">Nombre itinerario: </label>
+                <div class="col-md-10">
+                    <input id="nombreItinerario" name="name" class="form-control" type="text" ng-model="nombreItinerario" required />
+                </div>
+            </div>
+            <!--fecha i-->
+            <div class="form-group col-md-12"  >
+                <label for="fechaInicio" class="col-md-2 control-label">Fecha inicio: </label>
+                <div class="col-md-10">
+                    <input id="fechaInicio"  class="form-control" type="text" ng-model="fechaInicio" required />
+                </div>
+            </div>
+            <!--fecha f-->
+            <div class="form-group col-md-12"  >
+                <label for="fechaFin" class="col-md-2 control-label">Fecha fin: </label>
+                <div class="col-md-10">
+                    <input id="fechaFin"  class="form-control" type="text" ng-model="fechaFin" required />
+                </div>
+            </div>
 
-    </div>
+        </fieldset>
+    </form>
 </div>
-<br>
+                <!--finalizacion muestra campos requeridos para un itinerario-->
+<!--primer editmode segun ejemplo book-->
+<div ng-hide="ctrl.editMode">
+    <div class="col-sm-12">
+        <div ng-repeat="itinerario in itinerarios">
 
-<div class="row">
-    <div class="col-sm-4 col-xs-12">
-        <div class="panel panel-default text-center">
-            <div class="panel-heading">
-                <h1>Viaje por America</h1>
-            </div>
-            <div>
-                <iframe src="https://www.google.com/maps/d/embed?mid=z-SPDBJYQeFw.kH6UuC_oVMsE" width="350" height="480"></iframe>
-            </div>
-            <div class="panel-body">
-                <p><strong>3</strong> Ciudades</p>
-                <p><strong>5</strong> Eventos</p>
-                <p><strong>4</strong> Sitios turisticos</p>
-                <p><strong>1</strong> Mapa</p>
-            </div>
-            <div class="panel-footer">
-                <h3>12 días</h3>
+            <div class="col-md-4 col-sm-6 col-lg-3 well">
+<!--                <div class="col-md-12">
+                    <div class="img-thumbnail" id="image" ng-if="record.image">
+                        <a ng-href="{{record.image}}" target="_blank"><img class="img-responsive" style="height: 20vmax;" ng-src="{{record.image}}" alt="{{record.image}}"></a>
+                    </div>
+                </div>-->
+                <div class="caption" >
 
-                <button class="btn btn-lg" >Editar</button>
+                    <p><strong>ID:</strong>{{itinerario.idItinerario}}</p>
+                    <p><strong>Nombre:</strong>{{itinerario.nombreItinerario}}</p>
+                    <p><strong>inicio:</strong>{{itinerario.fechaInicio}}</p>
+                    <p><strong>fin:</strong>{{itinerario.fechaFin}}</p>
+<!--
 
-            </div>
-        </div>
-    </div>
+                    <p><strong>ID itinerario:</strong> <span id="{{$index}}-idItinerario">{{itinerario.idItinerario}}</span></p>
+                    <p><strong>Nombre itinerario:</strong> <span id="{{$index}}-nombreItinerario">{{itinerario.nombreItinerario}}</span></p>
+                    <p><strong>Fecha inicio itinerario:</strong> <span id="{{$index}}-fechaInicio">{{itinerario.fechaInicio}}</span></p>
+                    <p><strong>Fecha fin itinerario:</strong> <span id="{{$index}}-fechaFin">{{itinerario.fechaFin}}</span></p>-->
 
-    <div class="col-sm-4 col-xs-12">
-        <div class="panel panel-default text-center">
-            <div class="panel-heading">
-                <h1>Tour por europa</h1>
-            </div>
-            <div>
-                <iframe src="https://www.google.com/maps/d/embed?mid=z-SPDBJYQeFw.kIMbsmM-WpAE" width="350" height="480"></iframe>
-            </div>
-            <div class="panel-body">
-                <p><strong>4</strong> Ciudades</p>
-                <p><strong>3</strong> Eventos</p>
-                <p><strong>5</strong> Sitios turisticos</p>
-                <p><strong>1</strong> Mapa</p>
-            </div>
-            <div class="panel-footer">
-                <h3>6 días</h3>
-                <button class="btn btn-lg">Editar</button>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-4 col-xs-12">
-        <div class="panel panel-default text-center">
-            <div class="panel-heading">
-                <h1>Paseo por Africa</h1>
-            </div>
-            <div>
-                <iframe src="https://www.google.com/maps/d/embed?mid=z-SPDBJYQeFw.kp8drvENjNx0" width="350" height="480"></iframe>
-            </div>
-            <div class="panel-body">
-                <p><strong>3</strong> Ciudades</p>
-                <p><strong>5</strong> Eventos</p>
-                <p><strong>3</strong> Sitios turisticos</p>
-                <p><strong>1</strong> Mapa</p>
-            </div>
-            <div class="panel-footer">
-                <h3>8 días</h3>
-
-                <button class="btn btn-lg">Editar</button>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-4 col-xs-12">
-        <div class="panel panel-default text-center">
-            <div class="panel-heading">
-                <h1>Paseo familiar XD</h1>
-            </div>
-            <div>
-                <iframe src="https://www.google.com/maps/d/embed?mid=z-SPDBJYQeFw.kIMbsmM-WpAE" width="350" height="480"></iframe>
-            </div>
-            <div class="panel-body">
-                <p><strong>5</strong> Ciudades</p>
-                <p><strong>2</strong> Eventos</p>
-                <p><strong>10</strong> Sitios turisticos</p>
-                <p><strong>1</strong> Mapa</p>
-            </div>
-            <div class="panel-footer">
-                <h3>4 días</h3>
-                <button class="btn btn-lg">Editar</button>
-            </div>
-        </div>
-    </div><div class="col-sm-4 col-xs-12">
-        <div class="panel panel-default text-center">
-            <div class="panel-heading">
-                <h1>Opcion 1 suegros</h1>
-            </div>
-            <div>
-                <iframe src="https://www.google.com/maps/d/embed?mid=z-SPDBJYQeFw.kIMbsmM-WpAE" width="350" height="480"></iframe>
-            </div>
-            <div class="panel-body">
-                <p><strong>4</strong> Ciudades</p>
-                <p><strong>3</strong> Eventos</p>
-                <p><strong>5</strong> Sitios turisticos</p>
-                <p><strong>1</strong> Mapa</p>
-            </div>
-            <div class="panel-footer">
-                <h3>6 días</h3>
-                <button class="btn btn-lg">Editar</button>
-            </div>
-        </div>
-    </div><div class="col-sm-4 col-xs-12">
-        <div class="panel panel-default text-center">
-            <div class="panel-heading">
-                <h1>Tour por europa</h1>
-            </div>
-            <div>
-                <iframe src="https://www.google.com/maps/d/embed?mid=z-SPDBJYQeFw.kIMbsmM-WpAE" width="350" height="480"></iframe>
-            </div>
-            <div class="panel-body">
-                <p><strong>4</strong> Ciudades</p>
-                <p><strong>3</strong> Eventos</p>
-                <p><strong>5</strong> Sitios turisticos</p>
-                <p><strong>1</strong> Mapa</p>
-            </div>
-            <div class="panel-footer">
-                <h3>6 días</h3>
-                <button class="btn btn-lg">Editar</button>
-            </div>
-        </div>
-    </div><div class="col-sm-4 col-xs-12">
-        <div class="panel panel-default text-center">
-            <div class="panel-heading">
-                <h1>Tour por europa</h1>
-            </div>
-            <div>
-                <iframe src="https://www.google.com/maps/d/embed?mid=z-SPDBJYQeFw.kIMbsmM-WpAE" width="350" height="480"></iframe>
-            </div>
-            <div class="panel-body">
-                <p><strong>4</strong> Ciudades</p>
-                <p><strong>3</strong> Eventos</p>
-                <p><strong>5</strong> Sitios turisticos</p>
-                <p><strong>1</strong> Mapa</p>
-            </div>
-            <div class="panel-footer">
-                <h3>6 días</h3>
-                <button class="btn btn-lg">Editar</button>
+                </div>
+                <p class="text-center">
+                    <button id="{{$index}}-edit-btn" class="btn btn-default btn-sm" ng-click="ctrl.editRecord(itinerario)"><span class="glyphicon glyphicon-edit"></span> Editar</button>
+                    <button id="{{$index}}-delete-btn" class="btn btn-default btn-sm" ng-click="ctrl.deleteRecord(itinerario)"><span class="glyphicon glyphicon-minus"></span> Eliminar</button>
+                </p>
             </div>
         </div>
     </div>
 </div>
+ <!--tercer editmode de hijos segun eejmplo book, comentado completamente para agregar funcionalidad con paradas-->
+<!-- <div id="childs" ng-show="ctrl.editMode" class="col-md-6">
+    <ul class="nav nav-tabs">
+        <li ng-show="currentRecord.id" role="presentation" ng-class="{active: tab === 'authors'}">
+            <a href ng-click="ctrl.changeTab('authors')">Authors</a>
+        </li>
+        <li ng-show="currentRecord.id" role="presentation" ng-class="{active: tab === 'prizes'}">
+            <a href ng-click="ctrl.changeTab('prizes')">Prizes</a>
+        </li>
+        <li role="presentation" ng-class="{active: tab === 'reviews'}">
+            <a href ng-click="ctrl.changeTab('reviews')">Reviews</a>
+        </li>
+    </ul>
+     Aquí incluye el template del m�dulo de reviews e indica el controlador correspondiente reviewCtrl
+    <div ng-show="tab === 'reviews'">
+        <div ng-controller="reviewsCtrl as ctrl" ng-include="'src/modules/review/review.tpl.html'"></div>
+    </div>
+    <div ng-show="tab === 'prizes'">
+        <div ng-controller="prizesCtrl as ctrl" ng-include="'src/modules/prizes/prizes.tpl.html'">
+        </div>
+    </div>
+     Aquí se necesita el template de la selección de los autores al libro
+    <div ng-include="'src/modules/book/book.authors.html'">
+    </div>
+</div>-->
+
 
 <br>
 <br>
 <br>
+
 <h2>Crear una nueva parada</h2>
 <br>
 <br>
@@ -301,6 +175,8 @@
 </div>
 <button type="submit" class="btn btn-default" ng-click="agregarParada()">Guardar Parada</button>
 <button ng-click="listarParadas()">Mostrar paradas</button>
+
+
 <div>
     <h3>Lista Paradas </h3>
     <p ng-repeat="a in paradas">{{ a}}</p>
@@ -590,3 +466,5 @@
                 <img src="http://seetio.com/blog/wp-content/uploads/2013/11/JoGuru.jpg"  alt="itinerario" width="900" height="300">
             </div>
         </div>-->
+
+</div>

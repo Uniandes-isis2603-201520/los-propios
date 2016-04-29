@@ -24,12 +24,33 @@
              */
             var records = [
                 {
+//                  atributos nuevos
 //                  idParada: 3554,
+                    idItinerario:1,
+                    nombreItinerario:"nombre 2",
+                    fechaInicio:"01/01/2001",
+                    fechaFin:"02/02/2002",
+
                     nombreParadaUno: "buu",
                     ciudadParadaUno: "Cali",
                     actividadParadaUno: "parque",
                     fechaInicioParadaUno: '2015-02-24',
-                    fechaFinParadaUno: '2015-03-24'}
+                    fechaFinParadaUno: '2015-03-24'
+                },
+                {
+//                  atributos nuevos
+//                  idParada: 3554,
+                    idItinerario:2,
+                    nombreItinerario:"nombre 2",
+                    fechaInicio:"01/01/2001",
+                    fechaFin:"02/02/2002",
+
+                    nombreParadaUno: "Salsodromo",
+                    ciudadParadaUno: "Cali",
+                    actividadParadaUno: "parque",
+                    fechaInicioParadaUno: '2015-02-23',
+                    fechaFinParadaUno: '2015-03-24'
+                }
 
 //                {
 //                    nombreParadaUno: 48454,
