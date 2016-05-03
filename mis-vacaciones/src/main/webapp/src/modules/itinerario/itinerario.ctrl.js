@@ -13,21 +13,14 @@
     mod.controller("itinerarioCtrl", ["$scope", "itinerarioService", function ($scope, svc) {
 
             var self = this;
-             //Variables para el controlador
+            //Variables para el controlador
             this.readOnly = false;
             this.editMode = false;
             function responseError(response) {
                 self.showError(response.data);
             }
 
-            // listado de los itinerarios
             //implementacion anterior al 29/04
-//            $scope.itinerarios = [];
-//            // atributos propios de un itinerario
-//            $scope.idItinerario = "";
-//            $scope.nombreItinerario = "";
-//            $scope.fechaInicio = "";
-//            $scope.fechaFin = "";
             //current record de itinerario moficiacion nueva 29/04
 
             $scope.currentRecord = {
@@ -51,11 +44,10 @@
             $scope.fechaFinParadaUno = "";
 
 
-            // y que usan funciones definidas en el servicio
             $scope.agregarItinerario = function () {
                 var itinerario = [$scope.nombreParada, $scope.fechaInicio, $scope.fechaFin];
                 svc.saveRecord(itinerario);
-                this.editMode=false;
+                this.editMode = false;
             };
 
             $scope.listarItinerarios = function () {
@@ -77,11 +69,6 @@
                     $scope.paradas = response.data;
                 });
             };
-            this.changeEditMode = function(){
-                if(editMode)this.editMode=false;
-                this.editMode=true;
-            };
-
             //metodo nuevo copy paste ejemplo book
 
             this.editRecord = function (record) {
@@ -92,20 +79,15 @@
                     return response;
                 }, responseError);
             };
-            this.saveRecord = function(){
-//              var itinerario = [$scope.idItinerario,$scope.nombreItinerario, $scope.fechaInicio, $scope.fechaFin];
-//                svc.saveRecord(itinerario);
-//                this.editMode=false;
-//                self.fetchRecords();
+            this.saveRecord = function () {
 
-//                nueva implementacion 29/04
-                 return svc.saveRecord($scope.currentRecord).then(function () {
+                return svc.saveRecord($scope.currentRecord).then(function () {
                     self.fetchRecords();
                 }, responseError);
 
             };
             this.createRecord = function () {
-               this.editMode = true;
+                this.editMode = true;
                 $scope.currentRecord = {};
                 $scope.$broadcast("post-create", $scope.currentRecord);
             };
@@ -121,10 +103,6 @@
 
 
             this.deleteRecord = function (record) {
-//                return svc.deleteRecord(record.idItinerario).then(function () {
-//                    self.fetchRecords();
-//                }, responseError);
-                //nueva implementacion
                 return svc.deleteRecord(record.id).then(function () {
                     self.fetchRecords();
                 }, responseError);
@@ -136,11 +114,6 @@
                 }, responseError);
             };
             $scope.listarItinerarios();
-
-//            $scope.listarCiudadesParadas = function()
-//            {
-//                return
-//            }
         }]);
 
 })(window.angular);
