@@ -37,8 +37,6 @@ public abstract class ItinerarioConverter {
     public static ItinerarioDTO refEntity2DTO(ItinerarioEntity entity) {
         if (entity != null) {
             ItinerarioDTO dto = new ItinerarioDTO();
-//            dto.setIdItinerario(entity.getIdItinerario());
-
             dto.setIdItinerario(entity.getId());
             dto.setFechaInicio(entity.getFechaInicial());
             dto.setFechaFin(entity.getFechaFinal());
