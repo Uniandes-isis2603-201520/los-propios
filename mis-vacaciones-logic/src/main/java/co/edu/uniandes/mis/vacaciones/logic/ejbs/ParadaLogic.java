@@ -17,7 +17,6 @@ import co.edu.uniandes.mis.vacaciones.logic.persistence.VisitaPersistence;
 
 import co.edu.uniandes.mis.vacaciones.logic.persistence.ParadaPersistence;
 
-//import java.util.SimpleDateFormat;
 import java.util.Date;
 
 import java.util.List;
@@ -29,7 +28,6 @@ import java.util.logging.Logger;
 import javax.ejb.Stateless;
 
 import javax.inject.Inject;
-import static org.eclipse.persistence.expressions.spatial.SpatialParameters.Units.MM;
 
 /**
  *
@@ -85,9 +83,6 @@ public class ParadaLogic implements IParadaLogic {
     @Override
     public ParadaEntity updateParada(ParadaEntity entity) throws BusinessLogicException {
         logger.log(Level.INFO, "Inicia proceso de actualizar parada con id = {0}", entity.getId());
-//        if (!validateISBN(entity.getIsbn())) {
-//            throw new BusinessLogicException("El ISBN es inválido");
-//        }
         ParadaEntity newEntity = persistence.update(entity);
         logger.log(Level.INFO, "Termina proceso de actualizar parada con id={0}", entity.getId());
         return newEntity;
@@ -154,16 +149,13 @@ public class ParadaLogic implements IParadaLogic {
     }
 
     private boolean validateId(Long id) {
-        if (id == null) {
-            return false;
-        }
-        return true;
+        return id != null;
     }
 
     private boolean visitaAntesDeParada(Date fechaInicioVisita, Date fechaInicioParada) {
 
-        if (fechaInicioParada != null && fechaInicioVisita != null) {
-            if (fechaInicioVisita.before(fechaInicioParada)) {
+        if (fechaInicioParada != null && fechaInicioVisita != null && fechaInicioVisita.before(fechaInicioParada)) {
+            {
                 return true;
             }
         }
