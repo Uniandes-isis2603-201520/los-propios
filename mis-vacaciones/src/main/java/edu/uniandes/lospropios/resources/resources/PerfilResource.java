@@ -6,7 +6,6 @@
 package edu.uniandes.lospropios.resources.resources;
 
 import co.edu.uniandes.mis.vacaciones.logic.api.IPerfilLogic;
-import co.edu.uniandes.mis.vacaciones.logic.ejbs.PerfilLogic;
 import co.edu.uniandes.mis.vacaciones.logic.entities.PerfilEntity;
 import co.edu.uniandes.mis.vacaciones.logic.exceptions.BusinessLogicException;
 import edu.uniandes.lospropios.resources.converters.PerfilConverter;
@@ -16,7 +15,6 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
