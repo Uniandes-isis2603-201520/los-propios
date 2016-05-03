@@ -14,8 +14,7 @@
                     .state('principal', {
                         url: '/principal',
                         views: {
-                            '': {templateUrl: "src/modules/principal/principal.tpl.html"},
-                            'barraLateral': {templateUrl: "src/modules/principal/prueba.tpl.html"}
+                            '': {templateUrl: "src/modules/principal/principal.tpl.html"}
                         }
                     })
                     .state('evento', {
@@ -24,8 +23,7 @@
                             '': {
                                 controller: "eventoCtrl",
                                 controllerAs: "ctrl",
-                                templateUrl: "src/modules/evento/evento.tpl.html"},
-                            'barraLateral': {templateUrl: "src/modules/principal/prueba.tpl.html"}
+                                templateUrl: "src/modules/evento/evento.tpl.html"}
                         }
                     })
                     .state('perfilUsuario', {
@@ -34,8 +32,7 @@
                             '': {
                                 controller: "perfilUsuarioCtrl",
                                 controllerAs: "ctrl",
-                                templateUrl: "src/modules/perfilUsuario/perfilUsuario.html"},
-                            'barraLateral': {templateUrl: "src/modules/principal/prueba.tpl.html"}
+                                templateUrl: "src/modules/perfilUsuario/perfilUsuario.html"}
                         }
                     })
 
@@ -46,8 +43,7 @@
                                 controller: "ciudadCtrl",
                                 controllerAs: "ctrl",
                                 templateUrl: "src/modules/ciudad/ciudad.tpl.html"
-                            },
-                            'barraLateral': {templateUrl: "src/modules/principal/prueba.tpl.html"}
+                            }
                         }
                     })
                     .state('itinerario', {
@@ -57,8 +53,7 @@
                                 controller: "itinerarioCtrl",
                                 controllerAs: "ctrl",
                                 templateUrl: "src/modules/itinerario/itinerario.tpl.html"
-                            },
-                            'barraLateral': {templateUrl: "src/modules/principal/prueba.tpl.html"}
+                            }
                         }
                     })
                     .state('foro', {
@@ -66,34 +61,33 @@
                         views: {
                             '': {
                                 templateUrl: "src/modules/foro/foro.tpl.html"
-                            },
-                            'barraLateral': {templateUrl: "src/modules/principal/prueba.tpl.html"}
+                            }
                         }
                     })
                     .state('contacto', {
                         url: '/contacto',
                         views: {
-                            '': {templateUrl: "src/modules/contactenos/contactenos.tpl.html"},'barraLateral': {templateUrl: "src/modules/principal/prueba.tpl.html"}
+                            '': {templateUrl: "src/modules/contactenos/contactenos.tpl.html"}
                         }})
                     .state('infoCiudad', {
                         url: '/infoCiudad',
                         views: {
-                            '': {templateUrl: "src/modules/ciudad/infoCiudad.tpl.html"},'barraLateral': {templateUrl: "src/modules/principal/prueba.tpl.html"}
+                            '': {templateUrl: "src/modules/ciudad/infoCiudad.tpl.html"}
                         }})
                     .state('servicios', {
                         url: '/servicios',
                         views: {
-                            '': {templateUrl: "src/modules/servicios/servicios.tpl.html"},'barraLateral': {templateUrl: "src/modules/principal/prueba.tpl.html"}
+                            '': {templateUrl: "src/modules/servicios/servicios.tpl.html"}
                         }})
                     .state('about', {
                         url: '/about',
                         views: {
-                            '': {templateUrl: "src/modules/about/about.tpl.html"},'barraLateral': {templateUrl: "src/modules/principal/prueba.tpl.html"}
+                            '': {templateUrl: "src/modules/about/about.tpl.html"}
                         }})
                     .state('visitas', {
                         url: '/visitas',
                         views: {
-                            '': {templateUrl: "src/modules/visita/visita.tpl.html"},'barraLateral': {templateUrl: "src/modules/principal/prueba.tpl.html"}
+                            '': {templateUrl: "src/modules/visita/visita.tpl.html"}
                         }})
 
                     ;
