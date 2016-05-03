@@ -18,42 +18,48 @@ public interface IItinerarioLogic {
 
     /**
      * Metodo que retorna la lista de los itinerarios
+     *
      * @return - Lista de los itinerarios
      */
     public List<ItinerarioEntity> getItinerarios();
 
     /**
      * Metodo que crea un itinerario
+     *
      * @param itinerario - El nuevo itinerario
      * @return - El itinerario creado con un id asignado
      * @throws ItinerarioLogicException
      */
-    public ItinerarioEntity createItinerario(ItinerarioEntity itinerario)throws BusinessLogicException;
+    public ItinerarioEntity createItinerario(ItinerarioEntity itinerario) throws BusinessLogicException;
 
     /**
-     * Metodo para obtener el itinerario de un usuario dado el id del usuario y el id del itinerario
+     * Metodo para obtener el itinerario de un usuario dado el id del usuario y
+     * el id del itinerario
+     *
      * @param idPerfil - id del viajero
      * @param idItinerario - id del itinerario asociado al id del viajero
      * @return - ItineararioDTO con toda la informacion del itinerario
      * @throws ItinerarioLogicException
      */
-    public ItinerarioEntity getItinerarioUsuario(long idItinerario) ;
+    public ItinerarioEntity getItinerarioUsuario(long idItinerario);
 
     /**
      * Metodo para actualizar la informacion de un itinerario
+     *
      * @param idItinerario - id del itinerario a actualizar
      * @param itinerario - ItinerarioDTO a cambiar
      * @return - ItinerarioDTO nuevo
      * @throws ItinerarioLogicException
      */
-    public ItinerarioEntity updateItinerario( ItinerarioEntity itinerario)throws BusinessLogicException ;
+    public ItinerarioEntity updateItinerario(ItinerarioEntity itinerario) throws BusinessLogicException;
 
     /**
      * Metodo para eliminar un itineario dado su id
+     *
      * @param idItinerario - id del itinerario que se desea eliminar
      * @throws ItinerarioLogicException
      */
-    public void deleteItinerario(long idItinerario) ;
+    public void deleteItinerario(long idItinerario);
 
 //    public ItinerarioEntity getItinerario(long idItinerario);
 }

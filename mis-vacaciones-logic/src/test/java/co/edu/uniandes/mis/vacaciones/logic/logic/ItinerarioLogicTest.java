@@ -33,6 +33,7 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
  */
 @RunWith(Arquillian.class)
 public class ItinerarioLogicTest {
+
     private PodamFactory factory = new PodamFactoryImpl();
 
     @Inject
@@ -80,8 +81,8 @@ public class ItinerarioLogicTest {
 //        em.createQuery("delete from AuthorEntity").executeUpdate();
 //        em.createQuery("delete from EditorialEntity").executeUpdate();
     }
-     private void insertData() {
 
+    private void insertData() {
 
         for (int i = 0; i < 3; i++) {
             ItinerarioEntity entity = factory.manufacturePojo(ItinerarioEntity.class);
@@ -90,7 +91,7 @@ public class ItinerarioLogicTest {
         }
     }
 
-      @Test
+    @Test
     public void createItinerarioTest() {
         try {
             ItinerarioEntity entity = factory.manufacturePojo(ItinerarioEntity.class);
@@ -162,6 +163,5 @@ public class ItinerarioLogicTest {
             Assert.fail(ex.getLocalizedMessage());
         }
     }
-
 
 }

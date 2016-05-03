@@ -10,6 +10,7 @@ import co.edu.uniandes.csw.crud.spi.entity.BaseEntity;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -23,8 +24,6 @@ import uk.co.jemos.podam.common.PodamExclude;
  *
  * @author jg.murillo10
  */
-
-
 @Entity
 public class ItinerarioEntity extends BaseEntity implements Serializable {
 
@@ -55,49 +54,51 @@ public class ItinerarioEntity extends BaseEntity implements Serializable {
 //    }
     /**
      * Metodo para obtener el nombre de un itinerario
+     *
      * @return el nombre del itinerario
-
-    public String getNombre(){
-        return nombre;
-    }
-    /**
-     * Metodo para modificar el nombre de un itinerario
+     *
+     * public String getNombre(){ return nombre; } /** Metodo para modificar el
+     * nombre de un itinerario
      * @param nombre - nuevo nombre del itinerario
-
-    public void setNombre(String nombre){
-        this.nombre=nombre;
-    }
-    /**
-     * Metodo para obtener la fecha inicial del itinerario
-     * @return  fecha inicial del itinerario
+     *
+     * public void setNombre(String nombre){ this.nombre=nombre; } /** Metodo
+     * para obtener la fecha inicial del itinerario
+     * @return fecha inicial del itinerario
      */
-    public Date getFechaInicial(){
+    public Date getFechaInicial() {
         return fechaInicial;
     }
+
     /**
      * Metodo para modificar
+     *
      * @param fechaInicial
      */
-    public void setFechaInicial(Date fechaInicial){
-        this.fechaFinal=fechaInicial;
+    public void setFechaInicial(Date fechaInicial) {
+        this.fechaFinal = fechaInicial;
     }
+
     /**
      * Metodo para obtener la fecha final del itinerario
-     * @return  - fecha final del itinerario
+     *
+     * @return - fecha final del itinerario
      */
-    public Date getFechaFinal(){
+    public Date getFechaFinal() {
         return fechaFinal;
     }
+
     /**
      * Metodo para modificar la fecha final del itinerario
-     * @param fechaFinal  - nueva fecha final del itinerario
+     *
+     * @param fechaFinal - nueva fecha final del itinerario
      */
-    public void setFechaFinal(Date fechaFinal){
-        this.fechaFinal=fechaFinal;
+    public void setFechaFinal(Date fechaFinal) {
+        this.fechaFinal = fechaFinal;
     }
 
     /**
      * Metodo para obtener las paradas del itinerario
+     *
      * @return - paradas del itinerario
      */
     public List<ParadaEntity> getParadas() {
@@ -106,11 +107,46 @@ public class ItinerarioEntity extends BaseEntity implements Serializable {
 
     /**
      * Metodo para modificar las paradas del itinerario
+     *
      * @param paradas - nuevas paradas del itinerario
      */
     public void setParadas(List<ParadaEntity> paradas) {
         this.paradas = paradas;
     }
 
+    public void addParada(ParadaEntity parada) {
+        if (!esta(parada)) {
+            paradas.add(parada);
+        }
+
+    }
+
+    public void deleteParada(long idParada) {
+        ParadaEntity aEliminar = buscar(idParada);
+        if (aEliminar != null) {
+            paradas.remove(aEliminar);
+        }
+    }
+
+    private ParadaEntity buscar(long idParada) {
+        for (Iterator<ParadaEntity> iterator = paradas.iterator(); iterator.hasNext();) {
+            ParadaEntity next = iterator.next();
+            if (next.getId() == idParada) {
+                return next;
+            }
+        }
+        return null;
+    }
+
+    private boolean esta(ParadaEntity parada) {
+        for (Iterator<ParadaEntity> iterator = paradas.iterator(); iterator.hasNext();) {
+            ParadaEntity next = iterator.next();
+            if (next.getId() == parada.getId()) {
+                return true;
+            }
+
+        }
+        return false;
+    }
 
 }

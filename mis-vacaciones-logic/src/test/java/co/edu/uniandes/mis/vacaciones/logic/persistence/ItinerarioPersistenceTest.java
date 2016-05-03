@@ -23,6 +23,7 @@ import uk.co.jemos.podam.api.PodamFactory;
 import uk.co.jemos.podam.api.PodamFactoryImpl;
 import org.junit.Assert;
 import org.junit.Before;
+
 /**
  *
  * @author jg.murillo10
@@ -31,7 +32,7 @@ import org.junit.Before;
 public class ItinerarioPersistenceTest {
 
     @Deployment
-    public static JavaArchive createDeployment(){
+    public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
                 .addPackage(ItinerarioEntity.class.getPackage())
                 .addPackage(ItinerarioPersistence.class.getPackage())
@@ -78,6 +79,7 @@ public class ItinerarioPersistenceTest {
             data.add(entity);
         }
     }
+
     @Test
     public void createItinerarioTest() {
         ItinerarioEntity newEntity = factory.manufacturePojo(ItinerarioEntity.class);
@@ -89,7 +91,8 @@ public class ItinerarioPersistenceTest {
         ItinerarioEntity entity = em.find(ItinerarioEntity.class, result.getId());
         Assert.assertEquals(newEntity.getName(), entity.getName());
     }
-     @Test
+
+    @Test
     public void getItinerariosTest() {
         List<ItinerarioEntity> list = itinerarioPersistence.findAll();
         Assert.assertEquals(data.size(), list.size());
@@ -104,8 +107,7 @@ public class ItinerarioPersistenceTest {
         }
     }
 
-
-     @Test
+    @Test
     public void getItinerarioTest() {
         ItinerarioEntity entity = data.get(0);
         ItinerarioEntity newEntity = itinerarioPersistence.find(entity.getId());
@@ -122,7 +124,7 @@ public class ItinerarioPersistenceTest {
     }
 
     @Test
-    public void updatePerfilTest(){
+    public void updatePerfilTest() {
         ItinerarioEntity entity = data.get(0);
         ItinerarioEntity newEntity = factory.manufacturePojo(ItinerarioEntity.class);
         newEntity.setId(entity.getId());
