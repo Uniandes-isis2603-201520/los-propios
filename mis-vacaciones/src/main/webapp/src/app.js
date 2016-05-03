@@ -3,7 +3,7 @@
 
     // define la aplicación con sus dependencias
     var mod = ng.module("mainApp", [
-        "ui.router","perfilUsuarioModule","perfilUsuarioMock","ciudadMock","eventoModule","eventoMock","ciudadModule","itinerarioModule","itinerarioMock"
+        "ui.router","perfilUsuarioModule","eventoModule","ciudadModule","itinerarioModule"
     ]);
     mod.config(['$logProvider', function ($logProvider) {
             $logProvider.debugEnabled(true);
@@ -95,7 +95,7 @@
                         views: {
                             '': {templateUrl: "src/modules/visita/visita.tpl.html"},'barraLateral': {templateUrl: "src/modules/principal/prueba.tpl.html"}
                         }})
-            
+
                     ;
         }]);
 })(window.angular);
