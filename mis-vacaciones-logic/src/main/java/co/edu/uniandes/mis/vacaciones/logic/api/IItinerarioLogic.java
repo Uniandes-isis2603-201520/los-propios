@@ -60,6 +60,4 @@ public interface IItinerarioLogic {
      * @throws ItinerarioLogicException
      */
     public void deleteItinerario(long idItinerario);
-
-//    public ItinerarioEntity getItinerario(long idItinerario);
 }

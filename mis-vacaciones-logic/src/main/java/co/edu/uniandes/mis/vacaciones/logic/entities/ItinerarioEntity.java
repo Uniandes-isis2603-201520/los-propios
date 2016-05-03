@@ -13,7 +13,6 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -37,34 +36,8 @@ public class ItinerarioEntity extends BaseEntity implements Serializable {
     @PodamExclude
     private List<ParadaEntity> paradas = new ArrayList<>();
 
-//    /**
-//     * Metodo para obtener el id del itinerario
-//     * @return id del itinerario
-//     */
-//
-//    public long getIdItinerario(){
-//        return idItinerario;
-//    }
-//    /**
-//     * Metodo para modificar el id del itinerario
-//     * @param idItinerario  - nuevo id del itinerario
-//     */
-//    public void setIdItinerario(long idItinerario){
-//        this.idItinerario=idItinerario;
-//    }
-    /**
-     * Metodo para obtener el nombre de un itinerario
-     *
-     * @return el nombre del itinerario
-     *
-     * public String getNombre(){ return nombre; } /** Metodo para modificar el
-     * nombre de un itinerario
-     * @param nombre - nuevo nombre del itinerario
-     *
-     * public void setNombre(String nombre){ this.nombre=nombre; } /** Metodo
-     * para obtener la fecha inicial del itinerario
-     * @return fecha inicial del itinerario
-     */
+
+
     public Date getFechaInicial() {
         return fechaInicial;
     }
@@ -129,8 +102,7 @@ public class ItinerarioEntity extends BaseEntity implements Serializable {
     }
 
     private ParadaEntity buscar(long idParada) {
-        for (Iterator<ParadaEntity> iterator = paradas.iterator(); iterator.hasNext();) {
-            ParadaEntity next = iterator.next();
+        for (ParadaEntity next : paradas) {
             if (next.getId() == idParada) {
                 return next;
             }
@@ -139,12 +111,10 @@ public class ItinerarioEntity extends BaseEntity implements Serializable {
     }
 
     private boolean esta(ParadaEntity parada) {
-        for (Iterator<ParadaEntity> iterator = paradas.iterator(); iterator.hasNext();) {
-            ParadaEntity next = iterator.next();
+        for (ParadaEntity next : paradas) {
             if (next.getId() == parada.getId()) {
                 return true;
             }
-
         }
         return false;
     }
