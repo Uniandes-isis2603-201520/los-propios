@@ -138,7 +138,9 @@ public class PerfilLogicTest {
         }
     }
 
-    @Test
+
+/**
+ * @Test
     public void getBookTest() {
         PerfilEntity result = perfilLogic.getPerfil(data.get(0).getId());
         PerfilEntity expected = em.find(PerfilEntity.class, data.get(0).getId());
@@ -175,7 +177,6 @@ public class PerfilLogicTest {
             Assert.fail(ex.getLocalizedMessage());
         }
     }
-/**
     @Test
     public void getItinerarioTest() {
         PerfilEntity entity = data.get(0);
