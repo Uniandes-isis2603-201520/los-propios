@@ -24,7 +24,6 @@ public class ParadaPersistence {
 
     public ParadaEntity find(long id) {
 
-//       String nuevoId = String.valueOf(id);
         logger.log(Level.INFO, "Consultando la parada con id = {0}", id);
         return em.find(ParadaEntity.class, id);
 

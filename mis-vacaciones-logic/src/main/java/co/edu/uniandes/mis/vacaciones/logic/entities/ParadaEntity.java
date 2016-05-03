@@ -1,7 +1,7 @@
 
 package co.edu.uniandes.mis.vacaciones.logic.entities;
 
-//import co.edu.uniandes.csw.crud.spi.entity.BaseEntity;
+
 import co.edu.uniandes.csw.crud.api.podam.strategy.DateStrategy;
 import co.edu.uniandes.csw.crud.spi.entity.BaseEntity;
 import java.io.Serializable;
@@ -17,11 +17,6 @@ import javax.persistence.TemporalType;
 import uk.co.jemos.podam.common.PodamExclude;
 import uk.co.jemos.podam.common.PodamStrategyValue;
 
-//import javax.persistence.CascadeType;
-//import javax.persistence.ManyToOne;
-//import javax.persistence.OneToMany;
-
-//import javax.persistence.TemporalType;
 
 /**
  *
@@ -49,37 +44,8 @@ public class ParadaEntity extends BaseEntity implements Serializable {
 
 //@OneToMany(mappedBy = "parada", cascade= CascadeType.ALL, orphanRemoval = true)
 //private List<ReviewEntity> reviews = new ArrayList();
-    /**
-     * @return the id
-     */
-//    public Long getId() {
-//        return id;
-//    }
-//
-//    /**
-//     * @param id the id to set
-//     */
-//    public void setId(Long id) {
-//        this.id = id;
-//    }
-//
-//    /**
-//     * @return the nombreParada
-//     */
-//    public String getNombreParada() {
-//        return nombreParada;
-//    }
-//
-//    /**
-//     * @param nombreParada the nombreParada to set
-//     */
-//    public void setNombreParada(String nombreParada) {
-//        this.nombreParada = nombreParada;
-//    }
 
-    /**
-     * @return the ciudadParada
-     */
+
     public String getCiudadParada() {
         return ciudadParada;
     }

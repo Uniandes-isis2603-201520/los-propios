@@ -12,6 +12,9 @@ import javax.ejb.ApplicationException;
 
 public class BusinessLogicException extends Exception {
 
+ /*
+ * El constructor esta vacio porque no es necesario inicializarlo con un objeto
+ */
     public BusinessLogicException() {
 
     }
