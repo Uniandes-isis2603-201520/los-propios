@@ -31,7 +31,7 @@
             //current record de itinerario moficiacion nueva 29/04
 
             $scope.currentRecord = {
-                idItinerario: undefined /*Tipo Long. El valor se asigna en el backend*/,
+                id: undefined /*Tipo Long. El valor se asigna en el backend*/,
                 nombreItinerario: '' /*Tipo String*/,
                 fechaInicio: '' /*Tipo String*/,
                 fechaFin: '' /*Tipo String*/
@@ -85,7 +85,7 @@
             //metodo nuevo copy paste ejemplo book
 
             this.editRecord = function (record) {
-                return svc.fetchRecord(record.idItinerario).then(function (response) {
+                return svc.fetchRecord(record.id).then(function (response) {
                     $scope.currentRecord = response.data;
                     self.editMode = true;
                     $scope.$broadcast("post-edit", $scope.currentRecord);
@@ -119,12 +119,13 @@
                 }, responseError);
             };
 
+
             this.deleteRecord = function (record) {
 //                return svc.deleteRecord(record.idItinerario).then(function () {
 //                    self.fetchRecords();
 //                }, responseError);
                 //nueva implementacion
-                return svc.deleteRecord(record.idItinerario).then(function () {
+                return svc.deleteRecord(record.id).then(function () {
                     self.fetchRecords();
                 }, responseError);
             };
@@ -134,6 +135,7 @@
                     self.fetchRecords();
                 }, responseError);
             };
+            $scope.listarItinerarios();
 
 //            $scope.listarCiudadesParadas = function()
 //            {

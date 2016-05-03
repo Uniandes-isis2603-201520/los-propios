@@ -15,7 +15,7 @@
              * Obtener la lista de itinerarios.
              * Hace una petición GET con $http a /itinerarios para obtener la lista
              * @returns {promise} promise para leer la respuesta del servidor}
-             * Devuelve una lista de objetos de persons con sus atributos
+             * Devuelve una lista de objetos de itinerarios con sus atributos
              */
             this.fetchRecords = function () {
                 return $http.get(context);
@@ -32,30 +32,30 @@
             };
 
             /**
-             * Obtener un registro de persons.
-             * Hace una petición GET a /persons/:id para obtener
-             * los datos de un registro específico de persons
+             * Obtener un registro de itinerarios.
+             * Hace una petición GET a /itinerarios/:id para obtener
+             * los datos de un registro específico de itinerarios
              * @param {number} id del registro a obtener
              * @returns {promise} promise para leer la respuesta del servidor
-             * Devuelve un objeto de persons con sus atributos
+             * Devuelve un objeto de itinerarios con sus atributos
              */
-            this.fetchRecord = function (idItinerario) {
-                return $http.get(context + "/" + idItinerario);
+            this.fetchRecord = function (id) {
+                return $http.get(context + "/" + id);
             };
 
             /**
-             * Guardar un registro de un albumes.
+             * Guardar un registro de un itinerarios.
              * Si currentRecord tiene la propiedad id, hace un PUT a /perfilUsuario/:id con los
-             * nuevos datos de la instancia de albumes.
-             * Si currentRecord no tiene la propiedad id, se hace un POST a /albumes
+             * nuevos datos de la instancia de itinerarios.
+             * Si currentRecord no tiene la propiedad id, se hace un POST a /itinerarios
              * para crear el nuevo registro de albumes
-             * @param {object} currentRecord instancia de albumes a guardar/actualizar
+             * @param {object} currentRecord instancia de itinerarios a guardar/actualizar
              * @returns {promise} promise para leer la respuesta del servidor
              * Devuelve un objeto de albumes con sus datos incluyendo el id
              */
             this.saveRecord = function (currentRecord) {
-                if (currentRecord.idItinerario) {
-                    return $http.put(context + "/" + currentRecord.idItinerario, currentRecord);
+                if (currentRecord.id) {
+                    return $http.put(context + "/" + currentRecord.id, currentRecord);
                 } else {
                     return $http.post(context, currentRecord);
                 }
@@ -80,13 +80,13 @@
             };
 
             /**
-             * Hace una petición DELETE a /persons/:id para eliminar una person
-             * @param {number} id identificador de la instancia de person a eliminar
+             * Hace una petición DELETE a /itinerarios/:id para eliminar un itinerario
+             * @param {number} id identificador de la instancia de itinerarios a eliminar
              * @returns {promise} promise para leer la respuesta del servidor
              * No devuelve datos.
              */
-            this.deleteRecord = function (idItinerario) {
-                return $http.delete(context + "/" + idItinerario);
+            this.deleteRecord = function (id) {
+                return $http.delete(context + "/" + id);
             };
 
             this.deleteRecordDos = function (id) {

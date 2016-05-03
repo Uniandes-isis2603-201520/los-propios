@@ -28,7 +28,6 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="itinerario-navbar">
                 <button id="create-itinerario" class="btn btn-default navbar-btn" ng-hide="ctrl.editMode" ng-click="ctrl.createRecord()"><span class="glyphicon glyphicon-plus"></span> Crear Itinerario</button>
-                <button id="refresh-itinerario" class="btn btn-default navbar-btn" ng-hide="ctrl.editMode" ng-click="ctrl.fetchRecords()"><span class="glyphicon glyphicon-refresh"></span> Refrescar itinerarios</button>
                 <button id="save-itinerario" type="submit" form="itinerario-form" class="btn btn-default navbar-btn" ng-show="ctrl.editMode"><span class="glyphicon glyphicon-save"></span> Guardar itinerario</button>
                 <button id="cancel-itinerario" type="button" form="itinerario-form" class="btn btn-default navbar-btn" ng-show="ctrl.editMode" ng-click=" ctrl.fetchRecords()"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
             </div>
@@ -45,9 +44,9 @@
 
         <fieldset>
             <div class="form-group col-md-12"  >
-                <label for="idItinerario" class="col-md-2 control-label">ID itinerario: </label>
+                <label for="id" class="col-md-2 control-label">ID itinerario: </label>
                 <div class="col-md-10">
-                    <input id="idItinerario" class="form-control" type="text" ng-model="idItinerario" required />
+                    <input id="id" class="form-control" type="text" ng-model="id" required />
                 </div>
             </div>
             <!--nombre del itinerario-->
@@ -89,7 +88,7 @@
                 </div>-->
                 <div class="caption" >
 
-                    <p><strong>ID:</strong>{{itinerario.idItinerario}}</p>
+                    <p><strong>ID:</strong>{{itinerario.id}}</p>
                     <p><strong>Nombre:</strong>{{itinerario.nombreItinerario}}</p>
                     <p><strong>inicio:</strong>{{itinerario.fechaInicio}}</p>
                     <p><strong>fin:</strong>{{itinerario.fechaFin}}</p>
