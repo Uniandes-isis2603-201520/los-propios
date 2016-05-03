@@ -6,22 +6,15 @@
 
 (function (ng) {
 
-    // es parte del módulo "itinerarioModule"
     var mod = ng.module("itinerarioModule");
-
-    // crea el controlador con dependencias a $scope y a personService
     mod.controller("itinerarioCtrl", ["$scope", "itinerarioService", function ($scope, svc) {
 
             var self = this;
-            //Variables para el controlador
             this.readOnly = false;
             this.editMode = false;
             function responseError(response) {
                 self.showError(response.data);
             }
-
-            //implementacion anterior al 29/04
-            //current record de itinerario moficiacion nueva 29/04
 
             $scope.currentRecord = {
                 id: undefined /*Tipo Long. El valor se asigna en el backend*/,
@@ -31,12 +24,8 @@
 
             };
             $scope.itinerarios = [];
-            //fin implementacion nuevo 29/04
-            // listado de paradas
             $scope.paradas = [];
             $scope.ciudadesParadas = [];
-            // atributos propios de una parada
-            //$scope.idParada = "";
             $scope.nombreParadaUno = "";
             $scope.ciudadParadaUno = "";
             $scope.actividadParadaUno = "";
@@ -58,7 +47,6 @@
             };
 
             $scope.agregarParada = function () {
-//                $scope.idParada
                 var parada = [$scope.nombreParadaUno, $scope.ciudadParadaUno, $scope.actividadParadaUno, $scope.fechaInicioParadaUno, $scope.fechaFinParadaUno];
                 svc.saveRecordDos(parada);
             };
@@ -69,7 +57,6 @@
                     $scope.paradas = response.data;
                 });
             };
-            //metodo nuevo copy paste ejemplo book
 
             this.editRecord = function (record) {
                 return svc.fetchRecord(record.id).then(function (response) {

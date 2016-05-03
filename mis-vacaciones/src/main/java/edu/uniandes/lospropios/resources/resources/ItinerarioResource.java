@@ -11,7 +11,6 @@ import co.edu.uniandes.mis.vacaciones.logic.exceptions.BusinessLogicException;
 import edu.uniandes.lospropios.resources.converters.ItinerarioConverter;
 import edu.uniandes.lospropios.resources.dtos.ItinerarioDTO;
 import edu.uniandes.lospropios.resources.exceptions.ItinerarioLogicException;
-//import edu.uniandes.lospropios.resources.mocks.ItinerarioLogicMock;
 import java.util.List;
 import java.util.logging.Level;
 
@@ -63,8 +62,6 @@ public class ItinerarioResource {
 
     /**
      * Obtiene un itinerario
-     *
-     * @param idPerfil identificador del viajero
      * @param idItinerario   identificador del itinerario
      * @return itinerario encontrada
      * @throws
@@ -73,7 +70,6 @@ public class ItinerarioResource {
     @GET
     @Path("{id: \\d+}")
     public ItinerarioDTO getItinerario( @PathParam("idItinerario") Long idItinerario) throws ItinerarioLogicException {
-//        return itinerarioLogic.getItinerarioUsuario(idPerfil, idItinerario);
         logger.log(Level.INFO, "Se ejecuta metodo getItinerario con id={0}", idItinerario);
         ItinerarioEntity itinerario= itinerarioLogic.getItinerarioUsuario( idItinerario);
         return ItinerarioConverter.fullEntity2DTO(itinerario);
@@ -82,44 +78,35 @@ public class ItinerarioResource {
     /**
      * Agrega un itinerario
      *
-     * @param itinerario itinerario a agregar
+     * @param dto itinerario a agregar
      * @return datos del itinerario a agregar
      * @throws edu.uniandes.lospropios.resources.exceptions.ItinerarioLogicException
+     * @throws co.edu.uniandes.mis.vacaciones.logic.exceptions.BusinessLogicException
      */
     @POST
-//    @StatusCreated
     public ItinerarioDTO createItinerario(ItinerarioDTO dto) throws ItinerarioLogicException, BusinessLogicException{
-//        return itinerarioLogic.createItinerario(itinerario);
      logger.info("Se ejecuta método createBook");
         ItinerarioEntity entity = ItinerarioConverter.fullDTO2Entity(dto);
-//        ItinerarioEntity newEntity = ItinerarioLogic.createItinerario(entity);
         ItinerarioEntity newEntity = itinerarioLogic.createItinerario(entity);
-//        } catch (BusinessLogicException ex) {
-//            logger.log(Level.SEVERE, ex.getLocalizedMessage(), ex);
-//            throw new WebApplicationException(ex.getLocalizedMessage(), ex, Response.Status.BAD_REQUEST);
-//        }
         return ItinerarioConverter.fullEntity2DTO(newEntity);
     }
 
     /**
      * Actualiza los datos de un itinerario
      *
-     * @param id identificador del itinerario a modificar
+     * @param idItinerario
      * @param itinerario itinerario a modificar
      * @return datos del itinierario modificado
      * @throws ItinerarioLogicException cuando no existe un itinerario con el id
      * suministrado
+     * @throws co.edu.uniandes.mis.vacaciones.logic.exceptions.BusinessLogicException
      */
     @PUT
     @Path("{id: \\d+}")
     public ItinerarioDTO updateItinerario(@PathParam("idItinerario") Long idItinerario, ItinerarioDTO itinerario) throws ItinerarioLogicException, BusinessLogicException {
-//        return itinerarioLogic.updateItinerario(id, itinerario);
          logger.log(Level.INFO, "Se ejecuta método updateBook con id={0}", idItinerario);
         ItinerarioEntity entity = ItinerarioConverter.fullDTO2Entity(itinerario);
         entity.setId(idItinerario);
-        // estos comentarios se usan para asociar a itinerarios las paradas
-//        ItinerarioEntity oldEntity = itinerarioLogic.getItinerarioUsuario(idPerfil, idItinerario);
-//        entity.setParadas(oldEntity.getParadas());
             ItinerarioEntity savedItinerario = itinerarioLogic.updateItinerario( entity);
             return ItinerarioConverter.fullEntity2DTO(savedItinerario);
 

@@ -10,7 +10,6 @@
     mod.service("itinerarioService", ["$http", "itinerarioContext","$log", function($http, context, $log)
         {
 
-//    mod.service("itinerarioService", ["$http", "itinerarioContext", function ($http, context) {
             /**
              * Obtener la lista de itinerarios.
              * Hace una petición GET con $http a /itinerarios para obtener la lista

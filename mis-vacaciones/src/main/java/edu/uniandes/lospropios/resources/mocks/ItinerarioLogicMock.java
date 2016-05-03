@@ -63,7 +63,7 @@ public class ItinerarioLogicMock {
 
         // muestra información
         LOGGER.info("Inicializa la lista de itinerarios");
-        LOGGER.info("itinerarios" + itinerarios);
+        LOGGER.log(Level.INFO, "itinerarios{0}", itinerarios);
     }
 
     /**
@@ -113,7 +113,7 @@ public class ItinerarioLogicMock {
      * @throws ItinerarioLogicException cuando el itinerario no existe
      */
     public ItinerarioDTO getItinerarioUsuario(Long idPerfilUsuario, Long idItinerario) throws ItinerarioLogicException {
-        LOGGER.info("recibiendo solicitud de perifl usuario con Itinerario" + idPerfilUsuario);
+        LOGGER.log(Level.INFO, "recibiendo solicitud de perifl usuario con Itinerario{0}", idPerfilUsuario);
 
         // busca el paradero que le pertenece al id del viajero
         for (PerfilDTO perfil: perfiles)
@@ -124,7 +124,7 @@ public class ItinerarioLogicMock {
                 {
                     if(Objects.equals(itinerario.getIdItinerario(), idItinerario))
                     {
-                             LOGGER.info("retornando parada " + itinerario);
+                             LOGGER.log(Level.INFO, "retornando parada {0}", itinerario);
                              return itinerario;
 
                     }
@@ -147,7 +147,7 @@ public class ItinerarioLogicMock {
      * @return itinerario agregada
      */
     public ItinerarioDTO createItinerario(ItinerarioDTO newItinerario) throws ItinerarioLogicException {
-        LOGGER.info("recibiendo solicitud de agregar itinerario " + newItinerario);
+        LOGGER.log(Level.INFO, "recibiendo solicitud de agregar itinerario {0}", newItinerario);
 
         // el nuevo itinerario tiene id ?
         if (newItinerario.getIdItinerario()!= null) {
@@ -175,7 +175,7 @@ public class ItinerarioLogicMock {
         }
 
         // agrega el itinerario
-        LOGGER.info("agregando itinerario " + newItinerario);
+        LOGGER.log(Level.INFO, "agregando itinerario {0}", newItinerario);
         itinerarios.add(newItinerario);
         return newItinerario;
     }
@@ -190,7 +190,7 @@ public class ItinerarioLogicMock {
      * suministrado
      */
     public ItinerarioDTO updateItinerario(Long id, ItinerarioDTO updatedItinerario) throws ItinerarioLogicException {
-        LOGGER.info("recibiendo solictud de modificar itinerario " + updatedItinerario);
+        LOGGER.log(Level.INFO, "recibiendo solictud de modificar itinerario {0}", updatedItinerario);
 
         // busca el itinerario con el id suministrado
         for (ItinerarioDTO itinerario : itinerarios) {
@@ -201,7 +201,7 @@ public class ItinerarioLogicMock {
                 itinerario.setFechaInicio(updatedItinerario.getFechaInicio());
 
                 // retorna el itinerario modificada
-                LOGGER.info("Modificando itinerario " + itinerario);
+                LOGGER.log(Level.INFO, "Modificando itinerario {0}", itinerario);
                 return itinerario;
             }
         }
@@ -219,14 +219,14 @@ public class ItinerarioLogicMock {
      * suministrado
      */
     public void deleteItinerario(Long id) throws ItinerarioLogicException {
-        LOGGER.info("recibiendo solictud de eliminar itinerario con id " + id);
+        LOGGER.log(Level.INFO, "recibiendo solictud de eliminar itinerario con id {0}", id);
 
         // busca el itinerario con el id suministrado
         for (ItinerarioDTO itinerario : itinerarios) {
             if (Objects.equals(itinerario.getIdItinerario(), id)) {
 
                 // elimina el itinerario
-                LOGGER.info("eliminando itinerario " + itinerario);
+                LOGGER.log(Level.INFO, "eliminando itinerario {0}", itinerario);
                 itinerarios.remove(itinerario);
                 return;
             }

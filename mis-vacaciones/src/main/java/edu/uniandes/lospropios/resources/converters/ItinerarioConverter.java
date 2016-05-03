@@ -8,6 +8,7 @@ package edu.uniandes.lospropios.resources.converters;
 import co.edu.uniandes.mis.vacaciones.logic.entities.ItinerarioEntity;
 import edu.uniandes.lospropios.resources.dtos.ItinerarioDTO;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -43,8 +44,6 @@ public abstract class ItinerarioConverter {
             dto.setIdItinerario(entity.getId());
             dto.setFechaInicio(entity.getFechaInicial());
             dto.setFechaFin(entity.getFechaFinal());
-//            dto.setParadas(entity.getParadas());
-//TODO modificar para convertir el resto de atributos y convertir las paradas del itinerario
             return dto;
         }
 
@@ -83,8 +82,6 @@ public abstract class ItinerarioConverter {
             dto.setIdItinerario(entity.getId());
             dto.setFechaInicio(entity.getFechaInicial());
             dto.setFechaFin(entity.getFechaFinal());
-//            dto.setParadas(entity.getParadas());
-//TODO modificar para convertir el resto de atributos y convertir las paradas del itinerario
             return dto;
         }
 
@@ -130,7 +127,6 @@ public abstract class ItinerarioConverter {
 
         if(entity !=null){
             ItinerarioDTO dto = basicEntity2DTO(entity);
-            // hacer set de una lista que contenta un itinerario
             return dto;
         }
 
@@ -147,7 +143,6 @@ public abstract class ItinerarioConverter {
     public static ItinerarioEntity fullDTO2Entity(ItinerarioDTO dto){
         if(dto!=null){
             ItinerarioEntity entity= new ItinerarioEntity();
-            //Set listado de atributos en itinerarios eg. paradas
             return entity;
         }
 
@@ -165,9 +160,9 @@ public abstract class ItinerarioConverter {
     public static List<ItinerarioDTO> listEntity2DTO(List<ItinerarioEntity> entities){
         List<ItinerarioDTO> dtos = new ArrayList<>();
         if(entities!=null){
-            for(ItinerarioEntity entity: entities){
+            entities.stream().forEach((entity) -> {
                 dtos.add(basicEntity2DTO(entity));
-            }
+            });
         }
         return dtos;
     }
@@ -184,9 +179,9 @@ public abstract class ItinerarioConverter {
     public static List<ItinerarioEntity> listDTO2Entity(List<ItinerarioDTO> dtos){
         List<ItinerarioEntity> entities = new ArrayList<>();
         if(dtos!=null){
-            for(ItinerarioDTO dto: dtos){
+            dtos.stream().forEach((dto) -> {
                 entities.add(basicDTO2Entity(dto));
-            }
+            });
         }
         return entities;
     }

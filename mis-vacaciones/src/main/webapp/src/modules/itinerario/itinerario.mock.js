@@ -24,8 +24,6 @@
              */
             var records = [
                 {
-//                  atributos nuevos
-//                  idParada: 3554,
                     idItinerario:1,
                     nombreItinerario:"nombre 2",
                     fechaInicio:"01/01/2001",
@@ -38,8 +36,6 @@
                     fechaFinParadaUno: '2015-03-24'
                 },
                 {
-//                  atributos nuevos
-//                  idParada: 3554,
                     idItinerario:2,
                     nombreItinerario:"nombre 2",
                     fechaInicio:"01/01/2001",
@@ -52,23 +48,11 @@
                     fechaFinParadaUno: '2015-03-24'
                 }
 
-//                {
-//                    nombreParadaUno: 48454,
-//                    ciudadParadaUno: "Nombre itinerario 1",
-//                    fechaInicioParadaUno: '2016-01-22',
-//
-//                    fechaFinParadaUno: '2016-01-26'},
-//                {
-//                    idItinerario: 252364,
-//                    nombreItinerario: "Nombre itinerario 2",
-//                    fechaInicio: '2014-01-01',
-//                    fechaFin: '2015-01-01'}
 
             ];
 
             var recordsDos = [
                 {
-//                  idParada: 3554,
                     nombreParadaUno: "buu",
                     ciudadParadaUno: "Cali",
                     actividadParadaUno: "parque",
