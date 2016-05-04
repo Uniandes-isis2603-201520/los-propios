@@ -33,8 +33,6 @@ public class ItinerarioLogicMock {
     private static ArrayList<ItinerarioDTO> itinerarios;
     // listado de perfiles
     private static ArrayList<PerfilDTO> perfiles;
-    // listado de paradas
-    private static ArrayList<ParadaDTO> paradas;
     /**
      * Constructor. Crea los datos de ejemplo.
      */
@@ -43,8 +41,6 @@ public class ItinerarioLogicMock {
         if (itinerarios == null) {
             //Inicializa la lista de itinerarios
             itinerarios = new ArrayList<>();
-            //Inicializa la lista de paradas
-            paradas = new ArrayList<>();
             //Crea paradas para asociales a los itinerarios
             ParadaDTO p1 = new ParadaDTO();
             ParadaDTO p2 = new ParadaDTO();
@@ -90,12 +86,12 @@ public class ItinerarioLogicMock {
      * @throws ItinerarioLogicException cuando el itinerario no existe
      */
     public ItinerarioDTO getItinerario(Long idItinerario) throws ItinerarioLogicException {
-        LOGGER.info("recibiendo solicitud de itinerario con id " + idItinerario);
+        LOGGER.log(Level.INFO, "{0}recibiendo solicitud de itinerario con id ", idItinerario);
 
         // busca el itinerario con el id suministrado
         for (ItinerarioDTO itinerario : itinerarios) {
             if (Objects.equals(itinerario.getIdItinerario(), idItinerario)) {
-                LOGGER.info("retornando itinerario " + itinerario);
+                LOGGER.log(Level.INFO, "retornando itinerario {0}", itinerario);
                 return itinerario;
             }
         }
@@ -118,11 +114,11 @@ public class ItinerarioLogicMock {
         // busca el paradero que le pertenece al id del viajero
         for (PerfilDTO perfil: perfiles)
         {
-            if (Objects.equals(perfil.getId(), idPerfilUsuario))
+            if (perfil.getId()==idPerfilUsuario)
             {
                 for(ItinerarioDTO itinerario: itinerarios)
                 {
-                    if(Objects.equals(itinerario.getIdItinerario(), idItinerario))
+                    if(itinerario.getIdItinerario()==idItinerario)
                     {
                              LOGGER.log(Level.INFO, "retornando parada {0}", itinerario);
                              return itinerario;
