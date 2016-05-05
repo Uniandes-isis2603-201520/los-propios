@@ -78,7 +78,7 @@ public class PerfilResource {
         entity.setId(id);
         PerfilEntity oldEntity = perfilLogic.getPerfil(id);
         //set listas
-       // entity.setAuthors(oldEntity.getAuthors());
+        // entity.setAuthors(oldEntity.getAuthors());
         try {
             PerfilEntity savedBook = perfilLogic.updatePerfil(entity);
             return PerfilConverter.fullEntity2DTO(savedBook);
