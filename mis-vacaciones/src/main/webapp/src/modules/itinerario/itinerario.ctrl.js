@@ -9,11 +9,42 @@
     var mod = ng.module("itinerarioModule");
     mod.controller("itinerarioCtrl", ["$scope", "itinerarioService", function ($scope, svc) {
 
-            var self = this;
             this.readOnly = false;
             this.editMode = false;
 
             $scope.alerts = [];
+            $scope.itinerarios = [];
+            $scope.currentRecord={
+
+                id: undefined /*Tipo Long. El valor se asigna en el backend*/,
+                nombreItinerario: '' /*Tipo String*/,
+                fechaInicio: '' /*Tipo date*/,
+                fechaFin: '' /*Tipo date*/,
+                paradas: [{/* Colección de registros de Parada
+                 * @type itinerario_ctrl_L10  */
+
+                        idParada: undefined /*Tipo Long. El valor se asigna en el backend/,
+                        nombreParadaUno: ''/*Tipo String*/,
+                        ciudadParadaUno: '' /*Tipo String*/,
+                        actividadParadaUno: '' /*Tipo String*/,
+                        fechaInicioParadaUno: '' /*Tipo date*/,
+                        fechaFinParadaUno: '' /*Tipo date*/
+                    },{
+                        idParada: undefined /*Tipo Long. El valor se asigna en el backend*/,
+                        nombreParadaUno: ''/*Tipo String*/,
+                        ciudadParadaUno: '' /*Tipo String*/,
+                        actividadParadaUno: '' /*Tipo String*/,
+                        fechaInicioParadaUno: '' /*Tipo date*/,
+                        fechaFinParadaUno: '' /*Tipo date*/
+                }]/*Coleccion de registros de Parada*/
+
+
+
+
+            }
+
+
+            var self = this;
 
 
             function showMessage(msg, type) {
