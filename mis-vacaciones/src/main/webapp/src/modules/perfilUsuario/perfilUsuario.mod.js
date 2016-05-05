@@ -8,7 +8,7 @@
     var mod = ng.module("perfilUsuarioModule", ["ui.bootstrap"]);
 
       // define una constante usada por el servicio y el mock del servicio
-    mod.constant("perfilUsuarioContext", "api/perfilUsuario");
+    mod.constant("perfilUsuarioContext", "api/perfilesUsuario");
 
 
 })(window.angular);
