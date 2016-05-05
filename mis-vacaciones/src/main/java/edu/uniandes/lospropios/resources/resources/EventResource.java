@@ -28,7 +28,7 @@ import javax.ws.rs.Produces;
  * @author js.gomez14
  */
 
-@Path("perfilesUsuario/{idPerfilUsuario}/itinerarios/(idItinerario)/paradas/(idParada)/visitas/(idVisita)/eventos")
+@Path("eventos")
 @Produces("application/json")
 @RequestScoped
 public class EventResource
@@ -64,25 +64,6 @@ public class EventResource
     public EventoDTO getEvento(@PathParam("id") Long id) throws BusinessLogicException, EventoLogicException
     {
         return EventoConverter.fullEntity2DTO(eventoLogic.getEvento(id));
-    }
-
-     /**
-     * Obtiene un evento
-     *
-     * @param idPerfil identificador del perfil
-     * @param idItinerario identificador del itinerario
-     * @param idParada identificador de la parada
-     * @param idVisita identificador de la visita
-     * @return evento encontrado
-     * @throws edu.uniandes.lospropios.resources.exceptions.EventoLogicException
-     * @throws co.edu.uniandes.mis.vacaciones.logic.exceptions.BusinessLogicException
-     */
-    @GET
-    @Path("{id: \\d+}")
-    public EventoDTO getEventoUsuario(@PathParam("idPerfil") Long idPerfil, @PathParam("idItinerario") Long idItinerario, @PathParam("idParada") Long idParada, @PathParam("idVisita") Long idVisita) throws EventoLogicException, BusinessLogicException {
-        logger.log(Level.INFO, "Se ejecuta metodo getEvento con id={0}", idPerfil);
-        EventoEntity evento= eventoLogic.getEventoUsuario(idPerfil, idItinerario, idParada, idVisita);
-        return EventoConverter.fullEntity2DTO(evento);
     }
 
     /**Retorna una actividad especificando usuario, itinerario, parada,**/
@@ -124,8 +105,8 @@ public class EventResource
         EventoEntity entity = EventoConverter.fullDTO2Entity(parada);
         entity.setId(idEvento);
 
-        EventoEntity savedParada = eventoLogic.updateEvento(entity);
-        return EventoConverter.fullEntity2DTO(savedParada);
+        EventoEntity savedEvento = eventoLogic.updateEvento(entity);
+        return EventoConverter.fullEntity2DTO(savedEvento);
     }
 
     /**

@@ -6,11 +6,13 @@
 package edu.uniandes.lospropios.resources.dtos;
 
 import java.util.Date;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author js.gomez14
  */
+@XmlRootElement
 public class EventoDTO {
 
     /**
@@ -32,7 +34,7 @@ public class EventoDTO {
     /**
      * Representa el nombre de la actividad.
      */
-    private String nombre;
+    private String name;
 
     /**
      * Representa la descripción de la actividad.
@@ -70,14 +72,6 @@ public class EventoDTO {
     */
     private VisitaDTO visita;
 
-    public EventoDTO(long l, String evento1, String a, String col) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public EventoDTO() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     /**
      * @return actividad
      */
@@ -111,15 +105,15 @@ public class EventoDTO {
     /**
      * @return the name
      */
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
     /**
      * @param name the name to set
      */
-    public void setNombre(String name) {
-        this.nombre = name;
+    public void setName(String name) {
+        this.name = name;
     }
 
     /**
@@ -212,11 +206,6 @@ public class EventoDTO {
      */
     @Override
     public String toString() {
-        return "{ id : " + getId() + ", name : \"" + getNombre() + "\" }";
+        return "{ id : " + getId() + ", name : \"" + getName()+ "\" }";
     }
-
-    public void agregarPreferenciasEvento(Date date, int i, String httpUrlImgcom, String EVENTO) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
 }

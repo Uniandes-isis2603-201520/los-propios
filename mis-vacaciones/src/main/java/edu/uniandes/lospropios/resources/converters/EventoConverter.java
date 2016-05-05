@@ -34,7 +34,7 @@ public class EventoConverter
         if(entity!=null){
             EventoDTO dto = new EventoDTO();
             dto.setId(entity.getId());
-            dto.setNombre(entity.getName());
+            dto.setName(entity.getName());
             dto.setFecha(entity.getFecha());
             dto.setClasificacion(entity.getClasificacion());
             dto.setDescripcion(entity.getDescripcion());
@@ -79,7 +79,7 @@ public class EventoConverter
         if (entity != null) {
             EventoDTO dto = new EventoDTO();
             dto.setId(entity.getId());
-            dto.setNombre(entity.getName());
+            dto.setName(entity.getName());
             dto.setFecha(entity.getFecha());
             dto.setClasificacion(entity.getClasificacion());
             dto.setDescripcion(entity.getDescripcion());
@@ -105,7 +105,7 @@ public class EventoConverter
         if (dto != null) {
             EventoEntity entity = new EventoEntity();
             entity.setId(dto.getId());
-            entity.setName(dto.getNombre());
+            entity.setName(dto.getName());
             entity.setFecha(dto.getFecha());
             entity.setClasificacion(dto.getClasificacion());
             entity.setDescripcion(dto.getDescripcion());

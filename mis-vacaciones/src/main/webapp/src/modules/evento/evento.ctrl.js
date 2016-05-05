@@ -9,11 +9,11 @@
   // crea el controlador con dependencias a $scope y a personService
   mod.controller("eventoCtrl", ["$scope", "eventoService", function ($scope, svc) {
 
-
+           $scope.alerts = [];
             $scope.eventos = [];
             $scope.eventoActual={
                 id: 0, /**Tipo long**/
-                nombre: "", /** Tipo String**/
+                name: "", /** Tipo String**/
                 descripcion: "", /**Tipo String**/
                 tipo: "", /**Tipo String**/
                 lugar: "",/**Tipo String**/
@@ -24,6 +24,31 @@
             };
              var self = this;
 
+             function showMessage(msg, type) {
+                 var types = ["info", "danger", "warning", "success"];
+                 if (types.some(function (rc) {
+                     return type === rc;
+                 })) {
+                     $scope.alerts.push({type: type, msg: msg});
+                 }
+             }
+
+             this.showError = function (msg) {
+                 showMessage(msg, "danger");
+             };
+             this.showSuccess = function (msg) {
+                 showMessage(msg, "success");
+             };
+             var self = this;
+
+             function responseError(response) {
+                 self.showError(response.data);
+             }
+
+             this.closeAlert = function (index) {
+                $scope.alerts.splice(index, 1);
+            };
+
             $scope.listarEventos = function () {
                 return svc.fetchRecords().then(function (response)
                 {
@@ -31,19 +56,19 @@
                 });
             };
 
-            $scope.agregarEvento = function () {
+            this.agregarEvento = function () {
                 return svc.saveRecord($scope.eventoActual).then(function () {
                     self.listarEventos();
                 }, responseError);
             };
 
-            $scope.deleteRecord = function (record) {
+            this.deleteRecord = function (record) {
                 return svc.deleteRecord(record.id).then(function () {
                     self.listarEventos();
                 }, responseError);
             };
 
-            $scope.editRecord = function (record) {
+            this.editRecord = function (record) {
                 return svc.fetchRecord(record.id).then(function (response) {
                     $scope.eventoActual = response.data;
                     $scope.$broadcast("post-edit", $scope.eventoActual);

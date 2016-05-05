@@ -23,7 +23,7 @@ and open the template in the editor.-->
                             <div class="form-group col-md-12">
                                 <label for="name" class="col-md-2 control-label">Nombre</label>
                                 <div class="col-md-10">
-                                    <input id="name" name="name" class="form-control" type="text" ng-model="eventoActual.nombre" required />
+                                    <input id="name" name="name" class="form-control" type="text" ng-model="eventoActual.name" required />
                                 </div>
                             </div>
                             <!--Input descripción-->
@@ -80,7 +80,7 @@ and open the template in the editor.-->
 
                             <!--Boton para confirmar la creación del nuevo objeto-->
                             <div>
-                                <button type="submit" ng-click="agregarEvento()">Agregar</button>
+                                <button type="submit" ng-click="ctrl.agregarEvento()">Agregar</button>
                             </div>
                         </fieldset>
 
@@ -113,7 +113,7 @@ and open the template in the editor.-->
                             </div>
                         </div>
                         <div class="caption">
-                            <p><strong>Nombre:</strong> <span>{{evento.nombre}}</span></p>
+                            <p><strong>Nombre:</strong> <span>{{evento.name}}</span></p>
                             <p><strong>Descripción:</strong> <span>{{evento.descripcion}}</span></p>
                             <p><strong>Tipo:</strong> <span >{{evento.tipo}}</span></p>
                             <p><strong>Lugar/Dirección:</strong> <span>{{evento.lugar}}</span></p>
@@ -122,7 +122,7 @@ and open the template in the editor.-->
                         </div>
                         <p class="text-center">
                             <button class="btn btn-default btn-sm"><span class="glyphicon glyphicon-edit"></span> Editar</button>
-                            <button class="btn btn-default btn-sm" ng-click="deleteRecord(evento)"><span class="glyphicon glyphicon-minus"></span> Remover</button>
+                            <button class="btn btn-default btn-sm" ng-click="ctrl.deleteRecord(evento)"><span class="glyphicon glyphicon-minus"></span> Remover</button>
                         </p>
                     </div>
                 </div>
@@ -138,7 +138,7 @@ and open the template in the editor.-->
                             </div>
                         </div>
                         <div class="caption">
-                            <p><strong>Nombre:</strong> <span>{{evento.nombre}}</span></p>
+                            <p><strong>Nombre:</strong> <span>{{evento.name}}</span></p>
                             <p><strong>Descripción:</strong> <span>{{evento.descripcion}}</span></p>
                             <p><strong>Tipo:</strong> <span>{{evento.tipo}}</span></p>
                             <p><strong>Lugar/Dirección:</strong> <span>{{evento.tipo}}</span></p>
@@ -146,7 +146,7 @@ and open the template in the editor.-->
                         </div>
                         <p class="text-center">
                             <button class="btn btn-default btn-sm"><span class="glyphicon glyphicon-edit"></span> Editar</button>
-                            <button class="btn btn-default btn-sm" ng-click="deleteRecord(evento)"><span class="glyphicon glyphicon-minus"></span> Remover</button>
+                            <button class="btn btn-default btn-sm" ng-click="ctrl.deleteRecord(evento)"><span class="glyphicon glyphicon-minus"></span> Remover</button>
                         </p>
                     </div>
                     </div>

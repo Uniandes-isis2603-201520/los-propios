@@ -35,14 +35,35 @@ public class EventoLogicMock {
 
         if (eventos == null) {
             eventos = new ArrayList<>();
-            EventoDTO e1 = new EventoDTO(1L, "evento1", "A", "COL");
-            e1.agregarPreferenciasEvento(new Date(), 2000, "http://UrlImg.com", EventoDTO.EVENTO);
+            EventoDTO e1 = new EventoDTO();
+            e1.setId(1L);
+            e1.setName("evento1");
+            e1.setDescripcion("A");
+            e1.setLugar("COL");
+            e1.setFecha(new Date());
+            e1.setPrecio(2000.);
+            e1.setImg("http://UrlImg.com");
+            e1.setClasificacion(EventoDTO.EVENTO);
             eventos.add(e1);
-            e1 = new EventoDTO(2L, "evento2", "B", "COL");
-            e1.agregarPreferenciasEvento(new Date(), 2001, "http://UrlImg2.com", EventoDTO.SITIO_INTERES);
+
+            e1.setId(2L);
+            e1.setName("evento2");
+            e1.setDescripcion("B");
+            e1.setLugar("FRA");
+            e1.setFecha(new Date());
+            e1.setPrecio(2001.);
+            e1.setImg("http://UrlImg.com");
+            e1.setClasificacion(EventoDTO.SITIO_INTERES);
             eventos.add(e1);
-            e1 = new EventoDTO(3L, "evento3", "C", "CHILE");
-            e1.agregarPreferenciasEvento(new Date(), 30000, "http://UrlImg3.com", EventoDTO.EVENTO);
+
+            e1.setId(3L);
+            e1.setName("evento3");
+            e1.setDescripcion("C");
+            e1.setLugar("CHI");
+            e1.setFecha(new Date());
+            e1.setPrecio(20.);
+            e1.setImg("http://UrlImg.com");
+            e1.setClasificacion(EventoDTO.EVENTO);
             eventos.add(e1);
         }
 
@@ -148,7 +169,7 @@ public class EventoLogicMock {
 
                 // modifica el evento
                 actual.setId(evento.getId());
-                actual.setNombre(evento.getNombre());
+                actual.setName(evento.getName());
 
                 // retorna el evento modificada
                 LOGGER.info("Modificando evento " + actual);
