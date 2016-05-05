@@ -49,7 +49,7 @@
                 $scope.alerts.splice(index, 1);
             };
 
-            $scope.listarEventos = function () {
+            this.listarEventos = function () {
                 return svc.fetchRecords().then(function (response)
                 {
                     $scope.eventos = response.data;
@@ -76,7 +76,7 @@
                 }, responseError);
             };
 
-            $scope.listarEventos();
+            this.listarEventos();
 
 
   }]);

@@ -84,11 +84,7 @@ public class EventResource
 
         return EventoConverter.fullEntity2DTO(entityDos);
     }
-
-    @POST
-    //TODO AGREGAR EVENTO A UNA VISITA
-
-
+    
      /**
      * Actualiza los datos de un Evento
      *

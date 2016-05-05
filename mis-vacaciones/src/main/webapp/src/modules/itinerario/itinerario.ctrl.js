@@ -12,9 +12,35 @@
             var self = this;
             this.readOnly = false;
             this.editMode = false;
-            function responseError(response) {
-                self.showError(response.data);
-            }
+
+            $scope.alerts = [];
+
+
+            function showMessage(msg, type) {
+                 var types = ["info", "danger", "warning", "success"];
+                 if (types.some(function (rc) {
+                     return type === rc;
+                 })) {
+                     $scope.alerts.push({type: type, msg: msg});
+                 }
+             }
+
+             this.showError = function (msg) {
+                 showMessage(msg, "danger");
+             };
+             this.showSuccess = function (msg) {
+                 showMessage(msg, "success");
+             };
+             var self = this;
+
+             function responseError(response) {
+                 self.showError(response.data);
+             }
+
+             this.closeAlert = function (index) {
+                $scope.alerts.splice(index, 1);
+            };
+
 
             $scope.currentRecord = {
                 id: undefined /*Tipo Long. El valor se asigna en el backend*/,

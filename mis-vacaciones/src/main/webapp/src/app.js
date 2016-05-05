@@ -3,7 +3,7 @@
 
     // define la aplicación con sus dependencias
     var mod = ng.module("mainApp", [
-        "ui.router","perfilUsuarioModule","eventoModule","ciudadModule","itinerarioModule"
+        "ui.router","perfilUsuarioModule","eventoModule","itinerarioModule"
     ]);
     mod.config(['$logProvider', function ($logProvider) {
             $logProvider.debugEnabled(true);
@@ -36,16 +36,7 @@
                         }
                     })
 
-                    .state('ciudad', {
-                        url: '/ciudad',
-                        views: {
-                            '': {
-                                controller: "ciudadCtrl",
-                                controllerAs: "ctrl",
-                                templateUrl: "src/modules/ciudad/ciudad.tpl.html"
-                            }
-                        }
-                    })
+
                     .state('itinerario', {
                         url: '/itinerario',
                         views: {
