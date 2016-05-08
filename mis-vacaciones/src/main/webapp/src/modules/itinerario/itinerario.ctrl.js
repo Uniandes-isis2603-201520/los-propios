@@ -16,8 +16,8 @@
                 nombreItinerario: '' /*Tipo String*/,
                 fechaInicio: '' /*Tipo date*/,
                 fechaFin: '' /*Tipo date*/,
-                paradas: [{/* Colección de registros de Parada
-                        idParada: undefined /*Tipo Long. El valor se asigna en el backend/,
+                paradas: [{/* Colección de registros de Parada*/
+                        idParada: undefined /*Tipo Long. El valor se asigna en el backend*/,
                         nombreParadaUno: ''/*Tipo String*/,
                         ciudadParadaUno: '' /*Tipo String*/,
                         actividadParadaUno: '' /*Tipo String*/,
