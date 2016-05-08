@@ -7,22 +7,16 @@
 (function (ng) {
 
     var mod = ng.module("itinerarioModule");
-    mod.controller("itinerarioCtrl", ["$scope", "itinerarioService", function ($scope, svc) {
+    mod.controller("itinerarioCtrl", ["$scope", "itinerarioService", "$modal", function ($scope, svc, $modal) {
 
-            this.readOnly = false;
-            this.editMode = false;
 
             $scope.alerts = [];
-            $scope.itinerarios = [];
             $scope.currentRecord={
-
                 id: undefined /*Tipo Long. El valor se asigna en el backend*/,
                 nombreItinerario: '' /*Tipo String*/,
                 fechaInicio: '' /*Tipo date*/,
                 fechaFin: '' /*Tipo date*/,
                 paradas: [{/* Colección de registros de Parada
-                 * @type itinerario_ctrl_L10  */
-
                         idParada: undefined /*Tipo Long. El valor se asigna en el backend/,
                         nombreParadaUno: ''/*Tipo String*/,
                         ciudadParadaUno: '' /*Tipo String*/,
@@ -31,20 +25,20 @@
                         fechaFinParadaUno: '' /*Tipo date*/
                     },{
                         idParada: undefined /*Tipo Long. El valor se asigna en el backend*/,
-                        nombreParadaUno: ''/*Tipo String*/,
-                        ciudadParadaUno: '' /*Tipo String*/,
-                        actividadParadaUno: '' /*Tipo String*/,
-                        fechaInicioParadaUno: '' /*Tipo date*/,
-                        fechaFinParadaUno: '' /*Tipo date*/
+                        nombreParadaUno: ""/*Tipo String*/,
+                        ciudadParadaUno: "" /*Tipo String*/,
+                        actividadParadaUno: "" /*Tipo String*/,
+                        fechaInicioParadaUno:"" /*Tipo date*/,
+                        fechaFinParadaUno: "" /*Tipo date*/
                 }]/*Coleccion de registros de Parada*/
+            };
+
+            $scope.itinerarios = [];
 
 
-
-
-            }
-
-
-            var self = this;
+             this.closeAlert = function (index) {
+                $scope.alerts.splice(index, 1);
+            };
 
 
             function showMessage(msg, type) {
@@ -59,36 +53,24 @@
              this.showError = function (msg) {
                  showMessage(msg, "danger");
              };
+
              this.showSuccess = function (msg) {
                  showMessage(msg, "success");
              };
+
              var self = this;
 
              function responseError(response) {
                  self.showError(response.data);
              }
 
-             this.closeAlert = function (index) {
-                $scope.alerts.splice(index, 1);
+            //Variables para el controlador
+            this.readOnly = false;
+            this.editMode = false;
+
+            this.changeTab = function (tab) {
+                $scope.tab = tab;
             };
-
-
-            $scope.currentRecord = {
-                id: undefined /*Tipo Long. El valor se asigna en el backend*/,
-                nombreItinerario: '' /*Tipo String*/,
-                fechaInicio: '' /*Tipo String*/,
-                fechaFin: '' /*Tipo String*/
-
-            };
-            $scope.itinerarios = [];
-            $scope.paradas = [];
-            $scope.ciudadesParadas = [];
-            $scope.nombreParadaUno = "";
-            $scope.ciudadParadaUno = "";
-            $scope.actividadParadaUno = "";
-            $scope.fechaInicioParadaUno = "";
-            $scope.fechaFinParadaUno = "";
-
 
             $scope.agregarItinerario = function () {
                 var itinerario = [$scope.nombreParada, $scope.fechaInicio, $scope.fechaFin];
@@ -103,16 +85,44 @@
                 });
             };
 
-            $scope.agregarParada = function () {
+ /*
+             * Funcion fetchRecords consulta todos los registros del módulo book en base de datos
+             * para desplegarlo en el template de la lista.
+             */
+            this.fetchRecords();
+
+
+            function updateParada(event, args) {
+                $scope.currentRecord.paradas = args;
+            }
+            ;
+
+            $scope.$on('updateParada', updateParada);
+
+            this.agregarParada = function () {
                 var parada = [$scope.nombreParadaUno, $scope.ciudadParadaUno, $scope.actividadParadaUno, $scope.fechaInicioParadaUno, $scope.fechaFinParadaUno];
                 svc.saveRecordDos(parada);
             };
 
-            $scope.listarParadas = function () {
+            this.listarParadas = function () {
                 return svc.fetchRecordsDos().then(function (response)
                 {
                     $scope.paradas = response.data;
                 });
+            };
+
+            this.editParada = function (record) {
+                return svc.fetchRecord(record.id).then(function (response) {
+                    $scope.currentRecord = response.data;
+                    $scope.$broadcast("post-edit", $scope.currentRecord);
+                    return response;
+                }, responseError);
+            };
+
+            this.deleteRecordDos = function (record) {
+                return svc.deleteRecord(record.id).then(function () {
+                    self.listarParadas();
+                }, responseError);
             };
 
             this.editRecord = function (record) {
@@ -152,12 +162,9 @@
                 }, responseError);
             };
 
-            this.deleteRecordDos = function (record) {
-                return svc.deleteRecord(record.id).then(function () {
-                    self.fetchRecords();
-                }, responseError);
-            };
-            $scope.listarItinerarios();
+
+            this.listarItinerarios();
+            this.listarParadas();
         }]);
 
 })(window.angular);

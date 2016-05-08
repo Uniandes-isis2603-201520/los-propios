@@ -1,0 +1,152 @@
+<h2>Crear una nueva parada</h2>
+<br>
+<br>
+<div class="form-group" id="Uno">
+    <label class="control-label col-sm-2" for="nombreParada">Nombre Parada:</label>
+    <div class="col-sm-10">
+        <input class= "form-control" type="text" placeholder="Enter parada" id="nombreParadaUno" ng-model="nombreParadaUno">
+    </div>
+</div>
+<div class="form-group">
+    <label class="control-label col-sm-2" for="ciudadParada">Ciudad parada:</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" id="ciudadParadaUno" placeholder="Enter ciudad" ng-model="ciudadParadaUno">
+    </div>
+</div>
+<div class="form-group">
+    <label class="control-label col-sm-2" for="actividadParada">Actividad parada:</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" id="actividadParadaUno" placeholder="Enter actividad" ng-model="actividadParadaUno">
+    </div>
+</div>
+<div class="form-group">
+    <label class="control-label col-sm-2" for="fechaInicioParada">Fecha inicio parada:</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" id="fechaInicioParadaUno" placeholder="Enter fecha inicio" ng-model="fechaInicioParadaUno">
+    </div>
+</div>
+<div class="form-group">
+    <label class="control-label col-sm-2" for="fechaFinParada">Fecha fin parada:</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" id="fechaFinParadaUno" placeholder="Enter fecha fin" ng-model="fechaFinParadaUno">
+    </div>
+</div>
+<button type="submit" class="btn btn-default" ng-click="agregarParada()">Guardar Parada</button>
+<button ng-click="listarParadas()">Mostrar paradas</button>
+
+
+<div>
+    <h3>Lista Paradas </h3>
+    <p ng-repeat="a in paradas">{{ a}}</p>
+    <!--<ul ng-repeat="a in paradas">-->
+
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="itinerario#collapse2">Ver todas mis paradas</a>
+                </h4>
+                <div id="collapse2" class="panel-collapse collapse in">
+
+                    <form class="form-horizontal" role="form"><!--
+                        <ul ng-repeat="a in paradas">
+                            <li>{{a.nombreParadaUno}}</li>
+                            <li>{{a.ciudadParadaUno}}</li>
+                            <li>{{a.actividadParadaUno}}</li>
+                            <li>{{a.fechaInicioParadaUno}}</li>
+                            <li>{{a.fechaFinParadaUno}}</li>
+                        </ul>-->
+                        <div class="form-group" id="dos">
+                            <label class="control-label col-sm-2" for="nombreParada">Nombre Parada:</label>
+                            <div class="col-sm-10">
+                                <ul ng-repeat="a in paradas">
+                                    <li>{{a.nombreParadaUno}}</li>
+                                </ul>
+                                <!--<input class= "form-control" type="text" placeholder="Enter parada" id="nombreParada" ng-model="nombreParada">-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="ciudadParadaUno">Ciudad parada:</label>
+                            <div class="col-sm-10">
+                                 <ul ng-repeat="a in paradas">
+                                    <li>{{a.ciudadParadaUno}}</li>
+                                </ul>
+                                <!--<input type="text" class="form-control" id="ciudadParada" placeholder="Enter ciudad" ng-model="ciudadParada">-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="actividadParadaUno">Actividad parada:</label>
+                            <div class="col-sm-10">
+                                <ul ng-repeat="a in paradas">
+                                    <li>{{a.actividadParadaUno}}</li>
+                                </ul>
+                                <!--<input type="text" class="form-control" id="actividadParada" placeholder="Enter actividad" ng-model="actividadParada">-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="fechaInicioParadaUno">Fecha inicio parada:</label>
+                            <div class="col-sm-10">
+                                <ul ng-repeat="a in paradas">
+                                    <li>{{a.fechaInicioParadaUno}}</li>
+                                </ul>
+                                <!--<input type="text" class="form-control" id="fechaInicioParada" placeholder="Enter fecha inicio" ng-model="fechaInicioParada">-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="fechaFinParadaUno">Fecha fin parada:</label>
+                            <div class="col-sm-10">
+                                 <ul ng-repeat="a in paradas">
+                                     <li>{{a.fechaInicioParadaUno}}</li>
+                                </ul>
+                                <!--<input type="text" class="form-control" id="fechaFinParada" placeholder="Enter fecha fin" ng-model="fechaFinParada">-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <!--<button type="submit" class="btn btn-default">Submit</button>-->
+                                <button type="submit" class="btn btn-default" ng-click="eliminarParada()">Eliminar Parada</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="nombreParada">Nombre Parada:</label>
+                            <div class="col-sm-10">
+                                <input class= "form-control" type="text" placeholder="Enter parada" id="nombreParada" ng-model="nombreParada">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="ciudadParada">Ciudad parada:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="ciudadParada" placeholder="Enter ciudad" ng-model="ciudadParada">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="actividadParada">Actividad parada:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="actividadParada" placeholder="Enter actividad" ng-model="actividadParada">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="fechaInicioParada">Fecha inicio parada:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="fechaInicioParada" placeholder="Enter fecha inicio" ng-model="fechaInicioParada">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="fechaFinParada">Fecha fin parada:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="fechaFinParada" placeholder="Enter fecha fin" ng-model="fechaFinParada">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <!--<button type="submit" class="btn btn-default">Submit</button>-->
+                                <button type="submit" class="btn btn-default" ng-click="eliminarParada()">Eliminar Parada</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

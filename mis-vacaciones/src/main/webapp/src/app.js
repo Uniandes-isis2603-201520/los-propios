@@ -3,7 +3,7 @@
 
     // define la aplicación con sus dependencias
     var mod = ng.module("mainApp", [
-        "ui.router","perfilUsuarioModule","eventoModule","itinerarioModule"
+        "ui.router","perfilUsuarioModule","eventoModule","itinerarioModule", "paradaModule"
     ]);
     mod.config(['$logProvider', function ($logProvider) {
             $logProvider.debugEnabled(true);
@@ -47,6 +47,17 @@
                             }
                         }
                     })
+
+                    .state('parada', {
+                        url: '/parada',
+                        views: {
+                            '': {
+                                controller: "paradaCtrl",
+                                controllerAs: "ctrl",
+                                templateUrl: "src/modules/parada/parada.tpl.html"
+                            }
+                        }
+                    })
                     .state('foro', {
                         url: '/foro',
                         views: {
@@ -60,11 +71,11 @@
                         views: {
                             '': {templateUrl: "src/modules/contactenos/contactenos.tpl.html"}
                         }})
-                    .state('infoCiudad', {
-                        url: '/infoCiudad',
-                        views: {
-                            '': {templateUrl: "src/modules/ciudad/infoCiudad.tpl.html"}
-                        }})
+//                    .state('infoCiudad', {
+//                        url: '/infoCiudad',
+//                        views: {
+//                            '': {templateUrl: "src/modules/ciudad/infoCiudad.tpl.html"}
+//                        }})
                     .state('servicios', {
                         url: '/servicios',
                         views: {

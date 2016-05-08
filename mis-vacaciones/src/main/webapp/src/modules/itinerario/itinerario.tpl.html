@@ -139,7 +139,7 @@
 <br>
 <br>
 
-<h2>Crear una nueva parada</h2>
+<!--<h2>Crear una nueva parada</h2>
 <br>
 <br>
 <div class="form-group" id="Uno">
@@ -179,7 +179,7 @@
 <div>
     <h3>Lista Paradas </h3>
     <p ng-repeat="a in paradas">{{ a}}</p>
-    <!--<ul ng-repeat="a in paradas">-->
+    <ul ng-repeat="a in paradas">
 
     <div class="panel-group" id="accordion">
         <div class="panel panel-default">
@@ -189,21 +189,21 @@
                 </h4>
                 <div id="collapse2" class="panel-collapse collapse in">
 
-                    <form class="form-horizontal" role="form"><!--
+                    <form class="form-horizontal" role="form">
                         <ul ng-repeat="a in paradas">
                             <li>{{a.nombreParadaUno}}</li>
                             <li>{{a.ciudadParadaUno}}</li>
                             <li>{{a.actividadParadaUno}}</li>
                             <li>{{a.fechaInicioParadaUno}}</li>
                             <li>{{a.fechaFinParadaUno}}</li>
-                        </ul>-->
+                        </ul>
                         <div class="form-group" id="dos">
                             <label class="control-label col-sm-2" for="nombreParada">Nombre Parada:</label>
                             <div class="col-sm-10">
                                 <ul ng-repeat="a in paradas">
                                     <li>{{a.nombreParadaUno}}</li>
                                 </ul>
-                                <!--<input class= "form-control" type="text" placeholder="Enter parada" id="nombreParada" ng-model="nombreParada">-->
+                                <input class= "form-control" type="text" placeholder="Enter parada" id="nombreParada" ng-model="nombreParada">
                             </div>
                         </div>
                         <div class="form-group">
@@ -212,7 +212,7 @@
                                  <ul ng-repeat="a in paradas">
                                     <li>{{a.ciudadParadaUno}}</li>
                                 </ul>
-                                <!--<input type="text" class="form-control" id="ciudadParada" placeholder="Enter ciudad" ng-model="ciudadParada">-->
+                                <input type="text" class="form-control" id="ciudadParada" placeholder="Enter ciudad" ng-model="ciudadParada">
                             </div>
                         </div>
                         <div class="form-group">
@@ -221,7 +221,7 @@
                                 <ul ng-repeat="a in paradas">
                                     <li>{{a.actividadParadaUno}}</li>
                                 </ul>
-                                <!--<input type="text" class="form-control" id="actividadParada" placeholder="Enter actividad" ng-model="actividadParada">-->
+                                <input type="text" class="form-control" id="actividadParada" placeholder="Enter actividad" ng-model="actividadParada">
                             </div>
                         </div>
                         <div class="form-group">
@@ -230,7 +230,7 @@
                                 <ul ng-repeat="a in paradas">
                                     <li>{{a.fechaInicioParadaUno}}</li>
                                 </ul>
-                                <!--<input type="text" class="form-control" id="fechaInicioParada" placeholder="Enter fecha inicio" ng-model="fechaInicioParada">-->
+                                <input type="text" class="form-control" id="fechaInicioParada" placeholder="Enter fecha inicio" ng-model="fechaInicioParada">
                             </div>
                         </div>
                         <div class="form-group">
@@ -239,12 +239,12 @@
                                  <ul ng-repeat="a in paradas">
                                      <li>{{a.fechaInicioParadaUno}}</li>
                                 </ul>
-                                <!--<input type="text" class="form-control" id="fechaFinParada" placeholder="Enter fecha fin" ng-model="fechaFinParada">-->
+                                <input type="text" class="form-control" id="fechaFinParada" placeholder="Enter fecha fin" ng-model="fechaFinParada">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
-                                <!--<button type="submit" class="btn btn-default">Submit</button>-->
+                                <button type="submit" class="btn btn-default">Submit</button>
                                 <button type="submit" class="btn btn-default" ng-click="eliminarParada()">Eliminar Parada</button>
                             </div>
                         </div>
@@ -280,7 +280,7 @@
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
-                                <!--<button type="submit" class="btn btn-default">Submit</button>-->
+                                <button type="submit" class="btn btn-default">Submit</button>
                                 <button type="submit" class="btn btn-default" ng-click="eliminarParada()">Eliminar Parada</button>
                             </div>
                         </div>
@@ -290,7 +290,7 @@
         </div>
     </div>
 
-</div>
+</div>-->
 
 <div id="misLineas" class="tabe-pane fade">
     <!--ACA DEBEN PONER EL TIMELINE QUE VAN A HACER-->
