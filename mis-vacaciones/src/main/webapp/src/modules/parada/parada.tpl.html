@@ -4,35 +4,35 @@
 <div class="form-group" id="Uno">
     <label class="control-label col-sm-2" for="nombreParada">Nombre Parada:</label>
     <div class="col-sm-10">
-        <input class= "form-control" type="text" placeholder="Enter parada" id="nombreParadaUno" ng-model="nombreParadaUno">
+        <input class= "form-control" type="text" placeholder="Enter parada" id="nombreParadaUno" ng-model="currentRecord.paradas.nombreParadaUno">
     </div>
 </div>
 <div class="form-group">
     <label class="control-label col-sm-2" for="ciudadParada">Ciudad parada:</label>
     <div class="col-sm-10">
-        <input type="text" class="form-control" id="ciudadParadaUno" placeholder="Enter ciudad" ng-model="ciudadParadaUno">
+        <input type="text" class="form-control" id="ciudadParadaUno" placeholder="Enter ciudad" ng-model="currentRecord.paradas.ciudadParadaUno">
     </div>
 </div>
 <div class="form-group">
     <label class="control-label col-sm-2" for="actividadParada">Actividad parada:</label>
     <div class="col-sm-10">
-        <input type="text" class="form-control" id="actividadParadaUno" placeholder="Enter actividad" ng-model="actividadParadaUno">
+        <input type="text" class="form-control" id="actividadParadaUno" placeholder="Enter actividad" ng-model="currentRecord.paradas.actividadParadaUno">
     </div>
 </div>
 <div class="form-group">
     <label class="control-label col-sm-2" for="fechaInicioParada">Fecha inicio parada:</label>
     <div class="col-sm-10">
-        <input type="text" class="form-control" id="fechaInicioParadaUno" placeholder="Enter fecha inicio" ng-model="fechaInicioParadaUno">
+        <input type="text" class="form-control" id="fechaInicioParadaUno" placeholder="Enter fecha inicio" ng-model="currentRecord.paradas.fechaInicioParadaUno">
     </div>
 </div>
 <div class="form-group">
     <label class="control-label col-sm-2" for="fechaFinParada">Fecha fin parada:</label>
     <div class="col-sm-10">
-        <input type="text" class="form-control" id="fechaFinParadaUno" placeholder="Enter fecha fin" ng-model="fechaFinParadaUno">
+        <input type="text" class="form-control" id="fechaFinParadaUno" placeholder="Enter fecha fin" ng-model="currentRecord.paradas.fechaFinParadaUno">
     </div>
 </div>
-<button type="submit" class="btn btn-default" ng-click="agregarParada()">Guardar Parada</button>
-<button ng-click="listarParadas()">Mostrar paradas</button>
+<button type="submit" class="btn btn-default" ng-click="ctrl.agregarParada()">Guardar Parada</button>
+<button ng-click="ctrl.listarParadas()">Mostrar paradas</button>
 
 
 <div>

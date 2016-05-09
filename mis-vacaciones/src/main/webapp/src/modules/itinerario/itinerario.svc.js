@@ -42,6 +42,10 @@
                 return $http.get(context + "/" + id);
             };
 
+             this.fetchRecordDos = function (id) {
+                return $http.get(context + "/" + id);
+            };
+
             /**
              * Guardar un registro de un itinerarios.
              * Si currentRecord tiene la propiedad id, hace un PUT a /perfilUsuario/:id con los

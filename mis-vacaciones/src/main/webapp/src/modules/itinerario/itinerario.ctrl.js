@@ -7,7 +7,7 @@
 (function (ng) {
 
     var mod = ng.module("itinerarioModule");
-    mod.controller("itinerarioCtrl", ["$scope", "itinerarioService", "$modal", function ($scope, svc, $modal) {
+    mod.controller("itinerarioCtrl","paradaCtrl" ["$scope", "itinerarioService", "$modal", function ($scope, svc, $modal) {
 
 
             $scope.alerts = [];
@@ -99,72 +99,110 @@
 
             $scope.$on('updateParada', updateParada);
 
+           }]);
+
+            mod.controller("paradaCtrl", ["$scope", "itinerarioService", function ($scope, Itinerariosvc) {
+
+            $scope.currentRecord = {};
+            $scope.paradas = [];
+            $scope.refName = "paradas";
+            $scope.alerts = [];
+
+             //Alertas
+            this.closeAlert = function (index) {
+                $scope.alerts.splice(index, 1);
+            };
+
+            function showMessage(msg, type) {
+                var types = ["info", "danger", "warning", "success"];
+                if (types.some(function (rc) {
+                    return type === rc;
+                })) {
+                    $scope.alerts.push({type: type, msg: msg});
+                }
+            }
+
+            this.showError = function (msg) {
+                showMessage(msg, "danger");
+            };
+
+            var self = this;
+            function responseError(response) {
+                self.showError(response.data);
+            }
+
+            //Variables para el controlador
+            this.readOnly = false;
+            this.editMode = false;
+
+            //Escucha de evento cuando se selecciona un registro maestro
+            function onCreateOrEdit(event, args) {
+                var childName = "paradas";
+                if (args[childName] === undefined) {
+                    args[childName] = [];
+                }
+                $scope.paradas = args[childName];
+                $scope.refId = args.id;
+            }
+
+            $scope.$on("post-create", onCreateOrEdit);
+            $scope.$on("post-edit", onCreateOrEdit);
+
+            //Función para encontrar un registro por ID o CID
+            function indexOf(rc) {
+                var field = rc.id !== undefined ? 'id' : 'cid';
+                for (var i in $scope.paradas) {
+                    if ($scope.paradas.hasOwnProperty(i)) {
+                        var current = $scope.paradas[i];
+                        if (current[field] === rc[field]) {
+                            return i;
+                        }
+                    }
+                }
+            }
+
+             this.createRecordDos = function () {
+                this.editMode = true;
+                $scope.currentRecord = {};
+            };
+
+            var self = this;
+
             this.agregarParada = function () {
-                var parada = [$scope.nombreParadaUno, $scope.ciudadParadaUno, $scope.actividadParadaUno, $scope.fechaInicioParadaUno, $scope.fechaFinParadaUno];
-                svc.saveRecordDos(parada);
+                var rc = $scope.currentRecord;
+                if (rc.id || rc.idParada) {
+                    var idx = indexOf(rc);
+                    $scope.paradas.splice(idx, 1, rc);
+                } else {
+                    rc.idParada = -Math.floor(Math.random() * 10000);
+                    rc[$scope.parent] = {id: $scope.refId};
+                    $scope.paradas.push(rc);
+                }
+                this.listarParadas();
             };
 
             this.listarParadas = function () {
-                return svc.fetchRecordsDos().then(function (response)
-                {
-                    $scope.paradas = response.data;
-                });
-            };
+                 $scope.currentRecord = {};
+                this.editMode = false;
+             };
 
-            this.editParada = function (record) {
-                return svc.fetchRecord(record.id).then(function (response) {
-                    $scope.currentRecord = response.data;
-                    $scope.$broadcast("post-edit", $scope.currentRecord);
-                    return response;
-                }, responseError);
-            };
+//            this.editParada = function (recordDos) {
+//                return svc.fetchRecordDos(recordDos.id).then(function (response) {
+//                    $scope.currentRecord.paradas = response.data;
+//                    $scope.$broadcast("post-edit", $scope.currentRecord.paradas);
+//                    return response;
+//                }, responseError);
+//            };
 
-            this.deleteRecordDos = function (record) {
-                return svc.deleteRecord(record.id).then(function () {
-                    self.listarParadas();
-                }, responseError);
-            };
-
-            this.editRecord = function (record) {
-                return svc.fetchRecord(record.id).then(function (response) {
-                    $scope.currentRecord = response.data;
-                    self.editMode = true;
-                    $scope.$broadcast("post-edit", $scope.currentRecord);
-                    return response;
-                }, responseError);
-            };
-            this.saveRecord = function () {
-
-                return svc.saveRecord($scope.currentRecord).then(function () {
-                    self.fetchRecords();
-                }, responseError);
-
-            };
-            this.createRecord = function () {
+             this.editParada = function (record) {
+                $scope.currentRecord = ng.copy(record);
                 this.editMode = true;
-                $scope.currentRecord = {};
-                $scope.$broadcast("post-create", $scope.currentRecord);
             };
 
-            this.fetchRecords = function () {
-                return svc.fetchRecords().then(function (response) {
-                    $scope.itinerarios = response.data;
-                    $scope.currentRecord = {};
-                    self.editMode = false;
-                    return response;
-                }, responseError);
+            this.deleteParada = function (record) {
+                var idx = indexOf(record);
+                $scope.paradas.splice(idx, 1);
             };
-
-
-            this.deleteRecord = function (record) {
-                return svc.deleteRecord(record.id).then(function () {
-                    self.fetchRecords();
-                }, responseError);
-            };
-
-
-            this.listarItinerarios();
-            this.listarParadas();
         }]);
 
 })(window.angular);
