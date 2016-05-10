@@ -26,9 +26,9 @@
              * @returns {promise} promise para leer la respuesta del servidor}
              * Devuelve una lista de objetos de persons con sus atributos
              */
-            this.fetchRecordsDos = function () {
-                return $http.get(context);
-            };
+//            this.fetchRecordsDos = function () {
+//                return $http.get(context);
+//            };
 
             /**
              * Obtener un registro de itinerarios.
@@ -42,9 +42,9 @@
                 return $http.get(context + "/" + id);
             };
 
-             this.fetchRecordDos = function (id) {
-                return $http.get(context + "/" + id);
-            };
+//             this.fetchRecordDos = function (id) {
+//                return $http.get(context + "/" + id);
+//            };
 
             /**
              * Guardar un registro de un itinerarios.
@@ -74,13 +74,13 @@
              * @returns {promise} promise para leer la respuesta del servidor
              * Devuelve un objeto de albumes con sus datos incluyendo el id
              */
-            this.saveRecordDos = function (currentRecordDos) {
-                if (currentRecordDos.id) {
-                    return $http.put(context + "/" + currentRecordDos.id, currentRecordDos);
-                } else {
-                    return $http.post(context, currentRecordDos);
-                }
-            };
+//            this.saveRecordDos = function (currentRecordDos) {
+//                if (currentRecordDos.id) {
+//                    return $http.put(context + "/" + currentRecordDos.id, currentRecordDos);
+//                } else {
+//                    return $http.post(context, currentRecordDos);
+//                }
+//            };
 
             /**
              * Hace una petición DELETE a /itinerarios/:id para eliminar un itinerario
@@ -92,9 +92,9 @@
                 return $http.delete(context + "/" + id);
             };
 
-            this.deleteRecordDos = function (id) {
-            return $http.delete(context + "/" + id);
-        };
+//            this.deleteRecordDos = function (id) {
+//            return $http.delete(context + "/" + id);
+//        };
         }]);
 })(window.angular);
 

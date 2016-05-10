@@ -7,7 +7,7 @@
 (function (ng) {
 
     var mod = ng.module("itinerarioModule");
-    mod.controller("itinerarioCtrl","paradaCtrl" ["$scope", "itinerarioService", "$modal", function ($scope, svc, $modal) {
+    mod.controller("itinerarioCtrl", ["$scope", "itinerarioService", "$modal", function ($scope, svc, $modal) {
 
 
             $scope.alerts = [];
@@ -16,21 +16,21 @@
                 nombreItinerario: '' /*Tipo String*/,
                 fechaInicio: '' /*Tipo date*/,
                 fechaFin: '' /*Tipo date*/,
-                paradas: [{/* Colección de registros de Parada*/
-                        idParada: undefined /*Tipo Long. El valor se asigna en el backend*/,
-                        nombreParadaUno: ''/*Tipo String*/,
-                        ciudadParadaUno: '' /*Tipo String*/,
-                        actividadParadaUno: '' /*Tipo String*/,
-                        fechaInicioParadaUno: '' /*Tipo date*/,
-                        fechaFinParadaUno: '' /*Tipo date*/
-                    },{
-                        idParada: undefined /*Tipo Long. El valor se asigna en el backend*/,
-                        nombreParadaUno: ""/*Tipo String*/,
-                        ciudadParadaUno: "" /*Tipo String*/,
-                        actividadParadaUno: "" /*Tipo String*/,
-                        fechaInicioParadaUno:"" /*Tipo date*/,
-                        fechaFinParadaUno: "" /*Tipo date*/
-                }]/*Coleccion de registros de Parada*/
+//                paradas: [{/* Colección de registros de Parada*/
+//                        idParada: undefined /*Tipo Long. El valor se asigna en el backend*/,
+//                        nombreParadaUno: ''/*Tipo String*/,
+//                        ciudadParadaUno: '' /*Tipo String*/,
+//                        actividadParadaUno: '' /*Tipo String*/,
+//                        fechaInicioParadaUno: '' /*Tipo date*/,
+//                        fechaFinParadaUno: '' /*Tipo date*/
+//                    },{
+//                        idParada: undefined /*Tipo Long. El valor se asigna en el backend*/,
+//                        nombreParadaUno: ""/*Tipo String*/,
+//                        ciudadParadaUno: "" /*Tipo String*/,
+//                        actividadParadaUno: "" /*Tipo String*/,
+//                        fechaInicioParadaUno:"" /*Tipo date*/,
+//                        fechaFinParadaUno: "" /*Tipo date*/
+//                }]/*Coleccion de registros de Parada*/
             };
 
             $scope.itinerarios = [];
@@ -131,78 +131,78 @@
                 self.showError(response.data);
             }
 
-            //Variables para el controlador
-            this.readOnly = false;
-            this.editMode = false;
-
-            //Escucha de evento cuando se selecciona un registro maestro
-            function onCreateOrEdit(event, args) {
-                var childName = "paradas";
-                if (args[childName] === undefined) {
-                    args[childName] = [];
-                }
-                $scope.paradas = args[childName];
-                $scope.refId = args.id;
-            }
-
-            $scope.$on("post-create", onCreateOrEdit);
-            $scope.$on("post-edit", onCreateOrEdit);
-
-            //Función para encontrar un registro por ID o CID
-            function indexOf(rc) {
-                var field = rc.id !== undefined ? 'id' : 'cid';
-                for (var i in $scope.paradas) {
-                    if ($scope.paradas.hasOwnProperty(i)) {
-                        var current = $scope.paradas[i];
-                        if (current[field] === rc[field]) {
-                            return i;
-                        }
-                    }
-                }
-            }
-
-             this.createRecordDos = function () {
-                this.editMode = true;
-                $scope.currentRecord = {};
-            };
-
-            var self = this;
-
-            this.agregarParada = function () {
-                var rc = $scope.currentRecord;
-                if (rc.id || rc.idParada) {
-                    var idx = indexOf(rc);
-                    $scope.paradas.splice(idx, 1, rc);
-                } else {
-                    rc.idParada = -Math.floor(Math.random() * 10000);
-                    rc[$scope.parent] = {id: $scope.refId};
-                    $scope.paradas.push(rc);
-                }
-                this.listarParadas();
-            };
-
-            this.listarParadas = function () {
-                 $scope.currentRecord = {};
-                this.editMode = false;
-             };
-
-//            this.editParada = function (recordDos) {
-//                return svc.fetchRecordDos(recordDos.id).then(function (response) {
-//                    $scope.currentRecord.paradas = response.data;
-//                    $scope.$broadcast("post-edit", $scope.currentRecord.paradas);
-//                    return response;
-//                }, responseError);
+//            //Variables para el controlador
+//            this.readOnly = false;
+//            this.editMode = false;
+//
+//            //Escucha de evento cuando se selecciona un registro maestro
+//            function onCreateOrEdit(event, args) {
+//                var childName = "paradas";
+//                if (args[childName] === undefined) {
+//                    args[childName] = [];
+//                }
+//                $scope.paradas = args[childName];
+//                $scope.refId = args.id;
+//            }
+//
+//            $scope.$on("post-create", onCreateOrEdit);
+//            $scope.$on("post-edit", onCreateOrEdit);
+//
+//            //Función para encontrar un registro por ID o CID
+//            function indexOf(rc) {
+//                var field = rc.id !== undefined ? 'id' : 'cid';
+//                for (var i in $scope.paradas) {
+//                    if ($scope.paradas.hasOwnProperty(i)) {
+//                        var current = $scope.paradas[i];
+//                        if (current[field] === rc[field]) {
+//                            return i;
+//                        }
+//                    }
+//                }
+//            }
+//
+//             this.createRecordDos = function () {
+//                this.editMode = true;
+//                $scope.currentRecord = {};
 //            };
-
-             this.editParada = function (record) {
-                $scope.currentRecord = ng.copy(record);
-                this.editMode = true;
-            };
-
-            this.deleteParada = function (record) {
-                var idx = indexOf(record);
-                $scope.paradas.splice(idx, 1);
-            };
-        }]);
+//
+//            var self = this;
+//
+//            this.agregarParada = function () {
+//                var rc = $scope.currentRecord;
+//                if (rc.id || rc.idParada) {
+//                    var idx = indexOf(rc);
+//                    $scope.paradas.splice(idx, 1, rc);
+//                } else {
+//                    rc.idParada = -Math.floor(Math.random() * 10000);
+//                    rc[$scope.parent] = {id: $scope.refId};
+//                    $scope.paradas.push(rc);
+//                }
+//                this.listarParadas();
+//            };
+//
+//            this.listarParadas = function () {
+//                 $scope.currentRecord = {};
+//                this.editMode = false;
+//             };
+//
+////            this.editParada = function (recordDos) {
+////                return svc.fetchRecordDos(recordDos.id).then(function (response) {
+////                    $scope.currentRecord.paradas = response.data;
+////                    $scope.$broadcast("post-edit", $scope.currentRecord.paradas);
+////                    return response;
+////                }, responseError);
+////            };
+//
+//             this.editParada = function (record) {
+//                $scope.currentRecord = ng.copy(record);
+//                this.editMode = true;
+//            };
+//
+//            this.deleteParada = function (record) {
+//                var idx = indexOf(record);
+//                $scope.paradas.splice(idx, 1);
+//            };
+       }]);
 
 })(window.angular);
