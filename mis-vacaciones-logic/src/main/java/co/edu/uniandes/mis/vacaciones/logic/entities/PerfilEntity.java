@@ -34,6 +34,7 @@ public class PerfilEntity extends BaseEntity implements Serializable {
     private Date fechaNacimiento;
 
     private String profesion;
+    private String email;
 
     @OneToMany
     @PodamExclude
@@ -53,6 +54,14 @@ public class PerfilEntity extends BaseEntity implements Serializable {
 
     public void setProfesion(String profesion) {
         this.profesion = profesion;
+    }
+
+    public void setEmail(String c){
+        email = c;
+    }
+
+    public String getEmail(){
+        return email;
     }
 
     public void setItinerarios(List<ItinerarioEntity> itinerarios) {

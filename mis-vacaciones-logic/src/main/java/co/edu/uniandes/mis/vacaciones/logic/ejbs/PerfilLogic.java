@@ -73,11 +73,12 @@ public class PerfilLogic implements IPerfilLogic {
         persistence.delete(id);
         LOGGER.log(Level.INFO, "Termina proceso de borrar perfil con id={0}", id);
     }
-
+/*
     @Override
     public List<ItinerarioEntity> getItinerarios(Long perfilId) {
         return getPerfil(perfilId).getItinerarios();
     }
+
 
     @Override
     public ItinerarioEntity getItinerario(Long perfilId, Long itinerarioId) {
@@ -112,5 +113,25 @@ public class PerfilLogic implements IPerfilLogic {
             throw new IllegalArgumentException("El itinerario no existe");
         }
     }
+*/
 
+    @Override
+    public List<ItinerarioEntity> getItinerarios(Long perfilId) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public ItinerarioEntity getItinerario(Long perfilId, Long itinerarioId) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public ItinerarioEntity addItinerario(Long perfilId, Long itinerarioId) throws BusinessLogicException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void removeItinerario(Long perfilId, Long itinerarioId) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

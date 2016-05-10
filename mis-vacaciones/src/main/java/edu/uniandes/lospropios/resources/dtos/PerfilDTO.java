@@ -17,11 +17,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class PerfilDTO {
 
     private Long id;
-    private String nombre;
+    private String name;
     private Integer cedula;
     private Integer edad;
     private Date fechaNacimiento;
     private String profesion;
+    private String email;
 
     /**
      * @return the id
@@ -72,24 +73,23 @@ public class PerfilDTO {
     /**
      * @return el nombre
      */
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
+
+    public String getEmail(){
+        return email;
+    }
+
+    public void setEmail(String c){
+        email = c;
+    }
+
 
     /**
      * @param nombre
      */
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    /**
-     * Convierte el objeto a una cadena
-     *
-     * @return
-     */
-    @Override
-    public String toString() {
-        return "{ id : " + getId() + ", ciudad : \"" + getNombre() + "\" }";
+    public void setName(String nombre) {
+        this.name = nombre;
     }
 }

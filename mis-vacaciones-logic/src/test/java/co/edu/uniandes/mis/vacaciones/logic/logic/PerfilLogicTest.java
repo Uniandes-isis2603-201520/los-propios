@@ -12,15 +12,10 @@ import co.edu.uniandes.mis.vacaciones.logic.entities.PerfilEntity;
 import co.edu.uniandes.mis.vacaciones.logic.exceptions.BusinessLogicException;
 import co.edu.uniandes.mis.vacaciones.logic.persistence.PerfilPersistence;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
-import java.util.Random;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 import javax.transaction.UserTransaction;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
@@ -83,10 +78,12 @@ public class PerfilLogicTest {
     }
 
     private void clearData() {
+        /*
         em.createQuery("delete from ReviewEntity").executeUpdate();
         em.createQuery("delete from BookEntity").executeUpdate();
         em.createQuery("delete from AuthorEntity").executeUpdate();
         em.createQuery("delete from EditorialEntity").executeUpdate();
+        */
     }
 
     private void insertData() {

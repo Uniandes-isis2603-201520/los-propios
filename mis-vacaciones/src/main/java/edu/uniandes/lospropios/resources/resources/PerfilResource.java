@@ -59,9 +59,12 @@ public class PerfilResource {
 
     @POST
     public PerfilDTO createPerfil(PerfilDTO perfil) throws PerfilLogicException {
+        LOGGER.log(Level.INFO, "se crea un perfil: " + perfil );
         PerfilEntity entity = PerfilConverter.fullDTO2Entity(perfil);
         PerfilEntity rta;
         try {
+            LOGGER.log(Level.INFO, "Supuestamente esta el entity" + (entity==null));
+            LOGGER.log(Level.INFO, "Supuestamente esta el entity x2 " + entity.getName());
             rta = perfilLogic.createPerfil(entity);
             return PerfilConverter.fullEntity2DTO(rta);
         } catch (BusinessLogicException ex) {

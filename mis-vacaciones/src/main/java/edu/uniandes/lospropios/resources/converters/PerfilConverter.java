@@ -24,7 +24,7 @@ public abstract class PerfilConverter {
         if (entity != null) {
             PerfilDTO dto = new PerfilDTO();
             dto.setId(entity.getId());
-            dto.setNombre(entity.getName());
+            dto.setName(entity.getName());
             return dto;
         } else {
             return null;
@@ -35,8 +35,12 @@ public abstract class PerfilConverter {
         if (entity != null) {
             PerfilDTO dto = new PerfilDTO();
             dto.setId(entity.getId());
-            dto.setNombre(entity.getName());
-
+            dto.setName(entity.getName());
+            dto.setEmail(entity.getEmail());
+            dto.setCedula(entity.getCedula());
+            dto.setEdad(entity.getEdad());
+            dto.setProfesion(entity.getProfesion());
+            dto.setFechaNacimiento(entity.getFechaNacimiento());
             return dto;
         } else {
             return null;
@@ -47,7 +51,12 @@ public abstract class PerfilConverter {
         if (dto != null) {
             PerfilEntity entity = new PerfilEntity();
             entity.setId(dto.getId());
-            entity.setName(dto.getNombre());
+            entity.setName(dto.getName());
+            entity.setEmail(dto.getEmail());
+            entity.setCedula(dto.getCedula());
+            entity.setEdad(dto.getEdad());
+            entity.setProfesion(dto.getProfesion());
+            entity.setFechaNacimiento(dto.getFechaNacimiento());
             return entity;
         } else {
             return null;

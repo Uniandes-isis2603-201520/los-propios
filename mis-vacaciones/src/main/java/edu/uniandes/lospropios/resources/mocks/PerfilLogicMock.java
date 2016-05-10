@@ -55,7 +55,7 @@ public class PerfilLogicMock {
         }
 
         LOGGER.info("retornando el primer perfil");
-        return perfiles.get(0).getNombre();
+        return perfiles.get(0).getName();
     }
 
      public String getPerfilDos(Long id) throws PerfilLogicException {
@@ -68,10 +68,10 @@ public class PerfilLogicMock {
          for (PerfilDTO actual : perfiles) {
             if (Objects.equals(actual.getId(), id)) {
 
-                return perfiles.get(0).getNombre();
+                return perfiles.get(0).getName();
             }
         }
-        return perfiles.get(0).getNombre();
+        return perfiles.get(0).getName();
     }
 
     public PerfilDTO createPerfil(PerfilDTO perfil) throws PerfilLogicException {
@@ -117,7 +117,7 @@ public class PerfilLogicMock {
 
                 // modifica la ciudad
                 actual.setId(perfil.getId());
-                actual.setNombre(perfil.getNombre());
+                actual.setName(perfil.getName());
 
                 // retorna la ciudad modificada
                 LOGGER.info("Modificando ciudad " + actual);

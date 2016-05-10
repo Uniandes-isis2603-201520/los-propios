@@ -1,4 +1,4 @@
-<div>
+<div ng-hide="ctrl.variable1">
     <!-- TODO: Crear el contenido de la planilla-->
     <div id="person-header">
         <nav class="navbar navbar-default" role="navigation">
@@ -47,6 +47,7 @@
                     <p class="text-center">
                         <button id="{{$index}}-edit-btn" class="btn btn-default btn-sm" ng-click="ctrl.editRecord(record)"><span class="glyphicon glyphicon-edit"></span> Edit</button>
                         <button id="{{$index}}-delete-btn" class="btn btn-default btn-sm" ng-click="ctrl.deleteRecord(record)"><span class="glyphicon glyphicon-minus"></span> Remove</button>
+                        <button id="{{$index}}-delete-btn" class="btn btn-default btn-sm" ng-click="ctrl.ver(record)"><span class="glyphicon glyphicon-play"></span> Ver</button>
                     </p>
                 </td>
             </tr>
@@ -72,165 +73,213 @@
                             <input id="email" name="email" class="form-control" type="text" ng-model="currentRecord.email" required />
                         </div>
                     </div>
+                    <div class="form-group col-md-12" ng-class="{'has-success': form.cedula.$valid && form.cedula.$dirty, 'has-error': form.cedula.$invalid && (form.cedula.$dirty || form.$submitted)}" >
+                        <label for="email" class="col-md-2 control-label">Cedula</label>
+                        <div class="col-md-10">
+                            <input id="cedula" name="cedula" class="form-control" type="number" ng-model="currentRecord.cedula" required />
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12" ng-class="{'has-success': form.profesion.$valid && form.profesion.$dirty, 'has-error': form.profesion.$invalid && (form.profesion.$dirty || form.$submitted)}" >
+                        <label for="email" class="col-md-2 control-label">Profesion</label>
+                        <div class="col-md-10">
+                            <input id="profesion" name="profesion" class="form-control" type="text" ng-model="currentRecord.profesion" required />
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12" ng-class="{'has-success': form.edad.$valid && form.edad.$dirty, 'has-error': form.edad.$invalid && (form.edad.$dirty || form.$submitted)}" >
+                        <label for="email" class="col-md-2 control-label">Edad</label>
+                        <div class="col-md-10">
+                            <input id="profesion" name="edad" class="form-control" type="number" ng-model="currentRecord.edad" required />
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12" ng-class="{'has-success': !form.fechaNacimiento.$error.required && form.fechaNacimiento.$dirty, 'has-error': form.fechaNacimiento.$error.required && (form.fechaNacimiento.$dirty || form.$submitted)}" >
+                        <label for="fechaNacimiento" class="col-md-2 control-label">Fecha Nacimiento</label>
+                        <div class="col-md-10">
+                            <p class="input-group">
+                                <input type="text" id="fechaNacimiento" name="fechaNacimiento" class="form-control" ng-model="currentRecord.fechaNacimiento" ng-required="model.required" datepicker-popup is-open="opened" readonly/>
+                                <span class="input-group-btn">
+                                    <button type="button" id="fechaNacimiento-datepicker" class="btn btn-default" ng-click="open($event)"><span class="glyphicon glyphicon-calendar"></span></button>
+                                </span>
+                            </p>
+                        </div>
+                    </div>
                 </fieldset>
             </form>
         </div>
     </div>
 </div>
-<!--
-<!-- Container (Menu)
-<ul class="nav nav-tabs bg-4">
-    <li class="active"><a data-toggle="tab" href="perfil#sitio">Sitios Visitados</a></li>
-    <li><a data-toggle="tab" href="perfil#agregarAlbum">Agregar un album</a></li>
-<!--<li><a data-toggle="tab" href="mis-vacaciones/#itinerario">Mis itinerarios</a></li
-</ul>
-<div class="tab-content" >
-<div id="sitio" class="tab-pane fade in active">
-    <h2>Sitios visitados</h2><br>
-    <div class="row text-center">
-        <div class="col-sm-3">
-            <div class="thumbnail">
-                <img src="resources/data/perfilUsuario/paris.jpg" alt="fotoParis" style="width:350px;height:300px;">
-                <p><strong>Paris</strong></p>
-                <p>Diciembre 2001</p>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="thumbnail">
-                <img src="resources/data/perfilUsuario/amazonas.jpg" alt="Amazonas" style="width:350px;height:300px;">
-                <p><strong>Amazonas</strong></p>
-                <p>Junio 2014</p>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="thumbnail">
-                <img src="resources/data/perfilUsuario/sanAndres.JPG" alt="San Andres" style="width:350px;height:300px;">
-                <p><strong>San Andres</strong></p>
-                <p>Enero 2015</p>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="thumbnail">
-                <img src="https://c1.staticflickr.com/3/2840/12012259575_662c7babdb_b.jpg" alt="San Andres" style="width:350px;height:300px;">
-                <p><strong>Boyaca, laguna de Tota</strong></p>
-                <p>Diciembre 2016</p>
-            </div>
-        </div>
-    </div>
-    <button class="button" id="botonSitio">Agregar Sitio</button>
-</div>
 
-<div id="agregarAlbum" class="tabe-pane fade">
-    <h2>Crear un nuevo Album</h2>
-    <br>
-    <br>
-    <form role="form">
-        <div class="form-group" >
-            <label for="ex1">Nombre Album:</label>
-            <input class= "form-control" type="text" ng-model="id">
-            <br>
-
-            <label for="ex2">Ciudad del albúm:</label>
-            <input class= "form-control" type="text" ng-model="ciudad">
-            <br>
-
-            <label for="ex3">Información adicional:</label>
-            <input class= "form-control" type="text" ng-model="descripcion">
-            <br>
-            <form method="get" name="filea" action="../LeerArchivo" enctype="multipart/form-data" onsubmit="return check();">
-                Archivo: <input type="file" name="nomarchivo" size="70" accept="text/plain;image/jpeg">
-                <br /><br />
-
-                <input type="hidden" id="paramfile" name="paramfile">
-                <input type="submit" name="enviar" value="Enviar">
-            </form>
-            <br>
-            <br>
-            <button ng-click="agregarAlbum()">Guardar Album</button>
-
-
-            <button ng-click="listarAlbumes()">Mostrar albumes</button>
-            <div>
-                <h3>Lista Albumes </h3>
-                <p ng-repeat="a in albumnes">{{ a}}</p>
-            </div>
-<!--<p ng-repeat="a in albumnes">{{ a}}</p>-->
-<!--                <ul>
-                    <li ng-repeat="a in albumnes">{{ a }} </li>
-                </ul
-</div>
-
-<!--            <div class="form-group">
-                <label class="col-sm-2 control-label" for="sel1" >Seleccionar ciudad donde se creo el albúm:</label>
-                <div class="col-sm-10">
-                    <select class ="form-control" id="sel1">
-                        <option>Roma</option>
-                        <option>Paris</option>
-                        <option>Tunja</option>
-                    </select>
+<div ng-show="ctrl.variable1">
+    <div class="guides">
+        <div class="container">
+            <h2>Mi Perfil</h2>
+            <p>Resumen de mí:</p>
+            <div class="row">
+                <div class="my-image">
+                    <div class="col-md-4">
+                        <div class="thumbnail">
+                            <a href=""><img src="https://cdn4.iconfinder.com/data/icons/free-social-media-icons/512/User.png" ></a>
+                        </div>
+                    </div>
                 </div>
-                <div align="right"><input name="boton" id="boton" type="button" value="Más ciudades" class="btn btn-lg" ></div>
-                <br>
-            </div
-</form>
-
-</div>
-</div>
-
-
-<!-- Container (Redes sociales)
-
-<div class="container-fluid1 bg-5 text-center">
-    <h2>Redes Sociales</h2>
-    <br>
-    <div class="row">
-        <div class="col-sm-4">
-            <a href="http://www.facebook.com">
-                <img src="http://static1.squarespace.com/static/4f5810d9e4b0ebbf0a1507a6/t/55a6e39be4b0e13bc07f93a1/1437000604121/" alt="facebook" style="width:50px;height:50px;">
-            </a>
-
-            <h4>Facebook</h4>
-            <p>Comparte tus fotos, conectate con quien quieras</p>
-        </div>
-        <div class="col-sm-4">
-            <a href="http://weheartit.com/">
-                <img src="http://a4.mzstatic.com/us/r30/Purple69/v4/29/1d/b7/291db76b-1207-f1c2-68ef-f6f75363417c/icon175x175.png" alt="weloveit" style="width:50px;height:50px;">
-            </a>
-            <h4>We love it</h4>
-            <p>Album de fotos personalizado</p>
-        </div>
-        <div class="col-sm-4">
-            <a href="https://www.instagram.com/">
-                <img src="http://3835642c2693476aa717-d4b78efce91b9730bcca725cf9bb0b37.r51.cf1.rackcdn.com/Multi-Color_Logo_thumbnail200.png" alt="instagram" style="width:50px;height:50px;">
-            </a>
-            <h4>Instagram</h4>
-            <p>Suigueme y te sigo</p>
-        </div>
-    </div>
-    <br><br>
-    <div class="row">
-        <div class="col-sm-4">
-            <a href="http://pic-collage.com/">
-                <img src="https://oupeltglobal.files.wordpress.com/2013/07/pic-collage-app-icon.png?w=611" alt="pic" style="width:50px;height:50px;">
-            </a>
-            <h4>Pic collage</h4>
-            <p>Haz la combinación de fotos que más te guste</p>
-        </div>
-        <div class="col-sm-4">
-            <a href="https://www.dropbox.com/">
-                <img src="https://cf.dropboxstatic.com/static/images/brand/glyph@2x-vflJ1vxbq.png" alt="dropbox" style="width:50px;height:50px;">
-            </a>
-            <h4>Dropbox</h4>
-            <p>Guarda esos inolvidables recuerdos en la nube</p>
-        </div>
-        <div class="col-sm-4">
-            <a href="https://twitter.com/?lang=es">
-                <img src="https://g.twimg.com/Twitter_logo_blue.png" alt="twitter" style="width:50px;height:50px;">
-            </a>
-            <h4 style="color:#303030;">Twitter</h4>
-            <p>Twittea lo que más te gusto del viaje</p>
+            </div>
         </div>
     </div>
 
-</div>
 
+
+    <!-- Container (Menu) -->
+    <ul class="nav nav-tabs bg-4">
+        <li class="active"><a data-toggle="tab" href="perfil#sitio">Sitios Visitados</a></li>
+        <li><a data-toggle="tab" href="perfil#agregarAlbum">Agregar un album</a></li>
+        <!--<li><a data-toggle="tab" href="mis-vacaciones/#itinerario">Mis itinerarios</a></li>-->
+    </ul>
+    <div class="tab-content" >
+        <div id="sitio" class="tab-pane fade in active">
+            <h2>Sitios visitados</h2><br>
+            <div class="row text-center">
+                <div class="col-sm-3">
+                    <div class="thumbnail">
+                        <img src="resources/data/perfilUsuario/paris.jpg" alt="fotoParis" style="width:350px;height:300px;">
+                        <p><strong>Paris</strong></p>
+                        <p>Diciembre 2001</p>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="thumbnail">
+                        <img src="resources/data/perfilUsuario/amazonas.jpg" alt="Amazonas" style="width:350px;height:300px;">
+                        <p><strong>Amazonas</strong></p>
+                        <p>Junio 2014</p>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="thumbnail">
+                        <img src="resources/data/perfilUsuario/sanAndres.JPG" alt="San Andres" style="width:350px;height:300px;">
+                        <p><strong>San Andres</strong></p>
+                        <p>Enero 2015</p>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="thumbnail">
+                        <img src="https://c1.staticflickr.com/3/2840/12012259575_662c7babdb_b.jpg" alt="San Andres" style="width:350px;height:300px;">
+                        <p><strong>Boyaca, laguna de Tota</strong></p>
+                        <p>Diciembre 2016</p>
+                    </div>
+                </div>
+            </div>
+            <button class="button" id="botonSitio">Agregar Sitio</button>
+        </div>
+
+        <div id="agregarAlbum" class="tabe-pane fade">
+            <h2>Crear un nuevo Album</h2>
+            <br>
+            <br>
+            <form role="form">
+                <div class="form-group" >
+                    <label for="ex1">Nombre Album:</label>
+                    <input class= "form-control" type="text" ng-model="id">
+                    <br>
+
+                    <label for="ex2">Ciudad del albúm:</label>
+                    <input class= "form-control" type="text" ng-model="ciudad">
+                    <br>
+
+                    <label for="ex3">Información adicional:</label>
+                    <input class= "form-control" type="text" ng-model="descripcion">
+                    <br>
+                    <form method="get" name="filea" action="../LeerArchivo" enctype="multipart/form-data" onsubmit="return check();">
+                        Archivo: <input type="file" name="nomarchivo" size="70" accept="text/plain;image/jpeg">
+                        <br /><br />
+
+                        <input type="hidden" id="paramfile" name="paramfile">
+                        <input type="submit" name="enviar" value="Enviar">
+                    </form>
+                    <br>
+                    <br>
+                    <button ng-click="agregarAlbum()">Guardar Album</button>
+
+
+                    <button ng-click="listarAlbumes()">Mostrar albumes</button>
+                    <div align="center">
+                        <h3>Lista Albumes </h3>
+                        <p ng-repeat="a in albumnes">{{ a}}</p>
+                    </div>
+                    <!--<p ng-repeat="a in albumnes">{{ a}}</p>-->
+                    <!--                <ul>
+                                        <li ng-repeat="a in albumnes">{{ a }} </li>
+                                    </ul>-->
+                </div>
+
+                <!--            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="sel1" >Seleccionar ciudad donde se creo el albúm:</label>
+                                <div class="col-sm-10">
+                                    <select class ="form-control" id="sel1">
+                                        <option>Roma</option>
+                                        <option>Paris</option>
+                                        <option>Tunja</option>
+                                    </select>
+                                </div>
+                                <div align="right"><input name="boton" id="boton" type="button" value="Más ciudades" class="btn btn-lg" ></div>
+                                <br>
+                            </div>-->
+            </form>
+
+        </div>
+    </div>
+
+
+    <!-- Container (Redes sociales) -->
+
+    <div class="container-fluid1 bg-5 text-center">
+        <h2>Redes Sociales</h2>
+        <br>
+        <div class="row">
+            <div class="col-sm-4">
+                <a href="http://www.facebook.com">
+                    <img src="http://static1.squarespace.com/static/4f5810d9e4b0ebbf0a1507a6/t/55a6e39be4b0e13bc07f93a1/1437000604121/" alt="facebook" style="width:50px;height:50px;">
+                </a>
+
+                <h4>Facebook</h4>
+                <p>Comparte tus fotos, conectate con quien quieras</p>
+            </div>
+            <div class="col-sm-4">
+                <a href="http://weheartit.com/">
+                    <img src="http://a4.mzstatic.com/us/r30/Purple69/v4/29/1d/b7/291db76b-1207-f1c2-68ef-f6f75363417c/icon175x175.png" alt="weloveit" style="width:50px;height:50px;">
+                </a>
+                <h4>We love it</h4>
+                <p>Album de fotos personalizado</p>
+            </div>
+            <div class="col-sm-4">
+                <a href="https://www.instagram.com/">
+                    <img src="http://3835642c2693476aa717-d4b78efce91b9730bcca725cf9bb0b37.r51.cf1.rackcdn.com/Multi-Color_Logo_thumbnail200.png" alt="instagram" style="width:50px;height:50px;">
+                </a>
+                <h4>Instagram</h4>
+                <p>Suigueme y te sigo</p>
+            </div>
+        </div>
+        <br><br>
+        <div class="row">
+            <div class="col-sm-4">
+                <a href="http://pic-collage.com/">
+                    <img src="https://oupeltglobal.files.wordpress.com/2013/07/pic-collage-app-icon.png?w=611" alt="pic" style="width:50px;height:50px;">
+                </a>
+                <h4>Pic collage</h4>
+                <p>Haz la combinación de fotos que más te guste</p>
+            </div>
+            <div class="col-sm-4">
+                <a href="https://www.dropbox.com/">
+                    <img src="https://cf.dropboxstatic.com/static/images/brand/glyph@2x-vflJ1vxbq.png" alt="dropbox" style="width:50px;height:50px;">
+                </a>
+                <h4>Dropbox</h4>
+                <p>Guarda esos inolvidables recuerdos en la nube</p>
+            </div>
+            <div class="col-sm-4">
+                <a href="https://twitter.com/?lang=es">
+                    <img src="https://g.twimg.com/Twitter_logo_blue.png" alt="twitter" style="width:50px;height:50px;">
+                </a>
+                <h4 style="color:#303030;">Twitter</h4>
+                <p>Twittea lo que más te gusto del viaje</p>
+            </div>
+        </div>
+
+    </div>
+</div>

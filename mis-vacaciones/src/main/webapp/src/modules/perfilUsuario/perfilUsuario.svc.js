@@ -2,7 +2,7 @@
 
     var mod = ng.module("perfilUsuarioModule");
 
-    mod.service("perfilUsuarioService", ["$http", "perfilUsuarioContext", function ($http, context) {
+    mod.service("perfilUsuarioService", ["$http", "perfilUsuarioContext", "$log", function ($http, context, $log) {
             /**
              * Obtener la lista de persons.
              * Hace una petición GET con $http a /persons para obtener la lista
@@ -12,7 +12,7 @@
             this.fetchRecords = function () {
                 return $http.get(context);
             };
-            
+
 
             /**
              * Obtener un registro de persons.
@@ -37,9 +37,12 @@
              * Devuelve un objeto de persons con sus datos incluyendo el id
              */
             this.saveRecord = function (currentRecord) {
+                $log.log(currentRecord);
+                $log.log("id actual: " + currentRecord.id);
                 if (currentRecord.id) {
                     return $http.put(context + "/" + currentRecord.id, currentRecord);
                 } else {
+                    $log.log("entro");
                     return $http.post(context, currentRecord);
                 }
             };

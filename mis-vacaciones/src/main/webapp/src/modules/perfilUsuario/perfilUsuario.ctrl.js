@@ -59,6 +59,7 @@
             //Variables para el controlador
             this.readOnly = false;
             this.editMode = false;
+            this.variable1 = false;
 
             this.changeTab = function (tab) {
                 $scope.tab = tab;
@@ -138,6 +139,11 @@
                     self.fetchRecords();
                 }, responseError);
             };
+
+
+            this.ver = function(record){
+                self.variable1 = true;
+            }
 
             /*
              * Funcion fetchRecords consulta todos los registros del módulo book en base de datos
