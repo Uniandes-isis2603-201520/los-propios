@@ -25,6 +25,8 @@ public class ParadaDTO
     private Date fechaFin;
 
 
+
+
     public Long getId() {
         return id;
     }
@@ -71,5 +73,14 @@ public class ParadaDTO
 
     public void setFechaFin(Date fechaFin) {
         this.fechaFin = fechaFin;
+    }
+
+     /**
+     * Convierte el objeto a una cadena
+     * @return
+     */
+    @Override
+    public String toString() {
+        return "{ id : " + getId() + ", name : \"" + getNombre()+ "\" }";
     }
 }

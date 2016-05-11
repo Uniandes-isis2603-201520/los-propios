@@ -26,10 +26,10 @@ public abstract class ParadaConverter {
             ParadaDTO dto = new ParadaDTO();
             dto.setId(entity.getId());
             dto.setNombre(entity.getName());
-            dto.setActividad(entity.getAcividadParada());
-            dto.setCiudad(entity.getCiudadParada());
-            dto.setFechaFin(entity.getFechaFinParada());
-            dto.setFechaInicio(entity.getFechaInicioParada());
+            dto.setActividad(entity.getActividad());
+            dto.setCiudad(entity.getCiudad());
+            dto.setFechaFin(entity.getFechaFin());
+            dto.setFechaInicio(entity.getFechaInicio());
             return dto;
         } else {
             return null;
@@ -59,10 +59,10 @@ public abstract class ParadaConverter {
             ParadaDTO dto = new ParadaDTO();
             dto.setId(entity.getId());
             dto.setNombre(entity.getName());
-            dto.setActividad(entity.getAcividadParada());
-            dto.setCiudad(entity.getCiudadParada());
-            dto.setFechaFin(entity.getFechaFinParada());
-            dto.setFechaInicio(entity.getFechaInicioParada());
+            dto.setActividad(entity.getActividad());
+            dto.setCiudad(entity.getCiudad());
+            dto.setFechaFin(entity.getFechaFin());
+            dto.setFechaInicio(entity.getFechaInicio());
 
             return dto;
         }
@@ -80,10 +80,10 @@ public abstract class ParadaConverter {
             ParadaEntity entity = new ParadaEntity();
             entity.setId(dto.getId());
             entity.setName(dto.getNombre());
-            entity.setCiudadParada(dto.getCiudad());
-            entity.setActividadParada(dto.getActividad());
-            entity.setFechaFinParada(dto.getFechaFin());
-            entity.setFechaInicioParada(dto.getFechaInicio());
+            entity.setCiudad(dto.getCiudad());
+            entity.setActividad(dto.getActividad());
+            entity.setFechaFin(dto.getFechaFin());
+            entity.setFechaInicio(dto.getFechaInicio());
         return entity;
         }
 

@@ -26,77 +26,71 @@ import uk.co.jemos.podam.common.PodamStrategyValue;
 
 public class ParadaEntity extends BaseEntity implements Serializable {
 
-    private String ciudadParada;
-    private String actividadParada;
+    private String ciudad;
+    private String actividad;
     @PodamStrategyValue(DateStrategy.class)
     @Temporal(TemporalType.DATE)
-    private Date fechaInicioParada;
+    private Date fechaInicio;
     @PodamStrategyValue(DateStrategy.class)
     @Temporal(TemporalType.DATE)
-    private Date fechaFinParada;
+    private Date fechaFin;
 
     @ManyToMany
     @PodamExclude
     private List<VisitaEntity> visitas = new ArrayList();
 
-//@ManyToMany
-//private ItinerarioEntity itinerario;
 
-//@OneToMany(mappedBy = "parada", cascade= CascadeType.ALL, orphanRemoval = true)
-//private List<ReviewEntity> reviews = new ArrayList();
-
-
-    public String getCiudadParada() {
-        return ciudadParada;
+    public String getCiudad() {
+        return ciudad;
     }
 
     /**
-     * @param ciudadParada the ciudadParada to set
+     * @param ciudad the ciudadParada to set
      */
-    public void setCiudadParada(String ciudadParada) {
-        this.ciudadParada = ciudadParada;
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
     }
 
     /**
      * @return the actividadParada
      */
-    public String getAcividadParada() {
-        return actividadParada;
+    public String getActividad() {
+        return actividad;
     }
 
     /**
-     * @param actividadParada the actividadParada to set
+     * @param actividad the actividadParada to set
      */
-    public void setActividadParada(String actividadParada) {
-        this.actividadParada = actividadParada;
+    public void setActividad(String actividad) {
+        this.actividad = actividad;
     }
 
     /**
      * @return the fechaInicioParada
      */
-    public Date getFechaInicioParada() {
-        return fechaInicioParada;
+    public Date getFechaInicio() {
+        return fechaInicio;
     }
 
     /**
-     * @param fechaInicioParada the fechaInicioParada to set
+     * @param fechaInicio the fechaInicioParada to set
      */
-    public void setFechaInicioParada(Date fechaInicioParada) {
-        this.fechaInicioParada = fechaInicioParada;
+    public void setFechaInicio(Date fechaInicio) {
+        this.fechaInicio = fechaInicio;
     }
 
     /**
      * @return the fechaFinParada
      */
-    public Date getFechaFinParada() {
-        return fechaFinParada;
+    public Date getFechaFin() {
+        return fechaFin;
     }
 
     /**
-     * @param fechaFinParada the fechaFinParada to set
+     * @param fechaFin the fechaFinParada to set
      */
-    public void setFechaFinParada(Date fechaFinParada) {
-        this.fechaFinParada = fechaFinParada;
+    public void setFechaFin(Date fechaFin) {
+        this.fechaFin = fechaFin;
     }
 
 

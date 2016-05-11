@@ -45,7 +45,7 @@ import javax.ws.rs.Produces;
 
 public class ParadaResource {
 
-    private static final Logger logger = Logger.getLogger(ParadaResource.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(ParadaResource.class.getName());
     @Inject
     private IParadaLogic paradaLogic;
 
@@ -57,7 +57,7 @@ public class ParadaResource {
      */
     @GET
     public List<ParadaDTO> getParadas() throws ParadaLogicException {
-        logger.info("Se ejecuta el metodo getParadas");
+        LOGGER.info("Se ejecuta el metodo getParadas");
         List<ParadaEntity> paradas = paradaLogic.getParadas();
         return ParadaConverter.listEntity2DTO(paradas);
     }
@@ -73,7 +73,7 @@ public class ParadaResource {
     @GET
     @Path("{id: \\d+}")
     public ParadaDTO getParada( @PathParam("idParada") Long idParada) throws ParadaLogicException, BusinessLogicException {
-        logger.log(Level.INFO, "Se ejecuta metodo getParada con id={0}", idParada);
+        LOGGER.log(Level.INFO, "Se ejecuta metodo getParada con id={0}", idParada);
         ParadaEntity parada = paradaLogic.getParada(idParada);
         return ParadaConverter.fullEntity2DTO(parada);
     }
@@ -89,7 +89,7 @@ public class ParadaResource {
      */
     @POST
     public ParadaDTO createParada(ParadaDTO dtoParada) throws ParadaLogicException, BusinessLogicException {
-        logger.info("Se ejecuta método createParada");
+        LOGGER.info("Se ejecuta método createParada");
         ParadaEntity entity = ParadaConverter.fullDTO2Entity(dtoParada);
         ParadaEntity entityDos = paradaLogic.createParada(entity);
 
@@ -110,7 +110,7 @@ public class ParadaResource {
     @PUT
     @Path("{id: \\d+}")
     public ParadaDTO updateParada(@PathParam("id") Long idParada, ParadaDTO parada) throws ParadaLogicException, BusinessLogicException {
-        logger.log(Level.INFO, "Se ejecuta método updateParada con id={0}", idParada);
+        LOGGER.log(Level.INFO, "Se ejecuta método updateParada con id={0}", idParada);
         ParadaEntity entity = ParadaConverter.fullDTO2Entity(parada);
         entity.setId(idParada);
 

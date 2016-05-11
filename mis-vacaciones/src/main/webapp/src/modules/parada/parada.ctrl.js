@@ -7,17 +7,17 @@
   var mod = ng.module("paradaModule");
 
   // crea el controlador con dependencias a $scope y a personService
-  mod.controller("paradaCtrl", ["$scope", "paradaService", function ($scope, svcParada) {
+  mod.controller("paradaCtrl", ["$scope", "paradaService", function ($scope, svc) {
 
            $scope.alerts = [];
             $scope.paradas = [];
             $scope.paradaActual={
-                idParada: 0 /*Tipo Long. El valor se asigna en el backend*/,
-                nombreParadaUno: ""/*Tipo String*/,
-                ciudadParadaUno: "" /*Tipo String*/,
-                actividadParadaUno: "" /*Tipo String*/,
-                fechaInicioParadaUno: "" /*Tipo date*/,
-                fechaFinParadaUno: "" /*Tipo date*/
+                id: 0 /*Tipo Long. El valor se asigna en el backend*/,
+                nombre: ""/*Tipo String*/,
+                ciudad: "" /*Tipo String*/,
+                actividad: "" /*Tipo String*/,
+                fechaInicio: "" /*Tipo date*/,
+                fechaFin: "" /*Tipo date*/
             };
              var self = this;
 
@@ -47,26 +47,26 @@
             };
 
             this.listarParadas = function () {
-                return svcParada.fetchRecords().then(function (response)
+                return svc.fetchRecords().then(function (response)
                 {
                     $scope.paradas = response.data;
                 });
             };
 
             this.agregarParada = function () {
-                return svcParada.saveRecord($scope.paradaActual).then(function () {
+                return svc.saveRecord($scope.paradaActual).then(function () {
                     self.listarParadas();
                 }, responseError);
             };
 
             this.eliminarParada = function (record) {
-                return svcParada.deleteRecord(record.id).then(function () {
+                return svc.deleteRecord(record.id).then(function () {
                     self.listarParadas();
                 }, responseError);
             };
 
             this.editarParada = function (record) {
-                return svcParada.fetchRecord(record.id).then(function (response) {
+                return svc.fetchRecord(record.id).then(function (response) {
                     $scope.paradaActual = response.data;
                     $scope.$broadcast("post-edit", $scope.paradaActual);
                     return response;

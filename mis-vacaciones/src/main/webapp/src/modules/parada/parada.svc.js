@@ -5,6 +5,7 @@
 
     var mod = ng.module("paradaModule");
 
+
     mod.service("paradaService", ["$http", "paradaContext", function ($http, context) {
             /**
              * Obtener la lista de persons.

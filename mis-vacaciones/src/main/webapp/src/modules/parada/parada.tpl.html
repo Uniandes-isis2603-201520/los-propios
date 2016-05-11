@@ -15,33 +15,33 @@
 
                         <fieldset>
 
-<!--                             <input class= "form-control" type="hidden" placeholder="Enter id parada" id="idParada" ng-model="paradaActual.idParada">-->
+<!--                         <input class= "form-control" type="hidden" placeholder="Enter id parada" id="idParada" ng-model="paradaActual.idParada">-->
                             <!--Input nombre-->
                             <div class="form-group col-md-12">
                                 <label for="name" class="col-md-2 control-label">Nombre</label>
                                 <div class="col-md-10">
-                                    <input class= "form-control" type="text" placeholder="Enter nombre parada" id="nombreParadaUno" ng-model="paradaActual.nombreParadaUno">
+                                    <input class= "form-control" type="text" placeholder="Enter nombre parada" id="nombreParadaUno" ng-model="paradaActual.nombre">
                                 </div>
                             </div>
                             <!--Input descripción-->
                             <div class="form-group col-md-12">
                                 <label for="descripcion" class="col-md-2 control-label">Ciudad</label>
                                 <div class="col-md-10">
-                                    <input type="text" class="form-control" id="ciudadParadaUno" placeholder="Enter ciudad parada" ng-model="paradaActual.ciudadParadaUno">
+                                    <input type="text" class="form-control" id="ciudadParadaUno" placeholder="Enter ciudad parada" ng-model="paradaActual.ciudad">
                                 </div>
                             </div>
                             <!--Input tipo-->
                             <div class="form-group col-md-12">
                                 <label for="tipo" class="col-md-2 control-label">Actividad</label>
                                 <div class="col-md-10">
-                                        <input type="text" class="form-control" id="actividadParadaUno" placeholder="Enter actividad parada" ng-model="paradaActual.actividadParadaUno">
+                                        <input type="text" class="form-control" id="actividadParadaUno" placeholder="Enter actividad parada" ng-model="paradaActual.actividad">
                                 </div>
                             </div>
                              <!--Input lugar-->
                             <div class="form-group col-md-12">
                                 <label for="fecha" class="col-md-2 control-label">Fecha inicio</label>
                                 <div class="col-md-10">
-                                        <input type="date" class="form-control" id="fechaInicioParadaUno" placeholder="Enter fecha inicio parada" ng-model="paradaActual.fechaInicioParadaUno" ng-required="model.required">
+                                        <input type="date" class="form-control" id="fechaInicioParadaUno" placeholder="Enter fecha inicio parada" ng-model="paradaActual.fechaInicio" ng-required="model.required">
                                 </div>
                             </div>
                             <!--Input fecha-->
@@ -49,7 +49,7 @@
                                 <label for="fecha" class="col-md-2 control-label">Fecha Fin</label>
                                 <div class="col-md-10">
                                     <p class="input-group">
-                                        <input type="date" class="form-control" id="fechaFinParadaUno" placeholder="Enter fecha fin parada" ng-model="paradaActual.fechaFinParadaUno" ng-required="model.required">
+                                        <input type="date" class="form-control" id="fechaFinParadaUno" placeholder="Enter fecha fin parada" ng-model="paradaActual.fechaFin" ng-required="model.required">
 
                                     </p>
                                 </div>
@@ -58,6 +58,7 @@
                             <!--Boton para confirmar la creación del nuevo objeto-->
                             <div>
                                 <button type="submit" ng-click="ctrl.agregarParada()">Agregar</button>
+
                             </div>
                         </fieldset>
 
@@ -82,81 +83,82 @@
                 <div id="collapse2" class="panel-collapse collapse in">
 
                     <form class="form-horizontal" role="form">
-                        <ul ng-repeat="a in paradas">
-                            <li>{{a.nombreParadaUno}}</li>
-                            <li>{{a.ciudadParadaUno}}</li>
-                            <li>{{a.actividadParadaUno}}</li>
-                            <li>{{a.fechaInicioParadaUno}}</li>
-                            <li>{{a.fechaFinParadaUno}}</li>
-                        </ul>
+<!--                        <ul ng-repeat="a in paradas">
+                            <li>{{a.nombre}}</li>
+                            <li>{{a.ciudad}}</li>
+                            <li>{{a.actividad}}</li>
+                            <li>{{a.fechaInicio}}</li>
+                            <li>{{a.fechaFin}}</li>
+                        </ul>-->
                         <div class="form-group" id="dos">
                             <label class="control-label col-sm-2" for="nombreParada">Nombre Parada:</label>
                             <div class="col-sm-10">
                                 <ul ng-repeat="a in paradas">
-                                    <li>{{a.nombreParadaUno}}</li>
+                                    <li>{{a.nombre}}</li>
                                 </ul>
-                                <input class= "form-control" type="text" placeholder="Enter parada" id="nombreParada" ng-model="nombreParada">
+<!--                                <input class= "form-control" type="text" placeholder="Enter parada" id="nombreParada" ng-model="nombre">-->
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="ciudadParadaUno">Ciudad parada:</label>
                             <div class="col-sm-10">
                                  <ul ng-repeat="a in paradas">
-                                    <li>{{a.ciudadParadaUno}}</li>
+                                    <li>{{a.ciudad}}</li>
                                 </ul>
-                                <input type="text" class="form-control" id="ciudadParada" placeholder="Enter ciudad" ng-model="ciudadParada">
+                                <input type="text" class="form-control" id="ciudadParada" placeholder="Enter ciudad" ng-model="ciudad">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="actividadParadaUno">Actividad parada:</label>
                             <div class="col-sm-10">
                                 <ul ng-repeat="a in paradas">
-                                    <li>{{a.actividadParadaUno}}</li>
+                                    <li>{{a.actividad}}</li>
                                 </ul>
-                                <input type="text" class="form-control" id="actividadParada" placeholder="Enter actividad" ng-model="actividadParada">
+                                <input type="text" class="form-control" id="actividadParada" placeholder="Enter actividad" ng-model="actividad">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="fechaInicioParadaUno">Fecha inicio parada:</label>
                             <div class="col-sm-10">
                                 <ul ng-repeat="a in paradas">
-                                    <li>{{a.fechaInicioParadaUno}}</li>
+                                    <li>{{a.fechaInicio}}</li>
                                 </ul>
-                                <input type="text" class="form-control" id="fechaInicioParada" placeholder="Enter fecha inicio" ng-model="fechaInicioParada">
+                                <input type="text" class="form-control" id="fechaInicioParada" placeholder="Enter fecha inicio" ng-model="fechaInicio">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="fechaFinParadaUno">Fecha fin parada:</label>
                             <div class="col-sm-10">
                                  <ul ng-repeat="a in paradas">
-                                     <li>{{a.fechaFinParadaUno}}</li>
+                                     <li>{{a.fechaFin}}</li>
                                 </ul>
-                                <input type="text" class="form-control" id="fechaFinParada" placeholder="Enter fecha fin" ng-model="fechaFinParada">
+                                <input type="text" class="form-control" id="fechaFinParada" placeholder="Enter fecha fin" ng-model="fechaFin">
                             </div>
                         </div>
+  <button type="submit" ng-click="ctrl.eliminarParada(a)">Eliminar</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 
-<button type="submit" class="btn btn-default" ng-click="ctrl.listarParadas()">Mostrar paradas</button>
+<!--<button type="submit" class="btn btn-default" ng-click="ctrl.listarParadas()">Mostrar paradas</button>-->
 
 </div>
 <!--Columna del catalogo que contiene los eventos-->
 
-<!--                <div ng-repeat="parada in paradas">
+                <div ng-repeat="parada in paradas">
                     <div class="col-md-4 col-sm-6 col-lg-3 well">
                         <div class="caption">
-                            <p><strong>Nombre:</strong> <span>{{parada.nombreParadaUno}}</span></p>
-                            <p><strong>Ciudad:</strong> <span>{{parada.ciudadParadaUno}}</span></p>
-                            <p><strong>Actividad:</strong> <span >{{parada.actividadParadaUno}}</span></p>
-                            <p><strong>Fecha inicio:</strong> <span>{{parada.fechaInicioParadaUno}}</span></p>
-                            <p><strong>Fecha Fin:</strong> <span>{{parada.fechaFinParadaUno}}</span></p>
+                            <p><strong>Nombre:</strong> <span>{{parada.nombre}}</span></p>
+                            <p><strong>Ciudad:</strong> <span>{{parada.ciudad}}</span></p>
+                            <p><strong>Actividad:</strong> <span >{{parada.actividad}}</span></p>
+                            <p><strong>Fecha inicio:</strong> <span>{{parada.fechaInicio}}</span></p>
+                            <p><strong>Fecha Fin:</strong> <span>{{parada.fechaFin}}</span></p>
                         </div>
                         <p class="text-center">
-                            <button class="btn btn-default btn-sm"><span class="glyphicon glyphicon-edit"></span> Editar</button>
-                            <button class="btn btn-default btn-sm" ng-click="ctrl.deleteRecord(evento)"><span class="glyphicon glyphicon-minus"></span> Remover</button>
+                            <button class="btn btn-default btn-sm" ng-click="ctrl.editarParada(parada)"><span class="glyphicon glyphicon-edit"></span> Editar Parada</button>
+                            <button class="btn btn-default btn-sm" ng-click="ctrl.eliminarParada(parada)"><span class="glyphicon glyphicon-minus"></span> Eliminar Parada</button>
                         </p>
                     </div>
-                </div>-->
+                </div>
