@@ -17,8 +17,8 @@ and open the template in the editor.-->
 
                         <!--Panel Body-->
                         <fieldset>
-                            <!--revisar form.nombreItinerario exista en vez de form.name-->
-                            <input id="id" class="form-control" type="hidden" ng-model="eventoActual.id"/>
+                            <!--revisar form.nombreEvento exista en vez de form.name-->
+                            <input id="id" class="form-control" type="hidden" ng-model="eventoActual.id" />
                             <!--Input nombre-->
                             <div class="form-group col-md-12">
                                 <label for="name" class="col-md-2 control-label">Nombre</label>
@@ -74,7 +74,10 @@ and open the template in the editor.-->
                             <div class="form-group col-md-12" >
                                 <label for="clasificacion" class="col-md-2 control-label">Clasificación</label>
                                 <div class="col-md-10">
-                                        <input type="text" id="clasificacion" name="clasificacion" class="form-control" ng-model="eventoActual.clasificacion" required/>
+                                    <select name="Clasificacion" ng-model="eventoActual.clasificacion">
+                                       <option value="evento">Evento</option>
+                                       <option value="sitiointeres">SitioInteres</option>
+                                    </select>
                                 </div>
                             </div>
 
@@ -121,7 +124,6 @@ and open the template in the editor.-->
                             <p><strong>Precio:</strong> <span>{{evento.precio}}</span></p>
                         </div>
                         <p class="text-center">
-                            <button class="btn btn-default btn-sm"><span class="glyphicon glyphicon-edit"></span> Editar</button>
                             <button class="btn btn-default btn-sm" ng-click="ctrl.deleteRecord(evento)"><span class="glyphicon glyphicon-minus"></span> Remover</button>
                         </p>
                     </div>
@@ -141,11 +143,10 @@ and open the template in the editor.-->
                             <p><strong>Nombre:</strong> <span>{{evento.name}}</span></p>
                             <p><strong>Descripción:</strong> <span>{{evento.descripcion}}</span></p>
                             <p><strong>Tipo:</strong> <span>{{evento.tipo}}</span></p>
-                            <p><strong>Lugar/Dirección:</strong> <span>{{evento.tipo}}</span></p>
+                            <p><strong>Lugar/Dirección:</strong> <span>{{evento.lugar}}</span></p>
                             <p><strong>Precio:</strong> <span>{{evento.precio}}</span></p>
                         </div>
                         <p class="text-center">
-                            <button class="btn btn-default btn-sm"><span class="glyphicon glyphicon-edit"></span> Editar</button>
                             <button class="btn btn-default btn-sm" ng-click="ctrl.deleteRecord(evento)"><span class="glyphicon glyphicon-minus"></span> Remover</button>
                         </p>
                     </div>

@@ -42,6 +42,11 @@ public class EventoDTO {
     private String descripcion;
 
     /**
+     * Representa la descripción de la actividad.
+     */
+    private String tipo;
+
+    /**
      * Representa el lugar de la actividad.
      */
     private String lugar;
@@ -143,6 +148,22 @@ public class EventoDTO {
     public void setLugar(String lugar) {
         this.lugar = lugar;
     }
+
+    /**
+     * @return el tipo
+     */
+    public String getTipo() {
+        return tipo;
+    }
+
+    /**
+     * @param tipo el tipo
+     */
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+
 
     /**
      * @return la fecha

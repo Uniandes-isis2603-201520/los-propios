@@ -57,7 +57,7 @@
             };
 
             this.agregarEvento = function () {
-                return svc.saveRecord($scope.eventoActual).then(function () {
+                    return svc.saveRecord($scope.eventoActual).then(function () {
                     self.listarEventos();
                 }, responseError);
             };

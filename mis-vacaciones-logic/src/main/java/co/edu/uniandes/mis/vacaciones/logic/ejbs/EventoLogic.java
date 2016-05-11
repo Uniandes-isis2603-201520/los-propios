@@ -82,9 +82,4 @@ public class EventoLogic implements IEventoLogic
         persistence.delete(id);
         logger.log(Level.INFO, "Temrmina proceso de borrar evento con id ={0}", id);
     }
-
-    @Override
-    public EventoEntity getEventoUsuario(Long idPerfil, Long idItinerario, Long idParada, Long idVisita) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }

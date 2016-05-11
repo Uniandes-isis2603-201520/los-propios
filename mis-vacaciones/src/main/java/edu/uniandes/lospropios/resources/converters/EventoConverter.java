@@ -16,11 +16,6 @@ import java.util.List;
  */
 public class EventoConverter
 {
-
-    public EventoConverter()
-    {
-
-    }
      /**
      * Realiza la conversión de EventoEntity a EventoDTO. Se invoca cuando otra
      * entidad tiene una referencia a EventoEntity. Entrega únicamente los
@@ -38,6 +33,7 @@ public class EventoConverter
             dto.setFecha(entity.getFecha());
             dto.setClasificacion(entity.getClasificacion());
             dto.setDescripcion(entity.getDescripcion());
+            dto.setTipo(entity.getTipo());
             dto.setImg(entity.getImg());
             dto.setLugar(entity.getLugar());
             dto.setPrecio(entity.getPrecio());
@@ -82,6 +78,7 @@ public class EventoConverter
             dto.setName(entity.getName());
             dto.setFecha(entity.getFecha());
             dto.setClasificacion(entity.getClasificacion());
+            dto.setTipo(entity.getTipo());
             dto.setDescripcion(entity.getDescripcion());
             dto.setImg(entity.getImg());
             dto.setLugar(entity.getLugar());
@@ -107,6 +104,7 @@ public class EventoConverter
             entity.setId(dto.getId());
             entity.setName(dto.getName());
             entity.setFecha(dto.getFecha());
+            entity.setTipo(dto.getTipo());
             entity.setClasificacion(dto.getClasificacion());
             entity.setDescripcion(dto.getDescripcion());
             entity.setImg(dto.getImg());
