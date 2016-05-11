@@ -36,6 +36,10 @@ public class PerfilEntity extends BaseEntity implements Serializable {
     private String profesion;
     private String email;
 
+    private String imagen;
+
+    private String resumen;
+
     @OneToMany
     @PodamExclude
     private List<ItinerarioEntity> itinerarios = new ArrayList<>();
@@ -83,6 +87,23 @@ public class PerfilEntity extends BaseEntity implements Serializable {
     public String getProfesion() {
         return profesion;
     }
+
+    public void setImagen(String img){
+        imagen = img;
+    }
+
+    public String getImagen(){
+        return imagen;
+    }
+
+    public void setResumen(String r){
+        resumen = r;
+    }
+
+    public String getResumen(){
+        return resumen;
+    }
+
 
     public List<ItinerarioEntity> getItinerarios() {
         return itinerarios;

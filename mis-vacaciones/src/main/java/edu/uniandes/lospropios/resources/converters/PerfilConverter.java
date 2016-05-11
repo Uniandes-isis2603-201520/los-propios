@@ -41,6 +41,8 @@ public abstract class PerfilConverter {
             dto.setEdad(entity.getEdad());
             dto.setProfesion(entity.getProfesion());
             dto.setFechaNacimiento(entity.getFechaNacimiento());
+            dto.setImagen(entity.getImagen());
+            dto.setResumen(entity.getResumen());
             return dto;
         } else {
             return null;
@@ -57,6 +59,8 @@ public abstract class PerfilConverter {
             entity.setEdad(dto.getEdad());
             entity.setProfesion(dto.getProfesion());
             entity.setFechaNacimiento(dto.getFechaNacimiento());
+            entity.setImagen(dto.getImagen());
+            entity.setResumen(dto.getResumen());
             return entity;
         } else {
             return null;

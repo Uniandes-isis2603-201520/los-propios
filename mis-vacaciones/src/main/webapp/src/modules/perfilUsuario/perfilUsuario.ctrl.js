@@ -142,7 +142,17 @@
 
 
             this.ver = function(record){
-                self.variable1 = true;
+                $scope.$broadcast("pre-edit", $scope.currentRecord);
+                return svc.fetchRecord(record.id).then(function (response) {
+                    $scope.currentRecord = response.data;
+                    self.variable1 = true;
+                    $scope.$broadcast("post-edit", $scope.currentRecord);
+                    return response;
+                }, responseError);
+            }
+
+            this.cerrarSesion = function(){
+                self.variable1 = false;
             }
 
             /*

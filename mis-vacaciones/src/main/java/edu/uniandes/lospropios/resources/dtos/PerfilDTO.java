@@ -5,8 +5,11 @@
  */
 package edu.uniandes.lospropios.resources.dtos;
 
+import edu.uniandes.lospropios.resources.adapters.DateAdapter;
 import java.util.Date;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 /**
  * Objeto de transferencia de datos del perfil.
@@ -23,6 +26,11 @@ public class PerfilDTO {
     private Date fechaNacimiento;
     private String profesion;
     private String email;
+    private String imagen;
+    private String resumen;
+
+    private final static String IMG = "https://cdn4.iconfinder.com/data/icons/free-social-media-icons/512/User.png";
+    private final static String RESUME = "I'm a person";
 
     /**
      * @return the id
@@ -30,6 +38,27 @@ public class PerfilDTO {
     public Long getId() {
         return id;
     }
+
+    public void setImagen(String img){
+        imagen = img;
+    }
+
+    public String getImagen(){
+        if(imagen==null)
+            return IMG;
+        return imagen;
+    }
+
+    public void setResumen(String r){
+        resumen = r;
+    }
+
+    public String getResumen(){
+        if(resumen==null || resumen.equals(""))
+            return RESUME;
+        return resumen;
+    }
+
 
     public Integer getCedula() {
         return cedula;
@@ -47,6 +76,8 @@ public class PerfilDTO {
         this.edad = edad;
     }
 
+    @XmlElement(name = "fechaNacimiento")
+    @XmlJavaTypeAdapter(DateAdapter.class)
     public Date getFechaNacimiento() {
         return fechaNacimiento;
     }
@@ -77,14 +108,13 @@ public class PerfilDTO {
         return name;
     }
 
-    public String getEmail(){
+    public String getEmail() {
         return email;
     }
 
-    public void setEmail(String c){
+    public void setEmail(String c) {
         email = c;
     }
-
 
     /**
      * @param nombre
