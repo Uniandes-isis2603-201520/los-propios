@@ -10,7 +10,6 @@ import edu.uniandes.lospropios.resources.dtos.PerfilDTO;
 import edu.uniandes.lospropios.resources.dtos.ItinerarioDTO;
 import edu.uniandes.lospropios.resources.exceptions.ParadaLogicException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 import java.util.logging.Level;

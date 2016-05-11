@@ -1,18 +1,18 @@
-// src/modules/evento/evento.ctrl.js
+// src/modules/parada/parada.ctrl.js
 // Controlador para el módulo de personas
 
 (function (ng) {
 
-  // es parte del módulo "eventoModule"
+  // es parte del módulo "paradaModule"
   var mod = ng.module("paradaModule");
 
   // crea el controlador con dependencias a $scope y a personService
-  mod.controller("paradaCtrl", ["$scope", "paradaService", function ($scope, svc) {
+  mod.controller("paradaCtrl", ["$scope", "paradaService", function ($scope, svcParada) {
 
            $scope.alerts = [];
             $scope.paradas = [];
             $scope.paradaActual={
-                idParada: undefined /*Tipo Long. El valor se asigna en el backend*/,
+                idParada: 0 /*Tipo Long. El valor se asigna en el backend*/,
                 nombreParadaUno: ""/*Tipo String*/,
                 ciudadParadaUno: "" /*Tipo String*/,
                 actividadParadaUno: "" /*Tipo String*/,
@@ -47,26 +47,26 @@
             };
 
             this.listarParadas = function () {
-                return svc.fetchRecords().then(function (response)
+                return svcParada.fetchRecords().then(function (response)
                 {
                     $scope.paradas = response.data;
                 });
             };
 
             this.agregarParada = function () {
-                return svc.saveRecord($scope.paradaActual).then(function () {
-                    self.listaParadas();
+                return svcParada.saveRecord($scope.paradaActual).then(function () {
+                    self.listarParadas();
                 }, responseError);
             };
 
             this.eliminarParada = function (record) {
-                return svc.deleteRecord(record.id).then(function () {
+                return svcParada.deleteRecord(record.id).then(function () {
                     self.listarParadas();
                 }, responseError);
             };
 
             this.editarParada = function (record) {
-                return svc.fetchRecord(record.id).then(function (response) {
+                return svcParada.fetchRecord(record.id).then(function (response) {
                     $scope.paradaActual = response.data;
                     $scope.$broadcast("post-edit", $scope.paradaActual);
                     return response;
@@ -74,8 +74,6 @@
             };
 
             this.listarParadas();
-
-
   }]);
 
 })(window.angular);

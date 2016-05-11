@@ -39,7 +39,7 @@ import javax.ws.rs.Produces;
  *
  * @author mc.hernandez1
  */
-@Path("perfilesUsuario/{idPerfilUsuario}/itinerarios/(idItinerario)/paradas")
+@Path("paradas")
 @Produces("application/json")
 @RequestScoped
 
@@ -64,9 +64,6 @@ public class ParadaResource {
 
     /**
      * Obtiene una parada
-     *
-     * @param idPerfil identificador del perfil
-     * @param idItinerario identificador del itinerario
      * @param idParada identificador de la parada
      * @return parada encontrada
      * @throws edu.uniandes.lospropios.resources.exceptions.ParadaLogicException
@@ -75,9 +72,9 @@ public class ParadaResource {
      */
     @GET
     @Path("{id: \\d+}")
-    public ParadaDTO getParada(@PathParam("idPerfil") Long idPerfil, @PathParam("idItinerario") Long idItinerario, @PathParam("idParada") Long idParada) throws ParadaLogicException, BusinessLogicException {
-        logger.log(Level.INFO, "Se ejecuta metodo getParada con id={0}", idPerfil);
-        ParadaEntity parada = paradaLogic.getParada(idPerfil);
+    public ParadaDTO getParada( @PathParam("idParada") Long idParada) throws ParadaLogicException, BusinessLogicException {
+        logger.log(Level.INFO, "Se ejecuta metodo getParada con id={0}", idParada);
+        ParadaEntity parada = paradaLogic.getParada(idParada);
         return ParadaConverter.fullEntity2DTO(parada);
     }
 
@@ -88,6 +85,7 @@ public class ParadaResource {
      * @return datos de la parada a agregar
      * @throws ParadaLogicException cuando ya existe una parada con el id
      * suministrado
+     * @throws co.edu.uniandes.mis.vacaciones.logic.exceptions.BusinessLogicException
      */
     @POST
     public ParadaDTO createParada(ParadaDTO dtoParada) throws ParadaLogicException, BusinessLogicException {
@@ -101,7 +99,7 @@ public class ParadaResource {
     /**
      * Actualiza los datos de una parada
      *
-     * @param id identificador de la parada a modificar
+     * @param idParada
      * @param parada parada a modificar
      * @return datos de la parada modificados
      * @throws ParadaLogicException cuando no existe una parada con el id

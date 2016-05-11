@@ -48,8 +48,8 @@
                         }
                     })
 
-                    .state('parada', {
-                        url: '/parada',
+                    .state('paradas', {
+                        url: '/paradas',
                         views: {
                             '': {
                                 controller: "paradaCtrl",
