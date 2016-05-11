@@ -149,11 +149,21 @@
                     $scope.$broadcast("post-edit", $scope.currentRecord);
                     return response;
                 }, responseError);
-            }
+            };
 
             this.cerrarSesion = function(){
                 self.variable1 = false;
-            }
+                self.readOnly=false;
+            };
+
+            this.editarImg = function(){
+                self.readOnly=true;
+            };
+
+            this.guardarImg=function(){
+                self.readOnly=false;
+                return svc.saveRecord($scope.currentRecord);
+            };
 
             /*
              * Funcion fetchRecords consulta todos los registros del módulo book en base de datos
