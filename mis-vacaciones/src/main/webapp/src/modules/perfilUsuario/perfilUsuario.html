@@ -74,19 +74,19 @@
                         </div>
                     </div>
                     <div class="form-group col-md-12" ng-class="{'has-success': form.cedula.$valid && form.cedula.$dirty, 'has-error': form.cedula.$invalid && (form.cedula.$dirty || form.$submitted)}" >
-                        <label for="email" class="col-md-2 control-label">Cedula</label>
+                        <label for="cedula" class="col-md-2 control-label">Cedula</label>
                         <div class="col-md-10">
                             <input id="cedula" name="cedula" class="form-control" type="number" ng-model="currentRecord.cedula" required />
                         </div>
                     </div>
                     <div class="form-group col-md-12" ng-class="{'has-success': form.profesion.$valid && form.profesion.$dirty, 'has-error': form.profesion.$invalid && (form.profesion.$dirty || form.$submitted)}" >
-                        <label for="email" class="col-md-2 control-label">Profesion</label>
+                        <label for="profesion" class="col-md-2 control-label">Profesion</label>
                         <div class="col-md-10">
                             <input id="profesion" name="profesion" class="form-control" type="text" ng-model="currentRecord.profesion" required />
                         </div>
                     </div>
                     <div class="form-group col-md-12" ng-class="{'has-success': form.edad.$valid && form.edad.$dirty, 'has-error': form.edad.$invalid && (form.edad.$dirty || form.$submitted)}" >
-                        <label for="email" class="col-md-2 control-label">Edad</label>
+                        <label for="edad" class="col-md-2 control-label">Edad</label>
                         <div class="col-md-10">
                             <input id="profesion" name="edad" class="form-control" type="number" ng-model="currentRecord.edad" required />
                         </div>
@@ -108,56 +108,57 @@
     </div>
 </div>
 
-<div ng-show="ctrl.variable1" class="main-wrapper">
-
-    <!-- START ABOUT SECTION -->
-    <section id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col s12">
-                    <div class="about-inner">
-                        <div class="row">
-                            <div class="col s12 m4 l3">
-                                <div class="about-inner-left">
-                                    <a ng-href="{{currentRecord.imagen}}" target="_blank"><img class="img-responsive" style="height: 20vmax;" ng-src="{{currentRecord.imagen}}" alt="{{currentRecord.imagen}}"></a>
-                                    <div ng-show = "ctrl.readOnly">
-                                        <br>
-                                        Ingrese el link de su imagen:
-                                        <br>
-                                        <div class="col-md-10">
-                                            <input id="imagen" name="imagen" class="form-control" type="text" ng-model="currentRecord.imagen" required />
+<div ng-show="ctrl.variable1">
+    <div class ="main-wrapper">
+        <!-- START ABOUT SECTION -->
+        <section id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="about-inner">
+                            <div class="row">
+                                <div class="col s12 m4 l3">
+                                    <div class="about-inner-left">
+                                        <img class="img-responsive" style="height: 20vmax;" ng-src="{{currentRecord.imagen}}" alt="{{currentRecord.imagen}}">
+                                        <div ng-show = "ctrl.readOnly">
+                                            <br>
+                                            Ingrese el link de su imagen:
+                                            <br>
+                                            <div class="col-md-10">
+                                                <input id="imagen" name="imagen" class="form-control" type="text" ng-model="currentRecord.imagen" required />
+                                            </div>
                                         </div>
+                                        <br><br><br>
+                                        <button class="btn btn-default btn-sm" ng-show="ctrl.readOnly" ng-click="ctrl.guardarImg(currentRecord)"><span class="glyphicon glyphicon-save"></span> Guardar </button>
+                                        <button id="{{$index}}-edit-btn" ng-hide="ctrl.readOnly" class="btn btn-default btn-sm" ng-click="ctrl.editarImg()"><span class="glyphicon glyphicon-edit"></span> Edit</button>
                                     </div>
-                                    <br><br><br>
-                                    <button class="btn btn-default btn-sm" ng-show="ctrl.readOnly" ng-click="ctrl.guardarImg(currentRecord)"><span class="glyphicon glyphicon-save"></span> Guardar </button>
-                                    <button id="{{$index}}-edit-btn" ng-hide="ctrl.readOnly" class="btn btn-default btn-sm" ng-click="ctrl.editarImg()"><span class="glyphicon glyphicon-edit"></span> Edit</button>
                                 </div>
-                            </div>
-                            <div class="col s12 m8 l9">
-                                <div class="about-inner-right">
-                                    <h3>About Me</h3>
-                                    <p ng-hide = "ctrl.readOnly">{{currentRecord.resumen}}</p>
-                                    <div ng-show = "ctrl.readOnly">
-                                        <label for="name" class="col-md-2 control-label">Escriba su resumen</label>
-                                        <br>
-                                        <div class="col-md-10">
-                                            <input id="resumen" name="resumen" class="form-control" type="text" ng-model="currentRecord.resumen" required />
-                                        </div><br>
-                                    </div>
+                                <div class="col s12 m8 l9">
+                                    <div class="about-inner-right">
+                                        <h3>Sobre mi...</h3>
+                                        <p ng-hide = "ctrl.readOnly">{{currentRecord.resumen}}</p>
+                                        <div ng-show = "ctrl.readOnly">
+                                            <label for="name" class="col-md-2 control-label">Escriba su resumen</label>
+                                            <br>
+                                            <div class="col-md-10">
+                                                <input id="resumen" name="resumen" class="form-control" type="text" ng-model="currentRecord.resumen" required />
+                                            </div><br>
+                                        </div>
 
-                                    <div class="personal-information col s12 m12 l6">
-                                        <h3>Personal Information</h3>
-                                        <ul>
-                                            <li><span>Nombre : </span> {{currentRecord.name}} </li>
-                                            <li><span>Email : </span>{{currentRecord.email}}</li>
-                                            <li><span>Cedula : </span>{{currentRecord.cedula}}</li>
-                                            <li><span>Profesion : </span>{{currentRecord.profesion}}</li>
-                                            <li><span>Edad : </span>{{currentRecord.edad}}</li>
-                                            <li><span>Fecha Nacimiento : </span>{{currentRecord.fechaNacimiento}}</li>
-                                        </ul>
-                                    </div>
-                                    <div class="resume-download col s12 m12 l6">
-                                        <button class="btn btn-default btn-sm" ng-click="ctrl.cerrarSesion()"><span class="glyphicon glyphicon-off"></span> Volver</button>
+                                        <div class="personal-information col s12 m12 l6">
+                                            <h3>Información Personal</h3>
+                                            <ul>
+                                                <li><span>Nombre : </span> {{currentRecord.name}} </li>
+                                                <li><span>Email : </span>{{currentRecord.email}}</li>
+                                                <li><span>Cedula : </span>{{currentRecord.cedula}}</li>
+                                                <li><span>Profesion : </span>{{currentRecord.profesion}}</li>
+                                                <li><span>Edad : </span>{{currentRecord.edad}}</li>
+                                                <li><span>Fecha Nacimiento : </span>{{currentRecord.fechaNacimiento}}</li>
+                                            </ul>
+                                        </div>
+                                        <div class="resume-download col s12 m12 l6">
+                                            <button class="btn btn-default btn-sm" ng-click="ctrl.cerrarSesion()"><span class="glyphicon glyphicon-off"></span> Volver</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -165,162 +166,11 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-
-    <!-- Container (Menu) -->
-    <ul class="nav nav-tabs bg-4">
-        <li class="active"><a data-toggle="tab" href="perfil#sitio">Sitios Visitados</a></li>
-        <li><a data-toggle="tab" href="perfil#agregarAlbum">Agregar un album</a></li>
-        <!--<li><a data-toggle="tab" href="mis-vacaciones/#itinerario">Mis itinerarios</a></li>-->
-    </ul>
-    <div class="tab-content" >
-        <div id="sitio" class="tab-pane fade in active">
-            <h2>Sitios visitados</h2><br>
-            <div class="row text-center">
-                <div class="col-sm-3">
-                    <div class="thumbnail">
-                        <img src="resources/data/perfilUsuario/paris.jpg" alt="fotoParis" style="width:350px;height:300px;">
-                        <p><strong>Paris</strong></p>
-                        <p>Diciembre 2001</p>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="thumbnail">
-                        <img src="resources/data/perfilUsuario/amazonas.jpg" alt="Amazonas" style="width:350px;height:300px;">
-                        <p><strong>Amazonas</strong></p>
-                        <p>Junio 2014</p>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="thumbnail">
-                        <img src="resources/data/perfilUsuario/sanAndres.JPG" alt="San Andres" style="width:350px;height:300px;">
-                        <p><strong>San Andres</strong></p>
-                        <p>Enero 2015</p>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="thumbnail">
-                        <img src="https://c1.staticflickr.com/3/2840/12012259575_662c7babdb_b.jpg" alt="San Andres" style="width:350px;height:300px;">
-                        <p><strong>Boyaca, laguna de Tota</strong></p>
-                        <p>Diciembre 2016</p>
-                    </div>
-                </div>
-            </div>
-            <button class="button" id="botonSitio">Agregar Sitio</button>
-        </div>
-
-        <div id="agregarAlbum" class="tabe-pane fade">
-            <h2>Crear un nuevo Album</h2>
-            <br>
-            <br>
-            <form role="form">
-                <div class="form-group" >
-                    <label for="ex1">Nombre Album:</label>
-                    <input class= "form-control" type="text" ng-model="id">
-                    <br>
-
-                    <label for="ex2">Ciudad del albúm:</label>
-                    <input class= "form-control" type="text" ng-model="ciudad">
-                    <br>
-
-                    <label for="ex3">Información adicional:</label>
-                    <input class= "form-control" type="text" ng-model="descripcion">
-                    <br>
-                    <form method="get" name="filea" action="../LeerArchivo" enctype="multipart/form-data" onsubmit="return check();">
-                        Archivo: <input type="file" name="nomarchivo" size="70" accept="text/plain;image/jpeg">
-                        <br /><br />
-
-                        <input type="hidden" id="paramfile" name="paramfile">
-                        <input type="submit" name="enviar" value="Enviar">
-                    </form>
-                    <br>
-                    <br>
-                    <button ng-click="agregarAlbum()">Guardar Album</button>
-
-
-                    <button ng-click="listarAlbumes()">Mostrar albumes</button>
-                    <div align="center">
-                        <h3>Lista Albumes </h3>
-                        <p ng-repeat="a in albumnes">{{ a}}</p>
-                    </div>
-                    <!--<p ng-repeat="a in albumnes">{{ a}}</p>-->
-                    <!--                <ul>
-                                        <li ng-repeat="a in albumnes">{{ a }} </li>
-                                    </ul>-->
-                </div>
-
-                <!--            <div class="form-group">
-                                <label class="col-sm-2 control-label" for="sel1" >Seleccionar ciudad donde se creo el albúm:</label>
-                                <div class="col-sm-10">
-                                    <select class ="form-control" id="sel1">
-                                        <option>Roma</option>
-                                        <option>Paris</option>
-                                        <option>Tunja</option>
-                                    </select>
-                                </div>
-                                <div align="right"><input name="boton" id="boton" type="button" value="Más ciudades" class="btn btn-lg" ></div>
-                                <br>
-                            </div>-->
-            </form>
-
-        </div>
     </div>
 
-
-    <!-- Container (Redes sociales) -->
-
-    <div class="container-fluid1 bg-5 text-center">
-        <h2>Redes Sociales</h2>
-        <br>
-        <div class="row">
-            <div class="col-sm-4">
-                <a href="http://www.facebook.com">
-                    <img src="http://static1.squarespace.com/static/4f5810d9e4b0ebbf0a1507a6/t/55a6e39be4b0e13bc07f93a1/1437000604121/" alt="facebook" style="width:50px;height:50px;">
-                </a>
-
-                <h4>Facebook</h4>
-                <p>Comparte tus fotos, conectate con quien quieras</p>
-            </div>
-            <div class="col-sm-4">
-                <a href="http://weheartit.com/">
-                    <img src="http://a4.mzstatic.com/us/r30/Purple69/v4/29/1d/b7/291db76b-1207-f1c2-68ef-f6f75363417c/icon175x175.png" alt="weloveit" style="width:50px;height:50px;">
-                </a>
-                <h4>We love it</h4>
-                <p>Album de fotos personalizado</p>
-            </div>
-            <div class="col-sm-4">
-                <a href="https://www.instagram.com/">
-                    <img src="http://3835642c2693476aa717-d4b78efce91b9730bcca725cf9bb0b37.r51.cf1.rackcdn.com/Multi-Color_Logo_thumbnail200.png" alt="instagram" style="width:50px;height:50px;">
-                </a>
-                <h4>Instagram</h4>
-                <p>Suigueme y te sigo</p>
-            </div>
-        </div>
-        <br><br>
-        <div class="row">
-            <div class="col-sm-4">
-                <a href="http://pic-collage.com/">
-                    <img src="https://oupeltglobal.files.wordpress.com/2013/07/pic-collage-app-icon.png?w=611" alt="pic" style="width:50px;height:50px;">
-                </a>
-                <h4>Pic collage</h4>
-                <p>Haz la combinación de fotos que más te guste</p>
-            </div>
-            <div class="col-sm-4">
-                <a href="https://www.dropbox.com/">
-                    <img src="https://cf.dropboxstatic.com/static/images/brand/glyph@2x-vflJ1vxbq.png" alt="dropbox" style="width:50px;height:50px;">
-                </a>
-                <h4>Dropbox</h4>
-                <p>Guarda esos inolvidables recuerdos en la nube</p>
-            </div>
-            <div class="col-sm-4">
-                <a href="https://twitter.com/?lang=es">
-                    <img src="https://g.twimg.com/Twitter_logo_blue.png" alt="twitter" style="width:50px;height:50px;">
-                </a>
-                <h4 style="color:#303030;">Twitter</h4>
-                <p>Twittea lo que más te gusto del viaje</p>
-            </div>
-        </div>
+    <div>
+        <div ng-controller="itinerarioCtrl as ctrl" ng-include="'src/modules/itinerario/itinerario.tpl.html'"></div>
     </div>
 </div>

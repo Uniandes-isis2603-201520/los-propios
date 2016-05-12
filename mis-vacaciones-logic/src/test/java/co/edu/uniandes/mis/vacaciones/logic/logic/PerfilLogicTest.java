@@ -89,7 +89,7 @@ public class PerfilLogicTest {
     private void insertData() {
         for (int i = 0; i < 3; i++) {
             ItinerarioEntity itinerarios = factory.manufacturePojo(ItinerarioEntity.class);
-            System.out.println(itinerarios.getFechaInicial());
+            System.out.println(itinerarios.getFechaInicio());
             em.persist(itinerarios);
             itinerariosData.add(itinerarios);
         }

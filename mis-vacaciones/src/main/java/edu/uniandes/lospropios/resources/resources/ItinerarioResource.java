@@ -23,7 +23,9 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import java.util.logging.Logger;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
+import javax.ws.rs.core.MediaType;
 
 /**
  * Clase que implementa el recurso REST correspondiente a "itinerario".
@@ -34,13 +36,13 @@ import javax.ws.rs.DELETE;
  *
  * @author Asistente
  */
-@Path("perfilesUsuario/{idPerfilUsuario}/itinerarios")
-@Produces("application/json")
+@Path("itinerarios")
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 @RequestScoped
 public class ItinerarioResource {
 
-
-     private static final Logger logger = Logger.getLogger(ItinerarioResource.class.getName());
+    private static final Logger logger = Logger.getLogger(ItinerarioResource.class.getName());
 
     //Modificar ItinerarioLogicMock a ItinerarioLogic
     @Inject
@@ -62,16 +64,17 @@ public class ItinerarioResource {
 
     /**
      * Obtiene un itinerario
-     * @param idItinerario   identificador del itinerario
+     *
+     * @param idItinerario identificador del itinerario
      * @return itinerario encontrada
      * @throws
      * edu.uniandes.lospropios.resources.exceptions.ItinerarioLogicException
      */
     @GET
     @Path("{id: \\d+}")
-    public ItinerarioDTO getItinerario( @PathParam("idItinerario") Long idItinerario) throws ItinerarioLogicException {
+    public ItinerarioDTO getItinerario(@PathParam("id") Long idItinerario) throws ItinerarioLogicException {
         logger.log(Level.INFO, "Se ejecuta metodo getItinerario con id={0}", idItinerario);
-        ItinerarioEntity itinerario= itinerarioLogic.getItinerarioUsuario( idItinerario);
+        ItinerarioEntity itinerario = itinerarioLogic.getItinerarioUsuario(idItinerario);
         return ItinerarioConverter.fullEntity2DTO(itinerario);
     }
 
@@ -80,13 +83,17 @@ public class ItinerarioResource {
      *
      * @param dto itinerario a agregar
      * @return datos del itinerario a agregar
-     * @throws edu.uniandes.lospropios.resources.exceptions.ItinerarioLogicException
-     * @throws co.edu.uniandes.mis.vacaciones.logic.exceptions.BusinessLogicException
+     * @throws
+     * edu.uniandes.lospropios.resources.exceptions.ItinerarioLogicException
+     * @throws
+     * co.edu.uniandes.mis.vacaciones.logic.exceptions.BusinessLogicException
      */
     @POST
-    public ItinerarioDTO createItinerario(ItinerarioDTO dto) throws ItinerarioLogicException, BusinessLogicException{
-     logger.info("Se ejecuta método createBook");
+    public ItinerarioDTO createItinerario(ItinerarioDTO dto) throws ItinerarioLogicException, BusinessLogicException {
+        logger.info("Se ejecuta método crear Itinerario");
+        logger.info("fecha inicio es: " + dto.getFechaInicio());
         ItinerarioEntity entity = ItinerarioConverter.fullDTO2Entity(dto);
+        logger.info("fecha inicial entity es: " + entity.getFechaInicio());
         ItinerarioEntity newEntity = itinerarioLogic.createItinerario(entity);
         return ItinerarioConverter.fullEntity2DTO(newEntity);
     }
@@ -99,16 +106,17 @@ public class ItinerarioResource {
      * @return datos del itinierario modificado
      * @throws ItinerarioLogicException cuando no existe un itinerario con el id
      * suministrado
-     * @throws co.edu.uniandes.mis.vacaciones.logic.exceptions.BusinessLogicException
+     * @throws
+     * co.edu.uniandes.mis.vacaciones.logic.exceptions.BusinessLogicException
      */
     @PUT
     @Path("{id: \\d+}")
-    public ItinerarioDTO updateItinerario(@PathParam("idItinerario") Long idItinerario, ItinerarioDTO itinerario) throws ItinerarioLogicException, BusinessLogicException {
-         logger.log(Level.INFO, "Se ejecuta método updateBook con id={0}", idItinerario);
+    public ItinerarioDTO updateItinerario(@PathParam("id") Long idItinerario, ItinerarioDTO itinerario) throws ItinerarioLogicException, BusinessLogicException {
+        logger.log(Level.INFO, "Se ejecuta método updateBook con id={0}", idItinerario);
         ItinerarioEntity entity = ItinerarioConverter.fullDTO2Entity(itinerario);
         entity.setId(idItinerario);
-            ItinerarioEntity savedItinerario = itinerarioLogic.updateItinerario( entity);
-            return ItinerarioConverter.fullEntity2DTO(savedItinerario);
+        ItinerarioEntity savedItinerario = itinerarioLogic.updateItinerario(entity);
+        return ItinerarioConverter.fullEntity2DTO(savedItinerario);
 
     }
 

@@ -6,47 +6,32 @@
  */
 package edu.uniandes.lospropios.resources.dtos;
 
-import java.util.ArrayList;
+import edu.uniandes.lospropios.resources.adapters.DateAdapter;
 import java.util.Date;
-import java.util.Iterator;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
  *
  * @author  jg.murillo10
  */
+@XmlRootElement
 public class ItinerarioDTO {
 
-    private Long idItinerario;
+    private Long id;
     private String nombreItinerario;
     private Date fechaInicio;
     private Date fechaFin;
-    private ArrayList<ParadaDTO> paradas;
 
-    /**
-     * Método necesario para NetBeans
-     */
-    public ItinerarioDTO(){
-        //No se puede ejecutar el DTO sin este método.
+
+    public Long getId() {
+        return id;
     }
 
-
-    public ItinerarioDTO(Long idItinerario, String nombreItinerario, Date fechaInicio, Date fechaFin) {
-        super();
-        this.idItinerario = idItinerario;
-        this.nombreItinerario=nombreItinerario;
-        this.fechaInicio = fechaInicio;
-        this.fechaFin = fechaFin;
-        paradas = new ArrayList<>();
-
-    }
-
-    public Long getIdItinerario() {
-        return idItinerario;
-    }
-
-    public void setIdItinerario(Long idItinerario) {
-        this.idItinerario = idItinerario;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNombreItinerario(){
@@ -55,6 +40,8 @@ public class ItinerarioDTO {
     public void setNombreItinerario(String n){
         this.nombreItinerario=n;
     }
+    @XmlElement(name = "fechaInicio")
+    @XmlJavaTypeAdapter(DateAdapter.class)
     public Date getFechaInicio() {
         return fechaInicio;
     }
@@ -63,6 +50,8 @@ public class ItinerarioDTO {
         this.fechaInicio = fechaInicio;
     }
 
+    @XmlElement(name = "fechaFin")
+    @XmlJavaTypeAdapter(DateAdapter.class)
     public Date getFechaFin() {
         return fechaFin;
     }
@@ -71,23 +60,4 @@ public class ItinerarioDTO {
         this.fechaFin = fechaFin;
     }
 
-    public void setParadas(ArrayList<ParadaDTO> paradas){
-        this.paradas=paradas;
-    }
-    public void addParada(ParadaDTO p){
-        paradas.add(p);
-    }
-    public void modifyParada(ParadaDTO p){
-        for (int i = 0; i < paradas.size(); i++) {
-            ParadaDTO a=paradas.get(i);
-            if(a.getId().compareTo(p.getId())==0)
-                paradas.set(i, p);
-        }
-    }
-    public void deleteParada(long idParada){
-        for (int i=0; i<paradas.size();i++){
-            if(paradas.get(i).getId().compareTo(idParada)==0)
-                paradas.remove(i);
-        }
-    }
 }

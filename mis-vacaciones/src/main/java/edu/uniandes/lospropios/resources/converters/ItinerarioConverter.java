@@ -37,8 +37,8 @@ public abstract class ItinerarioConverter {
     public static ItinerarioDTO refEntity2DTO(ItinerarioEntity entity) {
         if (entity != null) {
             ItinerarioDTO dto = new ItinerarioDTO();
-            dto.setIdItinerario(entity.getId());
-            dto.setFechaInicio(entity.getFechaInicial());
+            dto.setId(entity.getId());
+            dto.setFechaInicio(entity.getFechaInicio());
             dto.setFechaFin(entity.getFechaFinal());
             return dto;
         }
@@ -60,7 +60,7 @@ public abstract class ItinerarioConverter {
     public static ItinerarioEntity refDTO2Entity(ItinerarioDTO dto) {
         if (dto != null) {
             ItinerarioEntity entity = new ItinerarioEntity();
-            entity.setId(dto.getIdItinerario());
+            entity.setId(dto.getId());
             return entity;
         }
         return null;
@@ -78,8 +78,9 @@ public abstract class ItinerarioConverter {
     private static ItinerarioDTO basicEntity2DTO(ItinerarioEntity entity) {
         if (entity != null) {
             ItinerarioDTO dto = new ItinerarioDTO();
-            dto.setIdItinerario(entity.getId());
-            dto.setFechaInicio(entity.getFechaInicial());
+            dto.setId(entity.getId());
+            dto.setNombreItinerario(entity.getName());
+            dto.setFechaInicio(entity.getFechaInicio());
             dto.setFechaFin(entity.getFechaFinal());
             return dto;
         }
@@ -99,16 +100,13 @@ public abstract class ItinerarioConverter {
      */
     private static ItinerarioEntity basicDTO2Entity(ItinerarioDTO dto) {
 
-        if (dto != null) {
-            ItinerarioEntity entity = new ItinerarioEntity();
+        ItinerarioEntity entity = new ItinerarioEntity();
+        entity.setName(dto.getNombreItinerario());
+        entity.setId(dto.getId());
+        entity.setFechaInicio(dto.getFechaInicio());
+        entity.setFechaFinal(dto.getFechaFin());
 
-            entity.setId(dto.getIdItinerario());
-            entity.setFechaFinal(dto.getFechaFin());
-            entity.setFechaInicial(dto.getFechaInicio());
-
-            return entity;
-        }
-        return null;
+        return entity;
 
     }
 
@@ -121,12 +119,7 @@ public abstract class ItinerarioConverter {
      * @generated
      */
     public static ItinerarioDTO fullEntity2DTO(ItinerarioEntity entity) {
-
-        if (entity != null) {
-            return basicEntity2DTO(entity);
-        }
-
-        return null;
+        return basicEntity2DTO(entity);
     }
 
     /**
@@ -139,11 +132,7 @@ public abstract class ItinerarioConverter {
      * @generated
      */
     public static ItinerarioEntity fullDTO2Entity(ItinerarioDTO dto) {
-        if (dto != null) {
-            return new ItinerarioEntity();
-        }
-
-        return null;
+        return basicDTO2Entity(dto);
     }
 
     /**

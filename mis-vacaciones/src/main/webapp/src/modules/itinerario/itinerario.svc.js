@@ -57,6 +57,9 @@
              * Devuelve un objeto de albumes con sus datos incluyendo el id
              */
             this.saveRecord = function (currentRecord) {
+                $log.log(currentRecord);
+                $log.log(currentRecord.id);
+                $log.log(currentRecord.fechaInicio);
                 if (currentRecord.id) {
                     return $http.put(context + "/" + currentRecord.id, currentRecord);
                 } else {

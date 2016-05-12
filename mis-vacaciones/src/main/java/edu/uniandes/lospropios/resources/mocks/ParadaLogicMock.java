@@ -102,36 +102,36 @@ public class ParadaLogicMock {
      * @return parada encontrada
      * @throws ParadaLogicException cuando la parada no existe
      */
-    public ParadaDTO getParadaUsuario(Long idPerfilUsuario, Long idItinerario, Long idParada) throws ParadaLogicException {
-        LOGGER.info("recibiendo solicitud de perifl usuario con parada" + idPerfilUsuario);
-
-        // busca el paradero que le pertenece al id del viajero
-        for (PerfilDTO perfil: perfiles)
-        {
-            if (Objects.equals(perfil.getId(), idPerfilUsuario))
-            {
-                for(ItinerarioDTO itinerario: itinerarios)
-                {
-                    if(Objects.equals(itinerario.getIdItinerario(), idItinerario))
-                    {
-                       for (ParadaDTO parada : paradas)
-                       {
-                         if (Objects.equals(parada.getId(), idParada))
-                         {
-                             LOGGER.info("retornando parada " + parada);
-                             return parada;
-            }
-        }
-                    }
-                }
-            }
-        }
-
-
-        // si no encuentra el itinerario
-        LOGGER.severe(ERROR);
-        throw new ParadaLogicException(ERROR);
-    }
+//    public ParadaDTO getParadaUsuario(Long idPerfilUsuario, Long idItinerario, Long idParada) throws ParadaLogicException {
+//        LOGGER.info("recibiendo solicitud de perifl usuario con parada" + idPerfilUsuario);
+//
+//        // busca el paradero que le pertenece al id del viajero
+//        for (PerfilDTO perfil: perfiles)
+//        {
+//            if (Objects.equals(perfil.getId(), idPerfilUsuario))
+//            {
+//                for(ItinerarioDTO itinerario: itinerarios)
+//                {
+//                    if(Objects.equals(itinerario.getIdItinerario(), idItinerario))
+//                    {
+//                       for (ParadaDTO parada : paradas)
+//                       {
+//                         if (Objects.equals(parada.getId(), idParada))
+//                         {
+//                             LOGGER.info("retornando parada " + parada);
+//                             return parada;
+//            }
+//        }
+//                    }
+//                }
+//            }
+//        }
+//
+//
+//        // si no encuentra el itinerario
+//        LOGGER.severe(ERROR);
+//        throw new ParadaLogicException(ERROR);
+//    }
 
     /**
      * Agrega una parada a la lista.

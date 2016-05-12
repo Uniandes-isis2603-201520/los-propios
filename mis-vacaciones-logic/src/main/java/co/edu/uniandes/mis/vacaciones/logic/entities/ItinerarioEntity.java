@@ -10,7 +10,6 @@ import co.edu.uniandes.csw.crud.spi.entity.BaseEntity;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -28,7 +27,7 @@ public class ItinerarioEntity extends BaseEntity implements Serializable {
 
     @PodamStrategyValue(DateStrategy.class)
     @Temporal(TemporalType.DATE)
-    private Date fechaInicial;
+    private Date fechaInicio;
     @PodamStrategyValue(DateStrategy.class)
     @Temporal(TemporalType.DATE)
     private Date fechaFinal;
@@ -38,8 +37,8 @@ public class ItinerarioEntity extends BaseEntity implements Serializable {
 
 
 
-    public Date getFechaInicial() {
-        return fechaInicial;
+    public Date getFechaInicio() {
+        return fechaInicio;
     }
 
     /**
@@ -47,8 +46,8 @@ public class ItinerarioEntity extends BaseEntity implements Serializable {
      *
      * @param fechaInicial
      */
-    public void setFechaInicial(Date fechaInicial) {
-        this.fechaFinal = fechaInicial;
+    public void setFechaInicio(Date fechaInicio) {
+        this.fechaInicio = fechaInicio;
     }
 
     /**
