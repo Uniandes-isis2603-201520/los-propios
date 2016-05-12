@@ -147,9 +147,9 @@ public abstract class ItinerarioConverter {
     public static List<ItinerarioDTO> listEntity2DTO(List<ItinerarioEntity> entities) {
         List<ItinerarioDTO> dtos = new ArrayList<>();
         if (entities != null) {
-            entities.stream().forEach(entity -> {
+             for (ItinerarioEntity entity : entities) {
                 dtos.add(basicEntity2DTO(entity));
-            });
+            }
         }
         return dtos;
     }

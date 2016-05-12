@@ -10,6 +10,7 @@ import co.edu.uniandes.csw.crud.spi.entity.BaseEntity;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -60,16 +61,20 @@ public class PerfilEntity extends BaseEntity implements Serializable {
         this.profesion = profesion;
     }
 
-    public void setEmail(String c){
+    public void setEmail(String c) {
         email = c;
     }
 
-    public String getEmail(){
+    public String getEmail() {
         return email;
     }
 
     public void setItinerarios(List<ItinerarioEntity> itinerarios) {
         this.itinerarios = itinerarios;
+    }
+
+    public void addItinerario(ItinerarioEntity en){
+        itinerarios.add(en);
     }
 
     public Integer getEdad() {
@@ -88,24 +93,38 @@ public class PerfilEntity extends BaseEntity implements Serializable {
         return profesion;
     }
 
-    public void setImagen(String img){
+    public void setImagen(String img) {
         imagen = img;
     }
 
-    public String getImagen(){
+    public String getImagen() {
         return imagen;
     }
 
-    public void setResumen(String r){
+    public void setResumen(String r) {
         resumen = r;
     }
 
-    public String getResumen(){
+    public String getResumen() {
         return resumen;
     }
-
 
     public List<ItinerarioEntity> getItinerarios() {
         return itinerarios;
     }
+
+    public ItinerarioEntity getItinerario(Long id) {
+        List<ItinerarioEntity> itin = getItinerarios();
+        Iterator<ItinerarioEntity> i = itin.iterator();
+        boolean find = false;
+        while (i.hasNext() && !find) {
+            if(i.next().getId()==id)
+                find = true;
+        }
+        if(find){
+            return i.next();
+        }
+        return null;
+    }
+
 }

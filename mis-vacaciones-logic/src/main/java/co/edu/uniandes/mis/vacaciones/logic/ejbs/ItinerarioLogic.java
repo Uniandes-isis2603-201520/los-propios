@@ -5,14 +5,16 @@ package co.edu.uniandes.mis.vacaciones.logic.ejbs;
  * @author jg.murillo10
  */
 import co.edu.uniandes.mis.vacaciones.logic.api.IItinerarioLogic;
+import co.edu.uniandes.mis.vacaciones.logic.api.IPerfilLogic;
 import co.edu.uniandes.mis.vacaciones.logic.entities.ItinerarioEntity;
+import co.edu.uniandes.mis.vacaciones.logic.entities.PerfilEntity;
 import co.edu.uniandes.mis.vacaciones.logic.exceptions.BusinessLogicException;
 import co.edu.uniandes.mis.vacaciones.logic.persistence.ItinerarioPersistence;
 import java.util.List;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import javax.persistence.NoResultException;
 //TODO completar metodos
 
 @Stateless
@@ -22,49 +24,43 @@ public class ItinerarioLogic implements IItinerarioLogic {
     @Inject
     private ItinerarioPersistence persistence;
 
-    @Override
-    public List<ItinerarioEntity> getItinerarios() {
-        logger.info("Inicia proceso de consultar todos los itinerarios");
-        List<ItinerarioEntity> itinerarios = persistence.findAll();
-        logger.info("Termina proceso de consultar todos los itinerarios");
-        return itinerarios;
+    @Inject
+    private IPerfilLogic perfilLogic;
+
+    public List<ItinerarioEntity> getItinerarios(Long perfilId) {
+        PerfilEntity en = perfilLogic.getPerfil(perfilId);
+        return en.getItinerarios();
     }
 
-    @Override
-    public ItinerarioEntity createItinerario(ItinerarioEntity entity) throws BusinessLogicException {
-        logger.info("Inicia proceso de creación de itinerario");
-        persistence.create(entity);
-        logger.info("Termina proceso de creación de itinerario");
+    public ItinerarioEntity createItinerario(Long id, ItinerarioEntity entity) throws BusinessLogicException {
+        PerfilEntity perfil = perfilLogic.getPerfil(id);
+        entity.setPerfil(perfil);
+        entity = persistence.create(entity);
         return entity;
     }
 
     @Override
-    public ItinerarioEntity getItinerarioUsuario(long idItinerario) {
-
-        logger.log(Level.INFO, "Inicia proceso de consultar un itinerario con id={0}", idItinerario);
-        ItinerarioEntity itinerario = persistence.find(idItinerario);
-        if (itinerario == null) {
-            logger.log(Level.SEVERE, "El itinerario con el id {0} no existe", idItinerario);
-            throw new IllegalArgumentException("El itinerario solicitado no existe");
+    public ItinerarioEntity getItinerario(Long idUsuario, Long idItinerario) {
+        try{
+            return persistence.find(idUsuario, idItinerario);
         }
-        logger.log(Level.INFO, "Termina proceso de consultar itinerario con id={0}", idItinerario);
-        return itinerario;
+        catch(NoResultException e){
+            throw new IllegalArgumentException("El itinerario no existe");
+        }
     }
 
     @Override
-    public ItinerarioEntity updateItinerario(ItinerarioEntity entity) throws BusinessLogicException {
-        ItinerarioEntity newEntity = persistence.update(entity);
-        logger.log(Level.INFO, "Termina proceso de actualizar perfil con id={0}", entity.getId());
-        return newEntity;
+    public ItinerarioEntity updateItinerario(Long perilId, ItinerarioEntity entity) throws BusinessLogicException {
+        PerfilEntity perf = perfilLogic.getPerfil(perilId);
+        entity.setPerfil(perf);
+        return persistence.update(entity);
 
     }
 
     @Override
-    public void deleteItinerario(long idItinerario) {
-        logger.log(Level.INFO, "Inicia proceso de borrar perfil con id={0}", idItinerario);
-        persistence.delete(idItinerario);
-        logger.log(Level.INFO, "Termina proceso de borrar perfil con id={0}", idItinerario);
-
+    public void deleteItinerario(Long idPerfil, Long idItinerario) {
+        ItinerarioEntity old = getItinerario(idItinerario, idItinerario);
+        persistence.delete(old.getId());
     }
 
 }

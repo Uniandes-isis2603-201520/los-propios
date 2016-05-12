@@ -56,6 +56,36 @@
             this.deleteRecord = function (id) {
                 return $http.delete(context + "/" + id);
             };
+
+            this.getItinerarios = function(id){
+                return $http.get(context + "/" + id + "/itinerarios");
+            };
+
+            this.getItinerario = function (id, idIt){
+              return $http.get(context + "/" + id + "/itinerarios/" + idIt);
+            };
+
+            this.createItinerario = function(id, it){
+                return $http.post(context+ "/" + id + "/itinerarios", it);
+            };
+
+            this.updatePrize = function (id, idIt, it) {
+                return $http.put(context + "/" + id + "/itinerarios/" + idIt, it);
+            };
+
+            this.deletePrize = function (id, idIt) {
+                return $http.delete(context + "/" + id + "/itinerarios/" + idIt);
+            };
+
+            this.savePrize = function(id, it){
+                if(it.id){
+                    return this.updatePrize(id, it.id, it);
+                }else{
+                    return this.createPrize(id, it);
+                }
+            };
+
+
         }]);
 })(window.angular);
 

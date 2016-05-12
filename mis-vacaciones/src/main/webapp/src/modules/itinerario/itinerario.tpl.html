@@ -18,10 +18,33 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="itinerario-navbar">
                     <button id="create-itinerario" class="btn btn-default navbar-btn" ng-hide="ctrl.editMode" ng-click="ctrl.createRecord()"><span class="glyphicon glyphicon-plus"></span> Crear Itinerario</button>
+                    <button id="refresh-itinerario" class="btn btn-default navbar-btn" ng-hide="ctrl.editMode" ng-click="ctrl.fetchRecords()"><span class="glyphicon glyphicon-refresh"></span> Actualizar Itinerarios</button>
                     <button id="save-itinerario" type="submit" form="itinerario-form" class="btn btn-default navbar-btn" ng-show="ctrl.editMode"><span class="glyphicon glyphicon-save"></span> Guardar itinerario</button>
                     <button id="cancel-itinerario" type="button" form="itinerario-form" class="btn btn-default navbar-btn" ng-show="ctrl.editMode" ng-click=" ctrl.fetchRecords()"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
                 </div>
             </div>
+    </div>
+
+    <!--finalizacion muestra campos requeridos para un itinerario-->
+    <!--primer editmode segun ejemplo book-->
+    <div ng-hide="ctrl.editMode">
+        <div class="col-sm-12">
+            <div ng-repeat="itinerario in records">
+                <div class="col-md-4 col-sm-6 col-lg-3 well">
+                    <div class="caption">
+                        <p><strong>ID: </strong>{{itinerario.id}}</p>
+                        <p><strong>Nombre: </strong>{{itinerario.nombreItinerario}}</p>
+                        <p><strong>Inicio: </strong>{{itinerario.fechaInicio}}</p>
+                        <p><strong>Fin: </strong>{{itinerario.fechaFin}}</p>
+                        <br>
+                    </div>
+                    <p class="text-center">
+                        <button id="{{$index}}-edit-btn" class="btn btn-default btn-sm" ng-click="ctrl.editRecord(itinerario)"><span class="glyphicon glyphicon-edit"></span> Editar</button>
+                        <button id="{{$index}}-delete-btn" class="btn btn-default btn-sm" ng-click="ctrl.deleteRecord(itinerario)"><span class="glyphicon glyphicon-minus"></span> Eliminar</button>
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div ng-show="ctrl.editMode" class="col-md-6 well">
@@ -58,27 +81,6 @@
 
             </fieldset>
         </form>
-    </div>
-    <!--finalizacion muestra campos requeridos para un itinerario-->
-    <!--primer editmode segun ejemplo book-->
-    <div ng-hide="ctrl.editMode">
-        <div class="col-sm-12">
-            <div ng-repeat="itinerario in records">
-                <div class="col-md-4 col-sm-6 col-lg-3 well">
-                    <div class="caption">
-                        <p><strong>ID: </strong>{{itinerario.id}}</p>
-                        <p><strong>Nombre: </strong>{{itinerario.nombreItinerario}}</p>
-                        <p><strong>Inicio: </strong>{{itinerario.fechaInicio}}</p>
-                        <p><strong>Fin: </strong>{{itinerario.fechaFin}}</p>
-                        <br>
-                    </div>
-                    <p class="text-center">
-                        <button id="{{$index}}-edit-btn" class="btn btn-default btn-sm" ng-click="ctrl.editRecord(itinerario)"><span class="glyphicon glyphicon-edit"></span> Editar</button>
-                        <button id="{{$index}}-delete-btn" class="btn btn-default btn-sm" ng-click="ctrl.deleteRecord(itinerario)"><span class="glyphicon glyphicon-minus"></span> Eliminar</button>
-                    </p>
-                </div>
-            </div>
-        </div>
     </div>
 
 </div>

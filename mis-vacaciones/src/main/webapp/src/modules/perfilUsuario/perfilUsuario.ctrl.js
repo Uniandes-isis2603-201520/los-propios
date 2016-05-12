@@ -7,11 +7,12 @@
     var mod = ng.module("perfilUsuarioModule");
 
     // crea el controlador con dependencias a $scope y a personService
-    mod.controller("perfilUsuarioCtrl", ["$scope", "perfilUsuarioService", function ($scope, svc) {
+    mod.controller("perfilUsuarioCtrl", ["$scope", "perfilUsuarioService", function ($scope, svc, $rootScope) {
 //Se almacenan todas las alertas
             $scope.alerts = [];
             $scope.currentRecord = {};
             $scope.records = [];
+            $scope.refId = 0;
 
             $scope.today = function () {
                 $scope.value = new Date();
@@ -98,6 +99,7 @@
                     $scope.currentRecord = response.data;
                     self.editMode = true;
                     $scope.$broadcast("post-edit", $scope.currentRecord);
+                    $rootScope.$broadcast("post-edit", $scope.currentRecord);
                     return response;
                 }, responseError);
             };
@@ -141,27 +143,28 @@
             };
 
 
-            this.ver = function(record){
+            this.ver = function (record) {
                 $scope.$broadcast("pre-edit", $scope.currentRecord);
                 return svc.fetchRecord(record.id).then(function (response) {
                     $scope.currentRecord = response.data;
+                    $scope.refId = $scope.currentRecord.id;
                     self.variable1 = true;
                     $scope.$broadcast("post-edit", $scope.currentRecord);
                     return response;
                 }, responseError);
             };
 
-            this.cerrarSesion = function(){
+            this.cerrarSesion = function () {
                 self.variable1 = false;
-                self.readOnly=false;
+                self.readOnly = false;
             };
 
-            this.editarImg = function(){
-                self.readOnly=true;
+            this.editarImg = function () {
+                self.readOnly = true;
             };
 
-            this.guardarImg=function(){
-                self.readOnly=false;
+            this.guardarImg = function () {
+                self.readOnly = false;
                 return svc.saveRecord($scope.currentRecord);
             };
 

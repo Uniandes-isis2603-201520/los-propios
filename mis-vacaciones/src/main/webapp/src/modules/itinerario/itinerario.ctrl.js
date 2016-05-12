@@ -10,7 +10,7 @@
     var mod = ng.module("itinerarioModule");
 
     // crea el controlador con dependencias a $scope y a personService
-    mod.controller("itinerarioCtrl", ["$scope", "itinerarioService", function ($scope, svc) {
+    mod.controller("itinerarioCtrl", ["$scope", "itinerarioService", function ($scope, svc, $rootScope) {
 //Se almacenan todas las alertas
             $scope.alerts = [];
             $scope.currentRecord = {};
@@ -96,7 +96,7 @@
 
             this.editRecord = function (record) {
                 $scope.$broadcast("pre-edit", $scope.currentRecord);
-                return svc.fetchRecord(record.id).then(function (response) {
+                return svc.getItinerario($scope.refId, record.id).then(function (response) {
                     $scope.currentRecord = response.data;
                     self.editMode = true;
                     $scope.$broadcast("post-edit", $scope.currentRecord);
@@ -112,7 +112,7 @@
              */
 
             this.fetchRecords = function () {
-                return svc.fetchRecords().then(function (response) {
+                return svc.getItinerarios($scope.refId).then(function (response) {
                     $scope.records = response.data;
                     $scope.currentRecord = {};
                     self.editMode = false;
@@ -126,7 +126,7 @@
              * Muestra el template de la lista de records al finalizar la operación saveRecord
              */
             this.saveRecord = function () {
-                return svc.saveRecord($scope.currentRecord).then(function () {
+                return svc.saveItinerario($scope.refId, $scope.currentRecord).then(function () {
                     self.fetchRecords();
                 }, responseError);
             };
@@ -137,17 +137,23 @@
              * Muestra el template de la lista de records al finalizar el borrado del registro.
              */
             this.deleteRecord = function (record) {
-                return svc.deleteRecord(record.id).then(function () {
+                return svc.deleteItinerario($scope.refId, record.id).then(function () {
                     self.fetchRecords();
                 }, responseError);
             };
 
+            function onEdit(event, args) {
+                $scope.refId = args.id;
+                if (args.id) {
+                    $scope.records = [];
+                    svc.getItinerarios(args.id).then(function (response) {
+                        $scope.records = response.data;
+                    }, responseError);
+                }
+            }
 
-            /*
-             * Funcion fetchRecords consulta todos los registros del módulo book en base de datos
-             * para desplegarlo en el template de la lista.
-             */
-            this.fetchRecords();
+            $scope.$on("post-edit", onEdit);
+
 
         }]);
 

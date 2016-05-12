@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -31,6 +32,12 @@ public class ItinerarioEntity extends BaseEntity implements Serializable {
     @PodamStrategyValue(DateStrategy.class)
     @Temporal(TemporalType.DATE)
     private Date fechaFinal;
+
+    @ManyToOne
+    @PodamExclude
+    private PerfilEntity perfil;
+
+
     @OneToMany
     @PodamExclude
     private List<ParadaEntity> paradas = new ArrayList<>();
@@ -67,6 +74,17 @@ public class ItinerarioEntity extends BaseEntity implements Serializable {
     public void setFechaFinal(Date fechaFinal) {
         this.fechaFinal = fechaFinal;
     }
+
+
+    public PerfilEntity getPerfil(){
+        return perfil;
+    }
+
+    public void setPerfil(PerfilEntity perfil){
+        this.perfil = perfil;
+    }
+
+
 
     /**
      * Metodo para obtener las paradas del itinerario

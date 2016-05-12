@@ -125,13 +125,18 @@ public class PerfilLogic implements IPerfilLogic {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
     public ItinerarioEntity addItinerario(Long perfilId, Long itinerarioId) throws BusinessLogicException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
     public void removeItinerario(Long perfilId, Long itinerarioId) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void addItinerario(Long perfilId, ItinerarioEntity entity) {
+        PerfilEntity en = getPerfil(perfilId);
+        en.addItinerario(entity);
+        persistence.update(en);
     }
 }

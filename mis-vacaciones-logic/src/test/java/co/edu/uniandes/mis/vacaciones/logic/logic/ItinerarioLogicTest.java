@@ -91,77 +91,78 @@ public class ItinerarioLogicTest {
         }
     }
 
-    @Test
-    public void createItinerarioTest() {
-        try {
-            ItinerarioEntity entity = factory.manufacturePojo(ItinerarioEntity.class);
-//            entity.setPublishDate(getMaxDate());
-            ItinerarioEntity created = itinerarioLogic.createItinerario(entity);
-
-            ItinerarioEntity result = em.find(ItinerarioEntity.class, created.getId());
-
-            Assert.assertNotNull(result);
-            Assert.assertEquals(entity.getId(), result.getId());
-            Assert.assertEquals(entity.getName(), result.getName());
-
-        } catch (BusinessLogicException ex) {
-            Assert.fail(ex.getLocalizedMessage());
-        }
-    }
-
-    @Test
-    public void getItinerariosTest() {
-        List<ItinerarioEntity> resultList = itinerarioLogic.getItinerarios();
-        List<ItinerarioEntity> expectedList = em.createQuery("SELECT u from ItinerarioEntity u").getResultList();
-        Assert.assertEquals(expectedList.size(), resultList.size());
-        for (ItinerarioEntity expected : expectedList) {
-            boolean found = false;
-            for (ItinerarioEntity result : resultList) {
-                if (result.getId().equals(expected.getId())) {
-                    found = true;
-                }
-            }
-            Assert.assertTrue(found);
-        }
-    }
-
-    @Test
-    public void getItinerarioTest() {
-        ItinerarioEntity result = itinerarioLogic.getItinerarioUsuario(data.get(0).getId());
-        ItinerarioEntity expected = em.find(ItinerarioEntity.class, data.get(0).getId());
-
-        Assert.assertNotNull(expected);
-        Assert.assertNotNull(result);
-        Assert.assertEquals(expected.getId(), result.getId());
-        Assert.assertEquals(expected.getName(), result.getName());
-    }
-
-    @Test
-    public void deleteItinerarioTest() {
-        ItinerarioEntity entity = data.get(1);
-        itinerarioLogic.deleteItinerario(entity.getId());
-        ItinerarioEntity deleted = em.find(ItinerarioEntity.class, entity.getId());
-        Assert.assertNull(deleted);
-    }
-
-    @Test
-    public void updateItinerarioTest() {
-        try {
-            ItinerarioEntity entity = data.get(0);
-            ItinerarioEntity pojoEntity = factory.manufacturePojo(ItinerarioEntity.class);
-//            pojoEntity.setPublishDate(getMaxDate());
-
-            pojoEntity.setId(entity.getId());
-
-            itinerarioLogic.updateItinerario(pojoEntity);
-
-            ItinerarioEntity resp = em.find(ItinerarioEntity.class, entity.getId());
-
-            Assert.assertEquals(pojoEntity.getId(), resp.getId());
-            Assert.assertEquals(pojoEntity.getName(), resp.getName());
-        } catch (BusinessLogicException ex) {
-            Assert.fail(ex.getLocalizedMessage());
-        }
-    }
-
+//    @Test
+//    public void createItinerarioTest() {
+//        try {
+//            ItinerarioEntity entity = factory.manufacturePojo(ItinerarioEntity.class);
+////            entity.setPublishDate(getMaxDate());
+//            ItinerarioEntity created = itinerarioLogic.createItinerario(entity);
+//
+//            ItinerarioEntity result = em.find(ItinerarioEntity.class, created.getId());
+//
+//            Assert.assertNotNull(result);
+//            Assert.assertEquals(entity.getId(), result.getId());
+//            Assert.assertEquals(entity.getName(), result.getName());
+//
+//        } catch (BusinessLogicException ex) {
+//            Assert.fail(ex.getLocalizedMessage());
+//        }
+//    }
+//
+//    @Test
+//    public void getItinerariosTest() {
+//        List<ItinerarioEntity> resultList = itinerarioLogic.getItinerarios();
+//        List<ItinerarioEntity> expectedList = em.createQuery("SELECT u from ItinerarioEntity u").getResultList();
+//        Assert.assertEquals(expectedList.size(), resultList.size());
+//        for (ItinerarioEntity expected : expectedList) {
+//            boolean found = false;
+//            for (ItinerarioEntity result : resultList) {
+//                if (result.getId().equals(expected.getId())) {
+//                    found = true;
+//                }
+//            }
+//            Assert.assertTrue(found);
+//        }
+//    }
+//
+//    @Test
+//    public void getItinerarioTest() {
+//        ItinerarioEntity result = itinerarioLogic.getItinerarioUsuario(data.get(0).getId());
+//        ItinerarioEntity expected = em.find(ItinerarioEntity.class, data.get(0).getId());
+//
+//        Assert.assertNotNull(expected);
+//        Assert.assertNotNull(result);
+//        Assert.assertEquals(expected.getId(), result.getId());
+//        Assert.assertEquals(expected.getName(), result.getName());
+//    }
+//
+//    @Test
+//    public void deleteItinerarioTest() {
+//        ItinerarioEntity entity = data.get(1);
+//        itinerarioLogic.deleteItinerario(entity.getId());
+//        ItinerarioEntity deleted = em.find(ItinerarioEntity.class, entity.getId());
+//        Assert.assertNull(deleted);
+//    }
+//
+//    @Test
+//    public void updateItinerarioTest() {
+//        try {
+//            ItinerarioEntity entity = data.get(0);
+//            ItinerarioEntity pojoEntity = factory.manufacturePojo(ItinerarioEntity.class);
+////            pojoEntity.setPublishDate(getMaxDate());
+//
+//            pojoEntity.setId(entity.getId());
+//
+//            itinerarioLogic.updateItinerario(pojoEntity);
+//
+//            ItinerarioEntity resp = em.find(ItinerarioEntity.class, entity.getId());
+//
+//            Assert.assertEquals(pojoEntity.getId(), resp.getId());
+//            Assert.assertEquals(pojoEntity.getName(), resp.getName());
+//        } catch (BusinessLogicException ex) {
+//            Assert.fail(ex.getLocalizedMessage());
+//        }
+//    }
+//
+//}
 }

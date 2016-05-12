@@ -6,13 +6,12 @@
 package co.edu.uniandes.mis.vacaciones.logic.persistence;
 
 import co.edu.uniandes.mis.vacaciones.logic.entities.ItinerarioEntity;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -26,16 +25,11 @@ public class ItinerarioPersistence {
     @PersistenceContext(unitName = "MisVacacionesPU")
     protected EntityManager em;
 
-    public ItinerarioEntity find(long id) {
-        logger.log(Level.INFO, "Consultando itinerario con id={0}", id);
-        return em.find(ItinerarioEntity.class, id);
-
-    }
-
-    public List<ItinerarioEntity> findAll() {
-        logger.info("Consultando todos los itinerarios");
-        Query q = em.createQuery("select u from ItinerarioEntity u");
-        return q.getResultList();
+    public ItinerarioEntity find(Long idUsuario, Long idItinerario) {
+        TypedQuery<ItinerarioEntity> q = em.createQuery("select p from ItinerarioEntity p where (p.perfilUsuario.id = :idUsuario) and (p.id = :idItinerario)", ItinerarioEntity.class);
+        q.setParameter("idUsuario", idUsuario);
+        q.setParameter("idItinerario", idItinerario);
+        return q.getSingleResult();
     }
 
     public ItinerarioEntity create(ItinerarioEntity entity) {

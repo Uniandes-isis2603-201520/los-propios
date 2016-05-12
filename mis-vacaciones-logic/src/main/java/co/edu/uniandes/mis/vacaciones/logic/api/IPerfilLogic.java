@@ -30,7 +30,5 @@ public interface IPerfilLogic {
 
     public ItinerarioEntity getItinerario(Long perfilId, Long itinerarioId);
 
-    public ItinerarioEntity addItinerario(Long perfilId, Long itinerarioId) throws BusinessLogicException;
-
-    public void removeItinerario(Long perfilId, Long itinerarioId);
+    public void addItinerario(Long perfilId, ItinerarioEntity entity);
 }

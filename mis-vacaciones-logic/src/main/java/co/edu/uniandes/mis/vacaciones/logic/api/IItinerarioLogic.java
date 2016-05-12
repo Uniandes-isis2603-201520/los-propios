@@ -21,7 +21,7 @@ public interface IItinerarioLogic {
      *
      * @return - Lista de los itinerarios
      */
-    public List<ItinerarioEntity> getItinerarios();
+    public List<ItinerarioEntity> getItinerarios(Long id);
 
     /**
      * Metodo que crea un itinerario
@@ -30,7 +30,7 @@ public interface IItinerarioLogic {
      * @return - El itinerario creado con un id asignado
      * @throws ItinerarioLogicException
      */
-    public ItinerarioEntity createItinerario(ItinerarioEntity itinerario) throws BusinessLogicException;
+    public ItinerarioEntity createItinerario(Long idUsuario, ItinerarioEntity itinerario) throws BusinessLogicException;
 
     /**
      * Metodo para obtener el itinerario de un usuario dado el id del usuario y
@@ -41,7 +41,7 @@ public interface IItinerarioLogic {
      * @return - ItineararioDTO con toda la informacion del itinerario
      * @throws ItinerarioLogicException
      */
-    public ItinerarioEntity getItinerarioUsuario(long idItinerario);
+    public ItinerarioEntity getItinerario(Long idUsuario, Long idItinerario);
 
     /**
      * Metodo para actualizar la informacion de un itinerario
@@ -51,7 +51,7 @@ public interface IItinerarioLogic {
      * @return - ItinerarioDTO nuevo
      * @throws ItinerarioLogicException
      */
-    public ItinerarioEntity updateItinerario(ItinerarioEntity itinerario) throws BusinessLogicException;
+    public ItinerarioEntity updateItinerario(Long idUsuario, ItinerarioEntity itinerario) throws BusinessLogicException;
 
     /**
      * Metodo para eliminar un itineario dado su id
@@ -59,5 +59,5 @@ public interface IItinerarioLogic {
      * @param idItinerario - id del itinerario que se desea eliminar
      * @throws ItinerarioLogicException
      */
-    public void deleteItinerario(long idItinerario);
+    public void deleteItinerario(Long idUsuario, Long idItinerario);
 }
