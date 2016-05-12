@@ -11,80 +11,45 @@
         {
 
             /**
-             * Obtener la lista de itinerarios.
-             * Hace una petición GET con $http a /itinerarios para obtener la lista
+             * Obtener la lista de books.
+             * Hace una petición GET con $http a /books para obtener la lista
+             * de books
              * @returns {promise} promise para leer la respuesta del servidor}
-             * Devuelve una lista de objetos de itinerarios con sus atributos
+             * Devuelve una lista de objetos de books con sus atributos y reviews
              */
             this.fetchRecords = function () {
                 return $http.get(context);
             };
 
             /**
-             * Obtener la lista de paradas.
-             * Hace una petición GET con $http a /paradas para obtener la lista
-             * @returns {promise} promise para leer la respuesta del servidor}
-             * Devuelve una lista de objetos de persons con sus atributos
-             */
-//            this.fetchRecordsDos = function () {
-//                return $http.get(context);
-//            };
-
-            /**
-             * Obtener un registro de itinerarios.
-             * Hace una petición GET a /itinerarios/:id para obtener
-             * los datos de un registro específico de itinerarios
+             * Obtener un registro de books.
+             * Hace una petición GET a /books/:id para obtener
+             * los datos de un registro específico de books
              * @param {number} id del registro a obtener
              * @returns {promise} promise para leer la respuesta del servidor
-             * Devuelve un objeto de itinerarios con sus atributos
+             * Devuelve un objeto de books con sus atributos y reviews
              */
             this.fetchRecord = function (id) {
                 return $http.get(context + "/" + id);
             };
 
-//             this.fetchRecordDos = function (id) {
-//                return $http.get(context + "/" + id);
-//            };
-
             /**
-             * Guardar un registro de un itinerarios.
-             * Si currentRecord tiene la propiedad id, hace un PUT a /perfilUsuario/:id con los
-             * nuevos datos de la instancia de itinerarios.
-             * Si currentRecord no tiene la propiedad id, se hace un POST a /itinerarios
-             * para crear el nuevo registro de albumes
-             * @param {object} currentRecord instancia de itinerarios a guardar/actualizar
+             * Guardar un registro de books.
+             * Si currentRecord tiene la propiedad id, hace un PUT a /books/:id con los
+             * nuevos datos de la instancia de books.
+             * Si currentRecord no tiene la propiedad id, se hace un POST a /books
+             * para crear el nuevo registro de books
+             * @param {object} currentRecord instancia de book a guardar/actualizar
              * @returns {promise} promise para leer la respuesta del servidor
-             * Devuelve un objeto de albumes con sus datos incluyendo el id
+             * Devuelve un objeto de books con sus datos incluyendo el id
              */
             this.saveRecord = function (currentRecord) {
-                $log.log(currentRecord);
-                $log.log(currentRecord.id);
-                $log.log(currentRecord.fechaInicio);
                 if (currentRecord.id) {
                     return $http.put(context + "/" + currentRecord.id, currentRecord);
                 } else {
                     return $http.post(context, currentRecord);
                 }
             };
-
-            /**
-             * Guardar un registro de un albumes.
-             * Si currentRecordDos tiene la propiedad id, hace un PUT a /perfilUsuario/:id con los
-             * nuevos datos de la instancia de albumes.
-             * Si currentRecord no tiene la propiedad id, se hace un POST a /albumes
-             * para crear el nuevo registro de albumes
-             * @param {object} currentRecordDos instancia de albumes a guardar/actualizar
-             * @returns {promise} promise para leer la respuesta del servidor
-             * Devuelve un objeto de albumes con sus datos incluyendo el id
-             */
-//            this.saveRecordDos = function (currentRecordDos) {
-//                if (currentRecordDos.id) {
-//                    return $http.put(context + "/" + currentRecordDos.id, currentRecordDos);
-//                } else {
-//                    return $http.post(context, currentRecordDos);
-//                }
-//            };
-
             /**
              * Hace una petición DELETE a /itinerarios/:id para eliminar un itinerario
              * @param {number} id identificador de la instancia de itinerarios a eliminar
@@ -95,9 +60,7 @@
                 return $http.delete(context + "/" + id);
             };
 
-//            this.deleteRecordDos = function (id) {
-//            return $http.delete(context + "/" + id);
-//        };
+
         }]);
 })(window.angular);
 
