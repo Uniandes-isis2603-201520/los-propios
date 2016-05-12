@@ -108,9 +108,9 @@ public class ItinerarioLogicTest {
 //            Assert.fail(ex.getLocalizedMessage());
 //        }
 //    }
-//
-//    @Test
-//    public void getItinerariosTest() {
+
+    @Test
+    public void getItinerariosTest() {
 //        List<ItinerarioEntity> resultList = itinerarioLogic.getItinerarios();
 //        List<ItinerarioEntity> expectedList = em.createQuery("SELECT u from ItinerarioEntity u").getResultList();
 //        Assert.assertEquals(expectedList.size(), resultList.size());
@@ -123,8 +123,8 @@ public class ItinerarioLogicTest {
 //            }
 //            Assert.assertTrue(found);
 //        }
-//    }
-//
+    }
+
 //    @Test
 //    public void getItinerarioTest() {
 //        ItinerarioEntity result = itinerarioLogic.getItinerarioUsuario(data.get(0).getId());
