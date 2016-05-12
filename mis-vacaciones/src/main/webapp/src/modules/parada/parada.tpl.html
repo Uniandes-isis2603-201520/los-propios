@@ -105,7 +105,7 @@
                                  <ul ng-repeat="a in paradas">
                                     <li>{{a.ciudad}}</li>
                                 </ul>
-                                <input type="text" class="form-control" id="ciudadParada" placeholder="Enter ciudad" ng-model="ciudad">
+                                <!--<input type="text" class="form-control" id="ciudadParada" placeholder="Enter ciudad" ng-model="ciudad">-->
                             </div>
                         </div>
                         <div class="form-group">
@@ -114,7 +114,7 @@
                                 <ul ng-repeat="a in paradas">
                                     <li>{{a.actividad}}</li>
                                 </ul>
-                                <input type="text" class="form-control" id="actividadParada" placeholder="Enter actividad" ng-model="actividad">
+                                <!--<input type="text" class="form-control" id="actividadParada" placeholder="Enter actividad" ng-model="actividad">-->
                             </div>
                         </div>
                         <div class="form-group">
@@ -123,7 +123,7 @@
                                 <ul ng-repeat="a in paradas">
                                     <li>{{a.fechaInicio}}</li>
                                 </ul>
-                                <input type="text" class="form-control" id="fechaInicioParada" placeholder="Enter fecha inicio" ng-model="fechaInicio">
+                                <!--<input type="text" class="form-control" id="fechaInicioParada" placeholder="Enter fecha inicio" ng-model="fechaInicio">-->
                             </div>
                         </div>
                         <div class="form-group">
@@ -132,10 +132,10 @@
                                  <ul ng-repeat="a in paradas">
                                      <li>{{a.fechaFin}}</li>
                                 </ul>
-                                <input type="text" class="form-control" id="fechaFinParada" placeholder="Enter fecha fin" ng-model="fechaFin">
+                                <!--<input type="text" class="form-control" id="fechaFinParada" placeholder="Enter fecha fin" ng-model="fechaFin">-->
                             </div>
                         </div>
-  <button type="submit" ng-click="ctrl.eliminarParada(a)">Eliminar</button>
+  <!--<button type="submit" ng-click="ctrl.eliminarParada(a)">Eliminar</button>-->
                     </form>
                 </div>
             </div>
@@ -145,23 +145,7 @@
 <!--<button type="submit" class="btn btn-default" ng-click="ctrl.listarParadas()">Mostrar paradas</button>-->
 
 </div>
-<!--Columna del catalogo que contiene los eventos-->
-<!--
-                <div ng-repeat="parada in paradas">
-                    <div class="col-md-4 col-sm-6 col-lg-3 well">
-                        <div class="caption">
-                            <p><strong>Nombre:</strong> <span>{{parada.nombre}}</span></p>
-                            <p><strong>Ciudad:</strong> <span>{{parada.ciudad}}</span></p>
-                            <p><strong>Actividad:</strong> <span >{{parada.actividad}}</span></p>
-                            <p><strong>Fecha inicio:</strong> <span>{{parada.fechaInicio}}</span></p>
-                            <p><strong>Fecha Fin:</strong> <span>{{parada.fechaFin}}</span></p>
-                        </div>
-                        <p class="text-center">
-                            <button class="btn btn-default btn-sm" ng-click="ctrl.editarParada(parada)"><span class="glyphicon glyphicon-edit"></span> Editar Parada</button>
-                            <button class="btn btn-default btn-sm" ng-click="ctrl.eliminarParada(parada)"><span class="glyphicon glyphicon-minus"></span> Eliminar Parada</button>
-                        </p>
-                    </div>
-                </div>-->
+
 
 <br>
 <br>
@@ -256,4 +240,22 @@
   </ul>
 <!--    </div>-->
 </div>
+<!--Columna del catalogo que contiene los eventos-->
+
+                <div ng-repeat="parada in paradas">
+                    <div class="col-md-4 col-sm-6 col-lg-3 well">
+                        <div class="caption">
+                            <p><strong>Nombre:</strong> <span>{{parada.nombre}}</span></p>
+                            <p><strong>Ciudad:</strong> <span>{{parada.ciudad}}</span></p>
+                            <p><strong>Actividad:</strong> <span >{{parada.actividad}}</span></p>
+                            <p><strong>Fecha inicio:</strong> <span>{{parada.fechaInicio}}</span></p>
+                            <p><strong>Fecha Fin:</strong> <span>{{parada.fechaFin}}</span></p>
+                        </div>
+                        <p class="text-center">
+                            <button class="btn btn-default btn-sm" ng-click="ctrl.editarParada(parada)"><span class="glyphicon glyphicon-edit"></span> Editar Parada</button>
+                            <button class="btn btn-default btn-sm" ng-click="ctrl.eliminarParada(parada)"><span class="glyphicon glyphicon-minus"></span> Eliminar Parada</button>
+                        </p>
+                    </div>
+                </div>
+
 </div>
