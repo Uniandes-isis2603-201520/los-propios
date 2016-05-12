@@ -17,38 +17,38 @@ import javax.persistence.Query;
 @Stateless
 public class ParadaPersistence {
 
-    private static final Logger logger = Logger.getLogger(ParadaPersistence.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(ParadaPersistence.class.getName());
 
     @PersistenceContext(unitName = "MisVacacionesPU")
     protected EntityManager em;
 
     public ParadaEntity find(long id) {
 
-        logger.log(Level.INFO, "Consultando la parada con id = {0}", id);
+        LOGGER.log(Level.INFO, "Consultando la parada con id = {0}", id);
         return em.find(ParadaEntity.class, id);
 
     }
 
     public List<ParadaEntity> findAll() {
-        logger.info("Consultando todas las paradas");
+        LOGGER.info("Consultando todas las paradas");
         Query q = em.createQuery("select u from ParadaEntity u");
         return q.getResultList();
     }
 
     public ParadaEntity create(ParadaEntity entity) {
-        logger.info("Creando una parada");
+        LOGGER.info("Creando una parada");
         em.persist(entity);
-        logger.info("Libro creado");
+        LOGGER.info("Libro creado");
         return entity;
     }
 
     public ParadaEntity update(ParadaEntity entity) {
-        logger.log(Level.INFO, "Actualizando parada con id = {0}", entity.getId());
+        LOGGER.log(Level.INFO, "Actualizando parada con id = {0}", entity.getId());
         return em.merge(entity);
     }
 
     public void delete(Long id) {
-        logger.log(Level.INFO, "Borrando libro con id={0}", id);
+        LOGGER.log(Level.INFO, "Borrando libro con id={0}", id);
         ParadaEntity entity = em.find(ParadaEntity.class, id);
         em.remove(entity);
     }
